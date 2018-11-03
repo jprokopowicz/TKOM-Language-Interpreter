@@ -1,4 +1,4 @@
-package com.interpreter;
+package com.lexer;
 
 public class Reader {
 }
