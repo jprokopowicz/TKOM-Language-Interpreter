@@ -75,6 +75,19 @@ public class Token {
         end_of_file_,
     }
 
+    public Type getType() {
+        return type;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+
     public Token(Type type, String value, Position position) {
         this.type = type;
         this.value = value;
@@ -84,6 +97,7 @@ public class Token {
     public static Type findKeyword(String value) {
         if (keywords.containsKey(value))
             return keywords.get(value);
-        return Type.invalid_;
+        return Type.identifier_;
     }
+
 }

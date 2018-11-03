@@ -6,12 +6,12 @@ public class Position {
     private int line;
     private int sign;
 
-    Position(){
+    public Position(){
         line = 0;
         sign = 0;
     }
 
-    Position(int line, int sign) throws LimitExceededException{
+    public Position(int line, int sign) throws LimitExceededException{
         setPosition(line,sign);
     }
     public int getLine() {
@@ -41,7 +41,7 @@ public class Position {
         setSign(sign);
     }
 
-    void print() {
+    public void print() {
         System.out.println("line: " + line + " sing: " + sign);
     }
 }
