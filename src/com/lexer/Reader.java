@@ -3,18 +3,22 @@ package com.lexer;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class Reader {
+class Reader {
     private FileInputStream fileInputStream;
     private int readBytes;
     private Position position;
 
-    public Reader(FileInputStream fileInputStream) {
+    Reader(FileInputStream fileInputStream) {
         this.fileInputStream = fileInputStream;
         readBytes = 0;
         position = new Position();
     }
 
-    public char get() throws IOException{
+    Position getPosition() {
+        return position;
+    }
+
+    char get() throws IOException{
         char sign = (char)fileInputStream.read();
         readBytes++;
         position.sign++;
@@ -25,7 +29,7 @@ public class Reader {
         return sign;
     }
 
-    public char peek() throws IOException {
+    char peek() throws IOException {
         char sign = (char)fileInputStream.read();
         fileInputStream.reset();
         if(fileInputStream.available() < fileInputStream.skip(readBytes))
@@ -33,7 +37,9 @@ public class Reader {
         return sign;
     }
 
-    public boolean eof() throws IOException{
+    boolean eof() throws IOException{
         return fileInputStream.available() == 0;
     }
+
+
 }
