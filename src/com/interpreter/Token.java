@@ -1,9 +1,38 @@
 package com.interpreter;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Token {
+
+    private Type type;
+    private String value;
+    private Position position;
+
+    private static Map<String, Type> keywords;
+
+    static {
+        keywords = new HashMap<>();
+        keywords.put("var", Type.var_);
+        keywords.put("fraction", Type.fraction_);
+        keywords.put("string", Type.string_);
+        keywords.put("bool", Type.bool_);
+        keywords.put("true", Type.true_);
+        keywords.put("false", Type.false_);
+        keywords.put("void", Type.void_);
+        keywords.put("main", Type.main_);
+        keywords.put("function", Type.function_);
+        keywords.put("return", Type.return_);
+        keywords.put("loop", Type.loop_);
+        keywords.put("if", Type.if_);
+        keywords.put("else", Type.else_);
+        keywords.put("write", Type.write_);
+        keywords.put("read", Type.read_);
+    }
+
     public enum Type {
         var_,
-        frantion_,
+        fraction_,
         string_,
         bool_,
         true_,
@@ -16,7 +45,7 @@ public class Token {
         if_,
         else_,
         write_,
-        read,
+        read_,
         comma_,
         semicon_,
         assign_,
@@ -42,13 +71,19 @@ public class Token {
         identifier_,
         number_expression_,
         string_expression_,
-        invalide_,
-        end_of_file
+        invalid_,
+        end_of_file_,
     }
 
-    private Type type = Type.invalide_;
-    private String value = "";
-    private Position position;
+    public Token(Type type, String value, Position position) {
+        this.type = type;
+        this.value = value;
+        this.position = position;
+    }
 
-
+    public static Type findKeyword(String value) {
+        if (keywords.containsKey(value))
+            return keywords.get(value);
+        return Type.invalid_;
+    }
 }
