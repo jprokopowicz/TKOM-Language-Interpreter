@@ -5,12 +5,14 @@ import java.io.InputStream;
 
 public class StreamReader {
     private InputStream inputStream;
-    private int readBytes;
+    private char storedByte;
+    private boolean isByteStored;
     private Position position;
 
     public StreamReader(InputStream inputStream) {
         this.inputStream = inputStream;
-        readBytes = 0;
+        storedByte = '\0';
+        isByteStored = false;
         position = new Position();
     }
 
@@ -18,27 +20,38 @@ public class StreamReader {
         return position;
     }
 
-    public char get() throws IOException{
-        char sign = (char)inputStream.read();
-        readBytes++;
-        position.sign++;
+    public char readByte() throws IOException{
+        if (endOfFile())
+            throw new IOException();
+        char sign;
+        if(isByteStored){
+            sign =  storedByte;
+            isByteStored = false;
+        } else {
+            sign = (char) inputStream.read();
+        }
+
         if(sign=='\n'){
             position.sign = 1;
             position.line++;
+        } else {
+            position.sign++;
         }
+
         return sign;
     }
 
-    public char peek() throws IOException {
-        char sign = (char)inputStream.read();
-        inputStream.reset();
-        if(inputStream.available() < inputStream.skip(readBytes))
+    public char lookUpByte() throws IOException {
+        if (endOfFile())
             throw new IOException();
-        return sign;
+        if (!isByteStored) {
+            storedByte = (char) inputStream.read();
+            isByteStored = true;
+        }
+        return storedByte;
     }
 
-    public boolean eof() throws IOException{
-        return inputStream.available() == 0;
+    public boolean endOfFile() throws IOException{
+        return 0 == inputStream.available() + (isByteStored ? 1 : 0);
     }
-
 }

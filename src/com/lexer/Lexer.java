@@ -15,9 +15,9 @@ public class Lexer {
     public Token readNextToken(){
         //TODO: read nets token
         try{
-            while(Character.isWhitespace(streamReader.peek())){
-                streamReader.get();
-                if(streamReader.eof()){
+            while(Character.isWhitespace(streamReader.lookUpByte())){
+                streamReader.readByte();
+                if(streamReader.endOfFile()){
                     token = new Token(Token.Type.end_of_file_,"", streamReader.getPosition());
                     return token;
                 }

@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb3b9810-4773-45b1-b8ad-4983e651c44e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/lexer/StreamReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java" afterDir="false" />
+    <list default="true" id="fb3b9810-4773-45b1-b8ad-4983e651c44e" name="Default" comment="Names and package refactor.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lexer/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lexer/Reader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/tests/PositionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/tests/PositionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/tests/TokenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/tests/TokenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lexer/StreamReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/StreamReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,8 +33,8 @@
       <file leaf-file-name="Lexer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/Lexer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="285">
+              <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StreamReader.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StreamReader.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="556">
+              <caret line="56" column="1" lean-forward="true" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#366#367#0" expanded="true" />
@@ -59,13 +56,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StreamReaderTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StreamReaderTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="58" selection-start-line="58" selection-end-line="58" />
+            <state relative-caret-position="166">
+              <caret line="173" column="32" selection-start-line="173" selection-start-column="32" selection-end-line="173" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#590#591#0" expanded="true" />
+                <element signature="e#650#651#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -159,18 +158,18 @@
         <option value="$PROJECT_DIR$/src/com/lexer/Position.java" />
         <option value="$PROJECT_DIR$/tests/tests/TokenTest.java" />
         <option value="$PROJECT_DIR$/tests/tests/PositionTest.java" />
-        <option value="$PROJECT_DIR$/src/com/lexer/Lexer.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/tests/ReaderTest.java" />
         <option value="$PROJECT_DIR$/tests/tests/ReaderTest.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/Reader.java" />
         <option value="$PROJECT_DIR$/tests/tests/ByteGetterTest.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/ByteGetter.java" />
-        <option value="$PROJECT_DIR$/src/com/lexer/StreamReader.java" />
         <option value="$PROJECT_DIR$/tests/tests/StreamReaderTest.java" />
         <option value="$PROJECT_DIR$/src/com/Token.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/Token.java" />
+        <option value="$PROJECT_DIR$/src/com/lexer/Lexer.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java" />
+        <option value="$PROJECT_DIR$/src/com/lexer/StreamReader.java" />
       </list>
     </option>
   </component>
@@ -179,6 +178,12 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
@@ -204,24 +209,6 @@
           <expand>
             <path>
               <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -354,7 +341,7 @@
       <updated>1541204120876</updated>
       <workItem from="1541204124895" duration="13069000" />
       <workItem from="1541397033937" duration="3695000" />
-      <workItem from="1541441404296" duration="7442000" />
+      <workItem from="1541441404296" duration="15163000" />
     </task>
     <task id="LOCAL-00001" summary="Base classes for lexer">
       <created>1541205544078</created>
@@ -419,43 +406,57 @@
       <option name="project" value="LOCAL" />
       <updated>1541444898302</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Names and package refactor.">
+      <created>1541449469400</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1541449469400</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Tests for StreamReader class.">
+      <created>1541449500513</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1541449500513</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JUnit_Tests - 2018.11.05 at 21h 00m 53s.xml">
-      <configuration name="JUnit Tests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JUnit_Tests - 2018.11.05 at 21h 02m 57s.xml">
-      <configuration name="JUnit Tests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Lexer_Tests - 2018.11.05 at 21h 03m 48s.xml">
+    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 04m 44s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Lexer_Tests - 2018.11.05 at 21h 08m 02s.xml">
+    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 08m 48s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Lexer_Tests - 2018.11.05 at 21h 08m 47s.xml">
+    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 09m 18s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Lexer_Tests - 2018.11.05 at 21h 09m 26s.xml">
+    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 14m 41s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Lexer_Tests - 2018.11.05 at 21h 09m 35s.xml">
+    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 22m 32s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Lexer_Tests - 2018.11.05 at 21h 11m 11s.xml">
+    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 22m 58s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Lexer_Tests - 2018.11.05 at 21h 13m 00s.xml">
+    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 23m 19s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Lexer_Tests - 2018.11.05 at 21h 13m 41s.xml">
+    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 24m 10s.xml">
+      <configuration name="Lexer Tests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 25m 19s.xml">
+      <configuration name="Lexer Tests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 25m 28s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24206000" />
+    <option name="totallyTimeSpent" value="31927000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -477,7 +478,7 @@
       <window_info id="Image Layers" order="1" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5002764" side_tool="true" weight="0.32948583" />
-      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="8" weight="0.32946378" />
       <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.32948583" />
       <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.33053514" />
@@ -488,13 +489,13 @@
       <window_info anchor="right" id="Database" order="2" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32948583" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.2498618" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.39979014" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="5" />
@@ -516,7 +517,13 @@
     <MESSAGE value="Part of lexer implementation." />
     <MESSAGE value="Tests for Token and Position classes. Position.print() fix." />
     <MESSAGE value="Private access fot test classes variables." />
-    <option name="LAST_COMMIT_MESSAGE" value="Private access fot test classes variables." />
+    <MESSAGE value="Names and package refactor." />
+    <MESSAGE value="Tests for StreamReader class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Tests for StreamReader class." />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
@@ -697,24 +704,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/Position.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lexer/Token.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/Lexer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
@@ -745,24 +735,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/Position.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/Lexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#366#367#0" expanded="true" />
-            <element signature="e#397#398#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        <state relative-caret-position="166">
+          <caret line="173" column="32" selection-start-line="173" selection-start-column="32" selection-end-line="173" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
+            <element signature="e#650#651#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="56" column="1" lean-forward="true" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#366#367#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
           </folding>
         </state>
       </provider>
