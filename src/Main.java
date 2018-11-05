@@ -1,14 +1,23 @@
-import com.lexer.Position;
-import com.lexer.Token;
+import com.lexer.Lexer;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class Main {
 
     public static void main(String[] args) {
-        try {
-            Token token = new Token(Token.Type.invalid_, "invalid", new Position(2, 3));
-            token.getPosition().print();
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+        if(args.length == 1){
+            try {
+                FileInputStream inputStream = new FileInputStream(args[0]);
+                Lexer lexer = new Lexer(inputStream);
+                //Lexer operations
+            } catch (FileNotFoundException exc){
+                System.out.println("No such file or invalid argument: " + exc.getMessage());
+            } catch (Exception exc){
+                System.out.println("Other exception: "+ exc.getMessage());
+            }
+        } else {
+            System.out.println("No given file");
         }
     }
 }
