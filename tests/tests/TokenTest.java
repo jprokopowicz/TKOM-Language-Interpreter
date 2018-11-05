@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TokenTest {
 
-    Token token = new Token(Token.Type.true_,"true",new Position(3,5));
+    private final Token token = new Token(Token.Type.true_,"true",new Position(3,5));
 
     @Test
     void getType() {

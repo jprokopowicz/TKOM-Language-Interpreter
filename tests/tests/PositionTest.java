@@ -14,7 +14,7 @@ class PositionTest {
 
     private final ByteArrayOutputStream testOutput = new ByteArrayOutputStream();
     private final PrintStream standardOutput = System.out;
-    Position position = new Position(3,4);
+    private final Position position = new Position(3,4);
 
     @BeforeEach
     void setup(){
