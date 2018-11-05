@@ -4,8 +4,6 @@
     <list default="true" id="fb3b9810-4773-45b1-b8ad-4983e651c44e" name="Default" comment="Names and package refactor.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lexer/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lexer/StreamReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/StreamReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -42,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StreamReader.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StreamReader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="556">
@@ -56,10 +54,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StreamReaderTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StreamReaderTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
+            <state relative-caret-position="337">
               <caret line="173" column="32" selection-start-line="173" selection-start-column="32" selection-end-line="173" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -168,8 +166,8 @@
         <option value="$PROJECT_DIR$/src/com/Token.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/Token.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/Lexer.java" />
-        <option value="$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/StreamReader.java" />
+        <option value="$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java" />
       </list>
     </option>
   </component>
@@ -341,7 +339,7 @@
       <updated>1541204120876</updated>
       <workItem from="1541204124895" duration="13069000" />
       <workItem from="1541397033937" duration="3695000" />
-      <workItem from="1541441404296" duration="15163000" />
+      <workItem from="1541441404296" duration="15590000" />
     </task>
     <task id="LOCAL-00001" summary="Base classes for lexer">
       <created>1541205544078</created>
@@ -420,22 +418,17 @@
       <option name="project" value="LOCAL" />
       <updated>1541449500513</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="StreamReader name changes.&#10;StreamReader implementation changes, correction of readByte, lookUpByte and end of file.">
+      <created>1541460834572</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1541460834572</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 04m 44s.xml">
-      <configuration name="Lexer Tests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 08m 48s.xml">
-      <configuration name="Lexer Tests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 09m 18s.xml">
-      <configuration name="Lexer Tests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 14m 41s.xml">
-      <configuration name="Lexer Tests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Lexer_Tests - 2018.11.06 at 00h 22m 32s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
@@ -454,9 +447,21 @@
     <history-entry file="Lexer_Tests - 2018.11.06 at 00h 25m 28s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 26m 54s.xml">
+      <configuration name="Lexer Tests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 29m 33s.xml">
+      <configuration name="Lexer Tests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 29m 46s.xml">
+      <configuration name="Lexer Tests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Lexer_Tests - 2018.11.06 at 00h 29m 57s.xml">
+      <configuration name="Lexer Tests" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31927000" />
+    <option name="totallyTimeSpent" value="32354000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -519,7 +524,8 @@
     <MESSAGE value="Private access fot test classes variables." />
     <MESSAGE value="Names and package refactor." />
     <MESSAGE value="Tests for StreamReader class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tests for StreamReader class." />
+    <MESSAGE value="StreamReader name changes.&#10;StreamReader implementation changes, correction of readByte, lookUpByte and end of file." />
+    <option name="LAST_COMMIT_MESSAGE" value="StreamReader name changes.&#10;StreamReader implementation changes, correction of readByte, lookUpByte and end of file." />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -752,18 +758,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="173" column="32" selection-start-line="173" selection-start-column="32" selection-end-line="173" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#650#651#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="556">
@@ -772,6 +766,18 @@
             <element signature="imports" expanded="true" />
             <element signature="e#366#367#0" expanded="true" />
             <element signature="e#397#398#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="173" column="32" selection-start-line="173" selection-start-column="32" selection-end-line="173" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
+            <element signature="e#650#651#0" expanded="true" />
           </folding>
         </state>
       </provider>
