@@ -15,6 +15,6 @@ public class Position {
     }
 
     public void print() {
-        System.out.println("line: " + line + " sing: " + sign);
+        System.out.print("line: " + line + " sing: " + sign);
     }
 }
