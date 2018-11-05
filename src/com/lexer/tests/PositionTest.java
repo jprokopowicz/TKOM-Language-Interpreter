@@ -1,5 +1,3 @@
-package tests;
-
 import com.lexer.Position;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,12 +15,12 @@ class PositionTest {
     private final Position position = new Position(3,4);
 
     @BeforeEach
-    void setup(){
+    void setUp(){
         System.setOut(new PrintStream(testOutput));
     }
 
     @AfterEach
-    void restore(){
+    void tearDown(){
         System.setOut(standardOutput);
         testOutput.reset();
     }

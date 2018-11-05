@@ -1,8 +1,5 @@
-package tests;
-
 import com.lexer.Position;
 import com.lexer.Token;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

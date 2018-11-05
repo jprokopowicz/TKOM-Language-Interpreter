@@ -4,21 +4,21 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Lexer {
-    private Reader reader;
+    private StreamReader streamReader;
     private Token token;
 
     public Lexer(FileInputStream fileInputStream) {
-        this.reader = new Reader(fileInputStream);
+        this.streamReader = new StreamReader(fileInputStream);
         token = new Token(Token.Type.invalid_, "",  new Position());
     }
 
     public Token readNextToken(){
         //TODO: read nets token
         try{
-            while(Character.isWhitespace(reader.peek())){
-                reader.get();
-                if(reader.eof()){
-                    token = new Token(Token.Type.end_of_file_,"",reader.getPosition());
+            while(Character.isWhitespace(streamReader.peek())){
+                streamReader.get();
+                if(streamReader.eof()){
+                    token = new Token(Token.Type.end_of_file_,"", streamReader.getPosition());
                     return token;
                 }
             }

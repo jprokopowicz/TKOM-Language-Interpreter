@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb3b9810-4773-45b1-b8ad-4983e651c44e" name="Default" comment="Part of lexer implementation.">
-      <change afterPath="$PROJECT_DIR$/tests/tests/PositionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/tests/TokenTest.java" afterDir="false" />
+    <list default="true" id="fb3b9810-4773-45b1-b8ad-4983e651c44e" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/lexer/StreamReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TKOM Language Interpreter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TKOM Language Interpreter.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lexer/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lexer/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/Lexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lexer/Reader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/tests/PositionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/tests/PositionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/tests/TokenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/tests/TokenTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +24,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="7" column="85" selection-start-line="7" selection-start-column="85" selection-end-line="7" selection-end-column="85" />
+            <state relative-caret-position="240">
+              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -34,8 +36,8 @@
       <file leaf-file-name="Lexer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/Lexer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+            <state relative-caret-position="75">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,11 +45,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Reader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lexer/Reader.java">
+      <file leaf-file-name="StreamReader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+            <state relative-caret-position="75">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#366#367#0" expanded="true" />
+                <element signature="e#397#398#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StreamReaderTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="58" selection-start-line="58" selection-end-line="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,8 +74,8 @@
       <file leaf-file-name="Token.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/Token.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-884">
-              <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+            <state relative-caret-position="75">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,12 +84,11 @@
         </entry>
       </file>
       <file leaf-file-name="TokenTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/tests/TokenTest.java">
+        <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/TokenTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="71" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
+            <state relative-caret-position="60">
+              <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="49" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="e#202#203#0" expanded="true" />
                 <element signature="e#264#265#0" expanded="true" />
                 <element signature="e#568#569#0" expanded="true" />
@@ -91,21 +106,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Position.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Position.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/Position.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+            <state relative-caret-position="30">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="PositionTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/tests/PositionTest.java">
+        <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/PositionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state>
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#517#518#0" expanded="true" />
                 <element signature="e#575#576#0" expanded="true" />
               </folding>
@@ -135,18 +151,26 @@
         <option value="$PROJECT_DIR$/src/com/interpreter/PositionTest.java" />
         <option value="$PROJECT_DIR$/src/com/interpreter/Token.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/tests/PositionTest.java" />
-        <option value="$PROJECT_DIR$/src/com/lexer/Token.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/lexer/Lexer.java" />
-        <option value="$PROJECT_DIR$/src/com/lexer/Reader.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/TokenTest.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/tests/TokenTest.java" />
         <option value="$PROJECT_DIR$/tests/TokenTest.java" />
         <option value="$PROJECT_DIR$/tests/com/lexer/TokenTest.java" />
-        <option value="$PROJECT_DIR$/tests/tests/TokenTest.java" />
         <option value="$PROJECT_DIR$/tests/com/lexer/PositionTest.java" />
-        <option value="$PROJECT_DIR$/tests/tests/PositionTest.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/Position.java" />
+        <option value="$PROJECT_DIR$/tests/tests/TokenTest.java" />
+        <option value="$PROJECT_DIR$/tests/tests/PositionTest.java" />
+        <option value="$PROJECT_DIR$/src/com/lexer/Lexer.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/lexer/tests/ReaderTest.java" />
+        <option value="$PROJECT_DIR$/tests/tests/ReaderTest.java" />
+        <option value="$PROJECT_DIR$/src/com/lexer/Reader.java" />
+        <option value="$PROJECT_DIR$/tests/tests/ByteGetterTest.java" />
+        <option value="$PROJECT_DIR$/src/com/lexer/ByteGetter.java" />
+        <option value="$PROJECT_DIR$/src/com/lexer/StreamReader.java" />
+        <option value="$PROJECT_DIR$/tests/tests/StreamReaderTest.java" />
+        <option value="$PROJECT_DIR$/src/com/Token.java" />
+        <option value="$PROJECT_DIR$/src/com/lexer/Token.java" />
+        <option value="$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java" />
       </list>
     </option>
   </component>
@@ -160,10 +184,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="367" />
+    <option name="x" value="-46" />
     <option name="y" value="-4" />
-    <option name="width" value="1851" />
-    <option name="height" value="1068" />
+    <option name="width" value="1849" />
+    <option name="height" value="1060" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -209,17 +233,21 @@
               <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
               <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="lexer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
               <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="lexer" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -239,7 +267,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/tests" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/lexer/tests" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -272,7 +300,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PositionTest">
+  <component name="RunManager" selected="JUnit.Lexer Tests">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="TKOM Language Interpreter" />
@@ -280,7 +308,7 @@
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
     </configuration>
-    <configuration name="JUnit Tests" type="JUnit" factoryName="JUnit" temporary="true">
+    <configuration name="Lexer Tests" type="JUnit" factoryName="JUnit" temporary="true">
       <module name="TKOM Language Interpreter" />
       <extension name="coverage">
         <pattern>
@@ -291,9 +319,9 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.TokenTest" />
+      <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="directory" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -301,40 +329,16 @@
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
-      <patterns />
-    </configuration>
-    <configuration name="PositionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TKOM Language Interpreter" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.PositionTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
+      <dir value="$PROJECT_DIR$/src/com/lexer/tests" />
       <patterns />
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.JUnit Tests" />
-      <item itemvalue="JUnit.PositionTest" />
+      <item itemvalue="JUnit.Lexer Tests" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PositionTest" />
-        <item itemvalue="JUnit.JUnit Tests" />
+        <item itemvalue="JUnit.Lexer Tests" />
       </list>
     </recent_temporary>
   </component>
@@ -350,7 +354,7 @@
       <updated>1541204120876</updated>
       <workItem from="1541204124895" duration="13069000" />
       <workItem from="1541397033937" duration="3695000" />
-      <workItem from="1541441404296" duration="3285000" />
+      <workItem from="1541441404296" duration="7442000" />
     </task>
     <task id="LOCAL-00001" summary="Base classes for lexer">
       <created>1541205544078</created>
@@ -401,43 +405,57 @@
       <option name="project" value="LOCAL" />
       <updated>1541267560196</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Tests for Token and Position classes. Position.print() fix.">
+      <created>1541444821382</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1541444821383</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Private access fot test classes variables.">
+      <created>1541444898302</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1541444898302</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JUnit_Tests - 2018.11.05 at 19h 52m 16s.xml">
+    <history-entry file="JUnit_Tests - 2018.11.05 at 21h 00m 53s.xml">
       <configuration name="JUnit Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Tests - 2018.11.05 at 19h 52m 28s.xml">
+    <history-entry file="JUnit_Tests - 2018.11.05 at 21h 02m 57s.xml">
       <configuration name="JUnit Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Tests - 2018.11.05 at 19h 52m 43s.xml">
-      <configuration name="JUnit Tests" configurationId="JUnit" />
+    <history-entry file="Lexer_Tests - 2018.11.05 at 21h 03m 48s.xml">
+      <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Tests - 2018.11.05 at 19h 53m 01s.xml">
-      <configuration name="JUnit Tests" configurationId="JUnit" />
+    <history-entry file="Lexer_Tests - 2018.11.05 at 21h 08m 02s.xml">
+      <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Tests - 2018.11.05 at 19h 55m 50s.xml">
-      <configuration name="JUnit Tests" configurationId="JUnit" />
+    <history-entry file="Lexer_Tests - 2018.11.05 at 21h 08m 47s.xml">
+      <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Tests - 2018.11.05 at 19h 56m 42s.xml">
-      <configuration name="JUnit Tests" configurationId="JUnit" />
+    <history-entry file="Lexer_Tests - 2018.11.05 at 21h 09m 26s.xml">
+      <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JUnit_Tests - 2018.11.05 at 20h 03m 40s.xml">
-      <configuration name="JUnit Tests" configurationId="JUnit" />
+    <history-entry file="Lexer_Tests - 2018.11.05 at 21h 09m 35s.xml">
+      <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PositionTest - 2018.11.05 at 20h 03m 49s.xml">
-      <configuration name="PositionTest" configurationId="JUnit" />
+    <history-entry file="Lexer_Tests - 2018.11.05 at 21h 11m 11s.xml">
+      <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PositionTest - 2018.11.05 at 20h 04m 22s.xml">
-      <configuration name="PositionTest" configurationId="JUnit" />
+    <history-entry file="Lexer_Tests - 2018.11.05 at 21h 13m 00s.xml">
+      <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PositionTest - 2018.11.05 at 20h 04m 45s.xml">
-      <configuration name="PositionTest" configurationId="JUnit" />
+    <history-entry file="Lexer_Tests - 2018.11.05 at 21h 13m 41s.xml">
+      <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20049000" />
+    <option name="totallyTimeSpent" value="24206000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -468,13 +486,13 @@
       <window_info id="Designer" order="0" />
       <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.25815368" />
       <window_info anchor="right" id="Database" order="2" />
-      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.32948583" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.39979014" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -496,7 +514,9 @@
     <MESSAGE value="Fix public access. Getters for parameters." />
     <MESSAGE value="Reader methods. Fix Position." />
     <MESSAGE value="Part of lexer implementation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Part of lexer implementation." />
+    <MESSAGE value="Tests for Token and Position classes. Position.print() fix." />
+    <MESSAGE value="Private access fot test classes variables." />
+    <option name="LAST_COMMIT_MESSAGE" value="Private access fot test classes variables." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
@@ -519,12 +539,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/Reader.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#366#367#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -603,12 +625,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/Reader.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#366#367#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -622,40 +646,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/interpreter/PositionTest.java" />
     <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/PositionTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="85" selection-start-line="7" selection-start-column="85" selection-end-line="7" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/Reader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lexer/TokenTest.java" />
     <entry file="file://$PROJECT_DIR$/.idea/uiDesigner.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-180" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/Lexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/TokenTest.java">
@@ -678,25 +672,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/tests/TokenTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/TokenTest.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/Token.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-884">
-          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        <state relative-caret-position="240">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/tests/TokenTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/PositionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="71" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#517#518#0" expanded="true" />
+            <element signature="e#575#576#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/Position.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/Token.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/Lexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/TokenTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="49" />
+          <folding>
             <element signature="e#202#203#0" expanded="true" />
             <element signature="e#264#265#0" expanded="true" />
             <element signature="e#568#569#0" expanded="true" />
@@ -713,21 +745,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/tests/PositionTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
-            <element signature="e#517#518#0" expanded="true" />
-            <element signature="e#575#576#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#366#367#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/Position.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        <state relative-caret-position="465">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
