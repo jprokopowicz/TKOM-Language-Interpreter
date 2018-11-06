@@ -14,9 +14,9 @@ class StreamReaderTest {
 
     private final String example =
             "1234\n" +
-            "abcd\n" +
-            "5678\n" +
-            "efgh";
+                    "abcd\n" +
+                    "5678\n" +
+                    "efgh";
 
     private StreamReader streamReader;
 
@@ -40,110 +40,110 @@ class StreamReaderTest {
     void getPositionBeginning() {
 
         Position position = streamReader.getPosition();
-        assertEquals(1,position.line);
-        assertEquals(1,position.sign);
+        assertEquals(1, position.line);
+        assertEquals(1, position.sign);
     }
 
     @Test
     void getPositionInFirstLine() {
         Position position;
-        try{
-            for(int i = 0 ; i < 3 ; ++i){
+        try {
+            for (int i = 0; i < 3; ++i) {
                 streamReader.readByte();
             }
             position = streamReader.getPosition();
-        } catch (IOException exc){
-            position = new Position(0,0);
+        } catch (IOException exc) {
+            position = new Position(0, 0);
         }
-        assertEquals(1,position.line);
-        assertEquals(4,position.sign);
+        assertEquals(1, position.line);
+        assertEquals(4, position.sign);
     }
 
     @Test
-    void getPosition(){
+    void getPosition() {
         Position position;
-        try{
-            for(int i = 0 ; i < 6 ; ++i){
+        try {
+            for (int i = 0; i < 6; ++i) {
                 streamReader.readByte();
             }
             position = streamReader.getPosition();
-        } catch (IOException exc){
-            position = new Position(0,0);
+        } catch (IOException exc) {
+            position = new Position(0, 0);
         }
-        assertEquals(2,position.line);
-        assertEquals(2,position.sign);
+        assertEquals(2, position.line);
+        assertEquals(2, position.sign);
     }
 
     @Test
     void readByteBeginning() {
         char sign;
-        try{
+        try {
             sign = streamReader.readByte();
-        } catch (IOException exc){
+        } catch (IOException exc) {
             sign = '\0';
         }
-        assertEquals('1',sign);
+        assertEquals('1', sign);
     }
 
     @Test
     void readByte() {
         char sign;
-        try{
-            for(int i = 0;i < 10; ++i){
+        try {
+            for (int i = 0; i < 10; ++i) {
                 streamReader.readByte();
             }
             sign = streamReader.readByte();
-        } catch (IOException exc){
+        } catch (IOException exc) {
             sign = '\0';
         }
-        assertEquals('5',sign);
+        assertEquals('5', sign);
     }
 
     @Test
-    void readBytesWhiteSign(){
+    void readBytesWhiteSign() {
         char sign;
-        try{
-            for(int i = 0;i < 4; ++i){
+        try {
+            for (int i = 0; i < 4; ++i) {
                 streamReader.readByte();
             }
             sign = streamReader.readByte();
-        } catch (IOException exc){
+        } catch (IOException exc) {
             sign = '\0';
         }
-        assertEquals('\n',sign);
+        assertEquals('\n', sign);
     }
 
     @Test
-    void readBytesAfterLookUp(){
+    void readBytesAfterLookUp() {
         char sign;
-        try{
-            for(int i = 0;i < 3; ++i){
+        try {
+            for (int i = 0; i < 3; ++i) {
                 streamReader.lookUpByte();
             }
             sign = streamReader.readByte();
         } catch (IOException exc) {
             sign = '\0';
         }
-        assertEquals('1',sign);
+        assertEquals('1', sign);
     }
 
     @Test
     void lookUpByteBegin() {
         char sign;
-        try{
+        try {
             sign = streamReader.lookUpByte();
-        } catch (IOException exc){
+        } catch (IOException exc) {
             sign = '\0';
         }
-        assertEquals('1',sign);
+        assertEquals('1', sign);
     }
 
     @Test
     void lookUpByte() {
         char sign;
-        char [] readBytes = new char[3];
-        try{
-            for(int i = 0;i < 3; ++i){
+        char[] readBytes = new char[3];
+        try {
+            for (int i = 0; i < 3; ++i) {
                 readBytes[i] = streamReader.readByte();
             }
             sign = streamReader.lookUpByte();
@@ -158,8 +158,8 @@ class StreamReaderTest {
 
     @Test
     void lookUpByteWhiteSign() {
-        try{
-            for(int i = 0;i < 4; ++i){
+        try {
+            for (int i = 0; i < 4; ++i) {
                 streamReader.readByte();
             }
 
@@ -170,8 +170,8 @@ class StreamReaderTest {
 
     @Test
     void endOfFileTrue() {
-        try{
-            for(int i = 0;i < 19; ++i){
+        try {
+            for (int i = 0; i < 19; ++i) {
                 streamReader.readByte();
             }
             assertTrue(streamReader.endOfFile());
@@ -181,12 +181,12 @@ class StreamReaderTest {
     }
 
     @Test
-    void endOfFileWithLookUp(){
-        try{
-            for(int i = 0;i < 18; ++i){
+    void endOfFileWithLookUp() {
+        try {
+            for (int i = 0; i < 18; ++i) {
                 streamReader.readByte();
             }
-            boolean [] isEnd = new boolean [3];
+            boolean[] isEnd = new boolean[3];
             isEnd[0] = streamReader.endOfFile();
             streamReader.lookUpByte();
             isEnd[1] = streamReader.endOfFile();
@@ -199,4 +199,34 @@ class StreamReaderTest {
             fail("IO/endOfFile exception");
         }
     }
+
+    @Test
+    void readByteEndOfStream() {
+        try {
+            for (int i = 0; i < 20; ++i)
+                streamReader.readByte();
+            fail("No IO Exception");
+        } catch (IOException exc) {
+            //pass
+        }
+    }
+
+    @Test
+    void lookUpEndOfFile(){
+        try {
+            for (int i = 0; i < 19; ++i){
+                streamReader.readByte();
+            }
+        } catch (IOException exc) {
+            fail("Reader should be able to read 19 bytes");
+        }
+
+        try {
+            streamReader.lookUpByte();
+            fail("No IO Exception");
+        } catch (IOException exc) {
+            //pass
+        }
+    }
+
 }
