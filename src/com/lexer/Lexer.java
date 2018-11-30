@@ -8,6 +8,8 @@ public class Lexer {
     private Position tokenPosition;
     private StringBuffer buffer;
 
+    private enum NumberState { init, zero, nonZero, invalid, number}
+
     public Lexer(ByteReader reader) {
         this.reader = reader;
         token = new Token(Token.Type.invalid_, "",  new Position());
@@ -76,8 +78,41 @@ public class Lexer {
         token = new Token(Token.findKeyword(buffer.toString()),buffer.toString(),tokenPosition);
     }
 
-    private void defineNumericLiteral(){
-
+    private void defineNumericLiteral() throws IOException {
+        buffer.setLength(0);
+        char sign = reader.lookUpByte();
+        NumberState state = NumberState.init;
+        while(Character.isAlphabetic(sign) || Character.isDigit(sign) || sign == '_') {
+            sign = reader.lookUpByte();
+            switch (state) {
+                case init:
+                    if (sign == 0)
+                        state = NumberState.zero;
+                    else
+                        state = NumberState.nonZero;
+                    buffer.append(reader.readByte());
+                    break;
+                case zero:
+                    if (Character.isDigit(sign) || Character.isAlphabetic(sign) || sign == '_') {
+                        state = NumberState.invalid;
+                        continueToTokenEnd();
+                    }
+                    break;
+                case nonZero:
+                    if(Character.isDigit(sign)){
+                        buffer.append(reader.lookUpByte());
+                    } else if (Character.isAlphabetic(sign) || sign == '_') {
+                        state = NumberState.invalid;
+                        continueToTokenEnd();
+                    }
+                    break;
+            }
+        }
+        if(state == NumberState.zero || state == NumberState.nonZero) {
+            token = new Token(Token.Type.number_, buffer.toString(), tokenPosition);
+        } else { // invalid
+            token = new Token(Token.Type.invalid_, buffer.toString(), tokenPosition);
+        }
     }
 
     private void defineSpecialSignOrString(){

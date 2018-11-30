@@ -13,7 +13,7 @@ public class Token {
 
     static {
         keywords = new HashMap<>();
-        keywords.put("fraction", Type.fraction_);
+        keywords.put("number", Type.number_);
         keywords.put("string", Type.string_);
         keywords.put("bool", Type.bool_);
         keywords.put("true", Type.true_);
@@ -29,7 +29,7 @@ public class Token {
     }
 
     public enum Type {
-        fraction_,
+        number_,
         string_,
         bool_,
         true_,
@@ -45,6 +45,8 @@ public class Token {
         comma_,
         semicon_,
         assign_,
+        hash_,
+        colon,
         open_bracket_,
         clese_bracket,
         open_scope_,
