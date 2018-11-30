@@ -8,7 +8,7 @@ public class Lexer {
     private Position tokenPosition;
     private StringBuffer buffer;
 
-    private enum NumberState { init, zero, nonZero, invalid, number}
+    private enum NumberState { init, zero, nonZero, invalid }
 
     public Lexer(ByteReader reader) {
         this.reader = reader;
@@ -80,50 +80,142 @@ public class Lexer {
 
     private void defineNumericLiteral() throws IOException {
         buffer.setLength(0);
-        char sign = reader.lookUpByte();
         NumberState state = NumberState.init;
-        while(Character.isAlphabetic(sign) || Character.isDigit(sign) || sign == '_') {
-            sign = reader.lookUpByte();
+        while(Character.isAlphabetic(reader.lookUpByte()) || Character.isDigit(reader.lookUpByte()) || reader.lookUpByte() == '_') {
             switch (state) {
                 case init:
-                    if (sign == 0)
+                    if (reader.lookUpByte() == 0)
                         state = NumberState.zero;
                     else
                         state = NumberState.nonZero;
                     buffer.append(reader.readByte());
                     break;
                 case zero:
-                    if (Character.isDigit(sign) || Character.isAlphabetic(sign) || sign == '_') {
+                    if (Character.isDigit(reader.lookUpByte()) || Character.isAlphabetic(reader.lookUpByte()) || reader.lookUpByte() == '_') {
                         state = NumberState.invalid;
                         continueToTokenEnd();
                     }
                     break;
                 case nonZero:
-                    if(Character.isDigit(sign)){
+                    if (Character.isDigit(reader.lookUpByte())) {
                         buffer.append(reader.lookUpByte());
-                    } else if (Character.isAlphabetic(sign) || sign == '_') {
+                    } else if (Character.isAlphabetic(reader.lookUpByte()) || reader.lookUpByte() == '_') {
                         state = NumberState.invalid;
                         continueToTokenEnd();
                     }
                     break;
             }
         }
-        if(state == NumberState.zero || state == NumberState.nonZero) {
+        if(state == NumberState.zero || state == NumberState.nonZero)
             token = new Token(Token.Type.number_, buffer.toString(), tokenPosition);
-        } else { // invalid
+        else // invalid
             token = new Token(Token.Type.invalid_, buffer.toString(), tokenPosition);
+
+    }
+
+    private void defineSpecialSignOrString() throws IOException{
+        buffer.setLength(0);
+        char sign = reader.readByte();
+        buffer.append(sign);
+        Token.Type tokenType;
+        switch(sign){
+            case ',':
+                tokenType = Token.Type.comma_;
+                break;
+            case ';':
+                tokenType = Token.Type.semicolon_;
+                break;
+            case '=':
+                if(reader.lookUpByte() == '='){
+                    buffer.append(reader.readByte());
+                    tokenType = Token.Type.equal_;
+                }else
+                    tokenType = Token.Type.assign_;
+                break;
+            case ':':
+                tokenType = Token.Type.colon_;
+                break;
+            case '#':
+                tokenType = Token.Type.hash_;
+                break;
+            case '+':
+                tokenType = Token.Type.plus_;
+                break;
+            case '-':
+                tokenType = Token.Type.minus_;
+                break;
+            case '"':
+                defineStringExpression();
+                tokenType = Token.Type.string_;
+                break;
+            case '*':
+                tokenType = Token.Type.star_;
+                break;
+            case '/':
+                tokenType = Token.Type.slash_;
+                break;
+            case '%':
+                tokenType = Token.Type.modulo_;
+                break;
+            case '|':
+                tokenType = Token.Type.or_;
+                break;
+            case '&':
+                tokenType = Token.Type.and_;
+                break;
+            case '!':
+                if(reader.lookUpByte() == '='){
+                    buffer.append(reader.readByte());
+                    tokenType = Token.Type.not_equal_;
+                }else
+                    tokenType = Token.Type.not_;
+                break;
+            case '(':
+                tokenType = Token.Type.open_bracket_;
+                break;
+            case ')':
+                tokenType = Token.Type.clese_bracket_;
+                break;
+            case '{':
+                tokenType = Token.Type.open_scope_;
+                break;
+            case '}':
+                tokenType = Token.Type.close_scope_;
+                break;
+            case '<':
+                if(reader.lookUpByte() == '='){
+                    buffer.append(reader.readByte());
+                    tokenType = Token.Type.lesser_equal_;
+                }
+                else
+                    tokenType = Token.Type.lesser_;
+                break;
+            case '>':
+                if(reader.lookUpByte() == '='){
+                    buffer.append(reader.readByte());
+                    tokenType = Token.Type.greater_equal_;
+                }
+                else
+                    tokenType = Token.Type.greater_;
+                break;
+            case '\\':
+                if(reader.lookUpByte() == '*') {
+                    defineCommentExpression();
+                    tokenType = Token.Type.comment_;
+                } else
+                    tokenType = Token.Type.invalid_;
+                break;
+            default:
+                tokenType = Token.Type.invalid_;
         }
+        token = new Token(tokenType, buffer.toString(), tokenPosition);
     }
 
-    private void defineSpecialSignOrString(){
-
-    }
-
-    private void defineStringExpression(StringBuffer buffer){
+    private void defineStringExpression(){
 
     }
 
-    private void defineCommentExpression(StringBuffer buffer){
+    private void defineCommentExpression(){
 
     }
 
