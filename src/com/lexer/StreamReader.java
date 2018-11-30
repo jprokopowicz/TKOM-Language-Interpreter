@@ -3,7 +3,7 @@ package com.lexer;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class StreamReader {
+public class StreamReader implements ByteReader{
     private InputStream inputStream;
     private char storedByte;
     private boolean isByteStored;
@@ -16,12 +16,14 @@ public class StreamReader {
         position = new Position();
     }
 
+    @Override
     public Position getPosition() {
         return position;
     }
 
+    @Override
     public char readByte() throws IOException{
-        if (endOfFile())
+        if (endOfBytes())
             throw new IOException();
         char sign;
         if(isByteStored){
@@ -41,8 +43,9 @@ public class StreamReader {
         return sign;
     }
 
+    @Override
     public char lookUpByte() throws IOException {
-        if (endOfFile())
+        if (endOfBytes())
             throw new IOException();
         if (!isByteStored) {
             storedByte = (char) inputStream.read();
@@ -51,7 +54,8 @@ public class StreamReader {
         return storedByte;
     }
 
-    public boolean endOfFile() throws IOException{
+    @Override
+    public boolean endOfBytes() throws IOException{
         return 0 == inputStream.available() + (isByteStored ? 1 : 0);
     }
 }

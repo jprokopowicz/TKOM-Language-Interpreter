@@ -4,11 +4,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Lexer {
-    private StreamReader streamReader;
+    private ByteReader reader;
     private Token token;
 
-    public Lexer(FileInputStream fileInputStream) {
-        this.streamReader = new StreamReader(fileInputStream);
+    public Lexer(ByteReader reader) {
+        this.reader = reader;
         token = new Token(Token.Type.invalid_, "",  new Position());
     }
 
@@ -22,7 +22,7 @@ public class Lexer {
             return token;
         }
 
-        Position tokenPosition = streamReader.getPosition();
+        Position tokenPosition = reader.getPosition();
 
         return token;
     }
@@ -43,11 +43,11 @@ public class Lexer {
      */
     private boolean skipWhiteSigns(){
         try{
-            while(!streamReader.endOfFile()&&Character.isWhitespace(streamReader.lookUpByte())){
-                streamReader.readByte();
+            while(!reader.endOfBytes()&&Character.isWhitespace(reader.lookUpByte())){
+                reader.readByte();
             }
-            if(streamReader.endOfFile()){
-                token = new Token(Token.Type.end_of_file_,"", streamReader.getPosition());
+            if(reader.endOfBytes()){
+                token = new Token(Token.Type.end_of_file_,"", reader.getPosition());
                 return false;
             }
         } catch (IOException e) {
@@ -83,11 +83,11 @@ public class Lexer {
      */
     private void continueToTokenEnd(StringBuffer buffer){
         try {
-            if(streamReader.endOfFile()){
+            if(reader.endOfBytes()){
                 return;
             }
-            for (char sign = streamReader.lookUpByte(); Character.isAlphabetic(sign) || Character.isDigit(sign) || sign == '_'; sign = streamReader.lookUpByte())
-                buffer.append(streamReader.readByte());
+            for (char sign = reader.lookUpByte(); Character.isAlphabetic(sign) || Character.isDigit(sign) || sign == '_'; sign = reader.lookUpByte())
+                buffer.append(reader.readByte());
         } catch (IOException exc) {
             System.out.println(exc.getMessage());
         }
