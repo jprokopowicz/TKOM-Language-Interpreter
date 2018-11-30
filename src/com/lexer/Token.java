@@ -48,7 +48,7 @@ public class Token {
         hash_,
         colon_,
         open_bracket_,
-        clese_bracket_,
+        close_bracket_,
         open_scope_,
         close_scope_,
         plus_,
@@ -67,6 +67,8 @@ public class Token {
         not_equal_,
         comment_,
         identifier_,
+        number_expression_,
+        string_expression_,
         invalid_,
         end_of_file_,
     }

@@ -28,10 +28,10 @@ public class Lexer {
      * @return Read token.
      */
     public Token readNextToken(){
-        //TODO: read nets token
         if(!skipWhiteSigns()){
             return token;
         }
+
         tokenPosition = reader.getPosition();
 
         try {
@@ -107,7 +107,7 @@ public class Lexer {
             }
         }
         if(state == NumberState.zero || state == NumberState.nonZero)
-            token = new Token(Token.Type.number_, buffer.toString(), tokenPosition);
+            token = new Token(Token.Type.number_expression_, buffer.toString(), tokenPosition);
         else // invalid
             token = new Token(Token.Type.invalid_, buffer.toString(), tokenPosition);
 
@@ -145,8 +145,10 @@ public class Lexer {
                 tokenType = Token.Type.minus_;
                 break;
             case '"':
-                defineStringExpression();
-                tokenType = Token.Type.string_;
+                if(defineStringExpression())
+                    tokenType = Token.Type.string_expression_;
+                else
+                    tokenType = Token.Type.invalid_;
                 break;
             case '*':
                 tokenType = Token.Type.star_;
@@ -174,7 +176,7 @@ public class Lexer {
                 tokenType = Token.Type.open_bracket_;
                 break;
             case ')':
-                tokenType = Token.Type.clese_bracket_;
+                tokenType = Token.Type.close_bracket_;
                 break;
             case '{':
                 tokenType = Token.Type.open_scope_;
@@ -200,8 +202,12 @@ public class Lexer {
                 break;
             case '\\':
                 if(reader.lookUpByte() == '*') {
-                    defineCommentExpression();
-                    tokenType = Token.Type.comment_;
+                    buffer.append(reader.readByte());
+                    if(defineCommentExpression())
+                        tokenType = Token.Type.comment_;
+                    else
+                        tokenType = Token.Type.invalid_;
+
                 } else
                     tokenType = Token.Type.invalid_;
                 break;
@@ -211,12 +217,30 @@ public class Lexer {
         token = new Token(tokenType, buffer.toString(), tokenPosition);
     }
 
-    private void defineStringExpression(){
-
+    private boolean defineStringExpression() throws IOException{
+        char c;
+        while(!reader.endOfBytes()) {
+            c = reader.readByte();
+            buffer.append(c);
+            if(c == '\\' && reader.lookUpByte() == '"')
+                buffer.append(reader.readByte());
+            else if(c == '"')
+                return true;
+        }
+        return false;
     }
 
-    private void defineCommentExpression(){
-
+    private boolean defineCommentExpression() throws IOException{
+        char c;
+        while(!reader.endOfBytes()) {
+            c = reader.readByte();
+            buffer.append(c);
+            if(c == '*' && reader.lookUpByte() == '\\'){
+                buffer.append(reader.readByte());
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
