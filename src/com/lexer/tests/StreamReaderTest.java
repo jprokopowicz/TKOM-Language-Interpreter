@@ -174,7 +174,7 @@ class StreamReaderTest {
             for (int i = 0; i < 19; ++i) {
                 streamReader.readByte();
             }
-            assertTrue(streamReader.endOfFile());
+            assertTrue(streamReader.endOfBytes());
         } catch (IOException exc) {
             fail("IO/endOfFile exception");
         }
@@ -187,11 +187,11 @@ class StreamReaderTest {
                 streamReader.readByte();
             }
             boolean[] isEnd = new boolean[3];
-            isEnd[0] = streamReader.endOfFile();
+            isEnd[0] = streamReader.endOfBytes();
             streamReader.lookUpByte();
-            isEnd[1] = streamReader.endOfFile();
+            isEnd[1] = streamReader.endOfBytes();
             streamReader.readByte();
-            isEnd[2] = streamReader.endOfFile();
+            isEnd[2] = streamReader.endOfBytes();
             assertFalse(isEnd[0]);
             assertFalse(isEnd[1]);
             assertTrue(isEnd[2]);

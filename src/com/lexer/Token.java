@@ -13,7 +13,6 @@ public class Token {
 
     static {
         keywords = new HashMap<>();
-        keywords.put("var", Type.var_);
         keywords.put("fraction", Type.fraction_);
         keywords.put("string", Type.string_);
         keywords.put("bool", Type.bool_);
@@ -21,7 +20,6 @@ public class Token {
         keywords.put("false", Type.false_);
         keywords.put("void", Type.void_);
         keywords.put("main", Type.main_);
-        keywords.put("function", Type.function_);
         keywords.put("return", Type.return_);
         keywords.put("loop", Type.loop_);
         keywords.put("if", Type.if_);
@@ -31,7 +29,6 @@ public class Token {
     }
 
     public enum Type {
-        var_,
         fraction_,
         string_,
         bool_,
@@ -39,7 +36,6 @@ public class Token {
         false_,
         void_,
         main_,
-        function_,
         return_,
         loop_,
         if_,
@@ -75,6 +71,14 @@ public class Token {
         end_of_file_,
     }
 
+
+
+    public Token(Type type, String value, Position position) {
+        this.type = type;
+        this.value = value;
+        this.position = position;
+    }
+
     public Type getType() {
         return type;
     }
@@ -85,13 +89,6 @@ public class Token {
 
     public Position getPosition() {
         return position;
-    }
-
-
-    public Token(Type type, String value, Position position) {
-        this.type = type;
-        this.value = value;
-        this.position = position;
     }
 
     public static Type findKeyword(String value) {
