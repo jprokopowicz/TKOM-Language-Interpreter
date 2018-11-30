@@ -1,15 +1,24 @@
 package com.lexer;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Lexer {
     private ByteReader reader;
     private Token token;
+    private Position tokenPosition;
+    private StringBuffer buffer;
 
     public Lexer(ByteReader reader) {
         this.reader = reader;
         token = new Token(Token.Type.invalid_, "",  new Position());
+    }
+
+    /**
+     * Token getter
+     * @return last detected token.
+     */
+    public Token getToken(){
+        return token;
     }
 
     /**
@@ -21,17 +30,21 @@ public class Lexer {
         if(!skipWhiteSigns()){
             return token;
         }
+        tokenPosition = reader.getPosition();
 
-        Position tokenPosition = reader.getPosition();
+        try {
+            char sign = reader.lookUpByte();
+            if (Character.isAlphabetic(sign) || sign == '_'){
+                defineKeywordOrIdentifier();
+            }  else if (Character.isDigit(sign)) {
+                defineNumericLiteral();
+            } else {
+                defineSpecialSignOrString();
+            }
 
-        return token;
-    }
-
-    /**
-     * Token getter
-     * @return last detected token.
-     */
-    public Token getToken(){
+        } catch (IOException e) {
+            token = new Token(Token.Type.invalid_, "", reader.getPosition());
+        }
         return token;
     }
 
@@ -51,14 +64,16 @@ public class Lexer {
                 return false;
             }
         } catch (IOException e) {
-            token = new Token(Token.Type.invalid_, "", new Position());
+            token = new Token(Token.Type.invalid_, "", reader.getPosition());
             return false;
         }
         return true;
     }
 
     private void defineKeywordOrIdentifier(){
-
+        buffer.setLength(0);
+        continueToTokenEnd();
+        token = new Token(Token.findKeyword(buffer.toString()),buffer.toString(),tokenPosition);
     }
 
     private void defineNumericLiteral(){
@@ -79,9 +94,8 @@ public class Lexer {
 
     /**
      * Reads token value to the end and stores it in the buffer.
-     * @param buffer StringBuffer for storing value.
      */
-    private void continueToTokenEnd(StringBuffer buffer){
+    private void continueToTokenEnd(){
         try {
             if(reader.endOfBytes()){
                 return;
