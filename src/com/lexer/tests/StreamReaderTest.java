@@ -1,3 +1,4 @@
+import com.lexer.EndOfBytesException;
 import com.lexer.Position;
 import com.lexer.StreamReader;
 import org.junit.jupiter.api.AfterEach;
@@ -46,14 +47,14 @@ class StreamReaderTest {
 
     @Test
     void getPositionInFirstLine() {
-        Position position;
+        Position position = new Position();
         try {
             for (int i = 0; i < 3; ++i) {
                 streamReader.readByte();
             }
             position = streamReader.getPosition();
-        } catch (IOException exc) {
-            position = new Position(0, 0);
+        } catch (IOException | EndOfBytesException exc) {
+            fail("IO/endOfFile exception");
         }
         assertEquals(1, position.line);
         assertEquals(4, position.sign);
@@ -61,14 +62,14 @@ class StreamReaderTest {
 
     @Test
     void getPosition() {
-        Position position;
+        Position position = new Position();
         try {
             for (int i = 0; i < 6; ++i) {
                 streamReader.readByte();
             }
             position = streamReader.getPosition();
-        } catch (IOException exc) {
-            position = new Position(0, 0);
+        } catch (IOException | EndOfBytesException exc) {
+            fail("IO/endOfFile exception");
         }
         assertEquals(2, position.line);
         assertEquals(2, position.sign);
@@ -76,79 +77,79 @@ class StreamReaderTest {
 
     @Test
     void readByteBeginning() {
-        char sign;
+        char sign = '\0';
         try {
             sign = streamReader.readByte();
-        } catch (IOException exc) {
-            sign = '\0';
+        } catch (IOException | EndOfBytesException exc){
+            fail("IO/endOfFile exception");
         }
         assertEquals('1', sign);
     }
 
     @Test
     void readByte() {
-        char sign;
+        char sign = '\0';
         try {
             for (int i = 0; i < 10; ++i) {
                 streamReader.readByte();
             }
             sign = streamReader.readByte();
-        } catch (IOException exc) {
-            sign = '\0';
+        } catch (IOException | EndOfBytesException exc) {
+            fail("IO/endOfFile exception");
         }
         assertEquals('5', sign);
     }
 
     @Test
     void readBytesWhiteSign() {
-        char sign;
+        char sign = '\0';
         try {
             for (int i = 0; i < 4; ++i) {
                 streamReader.readByte();
             }
             sign = streamReader.readByte();
-        } catch (IOException exc) {
-            sign = '\0';
+        } catch (IOException | EndOfBytesException exc) {
+            fail("IO/endOfFile exception");
         }
         assertEquals('\n', sign);
     }
 
     @Test
     void readBytesAfterLookUp() {
-        char sign;
+        char sign = '\0';
         try {
             for (int i = 0; i < 3; ++i) {
                 streamReader.lookUpByte();
             }
             sign = streamReader.readByte();
-        } catch (IOException exc) {
-            sign = '\0';
+        } catch (IOException | EndOfBytesException exc) {
+            fail("IO/endOfFile exception");
         }
         assertEquals('1', sign);
     }
 
     @Test
     void lookUpByteBegin() {
-        char sign;
+        char sign = '\0';
         try {
             sign = streamReader.lookUpByte();
-        } catch (IOException exc) {
-            sign = '\0';
+        } catch (IOException | EndOfBytesException exc) {
+            fail("IO/endOfFile exception");
         }
         assertEquals('1', sign);
     }
 
     @Test
     void lookUpByte() {
-        char sign;
+        char sign = '\0';
         char[] readBytes = new char[3];
         try {
             for (int i = 0; i < 3; ++i) {
                 readBytes[i] = streamReader.readByte();
             }
             sign = streamReader.lookUpByte();
-        } catch (IOException exc) {
-            sign = '\0';
+        } catch (IOException | EndOfBytesException exc) {
+            fail("IO/endOfFile exception");
         }
         assertEquals('1', readBytes[0]);
         assertEquals('2', readBytes[1]);
@@ -163,7 +164,7 @@ class StreamReaderTest {
                 streamReader.readByte();
             }
 
-        } catch (IOException exc) {
+        } catch (IOException | EndOfBytesException exc) {
             fail("IO/endOfFile exception");
         }
     }
@@ -175,7 +176,7 @@ class StreamReaderTest {
                 streamReader.readByte();
             }
             assertTrue(streamReader.endOfBytes());
-        } catch (IOException exc) {
+        } catch (IOException | EndOfBytesException exc) {
             fail("IO/endOfFile exception");
         }
     }
@@ -195,7 +196,7 @@ class StreamReaderTest {
             assertFalse(isEnd[0]);
             assertFalse(isEnd[1]);
             assertTrue(isEnd[2]);
-        } catch (IOException exc) {
+        } catch (IOException | EndOfBytesException exc) {
             fail("IO/endOfFile exception");
         }
     }
@@ -203,10 +204,19 @@ class StreamReaderTest {
     @Test
     void readByteEndOfStream() {
         try {
-            for (int i = 0; i < 20; ++i)
+            for (int i = 0; i < 19; ++i){
                 streamReader.readByte();
-            fail("No IO Exception");
+            }
+        } catch (IOException | EndOfBytesException exc) {
+            fail("Reader should be able to read 19 bytes");
+        }
+
+        try {
+            streamReader.readByte();
+            fail("No endOfFile exception");
         } catch (IOException exc) {
+            fail("No endOfFile exception");
+        } catch (EndOfBytesException exc) {
             //pass
         }
     }
@@ -217,14 +227,16 @@ class StreamReaderTest {
             for (int i = 0; i < 19; ++i){
                 streamReader.readByte();
             }
-        } catch (IOException exc) {
+        } catch (IOException | EndOfBytesException exc) {
             fail("Reader should be able to read 19 bytes");
         }
 
         try {
             streamReader.lookUpByte();
-            fail("No IO Exception");
+            fail("No endOfFile exception");
         } catch (IOException exc) {
+            fail("No endOfFile exception");
+        } catch (EndOfBytesException exc) {
             //pass
         }
     }

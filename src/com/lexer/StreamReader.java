@@ -22,9 +22,9 @@ public class StreamReader implements ByteReader{
     }
 
     @Override
-    public char readByte() throws IOException{
+    public char readByte() throws IOException,EndOfBytesException {
         if (endOfBytes())
-            throw new IOException();
+            throw new EndOfBytesException();
         char sign;
         if(isByteStored){
             sign =  storedByte;
@@ -44,9 +44,9 @@ public class StreamReader implements ByteReader{
     }
 
     @Override
-    public char lookUpByte() throws IOException {
+    public char lookUpByte() throws IOException,EndOfBytesException {
         if (endOfBytes())
-            throw new IOException();
+            throw new EndOfBytesException();
         if (!isByteStored) {
             storedByte = (char) inputStream.read();
             isByteStored = true;
