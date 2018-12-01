@@ -48,7 +48,7 @@ class TokenTest {
 
     @Test
     void findKeyword() {
-        assertEquals(Token.Type.main_,Token.findKeyword("main"));
+        assertEquals(Token.Type.else_,Token.findKeyword("else"));
     }
 
     @Test
