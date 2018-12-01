@@ -14,6 +14,11 @@ public class Position {
         this.sign = sign;
     }
 
+    public Position(Position position) {
+        this.line = position.line;
+        this.sign = position.sign;
+    }
+
     public void print() {
         System.out.print("line: " + line + " sing: " + sign);
     }

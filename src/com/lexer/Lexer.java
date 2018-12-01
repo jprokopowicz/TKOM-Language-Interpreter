@@ -33,9 +33,7 @@ public class Lexer {
         if (!skipWhiteSigns()) {
             return token;
         }
-
-        tokenPosition = reader.getPosition();
-
+        tokenPosition = new Position(reader.getPosition());
         try {
             char sign = reader.lookUpByte();
             if (Character.isAlphabetic(sign) || sign == '_') {
@@ -49,7 +47,7 @@ public class Lexer {
         } catch (EndOfBytesException exc){
             token = new Token(Token.Type.end_of_file_,"",reader.getPosition());
         } catch (IOException exc) {
-            token = new Token(Token.Type.invalid_, "", reader.getPosition());
+            token = new Token(Token.Type.invalid_, "",tokenPosition);
         }
         return token;
     }
@@ -62,18 +60,15 @@ public class Lexer {
      */
     private boolean skipWhiteSigns(){
         try{
-            while(!reader.endOfBytes()&&Character.isWhitespace(reader.lookUpByte())){
+            tokenPosition = reader.getPosition();
+            while(!reader.endOfBytes() && Character.isWhitespace(reader.lookUpByte())){
                 reader.readByte();
-            }
-            if(reader.endOfBytes()){
-                tokenPosition = reader.getPosition();
-                token = new Token(Token.Type.end_of_file_,"", reader.getPosition());
-                return false;
             }
         } catch (EndOfBytesException exc) {
             token = new Token(Token.Type.end_of_file_, "", reader.getPosition());
+            return false;
         } catch (IOException e) {
-            token = new Token(Token.Type.invalid_, "", reader.getPosition());
+            token = new Token(Token.Type.invalid_, "", tokenPosition);
             return false;
         }
         return true;
