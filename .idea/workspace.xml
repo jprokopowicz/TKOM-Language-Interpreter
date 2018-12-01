@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb3b9810-4773-45b1-b8ad-4983e651c44e" name="Default" comment="Token 'main' remove and tests update.">
-      <change afterPath="$PROJECT_DIR$/src/com/lexer/EndOfBytesException.java" afterDir="false" />
+    <list default="true" id="fb3b9810-4773-45b1-b8ad-4983e651c44e" name="Default" comment="Lexer fixes for numbers and exceptions">
       <change afterPath="$PROJECT_DIR$/src/com/lexer/tests/test_code.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lexer/ByteReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/ByteReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lexer/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lexer/StreamReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/StreamReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Lexer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Lexer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/Lexer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="235" column="84" selection-start-line="235" selection-start-column="84" selection-end-line="235" selection-end-column="84" />
+            <state relative-caret-position="185">
+              <caret line="121" column="36" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
               <folding>
                 <element signature="e#404#405#0" expanded="true" />
                 <element signature="e#432#433#0" expanded="true" />
@@ -65,10 +61,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StreamReader.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StreamReader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
+            <state relative-caret-position="301">
               <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -193,11 +189,11 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/tests/test_code.txt" />
         <option value="$PROJECT_DIR$/src/com/lexer/ByteReader.java" />
-        <option value="$PROJECT_DIR$/src/com/lexer/Lexer.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/EndOfFileException.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/EndOfBytesException.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/StreamReader.java" />
+        <option value="$PROJECT_DIR$/src/com/lexer/Lexer.java" />
       </list>
     </option>
   </component>
@@ -367,7 +363,7 @@
       <workItem from="1541397033937" duration="3695000" />
       <workItem from="1541441404296" duration="21565000" />
       <workItem from="1542040179413" duration="334000" />
-      <workItem from="1543597480315" duration="27310000" />
+      <workItem from="1543597480315" duration="27634000" />
     </task>
     <task id="LOCAL-00001" summary="Base classes for lexer">
       <created>1541205544078</created>
@@ -530,7 +526,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543625493664</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="End of file exception for byte reader and its usage in StreamReader. Update and fix tests.">
+      <created>1543627124256</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1543627124256</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -566,7 +569,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65973000" />
+    <option name="totallyTimeSpent" value="66297000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -583,7 +586,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="bottom" id="TODO" order="11" weight="0.32948583" />
-      <window_info anchor="bottom" id="Messages" order="4" weight="0.32948583" />
+      <window_info active="true" anchor="bottom" id="Messages" order="4" visible="true" weight="0.32948583" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="1" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -591,7 +594,7 @@
       <window_info anchor="right" id="Maven Projects" order="8" weight="0.32946378" />
       <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.32948583" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.33053514" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.33053514" />
       <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.4997236" weight="0.32948583" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="0" />
@@ -641,7 +644,9 @@
     <MESSAGE value="Lexer special signs and operators detection" />
     <MESSAGE value="Lexer string and comment detection, full implementation of readNextToken()" />
     <MESSAGE value="Token 'main' remove and tests update." />
-    <option name="LAST_COMMIT_MESSAGE" value="Token 'main' remove and tests update." />
+    <MESSAGE value="End of file exception for byte reader and its usage in StreamReader. Update and fix tests." />
+    <MESSAGE value="Lexer fixes for numbers and exceptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lexer fixes for numbers and exceptions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1031,18 +1036,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/Lexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="235" column="84" selection-start-line="235" selection-start-column="84" selection-end-line="235" selection-end-column="84" />
-          <folding>
-            <element signature="e#404#405#0" expanded="true" />
-            <element signature="e#432#433#0" expanded="true" />
-            <element signature="docComment;method#continueToTokenEnd#0;class#Lexer#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lexer/EndOfBytesException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1069,12 +1062,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
+        <state relative-caret-position="301">
           <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#496#497#0" expanded="true" />
             <element signature="e#527#528#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/Lexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="121" column="36" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
+          <folding>
+            <element signature="e#404#405#0" expanded="true" />
+            <element signature="e#432#433#0" expanded="true" />
+            <element signature="docComment;method#continueToTokenEnd#0;class#Lexer#0" />
           </folding>
         </state>
       </provider>

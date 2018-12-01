@@ -8,11 +8,13 @@ public class Lexer {
     private Position tokenPosition;
     private StringBuffer buffer;
 
-    private enum NumberState { init, zero, nonZero, invalid }
+    private enum NumberState { init, zero, nonZero}
 
     public Lexer(ByteReader reader) {
         this.reader = reader;
         token = new Token(Token.Type.invalid_, "",  new Position());
+        tokenPosition = new Position();
+        buffer = new StringBuffer();
     }
 
     /**
@@ -27,8 +29,8 @@ public class Lexer {
      * Reads next token from the stream.
      * @return Read token.
      */
-    public Token readNextToken(){
-        if(!skipWhiteSigns()){
+    public Token readNextToken() {
+        if (!skipWhiteSigns()) {
             return token;
         }
 
@@ -36,15 +38,17 @@ public class Lexer {
 
         try {
             char sign = reader.lookUpByte();
-            if (Character.isAlphabetic(sign) || sign == '_'){
+            if (Character.isAlphabetic(sign) || sign == '_') {
                 defineKeywordOrIdentifier();
-            }  else if (Character.isDigit(sign)) {
+            } else if (Character.isDigit(sign)) {
                 defineNumericLiteral();
             } else {
                 defineSpecialSignOrString();
             }
 
-        } catch (IOException e) {
+        } catch (EndOfBytesException exc){
+            token = new Token(Token.Type.end_of_file_,"",reader.getPosition());
+        } catch (IOException exc) {
             token = new Token(Token.Type.invalid_, "", reader.getPosition());
         }
         return token;
@@ -62,9 +66,12 @@ public class Lexer {
                 reader.readByte();
             }
             if(reader.endOfBytes()){
+                tokenPosition = reader.getPosition();
                 token = new Token(Token.Type.end_of_file_,"", reader.getPosition());
                 return false;
             }
+        } catch (EndOfBytesException exc) {
+            token = new Token(Token.Type.end_of_file_, "", reader.getPosition());
         } catch (IOException e) {
             token = new Token(Token.Type.invalid_, "", reader.getPosition());
             return false;
@@ -72,49 +79,47 @@ public class Lexer {
         return true;
     }
 
-    private void defineKeywordOrIdentifier(){
-        buffer.setLength(0);
+    private void defineKeywordOrIdentifier() throws EndOfBytesException {
+        buffer = new StringBuffer();
         continueToTokenEnd();
         token = new Token(Token.findKeyword(buffer.toString()),buffer.toString(),tokenPosition);
     }
 
-    private void defineNumericLiteral() throws IOException {
-        buffer.setLength(0);
+    private void defineNumericLiteral() throws IOException,EndOfBytesException {
+        buffer = new StringBuffer();
         NumberState state = NumberState.init;
-        while(Character.isAlphabetic(reader.lookUpByte()) || Character.isDigit(reader.lookUpByte()) || reader.lookUpByte() == '_') {
+        Token.Type tokenType = Token.Type.invalid_;
+        while(!reader.endOfBytes() && (Character.isAlphabetic(reader.lookUpByte()) || Character.isDigit(reader.lookUpByte()) || reader.lookUpByte() == '_')) {
             switch (state) {
                 case init:
-                    if (reader.lookUpByte() == 0)
+                    if (reader.lookUpByte() == '0')
                         state = NumberState.zero;
                     else
                         state = NumberState.nonZero;
                     buffer.append(reader.readByte());
+                    tokenType = Token.Type.number_expression_;
                     break;
                 case zero:
                     if (Character.isDigit(reader.lookUpByte()) || Character.isAlphabetic(reader.lookUpByte()) || reader.lookUpByte() == '_') {
-                        state = NumberState.invalid;
                         continueToTokenEnd();
+                        tokenType = Token.Type.invalid_;
                     }
                     break;
                 case nonZero:
                     if (Character.isDigit(reader.lookUpByte())) {
-                        buffer.append(reader.lookUpByte());
+                        buffer.append(reader.readByte());
                     } else if (Character.isAlphabetic(reader.lookUpByte()) || reader.lookUpByte() == '_') {
-                        state = NumberState.invalid;
                         continueToTokenEnd();
+                        tokenType = Token.Type.invalid_;
                     }
                     break;
             }
         }
-        if(state == NumberState.zero || state == NumberState.nonZero)
-            token = new Token(Token.Type.number_expression_, buffer.toString(), tokenPosition);
-        else // invalid
-            token = new Token(Token.Type.invalid_, buffer.toString(), tokenPosition);
-
+        token = new Token(tokenType,buffer.toString(),tokenPosition);
     }
 
-    private void defineSpecialSignOrString() throws IOException{
-        buffer.setLength(0);
+    private void defineSpecialSignOrString() throws IOException,EndOfBytesException {
+        buffer = new StringBuffer();
         char sign = reader.readByte();
         buffer.append(sign);
         Token.Type tokenType;
@@ -154,7 +159,15 @@ public class Lexer {
                 tokenType = Token.Type.star_;
                 break;
             case '/':
-                tokenType = Token.Type.slash_;
+                if(reader.lookUpByte() == '*') {
+                    buffer.append(reader.readByte());
+                    if(defineCommentExpression())
+                        tokenType = Token.Type.comment_;
+                    else
+                        tokenType = Token.Type.invalid_;
+
+                } else
+                    tokenType = Token.Type.slash_;
                 break;
             case '%':
                 tokenType = Token.Type.modulo_;
@@ -200,24 +213,14 @@ public class Lexer {
                 else
                     tokenType = Token.Type.greater_;
                 break;
-            case '\\':
-                if(reader.lookUpByte() == '*') {
-                    buffer.append(reader.readByte());
-                    if(defineCommentExpression())
-                        tokenType = Token.Type.comment_;
-                    else
-                        tokenType = Token.Type.invalid_;
 
-                } else
-                    tokenType = Token.Type.invalid_;
-                break;
             default:
                 tokenType = Token.Type.invalid_;
         }
         token = new Token(tokenType, buffer.toString(), tokenPosition);
     }
 
-    private boolean defineStringExpression() throws IOException{
+    private boolean defineStringExpression() throws IOException,EndOfBytesException {
         char c;
         while(!reader.endOfBytes()) {
             c = reader.readByte();
@@ -230,12 +233,12 @@ public class Lexer {
         return false;
     }
 
-    private boolean defineCommentExpression() throws IOException{
+    private boolean defineCommentExpression() throws IOException,EndOfBytesException {
         char c;
         while(!reader.endOfBytes()) {
             c = reader.readByte();
             buffer.append(c);
-            if(c == '*' && reader.lookUpByte() == '\\'){
+            if(c == '*' && reader.lookUpByte() == '/'){
                 buffer.append(reader.readByte());
                 return true;
             }
@@ -246,15 +249,13 @@ public class Lexer {
     /**
      * Reads token value to the end and stores it in the buffer.
      */
-    private void continueToTokenEnd(){
+    private void continueToTokenEnd() throws EndOfBytesException {
         try {
-            if(reader.endOfBytes()){
-                return;
-            }
-            for (char sign = reader.lookUpByte(); Character.isAlphabetic(sign) || Character.isDigit(sign) || sign == '_'; sign = reader.lookUpByte())
+            while (!reader.endOfBytes() && ( Character.isAlphabetic(reader.lookUpByte()) || Character.isDigit(reader.lookUpByte()) || reader.lookUpByte() == '_'))
                 buffer.append(reader.readByte());
         } catch (IOException exc) {
             System.out.println(exc.getMessage());
+            exc.printStackTrace();
         }
     }
 }
