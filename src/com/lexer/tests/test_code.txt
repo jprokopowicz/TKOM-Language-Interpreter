@@ -13,7 +13,7 @@ b = b * a;
 a = 4 * 2:5;
 d = a <= b ;
 
-number funkcja1 (var int a, var int b, var float c)
+number funkcja1 (number a, number b, number c)
 {
     loop (a > 0)
 {
@@ -51,3 +51,5 @@ void main()
 034232
 23fff
 1fds
+
+/*fsffds*
