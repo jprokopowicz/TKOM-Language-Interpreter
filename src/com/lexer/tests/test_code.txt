@@ -53,7 +53,7 @@ void main()
 1fds
 
 number fun(bool a,number b){\n
-/*comment*/"
+/*comment*/
 return a&(b%2==0);
 }
 

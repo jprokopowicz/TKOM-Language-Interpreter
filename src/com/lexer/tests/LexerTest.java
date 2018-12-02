@@ -1,13 +1,15 @@
-package com.lexer;
-
+import com.lexer.Lexer;
+import com.lexer.Position;
+import com.lexer.StreamReader;
+import com.lexer.Token;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,7 +39,7 @@ class LexerTest {
         Token token = lexer.getToken();
         assertEquals(Token.Type.invalid_,token.getType());
         assertEquals("",token.getValue());
-        assertEquals(new Position(1,1).sign,token.getPosition().sign);
+        Assertions.assertEquals(new Position(1,1).sign,token.getPosition().sign);
         assertEquals(new Position(1,1).line,token.getPosition().line);
     }
 
@@ -47,13 +49,13 @@ class LexerTest {
         Lexer lexer = preperLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.end_of_file_,token.getType());
+        assertEquals(Token.Type.end_of_bytes_,token.getType());
         assertEquals("",token.getValue());
         assertEquals(new Position(1,1).sign,token.getPosition().sign);
         assertEquals(new Position(1,1).line,token.getPosition().line);
 
         token = lexer.getToken();
-        assertEquals(Token.Type.end_of_file_,token.getType());
+        assertEquals(Token.Type.end_of_bytes_,token.getType());
         assertEquals("",token.getValue());
         assertEquals(new Position(1,1).sign,token.getPosition().sign);
         assertEquals(new Position(1,1).line,token.getPosition().line);
@@ -765,7 +767,7 @@ class LexerTest {
         Lexer lexer = preperLexer(inputCode);
 
         List<Token> returnedTokens = new ArrayList<>();
-        while (lexer.getToken().getType()!=Token.Type.end_of_file_){
+        while (lexer.getToken().getType()!=Token.Type.end_of_bytes_){
             returnedTokens.add(lexer.readNextToken());
         }
 
