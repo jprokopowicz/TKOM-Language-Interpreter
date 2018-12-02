@@ -2,6 +2,9 @@ package com.lexer;
 
 import java.io.IOException;
 
+/**
+ * Lexer for language interpreter
+ */
 public class Lexer {
     private ByteReader reader;
     private Token token;
@@ -45,7 +48,7 @@ public class Lexer {
             }
 
         } catch (EndOfBytesException exc){
-            token = new Token(Token.Type.end_of_file_,"",reader.getPosition());
+            token = new Token(Token.Type.end_of_bytes_,"",reader.getPosition());
         } catch (IOException exc) {
             token = new Token(Token.Type.invalid_, "",tokenPosition);
         }

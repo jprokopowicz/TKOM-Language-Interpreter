@@ -14,7 +14,7 @@ public class Main {
                 Lexer lexer = new Lexer(new StreamReader(inputStream));
                 //Lexer operations
                 System.out.println("start");
-                while(lexer.getToken().getType() != Token.Type.end_of_file_){
+                while(lexer.getToken().getType() != Token.Type.end_of_bytes_){
                     Token token = lexer.readNextToken();
                     System.out.println(token.getPosition().sign + "\t" + token.getPosition().line + "\t" + Token.tokenNames.get(token.getType()) + ":\t\t" +  token.getValue());
                 }

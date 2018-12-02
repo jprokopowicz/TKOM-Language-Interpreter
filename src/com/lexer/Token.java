@@ -68,7 +68,7 @@ public class Token {
         number_expression_,
         string_expression_,
         invalid_,
-        end_of_file_,
+        end_of_bytes_,
     }
 
     public static Map<Type, String> tokenNames;
@@ -114,7 +114,7 @@ public class Token {
         tokenNames.put(Type.number_expression_,"number_expression_");
         tokenNames.put(Type.string_expression_,"string_expression_");
         tokenNames.put(Type.invalid_,"invalid_");
-        tokenNames.put(Type.end_of_file_,"end_of_file_");
+        tokenNames.put(Type.end_of_bytes_,"end_of_bytes_");
     }
 
     public Token(Type type, String value, Position position) {
