@@ -52,4 +52,9 @@ void main()
 23fff
 1fds
 
+number fun(bool a,number b){\n
+/*comment*/"
+return a&(b%2==0);
+}
+
 /*fsffds*
