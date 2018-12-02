@@ -1,5 +1,8 @@
 package com.lexer;
 
+import com.lexer.ByteReader.ByteReader;
+import com.lexer.ByteReader.EndOfBytesException;
+
 import java.io.IOException;
 
 /**

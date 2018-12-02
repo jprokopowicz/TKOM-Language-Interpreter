@@ -1,4 +1,4 @@
-package com.lexer;
+package com.lexer.ByteReader;
 
 public class EndOfBytesException extends Exception {
 }

@@ -1,5 +1,5 @@
 import com.lexer.Lexer;
-import com.lexer.StreamReader;
+import com.lexer.ByteReader.StreamReader;
 import com.lexer.Token;
 
 import java.io.FileInputStream;
