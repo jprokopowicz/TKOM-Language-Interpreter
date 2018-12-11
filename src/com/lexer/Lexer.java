@@ -12,7 +12,7 @@ public class Lexer {
     private ByteReader reader;
     private Token token;
     private Position tokenPosition;
-    private StringBuffer buffer;
+    private StringBuilder buffer;
 
     private enum NumberState { init, zero, nonZero}
 
@@ -20,7 +20,7 @@ public class Lexer {
         this.reader = reader;
         token = new Token(Token.Type.invalid_, "",  new Position());
         tokenPosition = new Position();
-        buffer = new StringBuffer();
+        buffer = new StringBuilder();
     }
 
     /**
@@ -40,6 +40,7 @@ public class Lexer {
             skipWhiteSigns();
 
             tokenPosition = new Position(reader.getPosition());
+            buffer = new StringBuilder();
 
             char sign = reader.lookUpByte();
             if (Character.isAlphabetic(sign) || sign == '_') {
@@ -73,7 +74,6 @@ public class Lexer {
      * @throws IOException ByteReader exception
      */
     private void defineKeywordOrIdentifier() throws IOException {
-        buffer = new StringBuffer();
         continueToTokenEnd();
         token = new Token(Token.findKeyword(buffer.toString()),buffer.toString(),tokenPosition);
     }
@@ -83,7 +83,6 @@ public class Lexer {
      * @throws IOException ByteReader exception
      */
     private void defineNumericLiteral() throws IOException {
-        buffer = new StringBuffer();
         NumberState state = NumberState.init;
         Token.Type tokenType = Token.Type.invalid_;
         try {
@@ -125,7 +124,6 @@ public class Lexer {
      * @throws IOException ByteReader Exception
      */
     private void defineSpecialSignOrString() throws IOException {
-        buffer = new StringBuffer();
         Token.Type tokenType = Token.Type.invalid_;
         try {
             char sign = reader.readByte();
