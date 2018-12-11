@@ -14,8 +14,6 @@ public class Lexer {
     private Position tokenPosition;
     private StringBuilder buffer;
 
-    private enum NumberState { init, zero, nonZero}
-
     public Lexer(ByteReader reader) {
         this.reader = reader;
         token = new Token(Token.Type.invalid_, "",  new Position());
@@ -83,33 +81,21 @@ public class Lexer {
      * @throws IOException ByteReader exception
      */
     private void defineNumericLiteral() throws IOException {
-        NumberState state = NumberState.init;
-        Token.Type tokenType = Token.Type.invalid_;
+        Token.Type tokenType = Token.Type.number_expression_;
         try {
-            while(Character.isAlphabetic(reader.lookUpByte()) || Character.isDigit(reader.lookUpByte()) || reader.lookUpByte() == '_') {
-                switch (state) {
-                    case init:
-                        if (reader.lookUpByte() == '0')
-                            state = NumberState.zero;
-                        else
-                            state = NumberState.nonZero;
-                        buffer.append(reader.readByte());
-                        tokenType = Token.Type.number_expression_;
-                        break;
-                    case zero:
-                        if (Character.isDigit(reader.lookUpByte()) || Character.isAlphabetic(reader.lookUpByte()) || reader.lookUpByte() == '_') {
-                            continueToTokenEnd();
-                            tokenType = Token.Type.invalid_;
-                        }
-                        break;
-                    case nonZero:
-                        if (Character.isDigit(reader.lookUpByte())) {
-                            buffer.append(reader.readByte());
-                        } else if (Character.isAlphabetic(reader.lookUpByte()) || reader.lookUpByte() == '_') {
-                            continueToTokenEnd();
-                            tokenType = Token.Type.invalid_;
-                        }
-                        break;
+            char sign = reader.readByte();
+            buffer.append(sign);
+            if(sign == '0') {
+                if (Character.isDigit(reader.lookUpByte()) || Character.isAlphabetic(reader.lookUpByte()) || reader.lookUpByte() == '_') {
+                    continueToTokenEnd();
+                    tokenType = Token.Type.invalid_;
+                }
+            } else {
+                while (Character.isDigit(reader.lookUpByte()))
+                    buffer.append(reader.readByte());
+                if (Character.isAlphabetic(reader.lookUpByte()) || reader.lookUpByte() == '_') {
+                    continueToTokenEnd();
+                    tokenType = Token.Type.invalid_;
                 }
             }
         } catch (EndOfBytesException exc){
@@ -170,7 +156,6 @@ public class Lexer {
                         tokenType = Token.Type.comment_;
                         if(!defineCommentExpression())
                             tokenType = Token.Type.invalid_;
-
                     }
                     break;
                 case '%':
@@ -234,13 +219,13 @@ public class Lexer {
      * @throws EndOfBytesException Only in case when after '\' sing there is end of bytes
      */
     private boolean defineStringExpression() throws IOException, EndOfBytesException {
-        char c;
+        char sign;
         while(!reader.endOfBytes()) {
-            c = reader.readByte();
-            buffer.append(c);
-            if (c == '\\' && reader.lookUpByte() == '"') {
+            sign = reader.readByte();
+            buffer.append(sign);
+            if (sign == '\\' && reader.lookUpByte() == '"') {
                 buffer.replace(buffer.length() - 1, buffer.length(), "" + reader.readByte());
-            } else if (c == '"') {
+            } else if (sign == '"') {
                 return true;
             }
         }
@@ -254,11 +239,11 @@ public class Lexer {
      * @throws EndOfBytesException Only in case when after '*' there is end of file
      */
     private boolean defineCommentExpression() throws IOException, EndOfBytesException {
-        char c;
+        char sign;
         while(!reader.endOfBytes()) {
-            c = reader.readByte();
-            buffer.append(c);
-            if(c == '*' && reader.lookUpByte() == '/'){
+            sign = reader.readByte();
+            buffer.append(sign);
+            if(sign == '*' && reader.lookUpByte() == '/'){
                 buffer.append(reader.readByte());
                 return true;
             }
@@ -266,6 +251,10 @@ public class Lexer {
         return false;
     }
 
+    /**
+     * Reads the token to the buffer as long as next sign is a digit, a letter or '_'
+     * @throws IOException ByteReader exception
+     */
     private void continueToTokenEnd() throws IOException {
         try {
             while (Character.isAlphabetic(reader.lookUpByte()) || Character.isDigit(reader.lookUpByte()) || reader.lookUpByte() == '_')

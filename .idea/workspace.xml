@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb3b9810-4773-45b1-b8ad-4983e651c44e" name="Default" comment="Fix string token creation: '\&quot;' are stored as '&quot;' and not as '\&quot;' in string tokens&#10;Add max">
+    <list default="true" id="fb3b9810-4773-45b1-b8ad-4983e651c44e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lexer/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lexer/tests/LexerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/tests/LexerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +30,7 @@
       <file leaf-file-name="test_code.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/test_code.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="885">
+            <state relative-caret-position="772">
               <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
             </state>
           </provider>
@@ -61,7 +60,7 @@
       <file leaf-file-name="Token.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/Token.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
+            <state relative-caret-position="-1458">
               <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -73,11 +72,10 @@
       <file leaf-file-name="Lexer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/Lexer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="856">
-              <caret line="278" column="1" selection-start-line="278" selection-start-column="1" selection-end-line="278" selection-end-column="1" />
+            <state relative-caret-position="3435">
+              <caret line="231" column="13" lean-forward="true" selection-start-line="231" selection-start-column="13" selection-end-line="231" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="docComment;method#defineSpecialSignOrString#0;class#Lexer#0" />
               </folding>
             </state>
           </provider>
@@ -88,18 +86,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="614">
               <caret line="214" column="35" selection-start-line="214" selection-start-column="35" selection-end-line="214" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PositionTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/PositionTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -137,8 +123,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -189,6 +175,7 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/tests/LexerTest.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/Token.java" />
+        <option value="$PROJECT_DIR$/src/com/lexer/ByteReader/NonVisibleSignException.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/Lexer.java" />
       </list>
     </option>
@@ -209,8 +196,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="65" />
-    <option name="y" value="14" />
+    <option name="x" value="182" />
+    <option name="y" value="-4" />
     <option name="width" value="1845" />
     <option name="height" value="1044" />
   </component>
@@ -371,7 +358,7 @@
       <workItem from="1541441404296" duration="21565000" />
       <workItem from="1542040179413" duration="334000" />
       <workItem from="1543597480315" duration="48249000" />
-      <workItem from="1544548641541" duration="6235000" />
+      <workItem from="1544548641541" duration="8487000" />
     </task>
     <task id="LOCAL-00001" summary="Base classes for lexer">
       <created>1541205544078</created>
@@ -597,16 +584,24 @@
       <option name="project" value="LOCAL" />
       <updated>1543768856950</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Fix string token creation: '\&quot;' are stored as '&quot;' and not as '\&quot;' in string tokens.">
+      <created>1544555037142</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1544555037143</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Replace StringBuffer with StringBuilder. Move new String Builder creation line.">
+      <created>1544555273231</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1544555273231</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Lexer_Tests - 2018.12.11 at 19h 11m 37s.xml">
-      <configuration name="Lexer Tests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Lexer_Tests - 2018.12.11 at 19h 19m 24s.xml">
-      <configuration name="Lexer Tests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Lexer_Tests - 2018.12.11 at 19h 31m 39s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
@@ -631,9 +626,15 @@
     <history-entry file="Lexer_Tests - 2018.12.11 at 19h 51m 36s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Lexer_Tests - 2018.12.11 at 20h 06m 23s.xml">
+      <configuration name="Lexer Tests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Lexer_Tests - 2018.12.11 at 20h 23m 53s.xml">
+      <configuration name="Lexer Tests" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93147000" />
+    <option name="totallyTimeSpent" value="95399000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -658,11 +659,11 @@
       <window_info anchor="right" id="Maven Projects" order="8" weight="0.32946378" />
       <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.32948583" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.67785937" />
+      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.30325288" />
       <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.4997236" weight="0.32948583" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="0" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.26755112" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.26755112" />
       <window_info anchor="right" id="Database" order="2" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.2498618" />
@@ -685,8 +686,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Part of lexer implementation." />
-    <MESSAGE value="Tests for Token and Position classes. Position.print() fix." />
     <MESSAGE value="Private access fot test classes variables." />
     <MESSAGE value="Names and package refactor." />
     <MESSAGE value="Tests for StreamReader class." />
@@ -710,7 +709,9 @@
     <MESSAGE value="Methods comments and change token end_of_file_ to end_of_bytes_" />
     <MESSAGE value="Tests for Lexer" />
     <MESSAGE value="Directory change for ByteReader connected classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Directory change for ByteReader connected classes" />
+    <MESSAGE value="Fix string token creation: '\&quot;' are stored as '&quot;' and not as '\&quot;' in string tokens." />
+    <MESSAGE value="Replace StringBuffer with StringBuilder. Move new String Builder creation line." />
+    <option name="LAST_COMMIT_MESSAGE" value="Replace StringBuffer with StringBuilder. Move new String Builder creation line." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -722,16 +723,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/LexerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11295">
-          <caret line="767" lean-forward="true" selection-start-line="767" selection-end-line="767" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader/StreamReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -831,7 +822,6 @@
           <caret line="81" column="52" selection-start-line="81" selection-start-column="52" selection-end-line="81" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="docComment;method#defineSpecialSignOrString#0;class#Lexer#0" />
           </folding>
         </state>
       </provider>
@@ -906,7 +896,6 @@
           <caret line="81" column="52" selection-start-line="81" selection-start-column="52" selection-end-line="81" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="docComment;method#defineSpecialSignOrString#0;class#Lexer#0" />
           </folding>
         </state>
       </provider>
@@ -927,7 +916,6 @@
           <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="docComment;method#defineSpecialSignOrString#0;class#Lexer#0" />
           </folding>
         </state>
       </provider>
@@ -976,7 +964,6 @@
           <caret line="9" column="49" lean-forward="true" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="docComment;method#defineSpecialSignOrString#0;class#Lexer#0" />
           </folding>
         </state>
       </provider>
@@ -1063,13 +1050,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader/EndOfBytesException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader/ByteReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1120,16 +1100,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/test_code.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lexer/Token.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state relative-caret-position="-1458">
           <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1137,13 +1110,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/test_code.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="772">
+          <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader/EndOfBytesException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/NonVisibleSignException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lexer/Lexer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="856">
-          <caret line="278" column="1" selection-start-line="278" selection-start-column="1" selection-end-line="278" selection-end-column="1" />
+        <state relative-caret-position="3435">
+          <caret line="231" column="13" lean-forward="true" selection-start-line="231" selection-start-column="13" selection-end-line="231" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="docComment;method#defineSpecialSignOrString#0;class#Lexer#0" />
           </folding>
         </state>
       </provider>
