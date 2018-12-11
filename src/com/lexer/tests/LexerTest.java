@@ -720,24 +720,23 @@ class LexerTest {
     }
 
     @Test
-    void readNextTokenStringWithEscepe(){
+    void readNextTokenStringWithEscape(){
         inputCode = "\"Example \\\"string\"";
         Lexer lexer = preperLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.string_expression_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals("\"Example \"string\"",token.getValue());
 
         token = lexer.getToken();
         assertEquals(Token.Type.string_expression_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals("\"Example \"string\"",token.getValue());
     }
 
     @Test
     void readNextTokenStringUnfinishedSpecialCase(){
         inputCode = "\"Example string\\";
         Lexer lexer = preperLexer(inputCode);
-
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.invalid_,token.getType());
         assertEquals(inputCode,token.getValue());

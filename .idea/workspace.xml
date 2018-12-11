@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb3b9810-4773-45b1-b8ad-4983e651c44e" name="Default" comment="Lexer EndOfBytes exception handle fixes">
+    <list default="true" id="fb3b9810-4773-45b1-b8ad-4983e651c44e" name="Default" comment="Fix string token creation: '\&quot;' are stored as '&quot;' and not as '\&quot;' in string tokens&#10;Add max">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lexer/tests/com/lexer/LexerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/tests/LexerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lexer/tests/test_code.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/tests/test_code.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lexer/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/Lexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lexer/tests/LexerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lexer/tests/LexerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +19,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="76" selection-start-line="16" selection-start-column="76" selection-end-line="16" selection-end-column="76" />
+            <state relative-caret-position="135">
+              <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -28,29 +28,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_code.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test_code.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/test_code.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+            <state relative-caret-position="885">
+              <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="EndOfBytesException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lexer/EndOfBytesException.java">
+        <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader/EndOfBytesException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="30">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="ByteReader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader.java">
+        <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader/ByteReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+            <state relative-caret-position="105">
+              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,31 +61,35 @@
       <file leaf-file-name="Token.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/Token.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="70" column="21" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="21" />
+            <state relative-caret-position="90">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3886#3887#0" expanded="true" />
-                <element signature="e#3913#3914#0" expanded="true" />
-                <element signature="e#3945#3946#0" expanded="true" />
-                <element signature="e#3973#3974#0" expanded="true" />
-                <element signature="e#4010#4011#0" expanded="true" />
-                <element signature="e#4041#4042#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Lexer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Lexer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/Lexer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-254">
-              <caret line="50" column="54" selection-start-line="50" selection-start-column="54" selection-end-line="50" selection-end-column="54" />
+            <state relative-caret-position="856">
+              <caret line="278" column="1" selection-start-line="278" selection-start-column="1" selection-end-line="278" selection-end-column="1" />
               <folding>
-                <element signature="e#581#582#0" expanded="true" />
-                <element signature="e#609#610#0" expanded="true" />
+                <element signature="imports" expanded="true" />
                 <element signature="docComment;method#defineSpecialSignOrString#0;class#Lexer#0" />
-                <element signature="method#defineSpecialSignOrString#0;class#Lexer#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StreamReaderTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="614">
+              <caret line="214" column="35" selection-start-line="214" selection-start-column="35" selection-end-line="214" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,7 +98,7 @@
       <file leaf-file-name="PositionTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/PositionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="30">
               <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -103,8 +110,8 @@
       <file leaf-file-name="LexerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/LexerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="769" column="67" selection-start-line="769" selection-start-column="67" selection-end-line="769" selection-end-column="67" />
+            <state relative-caret-position="206">
+              <caret line="728" selection-start-line="728" selection-end-line="728" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -113,27 +120,12 @@
         </entry>
       </file>
       <file leaf-file-name="StreamReader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
+        <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader/StreamReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="-266">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#497#498#0" expanded="true" />
-                <element signature="e#528#529#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Position.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lexer/Position.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-              <folding>
-                <element signature="e#396#397#0" expanded="true" />
-                <element signature="e#464#465#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -192,11 +184,12 @@
         <option value="$PROJECT_DIR$/src/com/lexer/StreamReader.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/Position.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/EndOfBytesException.java" />
+        <option value="$PROJECT_DIR$/src/com/lexer/tests/com/lexer/LexerTest.java" />
+        <option value="$PROJECT_DIR$/src/com/lexer/tests/test_code.txt" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/lexer/tests/LexerTest.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/Token.java" />
         <option value="$PROJECT_DIR$/src/com/lexer/Lexer.java" />
-        <option value="$PROJECT_DIR$/src/com/lexer/tests/com/lexer/LexerTest.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/lexer/tests/test_code.txt" />
       </list>
     </option>
   </component>
@@ -216,10 +209,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="72" />
-    <option name="y" value="-4" />
-    <option name="width" value="1847" />
-    <option name="height" value="1052" />
+    <option name="x" value="65" />
+    <option name="y" value="14" />
+    <option name="width" value="1845" />
+    <option name="height" value="1044" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -230,6 +223,7 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -261,13 +255,20 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="lexer" type="462c0819:PsiDirectoryNode" />
+              <item name="ByteReader" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="lexer" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -369,7 +370,8 @@
       <workItem from="1541397033937" duration="3695000" />
       <workItem from="1541441404296" duration="21565000" />
       <workItem from="1542040179413" duration="334000" />
-      <workItem from="1543597480315" duration="46134000" />
+      <workItem from="1543597480315" duration="48249000" />
+      <workItem from="1544548641541" duration="6235000" />
     </task>
     <task id="LOCAL-00001" summary="Base classes for lexer">
       <created>1541205544078</created>
@@ -581,43 +583,57 @@
       <option name="project" value="LOCAL" />
       <updated>1543768306689</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Tests for Lexer">
+      <created>1543768451234</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1543768451234</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Directory change for ByteReader connected classes">
+      <created>1543768856950</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1543768856950</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Lexer_Tests - 2018.12.02 at 16h 57m 03s.xml">
+    <history-entry file="Lexer_Tests - 2018.12.11 at 19h 11m 37s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Lexer_Tests - 2018.12.02 at 16h 58m 31s.xml">
+    <history-entry file="Lexer_Tests - 2018.12.11 at 19h 19m 24s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Lexer_Tests - 2018.12.02 at 17h 00m 35s.xml">
+    <history-entry file="Lexer_Tests - 2018.12.11 at 19h 31m 39s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Lexer_Tests - 2018.12.02 at 17h 01m 04s.xml">
+    <history-entry file="Lexer_Tests - 2018.12.11 at 19h 37m 22s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Lexer_Tests - 2018.12.02 at 17h 01m 35s.xml">
+    <history-entry file="Lexer_Tests - 2018.12.11 at 19h 40m 53s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Lexer_Tests - 2018.12.02 at 17h 02m 10s.xml">
+    <history-entry file="Lexer_Tests - 2018.12.11 at 19h 45m 43s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Lexer_Tests - 2018.12.02 at 17h 02m 32s.xml">
+    <history-entry file="Lexer_Tests - 2018.12.11 at 19h 47m 00s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Lexer_Tests - 2018.12.02 at 17h 03m 15s.xml">
+    <history-entry file="Lexer_Tests - 2018.12.11 at 19h 49m 04s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Lexer_Tests - 2018.12.02 at 17h 04m 29s.xml">
+    <history-entry file="Lexer_Tests - 2018.12.11 at 19h 51m 10s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Lexer_Tests - 2018.12.02 at 17h 29m 46s.xml">
+    <history-entry file="Lexer_Tests - 2018.12.11 at 19h 51m 36s.xml">
       <configuration name="Lexer Tests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84797000" />
+    <option name="totallyTimeSpent" value="93147000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -642,13 +658,12 @@
       <window_info anchor="right" id="Maven Projects" order="8" weight="0.32946378" />
       <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.32948583" />
-      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.29590765" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.67785937" />
       <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.4997236" weight="0.32948583" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="0" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.2642344" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.26755112" />
       <window_info anchor="right" id="Database" order="2" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.32948583" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.2498618" />
       <window_info id="UI Designer" order="3" />
@@ -656,10 +671,11 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.39977604" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.32948583" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -669,8 +685,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix public access. Getters for parameters." />
-    <MESSAGE value="Reader methods. Fix Position." />
     <MESSAGE value="Part of lexer implementation." />
     <MESSAGE value="Tests for Token and Position classes. Position.print() fix." />
     <MESSAGE value="Private access fot test classes variables." />
@@ -694,7 +708,9 @@
     <MESSAGE value="Position and End of file detection fix" />
     <MESSAGE value="Lexer EndOfBytes exception handle fixes" />
     <MESSAGE value="Methods comments and change token end_of_file_ to end_of_bytes_" />
-    <option name="LAST_COMMIT_MESSAGE" value="Methods comments and change token end_of_file_ to end_of_bytes_" />
+    <MESSAGE value="Tests for Lexer" />
+    <MESSAGE value="Directory change for ByteReader connected classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Directory change for ByteReader connected classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -706,6 +722,40 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/LexerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11295">
+          <caret line="767" lean-forward="true" selection-start-line="767" selection-end-line="767" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader/StreamReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/Position.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/test_code.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -716,14 +766,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader/StreamReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#497#498#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -744,12 +792,6 @@
           <caret line="56" column="15" selection-start-line="51" selection-start-column="22" selection-end-line="56" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3886#3887#0" expanded="true" />
-            <element signature="e#3913#3914#0" expanded="true" />
-            <element signature="e#3945#3946#0" expanded="true" />
-            <element signature="e#3973#3974#0" expanded="true" />
-            <element signature="e#4010#4011#0" expanded="true" />
-            <element signature="e#4041#4042#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -788,10 +830,8 @@
         <state relative-caret-position="1215">
           <caret line="81" column="52" selection-start-line="81" selection-start-column="52" selection-end-line="81" selection-end-column="52" />
           <folding>
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
+            <element signature="imports" expanded="true" />
             <element signature="docComment;method#defineSpecialSignOrString#0;class#Lexer#0" />
-            <element signature="method#defineSpecialSignOrString#0;class#Lexer#0" />
           </folding>
         </state>
       </provider>
@@ -806,14 +846,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader/StreamReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#497#498#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -834,12 +872,6 @@
           <caret line="56" column="15" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="56" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3886#3887#0" expanded="true" />
-            <element signature="e#3913#3914#0" expanded="true" />
-            <element signature="e#3945#3946#0" expanded="true" />
-            <element signature="e#3973#3974#0" expanded="true" />
-            <element signature="e#4010#4011#0" expanded="true" />
-            <element signature="e#4041#4042#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -873,10 +905,8 @@
         <state relative-caret-position="1215">
           <caret line="81" column="52" selection-start-line="81" selection-start-column="52" selection-end-line="81" selection-end-column="52" />
           <folding>
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
+            <element signature="imports" expanded="true" />
             <element signature="docComment;method#defineSpecialSignOrString#0;class#Lexer#0" />
-            <element signature="method#defineSpecialSignOrString#0;class#Lexer#0" />
           </folding>
         </state>
       </provider>
@@ -896,22 +926,18 @@
         <state relative-caret-position="135">
           <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
           <folding>
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
+            <element signature="imports" expanded="true" />
             <element signature="docComment;method#defineSpecialSignOrString#0;class#Lexer#0" />
-            <element signature="method#defineSpecialSignOrString#0;class#Lexer#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader/StreamReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#497#498#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -922,12 +948,6 @@
           <caret line="77" column="19" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3886#3887#0" expanded="true" />
-            <element signature="e#3913#3914#0" expanded="true" />
-            <element signature="e#3945#3946#0" expanded="true" />
-            <element signature="e#3973#3974#0" expanded="true" />
-            <element signature="e#4010#4011#0" expanded="true" />
-            <element signature="e#4041#4042#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -955,10 +975,8 @@
         <state relative-caret-position="135">
           <caret line="9" column="49" lean-forward="true" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
           <folding>
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
+            <element signature="imports" expanded="true" />
             <element signature="docComment;method#defineSpecialSignOrString#0;class#Lexer#0" />
-            <element signature="method#defineSpecialSignOrString#0;class#Lexer#0" />
           </folding>
         </state>
       </provider>
@@ -969,12 +987,6 @@
           <caret line="99" column="31" selection-start-line="99" selection-start-column="31" selection-end-line="99" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3886#3887#0" expanded="true" />
-            <element signature="e#3913#3914#0" expanded="true" />
-            <element signature="e#3945#3946#0" expanded="true" />
-            <element signature="e#3973#3974#0" expanded="true" />
-            <element signature="e#4010#4011#0" expanded="true" />
-            <element signature="e#4041#4042#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -986,14 +998,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader/StreamReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#497#498#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1036,19 +1046,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/Position.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3180">
-          <caret line="214" column="35" selection-start-line="214" selection-start-column="35" selection-end-line="214" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/PositionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="30">
           <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1056,76 +1063,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/StreamReader.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader/EndOfBytesException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#497#498#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/Position.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader/ByteReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="e#396#397#0" expanded="true" />
-            <element signature="e#464#465#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/EndOfBytesException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/Token.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="70" column="21" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3886#3887#0" expanded="true" />
-            <element signature="e#3913#3914#0" expanded="true" />
-            <element signature="e#3945#3946#0" expanded="true" />
-            <element signature="e#3973#3974#0" expanded="true" />
-            <element signature="e#4010#4011#0" expanded="true" />
-            <element signature="e#4041#4042#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/Lexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-254">
-          <caret line="50" column="54" selection-start-line="50" selection-start-column="54" selection-end-line="50" selection-end-column="54" />
-          <folding>
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
-            <element signature="docComment;method#defineSpecialSignOrString#0;class#Lexer#0" />
-            <element signature="method#defineSpecialSignOrString#0;class#Lexer#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/LexerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="769" column="67" selection-start-line="769" selection-start-column="67" selection-end-line="769" selection-end-column="67" />
+        <state relative-caret-position="105">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1134,8 +1082,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="76" selection-start-line="16" selection-start-column="76" selection-end-line="16" selection-end-column="76" />
+        <state relative-caret-position="135">
+          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/StreamReaderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="614">
+          <caret line="214" column="35" selection-start-line="214" selection-start-column="35" selection-end-line="214" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/ByteReader/StreamReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-266">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/LexerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="728" selection-start-line="728" selection-end-line="728" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1144,8 +1122,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lexer/tests/test_code.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        <state relative-caret-position="885">
+          <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/Token.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lexer/Lexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="856">
+          <caret line="278" column="1" selection-start-line="278" selection-start-column="1" selection-end-line="278" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#defineSpecialSignOrString#0;class#Lexer#0" />
+          </folding>
         </state>
       </provider>
     </entry>

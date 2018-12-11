@@ -240,10 +240,11 @@ public class Lexer {
         while(!reader.endOfBytes()) {
             c = reader.readByte();
             buffer.append(c);
-            if(c == '\\' && reader.lookUpByte() == '"')
-                buffer.append(reader.readByte());
-            else if(c == '"')
+            if (c == '\\' && reader.lookUpByte() == '"') {
+                buffer.replace(buffer.length() - 1, buffer.length(), "" + reader.readByte());
+            } else if (c == '"') {
                 return true;
+            }
         }
         return false;
     }
