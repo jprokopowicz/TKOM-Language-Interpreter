@@ -5,11 +5,9 @@ import com.parser.Return;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Program extends Statement {
+public class Program {
     private Map<String, Function> functions;
 
-
-    @Override
     Return execute() {
         return new Return();
     }
