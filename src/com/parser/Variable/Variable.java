@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Variable {
+    //todo:is type needed when can be replaced with 'instanceOf'
     enum Type {
         number_,
         bool_,
