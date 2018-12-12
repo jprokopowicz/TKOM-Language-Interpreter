@@ -1,9 +1,9 @@
-package com.parser.Variable;
+package com.parser.variable;
 
 public class StringVariable extends Variable {
     private String message;
 
-    StringVariable() {
+    public StringVariable() {
         type = Type.string_;
     }
 

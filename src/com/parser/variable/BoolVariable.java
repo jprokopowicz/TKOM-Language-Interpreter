@@ -1,9 +1,9 @@
-package com.parser.Variable;
+package com.parser.variable;
 
 public class BoolVariable extends Variable {
     private boolean value;
 
-    BoolVariable() {
+    public BoolVariable() {
         type = Type.bool_;
     }
 

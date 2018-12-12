@@ -1,10 +1,10 @@
-package com.parser.Variable;
+package com.parser.variable;
 
-public class NumerVariable extends Variable {
+public class NumberVariable extends Variable {
     private int nominator;
     private int denominator;
 
-    public NumerVariable() {
+    public NumberVariable() {
         this.nominator = 0;
         this.denominator = 1;
         this.type = Type.number_;

@@ -1,5 +1,6 @@
 package com.parser.statement;
 
+import com.parser.DuplicationException;
 import com.parser.Return;
 
 import java.util.HashMap;
@@ -17,7 +18,9 @@ public class Program {
         functions = new HashMap<>();
     }
 
-    public void addFunction(Function newFunction) {
+    public void addFunction(Function newFunction) throws DuplicationException {
+        if (functions.containsKey(newFunction.getName()))
+            throw new DuplicationException();
         functions.put(newFunction.getName(), newFunction);
     }
 

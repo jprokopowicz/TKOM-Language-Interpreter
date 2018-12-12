@@ -1,6 +1,6 @@
 package com.parser.statement;
 import  com.parser.Return;
-import com.parser.Variable.Variable;
+import com.parser.variable.Variable;
 
 import java.util.HashMap;
 import java.util.LinkedList;

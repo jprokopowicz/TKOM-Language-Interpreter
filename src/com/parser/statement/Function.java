@@ -1,7 +1,8 @@
 package com.parser.statement;
 
 import com.parser.Return;
-import com.parser.Variable.Variable;
+import com.parser.DuplicationException;
+import com.parser.variable.Variable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +30,12 @@ public class Function extends Statement {
 
     public Variable getArgument(String name) {
         return arguments.get(name);
+    }
+
+    public void addArgument(String name, Variable argument) throws DuplicationException {
+        if(arguments.containsKey(name))
+            throw new DuplicationException();
+        arguments.put(name,argument);
     }
 
     @Override
