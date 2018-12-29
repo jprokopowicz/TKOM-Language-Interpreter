@@ -1,18 +1,18 @@
 package com.parser.statement;
 
 import com.parser.Return;
-import com.parser.DuplicationException;
+import com.parser.parseException.DuplicationException;
 import com.parser.variable.Variable;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Function extends Statement {
-    private Return.Type returnType;
+    private Return returnType;
     private String name;
     private Map<String,Variable> arguments;
 
-    public Function(Return.Type returnType, String name) {
+    public Function(Return returnType, String name) {
         super();
         this.name = name;
         this.returnType = returnType;
@@ -20,7 +20,7 @@ public class Function extends Statement {
         arguments = new HashMap<>();
     }
 
-    public Return.Type getReturnType() {
+    public Return getReturnType() {
         return returnType;
     }
 
@@ -32,14 +32,12 @@ public class Function extends Statement {
         return arguments.get(name);
     }
 
-    public void addArgument(String name, Variable argument) throws DuplicationException {
-        if(arguments.containsKey(name))
-            throw new DuplicationException();
+    public void addArgument(String name, Variable argument) {
         arguments.put(name,argument);
     }
 
     @Override
-    public Return execute() {
-        return new Return();
+    public Variable execute() {
+        return new Variable();
     }
 }

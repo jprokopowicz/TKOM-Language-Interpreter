@@ -1,7 +1,8 @@
 package com.parser.statement;
 
-import com.parser.DuplicationException;
+import com.parser.parseException.DuplicationException;
 import com.parser.Return;
+import com.parser.variable.Variable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,8 +10,7 @@ import java.util.Map;
 public class Program {
     private Map<String, Function> functions;
 
-    Return execute() {
-        return new Return();
+    void execute() {
     }
 
     public Program() {
@@ -18,9 +18,7 @@ public class Program {
         functions = new HashMap<>();
     }
 
-    public void addFunction(Function newFunction) throws DuplicationException {
-        if (functions.containsKey(newFunction.getName()))
-            throw new DuplicationException();
+    public void addFunction(Function newFunction) {
         functions.put(newFunction.getName(), newFunction);
     }
 

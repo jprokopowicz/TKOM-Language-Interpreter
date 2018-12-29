@@ -3,6 +3,9 @@ package com.parser;
 import com.lexer.ByteReader.ByteReader;
 import com.lexer.Lexer;
 import com.lexer.Token;
+import com.parser.parseException.DuplicationException;
+import com.parser.parseException.ParseException;
+import com.parser.parseException.UnexpectedToken;
 import com.parser.variable.BoolVariable;
 import com.parser.variable.NumberVariable;
 import com.parser.variable.StringVariable;
@@ -18,13 +21,18 @@ public class Parser {
         lexer = new Lexer(byteReader);
     }
 
-    Program parse() throws ParseException, DuplicationException {
+    /**
+     * Starts parsing code, expects function declaration
+     * @return parsed program
+     * @throws ParseException in case of parsing error
+     */
+    Program parse() throws ParseException {
         Program program = new Program();
         while (lexer.readNextToken().getType() != Token.Type.end_of_bytes_) {
             Token.Type tokenType = lexer.getToken().getType();
             Function function;
             if (tokenType != Token.Type.number_ && tokenType != Token.Type.bool_ && tokenType != Token.Type.string_ && tokenType != Token.Type.void_)
-                throw new ParseException(lexer.getToken());
+                throw new UnexpectedToken(lexer.getToken());
             function = parseFunction(program);
             program.addFunction(function);
         }
@@ -32,21 +40,20 @@ public class Parser {
     }
 
     private Function parseFunction(Program program) throws ParseException {
-        Return.Type returnType = Return.getType(lexer.getToken().getValue());
-        if (returnType == Return.Type.invalid_)
-            throw new ParseException(lexer.getToken());
-        String name;
-        Function function;
+        Return returnType = Return.getType(lexer.getToken().getValue());
+        if (returnType == Return.invalid_)
+            throw new UnexpectedToken(lexer.getToken());
 
         if(lexer.readNextToken().getType() != Token.Type.identifier_)
-            throw new ParseException(lexer.getToken());
-        name = lexer.getToken().getValue();
-        function = new Function(returnType, name);
+            throw new UnexpectedToken(lexer.getToken());
+        String name = lexer.getToken().getValue();
+        if(program.getFunction(name) != null)
+            throw new DuplicationException(lexer.getToken());
+        Function function = new Function(returnType, name);
 
-        if(lexer.readNextToken().getType() == Token.Type.open_bracket_)
-            parseArguments(function);
-        else
-            throw new ParseException(lexer.getToken());
+        if(lexer.readNextToken().getType() != Token.Type.open_bracket_)
+            throw new UnexpectedToken(lexer.getToken());
+        parseArguments(function);
 
         //todo statement parse
 
@@ -55,30 +62,26 @@ public class Parser {
 
     private void parseArguments(Function function) throws ParseException {
         do {
-            Pair<String,Variable> newVariable = parseVariableDeclaration();
-            try {
-                function.addArgument(newVariable.getKey(), newVariable.getValue());
-            } catch (DuplicationException exc) {
-                throw new ParseException(lexer.getToken());
-            }
+            Pair<Token,Variable> newVariable = parseVariableDeclaration();
+            if(function.getArgument(newVariable.getKey().getValue()) != null)
+                throw new DuplicationException(newVariable.getKey());
+            function.addArgument(newVariable.getKey().getValue(), newVariable.getValue());
         } while (lexer.readNextToken().getType() == Token.Type.comma_);
 
         if (lexer.getToken().getType() != Token.Type.close_bracket_)
-            throw new ParseException(lexer.getToken());
+            throw new UnexpectedToken(lexer.getToken());
     }
 
-    private Pair<String, Variable> parseVariableDeclaration() throws ParseException {
+    private Pair<Token, Variable> parseVariableDeclaration() throws ParseException {
         Token.Type tokenType = lexer.readNextToken().getType();
         if(tokenType != Token.Type.number_ && tokenType != Token.Type.bool_ && tokenType != Token.Type.string_)
-            throw new ParseException(lexer.getToken());
+            throw new UnexpectedToken(lexer.getToken());
 
         Variable.Type variableType = Variable.getType(lexer.getToken().getValue());
 
         tokenType = lexer.readNextToken().getType();
         if (tokenType != Token.Type.identifier_)
-            throw new ParseException(lexer.getToken());
-
-        String variableName = lexer.getToken().getValue();
+            throw new UnexpectedToken(lexer.getToken());
 
         Variable newVariable = new Variable();
 
@@ -94,7 +97,7 @@ public class Parser {
                 break;
         }
 
-        return new Pair<>(variableName,newVariable);
+        return new Pair<>(lexer.getToken(),newVariable);
     }
 }
 

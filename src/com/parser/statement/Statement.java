@@ -29,5 +29,5 @@ abstract public class Statement {
         return  parent;
     }
 
-    abstract Return execute();
+    abstract Variable execute();
 }
