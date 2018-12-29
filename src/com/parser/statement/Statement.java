@@ -17,6 +17,14 @@ abstract public class Statement {
         innerStatements = new LinkedList<>();
     }
 
+    public void addVariable(String name, Variable variable) {
+        localVariables.put(name,variable);
+    }
+
+    public Variable getVariable (String name) {
+        return localVariables.get(name);
+    }
+
     public void addStatement(Statement newStatment) {
         innerStatements.add(newStatment);
     }
