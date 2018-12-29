@@ -6,6 +6,7 @@ import com.lexer.Token;
 import com.parser.parseException.DuplicationException;
 import com.parser.parseException.ParseException;
 import com.parser.parseException.UnexpectedToken;
+import com.parser.parseException.UnknownNameException;
 import com.parser.statement.Statement;
 import com.parser.variable.BoolVariable;
 import com.parser.variable.NumberVariable;
@@ -17,6 +18,7 @@ import javafx.util.Pair;
 
 public class Parser {
     private Lexer lexer;
+    private Program program = null;
 
     Parser(ByteReader byteReader) {
         lexer = new Lexer(byteReader);
@@ -28,19 +30,19 @@ public class Parser {
      * @throws ParseException in case of parsing error
      */
     Program parse() throws ParseException {
-        Program program = new Program();
+        program = new Program();
         while (lexer.readNextToken().getType() != Token.Type.end_of_bytes_) {
             Token.Type tokenType = lexer.getToken().getType();
             Function function;
             if (tokenType != Token.Type.number_ && tokenType != Token.Type.bool_ && tokenType != Token.Type.string_ && tokenType != Token.Type.void_)
                 throw new UnexpectedToken(lexer.getToken());
-            function = parseFunction(program);
+            function = parseFunction();
             program.addFunction(function);
         }
         return program;
     }
 
-    private Function parseFunction(Program program) throws ParseException {
+    private Function parseFunction() throws ParseException {
         Return returnType = Return.getType(lexer.getToken().getValue());
 
         if(lexer.readNextToken().getType() != Token.Type.identifier_)
@@ -49,10 +51,9 @@ public class Parser {
 
         if(program.getFunction(name) != null)
             throw new DuplicationException(lexer.getToken());
-        Function function = new Function(returnType, name);
+        Function function = new Function(returnType, name, program);
 
         parseArguments(function);
-        //todo statement parse
         parseScope(function);
 
         return function;
@@ -77,9 +78,9 @@ public class Parser {
 
     private void parseAndAddArgument(Function function) throws ParseException{
         Pair<Token, Variable> newVariable = parseVariableDeclaration();
-        if(function.getArgument(newVariable.getKey().getValue()) != null)
+        if(function.getVariable(newVariable.getKey().getValue()) != null)
             throw new DuplicationException(newVariable.getKey());
-        function.addArgument(newVariable.getKey().getValue(), newVariable.getValue());
+        function.addVariable(newVariable.getKey().getValue(), newVariable.getValue());
     }
 
     private void parseScope(Statement parent) throws ParseException {
@@ -94,10 +95,15 @@ public class Parser {
                 //fallthrough
             case string_:
                 Pair<Token, Variable> newVariable = parseVariableDeclaration();
-                addVariable(newVariable,parent);
+                addVariable(newVariable, parent);
                 break;
             case identifier_: //value assignment or function call
-                //todo: variable and function names question
+                if (program.getFunction(lexer.getToken().getValue()) != null){
+                    ;//function call
+                } else if (findVariable(lexer.getToken().getValue(), parent) != null) {
+                    ;//value assign
+                } else
+                    throw new UnknownNameException(lexer.getToken());
                 break;
             case if_: //
                 //todo: condition problem
@@ -117,6 +123,19 @@ public class Parser {
             default:
                 throw new UnexpectedToken(lexer.getToken());
         }
+    }
+
+    private Variable findVariable(String name, Statement parent) {
+        Statement currentStatement = parent;
+        Variable variable = null;
+        while (currentStatement != null) {
+            variable = currentStatement.getVariable(name);
+            if (variable == null)
+                currentStatement = currentStatement.getParent();
+            else
+                break;
+        }
+        return variable;
     }
 
     private void addVariable(Pair<Token,Variable> newVariable, Statement statement) throws ParseException{

@@ -1,5 +1,4 @@
 package com.parser.statement;
-import  com.parser.Return;
 import com.parser.variable.Variable;
 
 import java.util.HashMap;
@@ -11,8 +10,10 @@ abstract public class Statement {
     private Map <String,Variable> localVariables;
     private List <Statement> innerStatements;
     private Statement parent = null;
+    private Program program;
 
-    Statement(){
+    Statement(Program program){
+        this.program = program;
         localVariables = new HashMap<>();
         innerStatements = new LinkedList<>();
     }
@@ -33,8 +34,12 @@ abstract public class Statement {
         this.parent = parent;
     }
 
-    Statement getParent() {
+    public Statement getParent() {
         return  parent;
+    }
+
+    public Program getProgram() {
+        return program;
     }
 
     abstract Variable execute();
