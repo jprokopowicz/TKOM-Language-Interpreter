@@ -88,14 +88,32 @@ public class Parser {
 
         Token.Type tokenType = lexer.readNextToken().getType();
         switch (tokenType) {
-            case number_:
+            case number_: //variable declaration
                 //fallthrough
             case bool_:
                 //fallthrough
             case string_:
                 Pair<Token, Variable> newVariable = parseVariableDeclaration();
                 addVariable(newVariable,parent);
-
+                break;
+            case identifier_: //value assignment or function call
+                //todo: variable and function names question
+                break;
+            case if_: //
+                //todo: condition problem
+                break;
+            case loop_: //
+                //todo: same
+                break;
+            case read_: //
+                //todo: variable read
+                break;
+            case write_: //
+                //todo: variable write
+                break;
+            case return_: //
+                //todo: returned variable
+                break;
             default:
                 throw new UnexpectedToken(lexer.getToken());
         }
@@ -134,5 +152,11 @@ public class Parser {
 
         return new Pair<>(lexer.getToken(),newVariable);
     }
+
+    void parseIfExpression(Statement parent){
+
+    }
+
+
 }
 
