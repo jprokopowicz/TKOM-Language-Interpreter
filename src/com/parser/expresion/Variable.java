@@ -1,9 +1,9 @@
-package com.parser.variable;
+package com.parser.expresion;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Variable {
+public class Variable extends Expresion {
     //todo:is type needed when can be replaced with 'instanceOf'
     public enum Type {
         number_,
@@ -30,4 +30,8 @@ public class Variable {
 
     Type type = Type.invalid_;
 
+    @Override
+    Variable evaluate() {
+        return this;
+    }
 }

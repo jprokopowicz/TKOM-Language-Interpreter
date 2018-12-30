@@ -1,4 +1,4 @@
-package com.parser.variable;
+package com.parser.expresion;
 
 public class NumberVariable extends Variable {
     private int nominator;
@@ -8,6 +8,11 @@ public class NumberVariable extends Variable {
         this.nominator = 0;
         this.denominator = 1;
         this.type = Type.number_;
+    }
+
+    public NumberVariable(int integer, int nominator, int denominator) {
+        this.type = Type.number_;
+        setValue(integer,nominator,denominator);
     }
 
     public int getNominator() {

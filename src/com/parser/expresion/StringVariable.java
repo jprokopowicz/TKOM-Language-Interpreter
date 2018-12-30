@@ -1,4 +1,4 @@
-package com.parser.variable;
+package com.parser.expresion;
 
 public class StringVariable extends Variable {
     private String message;

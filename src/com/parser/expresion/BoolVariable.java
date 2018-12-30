@@ -1,4 +1,4 @@
-package com.parser.variable;
+package com.parser.expresion;
 
 public class BoolVariable extends Variable {
     private boolean value;
