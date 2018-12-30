@@ -20,6 +20,11 @@ public class Variable extends Expresion {
         tokenToReturnTypeMap.put("string",Type.string_);
     }
 
+    public Variable(){}
+    public Variable(Variable variable){
+        this.type = variable.type;
+    }
+
     public static Type getType(String value) {
         return tokenToReturnTypeMap.getOrDefault(value,Type.invalid_);
     }
