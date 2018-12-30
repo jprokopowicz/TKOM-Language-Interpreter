@@ -6,7 +6,6 @@ import com.lexer.Token;
 import com.parser.parseException.DuplicationException;
 import com.parser.parseException.ParseException;
 import com.parser.parseException.UnexpectedToken;
-import com.parser.parseException.UnknownNameException;
 import com.parser.statement.Statement;
 import com.parser.expresion.BoolVariable;
 import com.parser.expresion.NumberVariable;
@@ -15,9 +14,6 @@ import com.parser.expresion.Variable;
 import com.parser.statement.Program;
 import com.parser.statement.Function;
 import javafx.util.Pair;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -50,7 +46,7 @@ public class Parser {
     }
 
     Function parseFunction() throws ParseException {
-        Return returnType = Return.getType(lexer.getToken().getValue());
+        Function.Return returnType = Function.Return.getType(lexer.getToken().getValue());
 
 //        if(lexer.readNextToken().getType() != Token.Type.identifier_)
 //            throw new UnexpectedToken(lexer.getToken());
@@ -140,19 +136,6 @@ public class Parser {
             default:
                 throw new UnexpectedToken(lexer.getToken());
         }
-    }
-
-    Variable findVariable(String name, Statement parent) {
-        Statement currentStatement = parent;
-        Variable variable = null;
-        while (currentStatement != null) {
-            variable = currentStatement.getVariable(name);
-            if (variable == null)
-                currentStatement = currentStatement.getParent();
-            else
-                break;
-        }
-        return variable;
     }
 
     void addVariable(Pair<Token,Variable> newVariable, Statement statement) throws ParseException{
