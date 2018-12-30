@@ -1,10 +1,7 @@
 package com.parser.statement;
 
 import com.parser.Return;
-import com.parser.variable.Variable;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.parser.expresion.Variable;
 
 public class Function extends Statement {
     private Return returnType;

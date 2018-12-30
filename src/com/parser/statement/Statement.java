@@ -1,5 +1,5 @@
 package com.parser.statement;
-import com.parser.variable.Variable;
+import com.parser.expresion.Variable;
 
 import java.util.HashMap;
 import java.util.LinkedList;
