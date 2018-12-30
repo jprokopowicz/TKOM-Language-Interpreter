@@ -4,12 +4,12 @@ import com.parser.statement.Function;
 import com.parser.statement.Program;
 import com.parser.statement.Statement;
 
-public class FunctionCall extends Expresion {
+public class FunctionCallExpression extends Expresion {
     private String functionName;
     private Statement parent;
     private Program program;
 
-    public FunctionCall(String functionName, Statement parent, Program program){
+    public FunctionCallExpression(String functionName, Statement parent, Program program){
         this.functionName = functionName;
         this.parent = parent;
         this.program = program;
