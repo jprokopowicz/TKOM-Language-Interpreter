@@ -25,11 +25,6 @@ public class Parser {
         lexer = new Lexer(byteReader);
     }
 
-    /**
-     * Starts parsing code, expects function declaration
-     * @return parsed program
-     * @throws ParseException in case of parsing error
-     */
     public Program parse() throws ParseException {
         program = new Program();
         while (lexer.readNextToken().getType() != Token.Type.end_of_bytes_) {
@@ -90,24 +85,26 @@ public class Parser {
                 parseVariableOrFunctionCall(statement);
                 acceptTokenTypeOrThrow(Token.Type.semicolon_);
                 break;
-            case if_: //
-                //todo: condition problem
+            case if_:
+                parseIfExpression(statement);
                 break;
-            case loop_: //
-                //todo: same
+            case loop_:
+                parseLoopExpression(statement);
                 break;
-            case read_: //
-                //todo: variable read
+            case read_:
+                parseReadExpression(statement);
                 break;
-            case write_: //
-                //todo: variable write
+            case write_:
+                parseWriteExpression(statement);
                 break;
-            case return_: //
-                //todo: returned variable
+            case return_:
+                parseReturnExpression(statement);
                 break;
             default:
                 throw new UnexpectedToken(lexer.getToken());
         }
+        lexer.readNextToken();
+        acceptTokenTypeOrThrow(Token.Type.close_scope_);
     }
 
     void addVariable(Pair<Token,Variable> newVariable, Statement statement) throws ParseException{
@@ -242,7 +239,7 @@ public class Parser {
         for (String name : function.argumentsNames) {
             Variable variable = function.getVariable(name);
             if(variable == null)
-                throw new ParseException("no such variable");
+                throw new UnknownNameException(nameToken);
             switch (variable.getType()) {
                 case number_:
                     functionCallExpression.addArgument(parseMathExpression(statement));
@@ -254,7 +251,7 @@ public class Parser {
                     functionCallExpression.addArgument(parseStringExpression(statement));
                 case invalid_:
                 default:
-                    throw new ParseException("invalid type");
+                    throw new ParseException("Unexpected parser error.",lexer.getToken());
             }
             lexer.readNextToken();
             if(function.argumentsNames.size() > 1 && !name.equals(function.argumentsNames.get(function.argumentsNames.size()-1))){
@@ -269,7 +266,7 @@ public class Parser {
         lexer.readNextToken();
         Variable target = statement.getVariable(nameToken.getValue());
         if(target == null)
-            throw new ParseException("no such variable");
+            throw new UnknownNameException(nameToken);
         Expresion value;
         switch (target.getType()) {
             case number_:
@@ -283,7 +280,7 @@ public class Parser {
                 break;
             case invalid_://fallthrough
             default:
-                throw new ParseException("invalid type");
+                throw new ParseException("Unexpected parser error.",lexer.getToken());
         }
         return new ValueAssigment(program,statement,target,value);
     }
@@ -295,6 +292,7 @@ public class Parser {
     void parseLoopExpression(Statement parent) throws ParseException {
 
     }
+
     void parseReadExpression(Statement parent) throws ParseException {
 
     }
@@ -304,7 +302,6 @@ public class Parser {
     }
 
     void parseReturnExpression(Statement parent) throws ParseException {
-
 
     }
 
@@ -316,7 +313,7 @@ public class Parser {
     void acceptTokenTypeOrThrow(List<Token.Type> types) throws ParseException{
         for (Token.Type type: types) {
             if(lexer.getToken().getType() == type)
-                break;
+                return;
         }
         throw new UnexpectedToken(lexer.getToken());
     }

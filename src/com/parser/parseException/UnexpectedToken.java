@@ -12,6 +12,6 @@ public class UnexpectedToken extends ParseException {
     }
 
     public UnexpectedToken(Token token) {
-        super("Invalid token: " + token.getValue()+ " line: " + token.getPosition().line + " sign: " + token.getPosition().sign);
+        super("Invalid token: " + token.getValue() + " line: " + token.getPosition().line + " sign: " + token.getPosition().sign);
     }
 }
