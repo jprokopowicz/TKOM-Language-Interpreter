@@ -1,9 +1,14 @@
 package com.parser.statement;
 
+import com.parser.Program;
+
 public class FunctionCallStatement extends Statement {
-    FunctionCallStatement(Program program, Statement parent){
+    private String functionName;
+
+    FunctionCallStatement(Program program, Statement parent, String functionName){
         super(program);
         setParent(parent);
+        this.functionName = functionName;
     }
 
     @Override
@@ -13,7 +18,8 @@ public class FunctionCallStatement extends Statement {
 
     @Override
     public Statement copy() {
-        //todo: implement
-        return null;
+        FunctionCallStatement statement = new FunctionCallStatement(this.program,this.parent,this.functionName);
+        statement.copyInternals(this);
+        return statement;
     }
 }

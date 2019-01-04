@@ -1,4 +1,6 @@
-package com.parser.statement;
+package com.parser;
+
+import com.parser.statement.Function;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +12,6 @@ public class Program {
     }
 
     public Program() {
-        super();
         functions = new HashMap<>();
     }
 

@@ -1,7 +1,7 @@
 package com.parser.expresion;
 
 import com.parser.statement.Function;
-import com.parser.statement.Program;
+import com.parser.Program;
 import com.parser.statement.Statement;
 
 public class FunctionCallExpression extends Expresion {

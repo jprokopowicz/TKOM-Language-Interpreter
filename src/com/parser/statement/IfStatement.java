@@ -1,5 +1,7 @@
 package com.parser.statement;
 
+import com.parser.Program;
+
 public class IfStatement extends Statement {
     IfStatement(Program program, Statement parent){
         super(program);
