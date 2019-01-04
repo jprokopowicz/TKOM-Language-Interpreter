@@ -8,11 +8,10 @@ import com.parser.parseException.DuplicationException;
 import com.parser.parseException.ParseException;
 import com.parser.parseException.UnexpectedToken;
 import com.parser.parseException.UnknownNameException;
-import com.parser.statement.FunctionCallStatement;
-import com.parser.statement.Statement;
-import com.parser.statement.Function;
-import com.parser.statement.ValueAssigment;
+import com.parser.statement.*;
 import javafx.util.Pair;
+
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -133,27 +132,27 @@ public class Parser {
         return new Pair<>(lexer.getToken(),newVariable);
     }
 
-    MathExpression parseMathExpression(Statement parent) throws ParseException {
-        parseMultiplicationExpression(parent);
+    MathExpression parseMathExpression(Statement statement) throws ParseException {
+        parseMultiplicationExpression(statement);
         if(lexer.readNextToken().getType() == Token.Type.plus_ || lexer.getToken().getType() == Token.Type.minus_) {
             //plus or minus value operation
             lexer.readNextToken();
-            parseMultiplicationExpression(parent);
+            parseMultiplicationExpression(statement);
         }
         return null;
     }
 
-    MultiplicationExpression parseMultiplicationExpression(Statement parent) throws ParseException {
-        parseBasicMathExpression(parent);
+    MultiplicationExpression parseMultiplicationExpression(Statement statement) throws ParseException {
+        parseBasicMathExpression(statement);
         if(lexer.readNextToken().getType() == Token.Type.star_ || lexer.getToken().getType() == Token.Type.slash_ || lexer.getToken().getType() == Token.Type.modulo_) {
             //multi, dev or modulo operation
             lexer.readNextToken();
-            parseBasicMathExpression(parent);
+            parseBasicMathExpression(statement);
         }
         return null;
     }
 
-    BasicMathExpression parseBasicMathExpression(Statement parent) throws ParseException {
+    BasicMathExpression parseBasicMathExpression(Statement statement) throws ParseException {
         if(lexer.getToken().getType() == Token.Type.minus_) {
             //negate value
             lexer.readNextToken();
@@ -161,30 +160,30 @@ public class Parser {
 
         switch (lexer.getToken().getType()) {
             case number_:
-                parseNumber(parent);
+                parseNumber(statement);
                 //add number to calculating value
                 break;
             case identifier_:
-                parseVariableOrFunctionCall(parent);
+                parseVariableOrFunctionCall(statement);
                 //add variable or function call to calculating value
                 break;
             case open_bracket_:
-                parseBracketExpression(parent);
+                parseBracketExpression(statement);
             default:
                 throw new UnexpectedToken(lexer.getToken());
         }
         return null;
     }
 
-    BracketExpression parseBracketExpression(Statement parent) throws ParseException {
+    BracketExpression parseBracketExpression(Statement statement) throws ParseException {
         lexer.readNextToken();
-        parseMathExpression(parent);
+        parseMathExpression(statement);
         lexer.readNextToken();
         acceptTokenTypeOrThrow(Token.Type.close_bracket_);
         return null;
     }
 
-    NumberVariable parseNumber(Statement parent) throws ParseException {
+    NumberVariable parseNumber(Statement statement) throws ParseException {
         int integer, nominator = 0, denominator = 1;
         acceptTokenTypeOrThrow(Token.Type.number_expression_);
         try {
@@ -285,23 +284,30 @@ public class Parser {
         return new ValueAssigment(program,statement,target,value);
     }
 
-    void parseIfExpression(Statement parent) throws ParseException {
+    void parseIfExpression(Statement statement) throws ParseException {
 
     }
 
-    void parseLoopExpression(Statement parent) throws ParseException {
+    void parseLoopExpression(Statement statement) throws ParseException {
 
     }
 
-    void parseReadExpression(Statement parent) throws ParseException {
+    void parseReadExpression(Statement statement) throws ParseException {
+        lexer.readNextToken();
+        acceptTokenTypeOrThrow(Token.Type.identifier_);
+        Variable target = statement.getVariable(lexer.getToken().getValue());
+        if(target == null)
+            throw new UnknownNameException(lexer.getToken());
+        InputStatement inputStatement = new InputStatement(program,statement,target);
+        lexer.readNextToken();
+        acceptTokenTypeOrThrow(Token.Type.semicolon_);
+    }
+
+    void parseWriteExpression(Statement statement) throws ParseException {
 
     }
 
-    void parseWriteExpression(Statement parent) throws ParseException {
-
-    }
-
-    void parseReturnExpression(Statement parent) throws ParseException {
+    void parseReturnExpression(Statement statement) throws ParseException {
 
     }
 
