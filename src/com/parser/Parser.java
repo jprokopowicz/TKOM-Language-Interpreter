@@ -304,7 +304,17 @@ public class Parser {
     }
 
     void parseWriteExpression(Statement statement) throws ParseException {
-
+        Expresion outputExpression = null;
+        try {
+            outputExpression = parseMathExpression(statement);
+        } catch (ParseException notMath) {
+            try {
+                outputExpression = parseBooleanExpression(statement);
+            } catch (ParseException notBool) {
+                outputExpression = parseStringExpression(statement);
+            }
+        }
+        statement.addStatement(new OutputStatement(program,statement,outputExpression));
     }
 
     void parseReturnExpression(Statement statement) throws ParseException {
