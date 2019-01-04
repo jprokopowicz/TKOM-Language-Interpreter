@@ -11,7 +11,6 @@ import com.parser.parseException.UnknownNameException;
 import com.parser.statement.*;
 import javafx.util.Pair;
 
-import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -304,21 +303,54 @@ public class Parser {
     }
 
     void parseWriteExpression(Statement statement) throws ParseException {
-        Expresion outputExpression = null;
-        try {
-            outputExpression = parseMathExpression(statement);
-        } catch (ParseException notMath) {
-            try {
+        Expresion outputExpression;
+        switch(lexer.readNextToken().getType()) {
+            case number_:
+                outputExpression = parseMathExpression(statement);
+                break;
+            case bool_:
                 outputExpression = parseBooleanExpression(statement);
-            } catch (ParseException notBool) {
-                outputExpression = parseStringExpression(statement);
-            }
+                break;
+            case string_:
+            outputExpression = parseStringExpression(statement);
+                break;
+            default:
+                throw new UnexpectedToken(lexer.getToken());
         }
         statement.addStatement(new OutputStatement(program,statement,outputExpression));
     }
 
     void parseReturnExpression(Statement statement) throws ParseException {
+        Statement currerntStatement = statement;
+        while (!(currerntStatement instanceof Function)) {
+            currerntStatement = currerntStatement.getParent();
+            if(currerntStatement == null)
+                throw new ParseException("Return statement without function.");
+        }
 
+        lexer.readNextToken();
+        Function function = (Function)currerntStatement;
+        Expresion value;
+        switch (function.getReturnType()) {
+            case number_:
+                value = parseMathExpression(statement);
+                break;
+            case bool_:
+                value = parseBooleanExpression(statement);
+                break;
+            case string_:
+                value = parseStringExpression(statement);
+                break;
+            case void_:
+                value = null;
+                break;
+            case invalid_://fallthrough
+            default:
+                throw new ParseException("Invalid return type", lexer.getToken());
+        }
+        statement.addStatement(new ReturnStatement(program, statement, value));
+        lexer.readNextToken();
+        acceptTokenTypeOrThrow(Token.Type.semicolon_);
     }
 
     void acceptTokenTypeOrThrow(Token.Type type) throws ParseException{
