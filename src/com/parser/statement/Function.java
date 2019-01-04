@@ -4,6 +4,8 @@ import com.parser.Program;
 import com.parser.expresion.Variable;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class Function extends Statement {
@@ -30,10 +32,13 @@ public class Function extends Statement {
     private String name;
     private Variable returnValue = null;
 
+    public List<String> argumentsNames;
+
     public Function(Return returnType, String name, Program program) {
         super(program);
         this.name = name;
         this.returnType = returnType;
+        argumentsNames = new LinkedList<>();
     }
 
     public Return getReturnType() {

@@ -29,11 +29,15 @@ public class Variable extends Expresion {
         return tokenToReturnTypeMap.getOrDefault(value,Type.invalid_);
     }
 
+    Type type = Type.invalid_;
+
     public void setType(Type type) {
         this.type = type;
     }
 
-    Type type = Type.invalid_;
+    public Type getType() {
+        return type;
+    }
 
     @Override
     Variable evaluate() {
