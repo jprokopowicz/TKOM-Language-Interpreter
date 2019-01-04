@@ -3,7 +3,7 @@ package com.parser.expresion;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Variable extends Expresion {
+abstract public class Variable extends Expresion {
     //todo:is type needed when can be replaced with 'instanceOf'
     public enum Type {
         number_,

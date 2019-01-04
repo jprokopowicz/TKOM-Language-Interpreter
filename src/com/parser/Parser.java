@@ -4,10 +4,7 @@ import com.lexer.ByteReader.ByteReader;
 import com.lexer.Lexer;
 import com.lexer.Token;
 import com.parser.expresion.*;
-import com.parser.parseException.DuplicationException;
-import com.parser.parseException.ParseException;
-import com.parser.parseException.UnexpectedToken;
-import com.parser.parseException.UnknownNameException;
+import com.parser.parseException.*;
 import com.parser.statement.*;
 import javafx.util.Pair;
 
@@ -214,7 +211,19 @@ public class Parser {
     }
 
     StringVariable parseStringExpression(Statement statement) throws ParseException {
-        return null;
+        if(lexer.getToken().getType() == Token.Type.identifier_) {
+            Variable variable = statement.getVariable(lexer.getToken().getValue());
+            if(!(variable instanceof StringVariable))
+                throw new TypeException("string", lexer.getToken());
+            return (StringVariable)variable;
+        } else if (lexer.getToken().getType() == Token.Type.string_expression_) {
+            String string = lexer.getToken().getValue();
+            string = string.substring(1,string.length()-1);
+            StringVariable stringVariable = new StringVariable();
+            stringVariable.setMessage(string);
+            return stringVariable;
+        } else
+            throw new UnexpectedToken(lexer.getToken());
     }
 
     void parseVariableOrFunctionCall(Statement statement) throws ParseException {
@@ -306,13 +315,16 @@ public class Parser {
         Expresion outputExpression;
         switch(lexer.readNextToken().getType()) {
             case number_:
+                lexer.readNextToken();
                 outputExpression = parseMathExpression(statement);
                 break;
             case bool_:
+                lexer.readNextToken();
                 outputExpression = parseBooleanExpression(statement);
                 break;
             case string_:
-            outputExpression = parseStringExpression(statement);
+                lexer.readNextToken();
+                outputExpression = parseStringExpression(statement);
                 break;
             default:
                 throw new UnexpectedToken(lexer.getToken());
