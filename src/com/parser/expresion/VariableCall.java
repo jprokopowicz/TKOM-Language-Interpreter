@@ -6,13 +6,19 @@ public class VariableCall extends Expresion {
     private String variableName;
     private Statement parent;
 
-    VariableCall(String variableName, Statement parent) {
+    public VariableCall(String variableName, Statement parent) {
         this.variableName = variableName;
         this.parent = parent;
     }
 
     @Override
-    Variable evaluate() {
+    public Variable evaluate() {
         return parent.getVariable(variableName);
+    }
+
+    @Override
+    public Expresion copy() {
+        //todo
+        return null;
     }
 }

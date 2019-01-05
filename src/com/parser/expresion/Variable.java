@@ -30,7 +30,7 @@ abstract public class Variable extends Expresion {
     }
 
     @Override
-    Variable evaluate() {
+    public Variable evaluate() {
         return this;
     }
 }

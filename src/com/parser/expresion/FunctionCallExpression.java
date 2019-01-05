@@ -25,11 +25,17 @@ public class FunctionCallExpression extends Expresion {
     }
 
     @Override
-    Variable evaluate(){
+    public Variable evaluate(){
         Function function = (Function) program.getFunction(functionName).copy();
         //TODO
         function.setParent(parent);
         function.execute();
         return function.getReturnValue();
+    }
+
+    @Override
+    public Expresion copy() {
+        //todo
+        return null;
     }
 }

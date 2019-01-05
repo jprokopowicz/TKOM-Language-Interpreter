@@ -19,4 +19,10 @@ public class StringVariable extends Variable {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    @Override
+    public Expresion copy() {
+        //todo
+        return null;
+    }
 }
