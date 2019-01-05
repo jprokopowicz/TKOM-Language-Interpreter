@@ -306,7 +306,16 @@ public class Parser {
         parseConditionAndAdd(statement,ifStatement);
         lexer.readNextToken();
         parseScope(ifStatement);
-        //todo: else
+
+        if(lexer.readNextToken().getType() == Token.Type.else_){
+            IfStatement elseStatement = new IfStatement(program,statement);
+            elseStatement.setCondition(null);
+            parseScope(elseStatement);
+            ifStatement.setElseStatement(elseStatement);
+            lexer.readNextToken();
+        }
+
+        statement.addStatement(ifStatement);
     }
 
     void parseLoopExpression(Statement statement) throws ParseException {

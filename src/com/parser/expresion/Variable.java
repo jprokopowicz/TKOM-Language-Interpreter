@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 abstract public class Variable extends Expresion {
-    //todo:is type needed when can be replaced with 'instanceOf'
     public enum Type {
         number_,
         bool_,

@@ -4,7 +4,8 @@ import com.parser.Program;
 import com.parser.expresion.BooleanExpression;
 
 public class IfStatement extends Statement {
-    BooleanExpression condition;
+    BooleanExpression condition = null;
+    IfStatement elseStatement = null;
     public IfStatement(Program program, Statement parent){
         super(program);
         setParent(parent);
@@ -14,6 +15,10 @@ public class IfStatement extends Statement {
         this.condition = condition;
     }
 
+    public void setElseStatement(IfStatement elseStatement) {
+        this.elseStatement = elseStatement;
+    }
+
     @Override
     public void execute(){
 
@@ -21,7 +26,10 @@ public class IfStatement extends Statement {
 
     @Override
     public Statement copy() {
-        //todo: implement
+        IfStatement newIfStatement = new IfStatement(this.program, this.parent);
+        newIfStatement.copyInternals(this);
+        newIfStatement.setElseStatement((IfStatement)elseStatement.copy());
+//        //todo: implement
         return null;
     }
 }

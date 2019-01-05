@@ -23,6 +23,7 @@ public class FunctionCallStatement extends Statement {
 
     @Override
     public Statement copy() {
+        //todo: fix copy function call expression
         FunctionCallStatement statement = new FunctionCallStatement(this.program,this.parent,this.functionCallExpression);
         statement.copyInternals(this);
         return statement;
