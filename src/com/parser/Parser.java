@@ -41,7 +41,9 @@ public class Parser {
             throw new DuplicationException(lexer.getToken());
         Function function = new Function(returnType, name, program);
 
+        lexer.readNextToken();
         parseArguments(function);
+        lexer.readNextToken();
         parseScope(function);
         return function;
     }
@@ -66,40 +68,46 @@ public class Parser {
 
     void parseScope(Statement statement) throws ParseException {
         acceptTokenTypeOrThrow(Token.Type.open_scope_);
-        Token.Type tokenType = lexer.readNextToken().getType();
-        switch (tokenType) {
-            case number_: //variable declaration
-            case bool_://fallthrough
-            case string_://fallthrough
-                Pair<Token, Variable> newVariable = parseVariableDeclaration();
-                addVariable(newVariable, statement);
-                lexer.readNextToken();
-                acceptTokenTypeOrThrow(Token.Type.semicolon_);
-                break;
-            case identifier_:
-                parseVariableOrFunctionCall(statement);
-                acceptTokenTypeOrThrow(Token.Type.semicolon_);
-                break;
-            case if_:
-                parseIfExpression(statement);
-                break;
-            case loop_:
-                parseLoopExpression(statement);
-                break;
-            case read_:
-                parseReadExpression(statement);
-                break;
-            case write_:
-                parseWriteExpression(statement);
-                break;
-            case return_:
-                parseReturnExpression(statement);
-                break;
-            default:
-                throw new UnexpectedToken(lexer.getToken());
-        }
         lexer.readNextToken();
-        acceptTokenTypeOrThrow(Token.Type.close_scope_);
+        while (lexer.getToken().getType() != Token.Type.close_scope_) {
+            boolean stayOnToken = false;
+            switch (lexer.getToken().getType()) {
+                case number_: //variable declaration
+                case bool_://fallthrough
+                case string_://fallthrough
+                    Pair<Token, Variable> newVariable = parseVariableDeclaration();
+                    addVariable(newVariable, statement);
+                    lexer.readNextToken();
+                    acceptTokenTypeOrThrow(Token.Type.semicolon_);
+                    break;
+                case identifier_:
+                    parseVariableOrFunctionCall(statement);
+                    acceptTokenTypeOrThrow(Token.Type.semicolon_);
+                    break;
+                case if_:
+                    parseIfExpression(statement);
+                    stayOnToken = true;
+                    break;
+                case loop_:
+                    parseLoopExpression(statement);
+                    break;
+                case read_:
+                    parseReadExpression(statement);
+                    break;
+                case write_:
+                    parseWriteExpression(statement);
+                    break;
+                case return_:
+                    parseReturnExpression(statement);
+                    break;
+                default:
+                    throw new UnexpectedToken(lexer.getToken());
+            }
+            if (stayOnToken)
+                stayOnToken = false;
+            else
+                lexer.readNextToken();
+        }
     }
 
     void addVariable(Pair<Token,Variable> newVariable, Statement statement) throws ParseException{
@@ -293,11 +301,33 @@ public class Parser {
     }
 
     void parseIfExpression(Statement statement) throws ParseException {
-
+        lexer.readNextToken();
+        IfStatement ifStatement = new IfStatement(program,statement);
+        parseConditionAndAdd(statement,ifStatement);
+        lexer.readNextToken();
+        parseScope(ifStatement);
+        //todo: else
     }
 
     void parseLoopExpression(Statement statement) throws ParseException {
+        lexer.readNextToken();
+        LoopStatement loopStatement = new LoopStatement(program,statement);
+        parseConditionAndAdd(statement,loopStatement);
+        lexer.readNextToken();
+        parseScope(loopStatement);
+    }
 
+    void parseConditionAndAdd(Statement statement, Statement conditionStatement) throws ParseException{
+        acceptTokenTypeOrThrow(Token.Type.open_bracket_);
+        BooleanExpression condition = parseBooleanExpression(statement);
+        lexer.readNextToken();
+        acceptTokenTypeOrThrow(Token.Type.close_bracket_);
+        if(conditionStatement instanceof IfStatement) {
+            ((IfStatement) conditionStatement).setCondition(condition);
+        } else if (conditionStatement instanceof LoopStatement) {
+            ((LoopStatement) conditionStatement).setCondition(condition);
+        } else
+            throw new ParseException("Unexpected parser exception: statement to parse condition is not if or loop expression");
     }
 
     void parseReadExpression(Statement statement) throws ParseException {
