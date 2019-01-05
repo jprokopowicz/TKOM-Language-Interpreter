@@ -73,7 +73,7 @@ public class NumberVariable extends Variable {
     }
 
     @Override
-    public Expresion copy() {
+    public Expression copy() {
         //todo
         return null;
     }

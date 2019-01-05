@@ -1,6 +1,14 @@
 package com.parser.expresion;
 
-public class BasicBoolExpression extends Expresion {
+public class BasicBoolExpression extends Expression {
+    private boolean negate;
+    private Expression content;
+
+    BasicBoolExpression(Expression content, boolean negate) {
+        this.negate = negate;
+        this.content = content;
+    }
+
     @Override
     public Variable evaluate(){
         //todo
@@ -8,7 +16,7 @@ public class BasicBoolExpression extends Expresion {
     }
 
     @Override
-    public Expresion copy() {
+    public Expression copy() {
         //todo
         return null;
     }

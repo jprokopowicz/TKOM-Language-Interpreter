@@ -1,10 +1,10 @@
 package com.parser.expresion;
 
-public class BasicMathExpression extends Expresion {
+public class BasicMathExpression extends Expression {
     private boolean negate;
-    private Expresion content;
+    private Expression content;
 
-    BasicMathExpression(Expresion content, boolean negate) {
+    BasicMathExpression(Expression content, boolean negate) {
         this.negate = negate;
         this.content = content;
     }
@@ -16,7 +16,7 @@ public class BasicMathExpression extends Expresion {
     }
 
     @Override
-    public Expresion copy() {
+    public Expression copy() {
         //todo
         return null;
     }

@@ -1,14 +1,14 @@
 package com.parser.statement;
 
 import com.parser.Program;
-import com.parser.expresion.Expresion;
+import com.parser.expresion.Expression;
 import com.parser.expresion.Variable;
 
 public class ValueAssigment extends Statement {
     private Variable target;
-    private Expresion value;
+    private Expression value;
 
-    public ValueAssigment(Program program, Statement parent, Variable target, Expresion value){
+    public ValueAssigment(Program program, Statement parent, Variable target, Expression value){
         super(program);
         setParent(parent);
         this.target = target;

@@ -7,11 +7,11 @@ import com.parser.statement.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FunctionCallExpression extends Expresion {
+public class FunctionCallExpression extends Expression {
     private String functionName;
     private Statement parent;
     private Program program;
-    private List<Expresion> arguments;
+    private List<Expression> arguments;
 
     public FunctionCallExpression(String functionName, Statement parent, Program program){
         this.functionName = functionName;
@@ -20,7 +20,7 @@ public class FunctionCallExpression extends Expresion {
         this.arguments = new ArrayList<>();
     }
 
-    public void addArgument(Expresion argument) {
+    public void addArgument(Expression argument) {
         arguments.add(argument);
     }
 
@@ -34,7 +34,7 @@ public class FunctionCallExpression extends Expresion {
     }
 
     @Override
-    public Expresion copy() {
+    public Expression copy() {
         //todo
         return null;
     }

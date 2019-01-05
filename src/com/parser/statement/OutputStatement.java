@@ -1,11 +1,11 @@
 package com.parser.statement;
 
 import com.parser.Program;
-import com.parser.expresion.Expresion;
+import com.parser.expresion.Expression;
 
 public class OutputStatement extends Statement {
-    Expresion outputValue;
-    public OutputStatement(Program program, Statement parent, Expresion outputValue){
+    Expression outputValue;
+    public OutputStatement(Program program, Statement parent, Expression outputValue){
         super(program);
         setParent(parent);
         this.outputValue = outputValue;

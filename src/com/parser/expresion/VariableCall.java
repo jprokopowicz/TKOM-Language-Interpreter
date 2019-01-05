@@ -2,7 +2,7 @@ package com.parser.expresion;
 
 import com.parser.statement.Statement;
 
-public class VariableCall extends Expresion {
+public class VariableCall extends Expression {
     private String variableName;
     private Statement parent;
 
@@ -17,7 +17,7 @@ public class VariableCall extends Expresion {
     }
 
     @Override
-    public Expresion copy() {
+    public Expression copy() {
         //todo
         return null;
     }

@@ -21,7 +21,7 @@ public class BoolVariable extends Variable {
     }
 
     @Override
-    public Expresion copy() {
+    public Expression copy() {
         //todo
         return null;
     }

@@ -3,7 +3,7 @@ package com.parser.expresion;
 import java.util.HashMap;
 import java.util.Map;
 
-abstract public class Variable extends Expresion {
+abstract public class Variable extends Expression {
     public enum Type {
         number_,
         bool_,

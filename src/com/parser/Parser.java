@@ -282,7 +282,7 @@ public class Parser {
         Variable target = statement.getVariable(nameToken.getValue());
         if(target == null)
             throw new UnknownNameException(nameToken);
-        Expresion value;
+        Expression value;
         switch (target.getType()) {
             case number_:
                 value = parseMathExpression(statement);
@@ -351,7 +351,7 @@ public class Parser {
     }
 
     void parseWriteExpression(Statement statement) throws ParseException {
-        Expresion outputExpression;
+        Expression outputExpression;
         switch(lexer.readNextToken().getType()) {
             case number_:
                 lexer.readNextToken();
@@ -381,7 +381,7 @@ public class Parser {
 
         lexer.readNextToken();
         Function function = (Function)currerntStatement;
-        Expresion value;
+        Expression value;
         switch (function.getReturnType()) {
             case number_:
                 value = parseMathExpression(statement);

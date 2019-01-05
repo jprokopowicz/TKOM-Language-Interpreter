@@ -3,7 +3,7 @@ package com.parser.expresion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MathExpression extends Expresion {
+public class MathExpression extends Expression {
     public enum AdditionOperator {
         add,
         substract,
@@ -32,7 +32,7 @@ public class MathExpression extends Expresion {
     }
 
     @Override
-    public Expresion copy() {
+    public Expression copy() {
         //todo
         return null;
     }

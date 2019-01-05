@@ -1,11 +1,7 @@
 package com.parser.statement;
 
 import com.parser.Program;
-import com.parser.expresion.Expresion;
 import com.parser.expresion.FunctionCallExpression;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class FunctionCallStatement extends Statement {
     private FunctionCallExpression functionCallExpression;

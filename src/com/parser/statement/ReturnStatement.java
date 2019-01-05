@@ -1,13 +1,12 @@
 package com.parser.statement;
 
 import com.parser.Program;
-import com.parser.expresion.Expresion;
-import com.parser.expresion.Variable;
+import com.parser.expresion.Expression;
 
 public class ReturnStatement extends Statement {
-    private Expresion value;
+    private Expression value;
 
-    public ReturnStatement(Program program, Statement parent, Expresion value){
+    public ReturnStatement(Program program, Statement parent, Expression value){
         super(program);
         setParent(parent);
         this.value = value;

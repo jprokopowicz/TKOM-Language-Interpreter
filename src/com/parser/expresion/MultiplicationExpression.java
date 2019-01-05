@@ -3,7 +3,7 @@ package com.parser.expresion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MultiplicationExpression extends Expresion {
+public class MultiplicationExpression extends Expression {
     public enum MultiplicationOperator {
         multiply,
         divide,
@@ -33,7 +33,7 @@ public class MultiplicationExpression extends Expresion {
     }
 
     @Override
-    public Expresion copy() {
+    public Expression copy() {
         //todo
         return null;
     }

@@ -1,6 +1,6 @@
 package com.parser.expresion;
 
-public class BracketExpression extends Expresion {
+public class BracketExpression extends Expression {
     private MathExpression content;
 
     BracketExpression(MathExpression content) {
@@ -14,7 +14,7 @@ public class BracketExpression extends Expresion {
     }
 
     @Override
-    public Expresion copy() {
+    public Expression copy() {
         //todo
         return null;
     }
