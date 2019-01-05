@@ -13,7 +13,9 @@ public class VariableCall extends Expression {
 
     @Override
     public Variable evaluate() {
-        return parent.getVariable(variableName);
+//        return parent.getVariable(variableName);
+        //todo
+        return null;
     }
 
     @Override

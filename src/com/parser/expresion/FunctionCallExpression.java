@@ -26,11 +26,13 @@ public class FunctionCallExpression extends Expression {
 
     @Override
     public Variable evaluate(){
-        Function function = (Function) program.getFunction(functionName).copy();
-        //TODO
-        function.setParent(parent);
-        function.execute();
-        return function.getReturnValue();
+//        Function function = (Function) program.getFunction(functionName).copy();
+//        TODO
+//        function.setParent(parent);
+//        function.execute();
+//        return function.getReturnValue();
+        //todo
+        return null;
     }
 
     @Override

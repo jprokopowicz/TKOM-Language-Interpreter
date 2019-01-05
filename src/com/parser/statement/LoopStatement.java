@@ -4,7 +4,7 @@ import com.parser.Program;
 import com.parser.expresion.BooleanExpression;
 
 public class LoopStatement extends Statement {
-    BooleanExpression condition;
+    private BooleanExpression condition;
 
     public LoopStatement(Program program, Statement parent) {
         super(program);
@@ -17,12 +17,12 @@ public class LoopStatement extends Statement {
 
     @Override
     public void execute() {
-
+        //todo
     }
 
     @Override
     public Statement copy() {
-        //todo: implement
+        //todo
         return null;
     }
 }

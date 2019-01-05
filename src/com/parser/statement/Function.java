@@ -55,13 +55,15 @@ public class Function extends Statement {
 
     @Override
     public void execute() {
-        //todo: run function
+        //todo
     }
 
     @Override
     public Statement copy() throws TypeNotPresentException {
-        Function newFunction = new Function(this.returnType, this.name, this.program);
-        newFunction.copyInternals(this);
-        return newFunction;
+//        Function newFunction = new Function(this.returnType, this.name, this.program);
+//        newFunction.copyInternals(this);
+//        return newFunction;
+        //todo
+        return null;
     }
 }

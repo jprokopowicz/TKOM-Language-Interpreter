@@ -4,7 +4,7 @@ import com.parser.Program;
 import com.parser.expresion.Expression;
 
 public class OutputStatement extends Statement {
-    Expression outputValue;
+    private Expression outputValue;
     public OutputStatement(Program program, Statement parent, Expression outputValue){
         super(program);
         setParent(parent);
@@ -13,12 +13,12 @@ public class OutputStatement extends Statement {
 
     @Override
     public void execute(){
-
+        //todo
     }
 
     @Override
     public Statement copy() {
-        //todo: implement
+        //todo
         return null;
     }
 }

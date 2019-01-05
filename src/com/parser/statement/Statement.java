@@ -58,19 +58,20 @@ abstract public class Statement {
     public abstract Statement copy();
 
     void copyInternals(Statement statement) {
-        this.program = statement.program;
-        this.parent = statement.parent;
-        for (Map.Entry localVariable : statement.localVariables.entrySet()) {
-            Variable variable;
-            if(localVariable instanceof NumberVariable)
-                variable = new NumberVariable((NumberVariable) localVariable);
-            else if (localVariable instanceof BoolVariable)
-                variable = new BoolVariable((BoolVariable) localVariable);
-            else //StringVariable
-                variable = new StringVariable((StringVariable) localVariable);
-            this.localVariables.put((String) localVariable.getKey(),variable);
-        }
-        for (Statement innerStatement : innerStatements)
-            this.innerStatements.add(innerStatement.copy());
+        //todo: make sure that objects are copied and not just references
+//        this.program = statement.program;
+//        this.parent = statement.parent;
+//        for (Map.Entry localVariable : statement.localVariables.entrySet()) {
+//            Variable variable;
+//            if(localVariable instanceof NumberVariable)
+//                variable = new NumberVariable((NumberVariable) localVariable);
+//            else if (localVariable instanceof BoolVariable)
+//                variable = new BoolVariable((BoolVariable) localVariable);
+//            else //StringVariable
+//                variable = new StringVariable((StringVariable) localVariable);
+//            this.localVariables.put((String) localVariable.getKey(),variable);
+//        }
+//        for (Statement innerStatement : innerStatements)
+//            this.innerStatements.add(innerStatement.copy());
     }
 }
