@@ -7,6 +7,11 @@ public class StringVariable extends Variable {
         type = Type.string_;
     }
 
+    public StringVariable(StringVariable stringVariable) {
+        this.message = stringVariable.message;
+        type = Type.string_;
+    }
+
     public String getMessage() {
         return message;
     }

@@ -15,6 +15,12 @@ public class NumberVariable extends Variable {
         setValue(integer,nominator,denominator);
     }
 
+    public NumberVariable(NumberVariable numberVariable) {
+        this.nominator = numberVariable.nominator;
+        this.denominator = numberVariable.denominator;
+        this.type = Type.number_;
+    }
+
     public int getNominator() {
         return nominator;
     }
