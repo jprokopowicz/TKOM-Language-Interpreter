@@ -47,6 +47,8 @@ public class Token {
         colon_,
         open_bracket_,
         close_bracket_,
+        open_comparison_,
+        close_comparison_,
         open_scope_,
         close_scope_,
         plus_,
@@ -93,6 +95,8 @@ public class Token {
         tokenNames.put(Type.colon_,"colon_");
         tokenNames.put(Type.open_bracket_,"open_bracket_");
         tokenNames.put(Type.close_bracket_,"close_bracket_");
+        tokenNames.put(Type.open_comparison_,"open_comparison_");
+        tokenNames.put(Type.close_comparison_,"close_comparison_");
         tokenNames.put(Type.open_scope_,"open_scope_");
         tokenNames.put(Type.close_scope_,"close_scope_");
         tokenNames.put(Type.plus_,"plus_");

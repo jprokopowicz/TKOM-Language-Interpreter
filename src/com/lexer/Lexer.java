@@ -14,11 +14,14 @@ public class Lexer {
     private Position tokenPosition;
     private StringBuilder buffer;
 
+    private boolean ignoreComment;
+
     public Lexer(ByteReader reader) {
         this.reader = reader;
         token = new Token(Token.Type.invalid_, "",  new Position());
         tokenPosition = new Position();
         buffer = new StringBuilder();
+        ignoreComment = true;
     }
 
     /**
@@ -34,27 +37,46 @@ public class Lexer {
      * @return Read token.
      */
     public Token readNextToken() {
-        try {
-            skipWhiteSigns();
 
-            tokenPosition = new Position(reader.getPosition());
-            buffer = new StringBuilder();
+        do {
+            try {
+                skipWhiteSigns();
 
-            char sign = reader.lookUpByte();
-            if (Character.isAlphabetic(sign) || sign == '_') {
-                defineKeywordOrIdentifier();
-            } else if (Character.isDigit(sign)) {
-                defineNumericLiteral();
-            } else {
-                defineSpecialSignOrString();
+                tokenPosition = new Position(reader.getPosition());
+                buffer = new StringBuilder();
+
+                char sign = reader.lookUpByte();
+                if (Character.isAlphabetic(sign) || sign == '_') {
+                    defineKeywordOrIdentifier();
+                } else if (Character.isDigit(sign)) {
+                    defineNumericLiteral();
+                } else {
+                    defineSpecialSignOrString();
+                }
+
+            } catch (EndOfBytesException exc) {
+                token = new Token(Token.Type.end_of_bytes_, "", reader.getPosition());
+            } catch (IOException exc) {
+                token = new Token(Token.Type.invalid_, "", tokenPosition);
             }
-
-        } catch (EndOfBytesException exc){
-            token = new Token(Token.Type.end_of_bytes_,"",reader.getPosition());
-        } catch (IOException exc) {
-            token = new Token(Token.Type.invalid_, "",tokenPosition);
-        }
+        } while (ignoreComment && token.getType() == Token.Type.comment_);
         return token;
+    }
+
+    /**
+     * Check if the lexer ignores all the comment tokens
+     * @return current ignoring state
+     */
+    public boolean isIgnoreComment() {
+        return ignoreComment;
+    }
+
+    /**
+     * Sets ignoring token
+     * @param ignoreComment new value
+     */
+    public void setIgnoreComment(boolean ignoreComment) {
+        this.ignoreComment = ignoreComment;
     }
 
     /**
@@ -179,6 +201,12 @@ public class Lexer {
                     break;
                 case ')':
                     tokenType = Token.Type.close_bracket_;
+                    break;
+                case '[':
+                    tokenType = Token.Type.open_comparison_;
+                    break;
+                case ']':
+                    tokenType = Token.Type.close_comparison_;
                     break;
                 case '{':
                     tokenType = Token.Type.open_scope_;

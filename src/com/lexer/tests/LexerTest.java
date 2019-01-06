@@ -328,6 +328,34 @@ class LexerTest {
     }
 
     @Test
+    void readNextTokenOpen_comparison_(){
+        inputCode = "[";
+        Lexer lexer = preperLexer(inputCode);
+
+        Token token = lexer.readNextToken();
+        assertEquals(Token.Type.open_comparison_,token.getType());
+        assertEquals(inputCode,token.getValue());
+
+        token = lexer.getToken();
+        assertEquals(Token.Type.open_comparison_,token.getType());
+        assertEquals(inputCode,token.getValue());
+    }
+
+    @Test
+    void readNextTokenClose_comparison_(){
+        inputCode = "]";
+        Lexer lexer = preperLexer(inputCode);
+
+        Token token = lexer.readNextToken();
+        assertEquals(Token.Type.close_comparison_,token.getType());
+        assertEquals(inputCode,token.getValue());
+
+        token = lexer.getToken();
+        assertEquals(Token.Type.close_comparison_,token.getType());
+        assertEquals(inputCode,token.getValue());
+    }
+
+    @Test
     void readNextTokenOpen_scope_(){
         inputCode = "{";
         Lexer lexer = preperLexer(inputCode);
@@ -555,6 +583,7 @@ class LexerTest {
     void readNextTokenComment_(){
         inputCode = "/*comment*/ more code";
         Lexer lexer = preperLexer(inputCode);
+        lexer.setIgnoreComment(false);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.comment_,token.getType());
@@ -569,6 +598,7 @@ class LexerTest {
     void readNextTokenNotEndedComment_(){
         inputCode = "/*comment more code";
         Lexer lexer = preperLexer(inputCode);
+        lexer.setIgnoreComment(false);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.invalid_,token.getType());
@@ -577,6 +607,34 @@ class LexerTest {
         token = lexer.getToken();
         assertEquals(Token.Type.invalid_,token.getType());
         assertEquals("/*comment more code",token.getValue());
+    }
+
+    @Test
+    void readNextTokenIgnoreComment_(){
+        inputCode = "/*comment*/ identifier";
+        Lexer lexer = preperLexer(inputCode);
+
+        Token token = lexer.readNextToken();
+        assertEquals(Token.Type.identifier_,token.getType());
+        assertEquals("identifier",token.getValue());
+
+        token = lexer.getToken();
+        assertEquals(Token.Type.identifier_,token.getType());
+        assertEquals("identifier",token.getValue());
+    }
+
+    @Test
+    void readNextTokenIgnoreCommentAtEnd_(){
+        inputCode = "/*comment*/";
+        Lexer lexer = preperLexer(inputCode);
+
+        Token token = lexer.readNextToken();
+        assertEquals(Token.Type.end_of_bytes_,token.getType());
+        assertEquals("",token.getValue());
+
+        token = lexer.getToken();
+        assertEquals(Token.Type.end_of_bytes_,token.getType());
+        assertEquals("",token.getValue());
     }
 
     @Test
