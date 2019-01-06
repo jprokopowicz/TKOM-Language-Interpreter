@@ -1,7 +1,7 @@
 package com.parser.expresion;
 
-public class CompersonExpression extends Expression {
-    public enum CompersonOperator {
+public class ComparisonExpression extends Expression {
+    public enum ComparisonOperator {
         equal,
         notEqual,
         greater,
@@ -12,9 +12,9 @@ public class CompersonExpression extends Expression {
 
     private Expression left;
     private Expression right;
-    private CompersonOperator operator;
+    private ComparisonOperator operator;
 
-    public CompersonExpression(Expression left, Expression right, CompersonOperator operator) {
+    public ComparisonExpression(Expression left, Expression right, ComparisonOperator operator) {
         this.left = left;
         this.right = right;
         this.operator = operator;

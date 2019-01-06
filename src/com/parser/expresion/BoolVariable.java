@@ -7,6 +7,11 @@ public class BoolVariable extends Variable {
         type = Type.bool_;
     }
 
+    public BoolVariable(boolean value) {
+        this.value = value;
+        type = Type.bool_;
+    }
+
     public BoolVariable(BoolVariable boolVariable) {
         this.value = boolVariable.value;
         type = Type.bool_;

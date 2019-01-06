@@ -4,7 +4,7 @@ public class BasicBoolExpression extends Expression {
     private boolean negate;
     private Expression content;
 
-    BasicBoolExpression(Expression content, boolean negate) {
+    public BasicBoolExpression(Expression content, boolean negate) {
         this.negate = negate;
         this.content = content;
     }

@@ -3,7 +3,7 @@ package com.parser.expresion;
 public class BracketExpression extends Expression {
     private MathExpression content;
 
-    BracketExpression(MathExpression content) {
+    public BracketExpression(MathExpression content) {
         this.content = content;
     }
 
