@@ -392,7 +392,7 @@ public class Parser {
             variableOrFunctionCall = parseValueAssignment(nameToken, statement);
         } else
             throw new UnexpectedToken(lexer.getToken());
-//        statement.addStatement(variableOrFunctionCall);
+        variableOrFunctionCall.setParent(statement);
         return variableOrFunctionCall;
     }
 
@@ -451,18 +451,22 @@ public class Parser {
             default:
                 throw new ParseException("Unexpected parser error.",lexer.getToken());
         }
-        return new ValueAssigment(program,statement,nameToken.getValue(),value);
+        ValueAssigment valueAssigment = new ValueAssigment(program,statement,nameToken.getValue(),value);
+        valueAssigment .setParent(statement);
+        return valueAssigment;
     }
 
     void parseIfExpression(Statement statement) throws ParseException {
         lexer.readNextToken();
         IfStatement ifStatement = new IfStatement(program,statement);
+        ifStatement.setParent(statement);
         parseConditionAndAdd(statement,ifStatement);
         lexer.readNextToken();
         parseScope(ifStatement);
 
         if(lexer.readNextToken().getType() == Token.Type.else_){
             IfStatement elseStatement = new IfStatement(program,statement);
+            elseStatement.setParent(statement);
             elseStatement.setCondition(null);
             parseScope(elseStatement);
             ifStatement.setElseStatement(elseStatement);
@@ -475,6 +479,7 @@ public class Parser {
     void parseLoopExpression(Statement statement) throws ParseException {
         lexer.readNextToken();
         LoopStatement loopStatement = new LoopStatement(program,statement);
+        loopStatement.setParent(statement);
         parseConditionAndAdd(statement,loopStatement);
         lexer.readNextToken();
         parseScope(loopStatement);
@@ -500,8 +505,10 @@ public class Parser {
         if(target == null)
             throw new UnknownNameException(lexer.getToken());
         InputStatement inputStatement = new InputStatement(program,statement,target);
+        inputStatement.setParent(statement);
         lexer.readNextToken();
         acceptTokenTypeOrThrow(Token.Type.semicolon_);
+        statement.addStatement(inputStatement);
     }
 
     void parseWriteExpression(Statement statement) throws ParseException {
@@ -522,7 +529,10 @@ public class Parser {
             default:
                 throw new UnexpectedToken(lexer.getToken());
         }
-        statement.addStatement(new OutputStatement(program,statement,outputExpression));
+        acceptTokenTypeOrThrow(Token.Type.semicolon_);
+        OutputStatement outputStatement = new OutputStatement(program,statement,outputExpression);
+        outputStatement.setParent(statement);
+        statement.addStatement(outputStatement);
     }
 
     void parseReturnExpression(Statement statement) throws ParseException {
@@ -553,7 +563,9 @@ public class Parser {
             default:
                 throw new ParseException("Invalid return type", lexer.getToken());
         }
-        statement.addStatement(new ReturnStatement(program, statement, value));
+        ReturnStatement returnStatement = new ReturnStatement(program, statement, value);
+        returnStatement.setParent(statement);
+        statement.addStatement(returnStatement);
         lexer.readNextToken();
         acceptTokenTypeOrThrow(Token.Type.semicolon_);
     }
