@@ -7,7 +7,7 @@ public class ReturnStatement extends Statement {
     private Expression value;
 
     public ReturnStatement(Program program, Statement parent, Expression value){
-        super(program);
+        super(program, false);
         setParent(parent);
         this.value = value;
     }

@@ -7,7 +7,7 @@ public class FunctionCallStatement extends Statement {
     private FunctionCallExpression functionCallExpression;
 
     public FunctionCallStatement(Program program, Statement parent,FunctionCallExpression functionCallExpression) {
-        super(program);
+        super(program,false);
         setParent(parent);
         this.functionCallExpression = functionCallExpression;
     }

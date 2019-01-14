@@ -7,7 +7,7 @@ public class LoopStatement extends Statement {
     private BooleanExpression condition;
 
     public LoopStatement(Program program, Statement parent) {
-        super(program);
+        super(program, true);
         setParent(parent);
     }
 

@@ -9,7 +9,6 @@ import javafx.beans.binding.NumberExpression;
 import javafx.util.Pair;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 
@@ -474,7 +473,7 @@ public class Parser {
         return functionCallExpression;
     }
 
-    ValueAssigment parseValueAssignment(Token nameToken, Statement statement) throws  ParseException {
+    ValueAssignment parseValueAssignment(Token nameToken, Statement statement) throws  ParseException {
         lexer.readNextToken();
         Variable target = statement.getVariable(nameToken.getValue());
         if(target == null)
@@ -494,9 +493,9 @@ public class Parser {
             default:
                 throw new ParseException("Unexpected parser error.",lexer.getToken());
         }
-        ValueAssigment valueAssigment = new ValueAssigment(program,statement,nameToken.getValue(),value);
-        valueAssigment .setParent(statement);
-        return valueAssigment;
+        ValueAssignment valueAssignment = new ValueAssignment(program,statement,nameToken.getValue(),value);
+        valueAssignment.setParent(statement);
+        return valueAssignment;
     }
 
     void parseIfExpression(Statement statement) throws ParseException {

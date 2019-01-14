@@ -7,7 +7,7 @@ public class IfStatement extends Statement {
     private BooleanExpression condition = null;
     private IfStatement elseStatement = null;
     public IfStatement(Program program, Statement parent){
-        super(program);
+        super(program,true);
         setParent(parent);
     }
 

@@ -36,7 +36,7 @@ public class Function extends Statement {
     public List<String> argumentsNames;
 
     public Function(Return returnType, String name, Program program) {
-        super(program);
+        super(program,true);
         this.name = name;
         this.returnType = returnType;
         argumentsNames = new LinkedList<>();

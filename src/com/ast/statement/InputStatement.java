@@ -6,7 +6,7 @@ import com.ast.expresion.Variable;
 public class InputStatement extends Statement {
     private Variable target;
     public InputStatement(Program program, Statement parent, Variable target){
-        super(program);
+        super(program, false);
         setParent(parent);
         this.target = target;
     }

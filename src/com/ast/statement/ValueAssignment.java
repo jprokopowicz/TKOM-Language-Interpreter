@@ -3,12 +3,12 @@ package com.ast.statement;
 import com.ast.Program;
 import com.ast.expresion.Expression;
 
-public class ValueAssigment extends Statement {
+public class ValueAssignment extends Statement {
     private String targetName;
     private Expression value;
 
-    public ValueAssigment(Program program, Statement parent, String targetName, Expression value){
-        super(program);
+    public ValueAssignment(Program program, Statement parent, String targetName, Expression value){
+        super(program, false);
         setParent(parent);
         this.targetName = targetName;
         this.value = value;

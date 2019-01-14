@@ -5,27 +5,32 @@ import com.ast.expresion.Variable;
 import java.util.*;
 
 abstract public class Statement {
-    protected Map <String,Variable> localVariables;
-    protected List <Statement> innerStatements;
+    protected Map <String,Variable> localVariables = null;
+    protected List <Statement> innerStatements = null;
     protected Statement parent = null;
     protected Program program;
 
-    public Statement(Program program){
+    public Statement(Program program, boolean isScope){
         this.program = program;
-        localVariables = new HashMap<>();
-        innerStatements = new LinkedList<>();
+        if(isScope) {
+            localVariables = new HashMap<>();
+            innerStatements = new LinkedList<>();
+        }
     }
 
     public void addVariable(String name, Variable variable) {
-        localVariables.put(name,variable);
+        if (localVariables != null)
+            localVariables.put(name,variable);
     }
 
     public Variable getLocalVariable(String name) {
-        return localVariables.get(name);
+        if (localVariables != null)
+            return localVariables.get(name);
+        return null;
     }
 
     public Variable getVariable(String name) {
-        if(localVariables.get(name) != null)
+        if (localVariables != null && localVariables.get(name) != null)
             return localVariables.get(name);
 
         Statement currentStatement = parent;
@@ -41,7 +46,8 @@ abstract public class Statement {
     }
 
     public void addStatement(Statement newStatment) {
-        innerStatements.add(newStatment);
+        if (innerStatements != null)
+            innerStatements.add(newStatment);
     }
 
     public void setParent(Statement parent) {
