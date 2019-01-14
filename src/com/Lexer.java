@@ -1,7 +1,7 @@
 package com;
 
-import com.ByteReader.ByteReader;
-import com.ByteReader.EndOfBytesException;
+import com.byteReader.ByteReader;
+import com.byteReader.EndOfBytesException;
 
 import java.io.IOException;
 

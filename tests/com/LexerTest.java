@@ -1,7 +1,6 @@
-import com.Lexer;
-import com.Position;
-import com.ByteReader.StreamReader;
-import com.Token;
+package com;
+
+import com.byteReader.StreamReader;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,3 +1,5 @@
+package com;
+
 import com.Position;
 import com.Token;
 import org.junit.jupiter.api.Test;

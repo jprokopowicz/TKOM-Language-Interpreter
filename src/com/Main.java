@@ -1,6 +1,6 @@
 package com;
 
-import com.ByteReader.StreamReader;
+import com.byteReader.StreamReader;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

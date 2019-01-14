@@ -1,4 +1,4 @@
-package com.ByteReader;
+package com.byteReader;
 
 import com.Position;
 

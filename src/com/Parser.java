@@ -1,7 +1,7 @@
 package com;
 
 import com.ast.Program;
-import com.ByteReader.ByteReader;
+import com.byteReader.ByteReader;
 import com.ast.expresion.*;
 import com.parseException.*;
 import com.ast.statement.*;
