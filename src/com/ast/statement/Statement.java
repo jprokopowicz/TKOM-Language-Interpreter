@@ -20,7 +20,14 @@ abstract public class Statement {
         localVariables.put(name,variable);
     }
 
+    public Variable getLocalVariable(String name) {
+        return localVariables.get(name);
+    }
+
     public Variable getVariable(String name) {
+        if(localVariables.get(name) != null)
+            return localVariables.get(name);
+
         Statement currentStatement = parent;
         Variable variable = null;
         while (currentStatement != null) {

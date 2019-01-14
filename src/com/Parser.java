@@ -153,7 +153,7 @@ public class Parser {
     }
 
     void addVariable(Pair<Token,Variable> newVariable, Statement statement) throws ParseException{
-        if (statement.getVariable(newVariable.getKey().getValue()) != null)
+        if (statement.getLocalVariable(newVariable.getKey().getValue()) != null)
             throw new DuplicationException(newVariable.getKey());
         statement.addVariable(newVariable.getKey().getValue(),newVariable.getValue());
     }
@@ -410,6 +410,9 @@ public class Parser {
 
     StringVariable parseStringExpression(Statement statement) throws ParseException {
         if(lexer.getToken().getType() == Token.Type.identifier_) {
+            if (statement.getVariable(lexer.getToken().getValue()) == null)
+                throw new UnknownNameException(lexer.getToken());
+
             Variable variable = statement.getVariable(lexer.getToken().getValue());
             if(!(variable instanceof StringVariable))
                 throw new TypeException("string", lexer.getToken());
