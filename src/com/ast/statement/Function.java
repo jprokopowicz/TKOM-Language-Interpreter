@@ -1,7 +1,7 @@
-package com.parser.statement;
+package com.ast.statement;
 
-import com.parser.Program;
-import com.parser.expresion.Variable;
+import com.ast.Program;
+import com.ast.expresion.Variable;
 
 import java.util.HashMap;
 import java.util.LinkedList;

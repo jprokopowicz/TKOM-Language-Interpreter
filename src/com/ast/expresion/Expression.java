@@ -1,4 +1,4 @@
-package com.parser.expresion;
+package com.ast.expresion;
 
 abstract public class Expression {
     public abstract Variable evaluate();

@@ -1,6 +1,6 @@
-package com.parser;
+package com.ast;
 
-import com.parser.statement.Function;
+import com.ast.statement.Function;
 
 import java.util.HashMap;
 import java.util.Map;

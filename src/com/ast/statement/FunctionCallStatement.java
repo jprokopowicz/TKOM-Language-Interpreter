@@ -1,7 +1,7 @@
-package com.parser.statement;
+package com.ast.statement;
 
-import com.parser.Program;
-import com.parser.expresion.FunctionCallExpression;
+import com.ast.Program;
+import com.ast.expresion.FunctionCallExpression;
 
 public class FunctionCallStatement extends Statement {
     private FunctionCallExpression functionCallExpression;

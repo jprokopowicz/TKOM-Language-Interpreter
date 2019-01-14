@@ -1,11 +1,12 @@
 package com.parser;
 
+import com.ast.Program;
 import com.lexer.ByteReader.ByteReader;
 import com.lexer.Lexer;
 import com.lexer.Token;
-import com.parser.expresion.*;
+import com.ast.expresion.*;
 import com.parser.parseException.*;
-import com.parser.statement.*;
+import com.ast.statement.*;
 import javafx.beans.binding.NumberExpression;
 import javafx.util.Pair;
 

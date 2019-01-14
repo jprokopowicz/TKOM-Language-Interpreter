@@ -1,6 +1,6 @@
-package com.parser.expresion;
+package com.ast.expresion;
 
-import com.parser.statement.Statement;
+import com.ast.statement.Statement;
 
 public class VariableCall extends Expression {
     private String variableName;

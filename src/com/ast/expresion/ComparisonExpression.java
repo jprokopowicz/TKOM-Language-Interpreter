@@ -1,4 +1,4 @@
-package com.parser.expresion;
+package com.ast.expresion;
 
 public class ComparisonExpression extends Expression {
     public enum ComparisonOperator {

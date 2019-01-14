@@ -1,4 +1,4 @@
-package com.parser.expresion;
+package com.ast.expresion;
 
 public class BasicMathExpression extends Expression {
     private boolean negate;

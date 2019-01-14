@@ -1,7 +1,7 @@
-package com.parser.statement;
+package com.ast.statement;
 
-import com.parser.Program;
-import com.parser.expresion.Expression;
+import com.ast.Program;
+import com.ast.expresion.Expression;
 
 public class ReturnStatement extends Statement {
     private Expression value;

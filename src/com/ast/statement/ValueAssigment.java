@@ -1,8 +1,7 @@
-package com.parser.statement;
+package com.ast.statement;
 
-import com.parser.Program;
-import com.parser.expresion.Expression;
-import com.parser.expresion.Variable;
+import com.ast.Program;
+import com.ast.expresion.Expression;
 
 public class ValueAssigment extends Statement {
     private String targetName;

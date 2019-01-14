@@ -1,7 +1,7 @@
-package com.parser.statement;
+package com.ast.statement;
 
-import com.parser.Program;
-import com.parser.expresion.BooleanExpression;
+import com.ast.Program;
+import com.ast.expresion.BooleanExpression;
 
 public class IfStatement extends Statement {
     private BooleanExpression condition = null;

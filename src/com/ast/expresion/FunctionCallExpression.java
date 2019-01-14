@@ -1,8 +1,7 @@
-package com.parser.expresion;
+package com.ast.expresion;
 
-import com.parser.statement.Function;
-import com.parser.Program;
-import com.parser.statement.Statement;
+import com.ast.Program;
+import com.ast.statement.Statement;
 
 import java.util.ArrayList;
 import java.util.List;

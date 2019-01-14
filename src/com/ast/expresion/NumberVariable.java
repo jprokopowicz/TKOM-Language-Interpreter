@@ -1,4 +1,4 @@
-package com.parser.expresion;
+package com.ast.expresion;
 
 public class NumberVariable extends Variable {
     private int nominator;

@@ -1,9 +1,6 @@
-package com.parser.statement;
-import com.parser.Program;
-import com.parser.expresion.BoolVariable;
-import com.parser.expresion.NumberVariable;
-import com.parser.expresion.StringVariable;
-import com.parser.expresion.Variable;
+package com.ast.statement;
+import com.ast.Program;
+import com.ast.expresion.Variable;
 
 import java.util.*;
 

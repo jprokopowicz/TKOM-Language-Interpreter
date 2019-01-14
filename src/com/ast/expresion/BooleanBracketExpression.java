@@ -1,9 +1,9 @@
-package com.parser.expresion;
+package com.ast.expresion;
 
-public class BracketExpression extends Expression {
-    private MathExpression content;
+public class BooleanBracketExpression extends Expression {
+    private BooleanExpression content;
 
-    public BracketExpression(MathExpression content) {
+    public BooleanBracketExpression(BooleanExpression content) {
         this.content = content;
     }
 
