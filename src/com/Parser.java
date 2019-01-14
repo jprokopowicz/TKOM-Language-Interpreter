@@ -9,6 +9,7 @@ import javafx.beans.binding.NumberExpression;
 import javafx.util.Pair;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -37,14 +38,25 @@ public class Parser {
 
         acceptTokenTypeOrThrow(Token.Type.identifier_);
         String name = lexer.getToken().getValue();
-        if(program.getFunction(name) != null)
-            throw new DuplicationException(lexer.getToken());
-        Function function = new Function(returnType, name, program);
+
+        Function function = program.getFunction(name);
+        if(function != null) {
+            if(function.isDefined())
+                throw new DuplicationException(lexer.getToken());
+        } else {
+            function = new Function(returnType, name, program);
+            function.setDefined(true);
+        }
 
         lexer.readNextToken();
         parseArguments(function);
         lexer.readNextToken();
-        parseScope(function);
+        acceptTokenTypeOrThrow(Arrays.asList(Token.Type.open_scope_, Token.Type.semicolon_));
+        if(lexer.readNextToken().getType() == Token.Type.open_scope_) {
+            parseScope(function);
+            function.setDefined(true);
+        } else //semicolon
+            function.setDefined(false);
         return function;
     }
 
@@ -52,16 +64,46 @@ public class Parser {
         acceptTokenTypeOrThrow(Token.Type.open_bracket_);
         if (lexer.readNextToken().getType() == Token.Type.close_bracket_)
             return;
-        parseAndAddArgument(function);
-        while (lexer.readNextToken().getType() == Token.Type.comma_) {
+        parseAndAddArgument(function, 0);
+        int argNumber;
+        for (argNumber = 1 ; lexer.readNextToken().getType() == Token.Type.comma_ ; ++argNumber) {
             lexer.readNextToken();
-            parseAndAddArgument(function);
+            parseAndAddArgument(function, argNumber);
         }
+        if (argNumber != function.argumentsNames.size())
+            throw new WrongArgumentException(argNumber, lexer.getToken());
         acceptTokenTypeOrThrow(Token.Type.close_bracket_);
     }
 
-    void parseAndAddArgument(Function function) throws ParseException{
+    void parseAndAddArgument(Function function, int argNumber) throws ParseException {
         Pair<Token, Variable> newVariable = parseVariableDeclaration();
+        if (!function.isDefined()) {
+            if (function.argumentsNames.get(argNumber).equals(newVariable.getKey().getValue()) ||
+                    function.getVariable(function.argumentsNames.get(argNumber)) == null)
+                throw new WrongArgumentException(newVariable.getKey());
+            Variable.Type variableType = function.getVariable(function.argumentsNames.get(argNumber)).getType();
+            if (variableType != newVariable.getValue().getType()) {
+                String variableTypeName;
+                switch (variableType) {
+                    case number_:
+                        variableTypeName = "number";
+                        break;
+                    case bool_:
+                        variableTypeName = "bool";
+                        break;
+                    case string_:
+                        variableTypeName = "string";
+                        break;
+                    default:
+                            throw new ParseException("Unexpected parse exception: invalid variable type", lexer.getToken());
+                }
+                throw new TypeException(variableTypeName, newVariable.getKey());
+            }
+        } else
+            addArgument(newVariable,function);
+    }
+
+    void addArgument(Pair<Token,Variable> newVariable, Function function) throws ParseException {
         addVariable(newVariable,function);
         function.argumentsNames.add(newVariable.getKey().getValue());
     }
@@ -396,7 +438,6 @@ public class Parser {
     }
 
     FunctionCallExpression parseFunctionCall(Token nameToken, Statement statement, String type) throws ParseException {
-        //todo: problem with not declared functions to this point
         Function function = program.getFunction(nameToken.getValue());
         if(function == null)
             throw new UnknownNameException(nameToken);
@@ -580,6 +621,12 @@ public class Parser {
                 return;
         }
         throw new UnexpectedToken(lexer.getToken());
+    }
+
+    Token testReadNextToken(){
+        Token token = lexer.getToken();
+        lexer.readNextToken();
+        return token;
     }
 }
 

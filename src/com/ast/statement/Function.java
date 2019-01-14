@@ -31,6 +31,7 @@ public class Function extends Statement {
     private Return returnType;
     private String name;
     private Variable returnValue = null;
+    private boolean defined;
 
     public List<String> argumentsNames;
 
@@ -39,6 +40,7 @@ public class Function extends Statement {
         this.name = name;
         this.returnType = returnType;
         argumentsNames = new LinkedList<>();
+        defined = false;
     }
 
     public Return getReturnType() {
@@ -51,6 +53,14 @@ public class Function extends Statement {
 
     public Variable getReturnValue() {
         return returnValue;
+    }
+
+    public boolean isDefined() {
+        return defined;
+    }
+
+    public void setDefined(boolean defined) {
+        this.defined = defined;
     }
 
     @Override

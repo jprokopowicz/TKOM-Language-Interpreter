@@ -17,7 +17,7 @@ class LexerTest {
 
     private String inputCode;
 
-    private Lexer preperLexer(String testCode) {
+    private Lexer prepareLexer(String testCode) {
         InputStream inputStream = new ByteArrayInputStream(testCode.getBytes());
         return new Lexer(new StreamReader(inputStream));
     }
@@ -33,7 +33,7 @@ class LexerTest {
     @Test
     void getTokenNoReading() {
         inputCode = "";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.getToken();
         assertEquals(Token.Type.invalid_,token.getType());
@@ -45,7 +45,7 @@ class LexerTest {
     @Test
     void readNextTokenEndOfBytes_() {
         inputCode = "";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.end_of_bytes_,token.getType());
@@ -63,7 +63,7 @@ class LexerTest {
     @Test
     void readNextTokenNumber_(){
         inputCode = "number";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.number_,token.getType());
@@ -77,7 +77,7 @@ class LexerTest {
     @Test
     void readNextTokenString_(){
         inputCode = "string";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.string_,token.getType());
@@ -91,7 +91,7 @@ class LexerTest {
     @Test
     void readNextTokenBool_(){
         inputCode = "bool";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.bool_,token.getType());
@@ -105,7 +105,7 @@ class LexerTest {
     @Test
     void readNextTokenTrue_(){
         inputCode = "true";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.true_,token.getType());
@@ -119,7 +119,7 @@ class LexerTest {
     @Test
     void readNextTokenFalse_(){
         inputCode = "false";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.false_,token.getType());
@@ -133,7 +133,7 @@ class LexerTest {
     @Test
     void readNextTokenVoid_(){
         inputCode = "void";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.void_,token.getType());
@@ -147,7 +147,7 @@ class LexerTest {
     @Test
     void readNextTokenReturn_(){
         inputCode = "return";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.return_,token.getType());
@@ -161,7 +161,7 @@ class LexerTest {
     @Test
     void readNextTokenLoop_(){
         inputCode = "loop";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.loop_,token.getType());
@@ -175,7 +175,7 @@ class LexerTest {
     @Test
     void readNextTokenIf_(){
         inputCode = "if";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.if_,token.getType());
@@ -189,7 +189,7 @@ class LexerTest {
     @Test
     void readNextTokenElse_(){
         inputCode = "else";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.else_,token.getType());
@@ -203,7 +203,7 @@ class LexerTest {
     @Test
     void readNextTokenWrite_(){
         inputCode = "write";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.write_,token.getType());
@@ -217,7 +217,7 @@ class LexerTest {
     @Test
     void readNextTokenRead_(){
         inputCode = "read";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.read_,token.getType());
@@ -231,7 +231,7 @@ class LexerTest {
     @Test
     void readNextTokenSemicolon(){
         inputCode = ";";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.semicolon_,token.getType());
@@ -245,7 +245,7 @@ class LexerTest {
     @Test
     void readNextTokenAssign_(){
         inputCode = "=";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.assign_,token.getType());
@@ -259,7 +259,7 @@ class LexerTest {
     @Test
     void readNextTokenComma_(){
         inputCode = ",";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.comma_,token.getType());
@@ -273,7 +273,7 @@ class LexerTest {
     @Test
     void readNextTokenHash_(){
         inputCode = "#";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.hash_,token.getType());
@@ -287,7 +287,7 @@ class LexerTest {
     @Test
     void readNextTokenColon_(){
         inputCode = ":";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.colon_,token.getType());
@@ -301,7 +301,7 @@ class LexerTest {
     @Test
     void readNextTokenOpen_bracket_(){
         inputCode = "(";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.open_bracket_,token.getType());
@@ -315,7 +315,7 @@ class LexerTest {
     @Test
     void readNextTokenClose_bracket_(){
         inputCode = ")";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.close_bracket_,token.getType());
@@ -329,7 +329,7 @@ class LexerTest {
     @Test
     void readNextTokenOpen_comparison_(){
         inputCode = "[";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.open_comparison_,token.getType());
@@ -343,7 +343,7 @@ class LexerTest {
     @Test
     void readNextTokenClose_comparison_(){
         inputCode = "]";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.close_comparison_,token.getType());
@@ -357,7 +357,7 @@ class LexerTest {
     @Test
     void readNextTokenOpen_scope_(){
         inputCode = "{";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.open_scope_,token.getType());
@@ -371,7 +371,7 @@ class LexerTest {
     @Test
     void readNextTokenClose_scope_(){
         inputCode = "}";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.close_scope_,token.getType());
@@ -385,7 +385,7 @@ class LexerTest {
     @Test
     void readNextTokenPlus_(){
         inputCode = "+";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.plus_,token.getType());
@@ -399,7 +399,7 @@ class LexerTest {
     @Test
     void readNextTokenMinus_(){
         inputCode = "-";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.minus_,token.getType());
@@ -413,7 +413,7 @@ class LexerTest {
     @Test
     void readNextTokenStar_(){
         inputCode = "*";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.star_,token.getType());
@@ -427,7 +427,7 @@ class LexerTest {
     @Test
     void readNextTokenSlash_(){
         inputCode = "/";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.slash_,token.getType());
@@ -441,7 +441,7 @@ class LexerTest {
     @Test
     void readNextTokenModulo_(){
         inputCode = "%";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.modulo_,token.getType());
@@ -455,7 +455,7 @@ class LexerTest {
     @Test
     void readNextTokenOr_(){
         inputCode = "|";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.or_,token.getType());
@@ -469,7 +469,7 @@ class LexerTest {
     @Test
     void readNextTokenAnd_(){
         inputCode = "&";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.and_,token.getType());
@@ -483,7 +483,7 @@ class LexerTest {
     @Test
     void readNextTokenNot_(){
         inputCode = "!";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.not_,token.getType());
@@ -497,7 +497,7 @@ class LexerTest {
     @Test
     void readNextTokenGreater_(){
         inputCode = ">";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.greater_,token.getType());
@@ -511,7 +511,7 @@ class LexerTest {
     @Test
     void readNextTokenGreater_equal_(){
         inputCode = ">=";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.greater_equal_,token.getType());
@@ -525,7 +525,7 @@ class LexerTest {
     @Test
     void readNextTokenLesser_(){
         inputCode = "<";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.lesser_,token.getType());
@@ -539,7 +539,7 @@ class LexerTest {
     @Test
     void readNextTokenLesser_equal_(){
         inputCode = "<=";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.lesser_equal_,token.getType());
@@ -553,7 +553,7 @@ class LexerTest {
     @Test
     void readNextTokenEqual_(){
         inputCode = "==";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.equal_,token.getType());
@@ -567,7 +567,7 @@ class LexerTest {
     @Test
     void readNextTokenNot_equal_(){
         inputCode = "!=";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.not_equal_,token.getType());
@@ -581,7 +581,7 @@ class LexerTest {
     @Test
     void readNextTokenComment_(){
         inputCode = "/*comment*/ more code";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
         lexer.setIgnoreComment(false);
 
         Token token = lexer.readNextToken();
@@ -596,7 +596,7 @@ class LexerTest {
     @Test
     void readNextTokenNotEndedComment_(){
         inputCode = "/*comment more code";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
         lexer.setIgnoreComment(false);
 
         Token token = lexer.readNextToken();
@@ -611,7 +611,7 @@ class LexerTest {
     @Test
     void readNextTokenIgnoreComment_(){
         inputCode = "/*comment*/ identifier";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.identifier_,token.getType());
@@ -625,7 +625,7 @@ class LexerTest {
     @Test
     void readNextTokenIgnoreCommentAtEnd_(){
         inputCode = "/*comment*/";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.end_of_bytes_,token.getType());
@@ -639,7 +639,7 @@ class LexerTest {
     @Test
     void readNextTokenSpecialCaseComment_(){
         inputCode = "/*comment*";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.invalid_,token.getType());
@@ -653,7 +653,7 @@ class LexerTest {
     @Test
     void readNextTokenIdentifier_(){
         inputCode = "someFunctionOrVariableName";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.identifier_,token.getType());
@@ -667,7 +667,7 @@ class LexerTest {
     @Test
     void readNextTokenIdentifier_WithDigits(){
         inputCode = "someFunctionOrVariableName123";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.identifier_,token.getType());
@@ -681,7 +681,7 @@ class LexerTest {
     @Test
     void readNextTokenNumberZero(){
         inputCode = "0";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.number_expression_,token.getType());
@@ -695,7 +695,7 @@ class LexerTest {
     @Test
     void readNextTokenNumberWrongZero(){
         inputCode = "0123";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.invalid_,token.getType());
@@ -709,7 +709,7 @@ class LexerTest {
     @Test
     void readNextTokenCorrectNumber(){
         inputCode = "123";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.number_expression_,token.getType());
@@ -723,7 +723,7 @@ class LexerTest {
     @Test
     void readNextTokenNumberLastletter(){
         inputCode = "123a";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.invalid_,token.getType());
@@ -737,7 +737,7 @@ class LexerTest {
     @Test
     void readNextTokenNumberSomeLetters(){
         inputCode = "123abc";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.invalid_,token.getType());
@@ -751,7 +751,7 @@ class LexerTest {
     @Test
     void readNextTokenStringCorrect(){
         inputCode = "\"Example string\" more code ";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.string_expression_,token.getType());
@@ -765,7 +765,7 @@ class LexerTest {
     @Test
     void readNextTokenStringUnfinished(){
         inputCode = "\"Example string more code";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.invalid_,token.getType());
@@ -779,7 +779,7 @@ class LexerTest {
     @Test
     void readNextTokenStringWithEscape(){
         inputCode = "\"Example \\\"string\"";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.string_expression_,token.getType());
@@ -793,7 +793,7 @@ class LexerTest {
     @Test
     void readNextTokenStringUnfinishedSpecialCase(){
         inputCode = "\"Example string\\";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.invalid_,token.getType());
         assertEquals(inputCode,token.getValue());
@@ -806,7 +806,7 @@ class LexerTest {
     @Test
     void readNextTokenUnknownSign(){
         inputCode = "~";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
         assertEquals(Token.Type.invalid_,token.getType());
@@ -820,7 +820,7 @@ class LexerTest {
     @Test
     void manyTokens(){
         inputCode = "number fun(bool a,number b){\n}";
-        Lexer lexer = preperLexer(inputCode);
+        Lexer lexer = prepareLexer(inputCode);
 
         List<Token> returnedTokens = new ArrayList<>();
         while (lexer.getToken().getType()!=Token.Type.end_of_bytes_){
