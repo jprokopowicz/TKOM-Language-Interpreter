@@ -1,5 +1,5 @@
-import com.lexer.Position;
-import com.lexer.Token;
+import com.Position;
+import com.Token;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

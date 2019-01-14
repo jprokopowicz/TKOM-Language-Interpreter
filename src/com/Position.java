@@ -1,4 +1,4 @@
-package com.lexer;
+package com;
 
 public class Position {
     public int line;

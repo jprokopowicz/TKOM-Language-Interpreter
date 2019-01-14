@@ -1,6 +1,6 @@
-package com.parser.parseException;
+package com.parseException;
 
-import com.lexer.Token;
+import com.Token;
 
 public class UnknownNameException extends ParseException {
     public UnknownNameException(Token token) {

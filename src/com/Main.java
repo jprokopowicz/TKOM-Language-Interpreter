@@ -1,6 +1,6 @@
-import com.lexer.Lexer;
-import com.lexer.ByteReader.StreamReader;
-import com.lexer.Token;
+package com;
+
+import com.ByteReader.StreamReader;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

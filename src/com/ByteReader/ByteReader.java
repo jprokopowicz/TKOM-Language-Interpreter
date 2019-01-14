@@ -1,6 +1,6 @@
-package com.lexer.ByteReader;
+package com.ByteReader;
 
-import com.lexer.Position;
+import com.Position;
 
 import java.io.IOException;
 
