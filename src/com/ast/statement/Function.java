@@ -35,8 +35,8 @@ public class Function extends Statement {
     private boolean defined;
     public List<String> argumentsNames;
 
-    public Function(Return returnType, String name, Program program) {
-        super(program,true);
+    public Function(Return returnType, String name) {
+        super(true);
         this.returnType = returnType;
         this.name = name;
         argumentsNames = new LinkedList<>();
@@ -64,13 +64,13 @@ public class Function extends Statement {
     }
 
     @Override
-    public void execute() {
+    public void execute(Program program) {
         //todo
     }
 
     @Override
     public Statement copy()  throws ExecutionException {
-        Function copy = new Function(this.returnType, this.name, this.program);
+        Function copy = new Function(this.returnType, this.name);
         copy.copyInternals(this);
         copy.setParent(null);
         copy.defined = this.defined;

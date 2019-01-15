@@ -1,5 +1,8 @@
 package com.ast.expresion;
 
+import com.ast.Program;
+import com.ast.statement.Statement;
+
 public class ComparisonExpression extends Expression {
     public enum ComparisonOperator {
         equal,
@@ -21,13 +24,7 @@ public class ComparisonExpression extends Expression {
     }
 
     @Override
-    public Variable evaluate(){
-        //todo
-        return null;
-    }
-
-    @Override
-    public Expression copy() {
+    public Variable evaluate(Statement context, Program program){
         //todo
         return null;
     }

@@ -8,8 +8,8 @@ public class IfStatement extends Statement {
     private BooleanExpression condition = null;
     private IfStatement elseStatement = null;
 
-    public IfStatement(Program program, Statement parent){
-        super(program,true);
+    public IfStatement(Statement parent){
+        super(true);
         setParent(parent);
     }
 
@@ -22,18 +22,25 @@ public class IfStatement extends Statement {
     }
 
     @Override
-    public void execute(){
+    public void setParent(Statement parent) {
+        this.parent = parent;
+        if(elseStatement != null)
+            elseStatement.parent = parent;
+    }
+
+    @Override
+    public void execute(Program program){
         //todo
     }
 
     @Override
     public Statement copy() throws ExecutionException {
-        IfStatement copy = new IfStatement(program,parent);
+        IfStatement copy = new IfStatement(null);
         copy.copyInternals(this);
         if (this.condition != null)
-            copy.setCondition((BooleanExpression)this.condition.copy());
+            copy.setCondition(this.condition);
         if (this.elseStatement != null) {
-            IfStatement copyElse = new IfStatement(program,parent);
+            IfStatement copyElse = new IfStatement(null);
             copyElse.copyInternals(elseStatement);
             copy.setElseStatement(copyElse);
         }

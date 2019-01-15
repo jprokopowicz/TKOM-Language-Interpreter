@@ -7,8 +7,8 @@ import com.executionExceptions.ExecutionException;
 public class LoopStatement extends Statement {
     private BooleanExpression condition;
 
-    public LoopStatement(Program program, Statement parent) {
-        super(program, true);
+    public LoopStatement(Statement parent) {
+        super(true);
         setParent(parent);
     }
 
@@ -17,15 +17,15 @@ public class LoopStatement extends Statement {
     }
 
     @Override
-    public void execute() {
+    public void execute(Program program) {
         //todo
     }
 
     @Override
     public Statement copy() throws ExecutionException {
-        LoopStatement copy = new LoopStatement(program,null);
+        LoopStatement copy = new LoopStatement(null);
         copy.copyInternals(this);
-        copy.setCondition((BooleanExpression)this.condition.copy());
+        copy.setCondition(this.condition);
         return copy;
     }
 }

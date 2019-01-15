@@ -24,10 +24,4 @@ public class BoolVariable extends Variable {
     public void setValue(boolean value) {
         this.value = value;
     }
-
-    @Override
-    public Expression copy() {
-        //todo
-        return null;
-    }
 }

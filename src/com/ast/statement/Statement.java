@@ -13,10 +13,8 @@ abstract public class Statement {
     protected Map <String,Variable> localVariables = null;
     protected List <Statement> innerStatements = null;
     protected Statement parent = null;
-    protected Program program;
 
-    public Statement(Program program, boolean isScope){
-        this.program = program;
+    public Statement(boolean isScope){
         if(isScope) {
             localVariables = new HashMap<>();
             innerStatements = new LinkedList<>();
@@ -63,17 +61,11 @@ abstract public class Statement {
         return  parent;
     }
 
-    public Program getProgram() {
-        return program;
-    }
-
-
-    public abstract void execute() throws ExecutionException;
+    public abstract void execute(Program program) throws ExecutionException;
 
     public abstract Statement copy() throws ExecutionException;
 
     protected void copyInternals(Statement statement) throws ExecutionException {
-        this.program = statement.program;
         if (this.localVariables != null && statement.localVariables != null) {
             for(Map.Entry<String,Variable> entry : statement.localVariables.entrySet()) {
                 String key = entry.getKey();

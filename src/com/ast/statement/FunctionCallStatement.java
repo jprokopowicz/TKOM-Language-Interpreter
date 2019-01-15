@@ -7,20 +7,20 @@ import com.executionExceptions.ExecutionException;
 public class FunctionCallStatement extends Statement {
     private FunctionCallExpression functionCallExpression;
 
-    public FunctionCallStatement(Program program, Statement parent,FunctionCallExpression functionCallExpression) {
-        super(program,false);
+    public FunctionCallStatement(Statement parent,FunctionCallExpression functionCallExpression) {
+        super(false);
         setParent(parent);
         this.functionCallExpression = functionCallExpression;
     }
 
     @Override
-    public void execute(){
+    public void execute(Program program){
         //todo
     }
 
     @Override
     public Statement copy() throws ExecutionException {
-        FunctionCallStatement copy = new FunctionCallStatement(program,null,(FunctionCallExpression)this.functionCallExpression.copy());
+        FunctionCallStatement copy = new FunctionCallStatement(null, this.functionCallExpression);
         copy.copyInternals(this);
         return copy;
     }

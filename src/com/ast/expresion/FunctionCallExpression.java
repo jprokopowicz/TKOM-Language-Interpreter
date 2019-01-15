@@ -8,14 +8,10 @@ import java.util.List;
 
 public class FunctionCallExpression extends Expression {
     private String functionName;
-    private Statement parent;
-    private Program program;
     private List<Expression> arguments;
 
-    public FunctionCallExpression(String functionName, Statement parent, Program program){
+    public FunctionCallExpression(String functionName){
         this.functionName = functionName;
-        this.parent = parent;
-        this.program = program;
         this.arguments = new ArrayList<>();
     }
 
@@ -24,19 +20,8 @@ public class FunctionCallExpression extends Expression {
     }
 
     @Override
-    public Variable evaluate(){
-//        Function function = (Function) program.getFunction(functionName).copy();
-//        TODO
-//        function.setParent(parent);
-//        function.execute();
-//        return function.getReturnValue();
+    public Variable evaluate(Statement context, Program program){
         //todo
-        return null;
-    }
-
-    @Override
-    public Expression copy() {
-        //todo: change parent
         return null;
     }
 }

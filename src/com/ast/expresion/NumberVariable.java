@@ -69,10 +69,4 @@ public class NumberVariable extends Variable {
         }
         return a;
     }
-
-    @Override
-    public Expression copy() {
-        //todo
-        return null;
-    }
 }

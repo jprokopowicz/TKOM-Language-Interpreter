@@ -6,20 +6,20 @@ import com.executionExceptions.ExecutionException;
 
 public class OutputStatement extends Statement {
     private Expression outputValue;
-    public OutputStatement(Program program, Statement parent, Expression outputValue){
-        super(program, false);
+    public OutputStatement(Statement parent, Expression outputValue){
+        super(false);
         setParent(parent);
         this.outputValue = outputValue;
     }
 
     @Override
-    public void execute(){
+    public void execute(Program program){
         //todo
     }
 
     @Override
     public Statement copy() throws ExecutionException {
-        OutputStatement copy = new OutputStatement(this.program,null,this.outputValue.copy());
+        OutputStatement copy = new OutputStatement(null,this.outputValue);
         copy.copyInternals(this);
         return this;
     }

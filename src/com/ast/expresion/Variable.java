@@ -1,5 +1,8 @@
 package com.ast.expresion;
 
+import com.ast.Program;
+import com.ast.statement.Statement;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,7 +33,7 @@ abstract public class Variable extends Expression {
     }
 
     @Override
-    public Variable evaluate() {
+    public Variable evaluate(Statement context, Program program) {
         return this;
     }
 }

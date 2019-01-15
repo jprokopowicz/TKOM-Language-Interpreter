@@ -1,12 +1,15 @@
 package com.ast.expresion;
 
+import com.ast.Program;
+import com.ast.statement.Statement;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MathExpression extends Expression {
     public enum AdditionOperator {
         add,
-        substract,
+        subtract,
     }
 
     private List<MultiplicationExpression> multiplicationExpressions;
@@ -26,13 +29,7 @@ public class MathExpression extends Expression {
     }
 
     @Override
-    public Variable evaluate() {
-        //todo
-        return null;
-    }
-
-    @Override
-    public Expression copy() {
+    public Variable evaluate(Statement context, Program program) {
         //todo
         return null;
     }

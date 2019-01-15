@@ -5,20 +5,20 @@ import com.executionExceptions.ExecutionException;
 
 public class InputStatement extends Statement {
     private String targetName;
-    public InputStatement(Program program, Statement parent, String targetName){
-        super(program, false);
+    public InputStatement(Statement parent, String targetName){
+        super(false);
         setParent(parent);
         this.targetName = targetName;
     }
 
     @Override
-    public void execute(){
+    public void execute(Program program){
         //todo
     }
 
     @Override
     public Statement copy() throws ExecutionException {
-        InputStatement copy = new InputStatement(program,null,this.targetName);
+        InputStatement copy = new InputStatement(null,this.targetName);
         copy.copyInternals(this);
         return copy;
     }

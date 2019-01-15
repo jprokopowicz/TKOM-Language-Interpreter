@@ -19,10 +19,4 @@ public class StringVariable extends Variable {
     public void setMessage(String message) {
         this.message = message;
     }
-
-    @Override
-    public Expression copy() {
-        //todo
-        return null;
-    }
 }
