@@ -38,9 +38,7 @@ public class NumberVariable extends Variable {
         denominator = 1;
     }
 
-    public void setValue(int nominator, int denominator) throws ArithmeticException{
-        if(denominator == 0)
-            throw new ArithmeticException("denominator is zero");
+    public void setValue(int nominator, int denominator) {
         this.nominator = nominator;
         if(nominator == 0){
             this.denominator = 1;

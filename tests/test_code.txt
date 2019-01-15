@@ -14,7 +14,7 @@ number recursivePower(number base, number power) {
     if([power <= 1]){
         return base;
     }
-    return recursivePower(base, power - 1) * base;
+    return 1/(-recursivePower(base, power - 1) * base) + 2;
 }
 
 void main(string pass, string fail);
@@ -27,7 +27,7 @@ void main(string pass, string fail) {
     read sum1;
     read base1;
     read power1;
-    if ([recursiveSum(sum1) >= 0] & [recursivePower(base1, power1) > 1]) {
+    if ([recursiveSum(sum1) >= 0] & ![recursivePower(base1, power1) > 1]) {
         write string pass;
     } else {
         write string fail;
@@ -36,6 +36,8 @@ void main(string pass, string fail) {
     main(pass,fail);
     loopCondition = 1:2;
     loop (false) {
+        bool base1;
+        base1 =  (((base1 | false) & [loopCondition > 3]) | true) & false;
         write string pass;
         loopCondition = loopCondition - 1;
     }
