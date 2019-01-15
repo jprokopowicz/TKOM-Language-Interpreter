@@ -2,6 +2,7 @@ package com.ast.statement;
 
 import com.ast.Program;
 import com.ast.expresion.Expression;
+import com.executionExceptions.ExecutionException;
 
 public class ReturnStatement extends Statement {
     private Expression value;
@@ -18,8 +19,9 @@ public class ReturnStatement extends Statement {
     }
 
     @Override
-    public Statement copy() {
-        //todo
-        return null;
+    public Statement copy() throws ExecutionException {
+        ReturnStatement copy = new ReturnStatement(program,null,this.value.copy());
+        copy.copyInternals(this);
+        return copy;
     }
 }

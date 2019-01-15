@@ -2,6 +2,7 @@ package com.ast.statement;
 
 import com.ast.Program;
 import com.ast.expresion.Variable;
+import com.executionExceptions.ExecutionException;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -32,13 +33,12 @@ public class Function extends Statement {
     private String name;
     private Variable returnValue = null;
     private boolean defined;
-
     public List<String> argumentsNames;
 
     public Function(Return returnType, String name, Program program) {
         super(program,true);
-        this.name = name;
         this.returnType = returnType;
+        this.name = name;
         argumentsNames = new LinkedList<>();
         defined = false;
     }
@@ -69,11 +69,12 @@ public class Function extends Statement {
     }
 
     @Override
-    public Statement copy() throws TypeNotPresentException {
-//        Function newFunction = new Function(this.returnType, this.name, this.program);
-//        newFunction.copyInternals(this);
-//        return newFunction;
-        //todo
-        return null;
+    public Statement copy()  throws ExecutionException {
+        Function copy = new Function(this.returnType, this.name, this.program);
+        copy.copyInternals(this);
+        copy.setParent(null);
+        copy.defined = this.defined;
+        copy.argumentsNames = this.argumentsNames;
+        return copy;
     }
 }

@@ -2,10 +2,12 @@ package com.ast.statement;
 
 import com.ast.Program;
 import com.ast.expresion.BooleanExpression;
+import com.executionExceptions.ExecutionException;
 
 public class IfStatement extends Statement {
     private BooleanExpression condition = null;
     private IfStatement elseStatement = null;
+
     public IfStatement(Program program, Statement parent){
         super(program,true);
         setParent(parent);
@@ -25,12 +27,16 @@ public class IfStatement extends Statement {
     }
 
     @Override
-    public Statement copy() {
-//        IfStatement newIfStatement = new IfStatement(this.program, this.parent);
-//        newIfStatement.copyInternals(this);
-//        newIfStatement.setElseStatement((IfStatement)elseStatement.copy());
-//        //todo: implement
-        //todo
-        return null;
+    public Statement copy() throws ExecutionException {
+        IfStatement copy = new IfStatement(program,parent);
+        copy.copyInternals(this);
+        if (this.condition != null)
+            copy.setCondition((BooleanExpression)this.condition.copy());
+        if (this.elseStatement != null) {
+            IfStatement copyElse = new IfStatement(program,parent);
+            copyElse.copyInternals(elseStatement);
+            copy.setElseStatement(copyElse);
+        }
+        return copy;
     }
 }

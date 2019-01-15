@@ -1,14 +1,14 @@
 package com.ast.statement;
 
 import com.ast.Program;
-import com.ast.expresion.Variable;
+import com.executionExceptions.ExecutionException;
 
 public class InputStatement extends Statement {
-    private Variable target;
-    public InputStatement(Program program, Statement parent, Variable target){
+    private String targetName;
+    public InputStatement(Program program, Statement parent, String targetName){
         super(program, false);
         setParent(parent);
-        this.target = target;
+        this.targetName = targetName;
     }
 
     @Override
@@ -17,8 +17,9 @@ public class InputStatement extends Statement {
     }
 
     @Override
-    public Statement copy() {
-        //todo
-        return null;
+    public Statement copy() throws ExecutionException {
+        InputStatement copy = new InputStatement(program,null,this.targetName);
+        copy.copyInternals(this);
+        return copy;
     }
 }

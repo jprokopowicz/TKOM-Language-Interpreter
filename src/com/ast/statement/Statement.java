@@ -1,5 +1,10 @@
 package com.ast.statement;
+import com.executionExceptions.CopyException;
+import com.executionExceptions.ExecutionException;
 import com.ast.Program;
+import com.ast.expresion.BoolVariable;
+import com.ast.expresion.NumberVariable;
+import com.ast.expresion.StringVariable;
 import com.ast.expresion.Variable;
 
 import java.util.*;
@@ -63,25 +68,38 @@ abstract public class Statement {
     }
 
 
-    public abstract void execute();
+    public abstract void execute() throws ExecutionException;
 
-    public abstract Statement copy();
+    public abstract Statement copy() throws ExecutionException;
 
-    void copyInternals(Statement statement) {
-        //todo: make sure that objects are copied and not just references
-//        this.program = statement.program;
-//        this.parent = statement.parent;
-//        for (Map.Entry localVariable : statement.localVariables.entrySet()) {
-//            Variable variable;
-//            if(localVariable instanceof NumberVariable)
-//                variable = new NumberVariable((NumberVariable) localVariable);
-//            else if (localVariable instanceof BoolVariable)
-//                variable = new BoolVariable((BoolVariable) localVariable);
-//            else //StringVariable
-//                variable = new StringVariable((StringVariable) localVariable);
-//            this.localVariables.put((String) localVariable.getKey(),variable);
-//        }
-//        for (Statement innerStatement : innerStatements)
-//            this.innerStatements.add(innerStatement.copy());
+    protected void copyInternals(Statement statement) throws ExecutionException {
+        this.program = statement.program;
+        if (this.localVariables != null && statement.localVariables != null) {
+            for(Map.Entry<String,Variable> entry : statement.localVariables.entrySet()) {
+                String key = entry.getKey();
+                Variable value;
+                switch (entry.getValue().getType()) {
+                    case number_:
+                        value = new NumberVariable();
+                        break;
+                    case bool_:
+                        value = new BoolVariable();
+                        break;
+                    case string_:
+                        value = new StringVariable();
+                        break;
+                    default:
+                        throw new CopyException("Variable type undefined");
+                }
+                this.localVariables.put(key,value);
+            }
+        }
+        if(this.innerStatements != null && statement.innerStatements != null) {
+            for (int i = 0 ; i < statement.innerStatements.size() ; ++i){
+                Statement statementCopy = statement.innerStatements.get(i).copy();
+                statementCopy.setParent(this);
+                this.innerStatements.add(statementCopy);
+            }
+        }
     }
 }

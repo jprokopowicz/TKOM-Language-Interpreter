@@ -2,6 +2,7 @@ package com.ast.statement;
 
 import com.ast.Program;
 import com.ast.expresion.FunctionCallExpression;
+import com.executionExceptions.ExecutionException;
 
 public class FunctionCallStatement extends Statement {
     private FunctionCallExpression functionCallExpression;
@@ -18,12 +19,9 @@ public class FunctionCallStatement extends Statement {
     }
 
     @Override
-    public Statement copy() {
-//        //todo: fix copy function call expression
-//        FunctionCallStatement statement = new FunctionCallStatement(this.program,this.parent,this.functionCallExpression);
-//        statement.copyInternals(this);
-//        return statement;
-        //todo
-        return null;
+    public Statement copy() throws ExecutionException {
+        FunctionCallStatement copy = new FunctionCallStatement(program,null,(FunctionCallExpression)this.functionCallExpression.copy());
+        copy.copyInternals(this);
+        return copy;
     }
 }

@@ -1,7 +1,7 @@
 package com.ast.expresion;
 
 public class StringVariable extends Variable {
-    private String message;
+    private String message = "";
 
     public StringVariable() {
         type = Type.string_;

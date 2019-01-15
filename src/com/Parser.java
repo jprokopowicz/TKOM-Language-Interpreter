@@ -204,7 +204,7 @@ public class Parser {
         Variable target = statement.getVariable(lexer.getToken().getValue());
         if(target == null)
             throw new UnknownNameException(lexer.getToken());
-        InputStatement inputStatement = new InputStatement(program,statement,target);
+        InputStatement inputStatement = new InputStatement(program,statement,lexer.getToken().getValue());
         inputStatement.setParent(statement);
         lexer.readNextToken();
         acceptTokenTypeOrThrowAndReadToken(Token.Type.semicolon_);

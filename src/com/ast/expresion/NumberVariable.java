@@ -1,8 +1,8 @@
 package com.ast.expresion;
 
 public class NumberVariable extends Variable {
-    private int nominator;
-    private int denominator;
+    private int nominator = 0;
+    private int denominator = 1;
 
     public NumberVariable() {
         this.nominator = 0;

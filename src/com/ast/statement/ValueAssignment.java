@@ -2,6 +2,7 @@ package com.ast.statement;
 
 import com.ast.Program;
 import com.ast.expresion.Expression;
+import com.executionExceptions.ExecutionException;
 
 public class ValueAssignment extends Statement {
     private String targetName;
@@ -20,8 +21,9 @@ public class ValueAssignment extends Statement {
     }
 
     @Override
-    public Statement copy() {
-        //todo
-        return null;
+    public Statement copy() throws ExecutionException {
+        ValueAssignment copy = new ValueAssignment(this.program,null,this.targetName,this.value.copy());
+        copy.copyInternals(this);
+        return copy;
     }
 }

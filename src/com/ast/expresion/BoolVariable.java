@@ -1,7 +1,7 @@
 package com.ast.expresion;
 
 public class BoolVariable extends Variable {
-    private boolean value;
+    private boolean value = false;
 
     public BoolVariable() {
         type = Type.bool_;

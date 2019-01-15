@@ -2,6 +2,7 @@ package com.ast.statement;
 
 import com.ast.Program;
 import com.ast.expresion.BooleanExpression;
+import com.executionExceptions.ExecutionException;
 
 public class LoopStatement extends Statement {
     private BooleanExpression condition;
@@ -21,8 +22,10 @@ public class LoopStatement extends Statement {
     }
 
     @Override
-    public Statement copy() {
-        //todo
-        return null;
+    public Statement copy() throws ExecutionException {
+        LoopStatement copy = new LoopStatement(program,null);
+        copy.copyInternals(this);
+        copy.setCondition((BooleanExpression)this.condition.copy());
+        return copy;
     }
 }
