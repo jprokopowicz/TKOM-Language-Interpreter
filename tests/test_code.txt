@@ -17,6 +17,8 @@ number recursivePower(number base, number power) {
     return recursivePower(base, power - 1) * base;
 }
 
+void main(string pass, string fail);
+
 void main(string pass, string fail) {
 
     number sum1;
@@ -31,9 +33,10 @@ void main(string pass, string fail) {
         write string fail;
     }
     number loopCondition;
+    main(pass,fail);
     loopCondition = 1:2;
-    loop ([loopCondition > 0]) {
-        write string "costam";
+    loop (false) {
+        write string pass;
         loopCondition = loopCondition - 1;
     }
 }

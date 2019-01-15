@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb3b9810-4773-45b1-b8ad-4983e651c44e" name="Default" comment="">
+    <list default="true" id="fb3b9810-4773-45b1-b8ad-4983e651c44e" name="Default" comment="Debugging results changes, part 2. Accept or throw and read next token in one function.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ParserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ParserMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Token.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/parseException/UnexpectedToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parseException/UnexpectedToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/parseException/WrongArgumentException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parseException/WrongArgumentException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_code.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_code.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -45,8 +41,20 @@
           <file leaf-file-name="Parser.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/Parser.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="191">
-                  <caret line="161" column="39" selection-start-line="161" selection-start-column="39" selection-end-line="161" selection-end-column="39" />
+                <state relative-caret-position="1556">
+                  <caret line="620" column="43" selection-start-line="620" selection-start-column="43" selection-end-line="620" selection-end-column="43" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FunctionCallStatement.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/ast/statement/FunctionCallStatement.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -152,19 +160,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="StreamReader.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/byteReader/StreamReader.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="750">
-                  <caret line="55" selection-start-line="55" selection-end-line="55" />
-                  <folding>
-                    <element signature="e#523#524#0" expanded="true" />
-                    <element signature="e#554#555#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -172,8 +167,8 @@
           <file leaf-file-name="test_code.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tests/test_code.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="495">
-                  <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+                <state relative-caret-position="570">
+                  <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
                 </state>
               </provider>
             </entry>
@@ -216,6 +211,7 @@
       <find>valueA</find>
       <find>valueAss</find>
       <find>lexer.read</find>
+      <find>acceptTokenTypeOrThrow</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -482,14 +478,7 @@
       <workItem from="1546602014470" duration="29115000" />
       <workItem from="1546650540226" duration="31598000" />
       <workItem from="1547391964455" duration="27930000" />
-      <workItem from="1547518224528" duration="5576000" />
-    </task>
-    <task id="LOCAL-00025" summary="Lexer fixes for numbers and exceptions">
-      <created>1543627349986</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1543627349986</updated>
+      <workItem from="1547518224528" duration="8829000" />
     </task>
     <task id="LOCAL-00026" summary="Example code for testing and main reading the containing file">
       <created>1543627574691</created>
@@ -827,7 +816,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547504676746</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Debugging results changes, part 1">
+      <created>1547523928473</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1547523928474</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -863,7 +859,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="249141000" />
+    <option name="totallyTimeSpent" value="252394000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -876,11 +872,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="bottom" id="TODO" order="11" weight="0.32948583" />
-      <window_info anchor="bottom" id="Messages" order="4" weight="0.33788037" />
+      <window_info active="true" anchor="bottom" id="Messages" order="4" visible="true" weight="0.33788037" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="1" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -888,22 +883,22 @@
       <window_info anchor="right" id="Maven Projects" order="8" weight="0.32946378" />
       <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.32948583" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.31164742" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.31164742" />
       <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32946378" />
       <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.4997236" weight="0.32948583" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="0" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.4984756" visible="true" weight="0.20950802" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.49762282" visible="true" weight="0.20950802" />
       <window_info anchor="right" id="Database" order="6" weight="0.32946378" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.32948583" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.2498618" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="2" />
-      <window_info id="Favorites" order="4" sideWeight="0.5015244" side_tool="true" visible="true" weight="0.20950802" />
+      <window_info id="Favorites" order="4" sideWeight="0.50237715" side_tool="true" visible="true" weight="0.20950802" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.39874083" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="4" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.32948583" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="5" />
@@ -946,8 +941,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Return as enum subclass of Function. Copy statement abstract method." />
-    <MESSAGE value="Basic Expression implementation. FunctionCall name changed to FunctionCallExpression." />
     <MESSAGE value="Program class location change. Little variable adding fix." />
     <MESSAGE value="Function call implementation. Fixes in parser functions." />
     <MESSAGE value="Variable assign of function call implementation." />
@@ -971,7 +964,9 @@
     <MESSAGE value="Get variable and get local variable functions fix." />
     <MESSAGE value="Nullable local statements and variable for no scope statements." />
     <MESSAGE value="Parser main tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Parser main tests" />
+    <MESSAGE value="Debugging results changes, part 1" />
+    <MESSAGE value="Debugging results changes, part 2. Accept or throw and read next token in one function." />
+    <option name="LAST_COMMIT_MESSAGE" value="Debugging results changes, part 2. Accept or throw and read next token in one function." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -983,7 +978,7 @@
           <option name="timeStamp" value="119" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="126" />
+      <option name="time" value="127" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1005,6 +1000,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#135#136#0" expanded="true" />
+            <element signature="e#170#171#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+            <element signature="e#376#377#0" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
+            <element signature="e#460#461#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1078,13 +1081,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/FunctionCallStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ast/statement/InputStatement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1096,6 +1092,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1103,6 +1102,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1371,17 +1373,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/FunctionCallStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_code.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+        <state relative-caret-position="570">
+          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="161" column="39" selection-start-line="161" selection-start-column="39" selection-end-line="161" selection-end-column="39" />
+        <state relative-caret-position="1556">
+          <caret line="620" column="43" selection-start-line="620" selection-start-column="43" selection-end-line="620" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
