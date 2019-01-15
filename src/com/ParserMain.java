@@ -13,11 +13,12 @@ public class ParserMain {
                 FileInputStream inputStream = new FileInputStream(args[0]);
                 Parser parser = new Parser(new StreamReader(inputStream));
                 parser.parse();
-                System.out.println("end");
+                System.out.println("ok");
             } catch (FileNotFoundException exc){
                 System.out.println("No such file or invalid argument: " + exc.getMessage());
             } catch (ParseException exc) {
                 System.out.println(exc.getMessage());
+                exc.printStackTrace();
             } catch (Exception exc){
                 System.out.println("Other exception: "+ exc.getMessage());
                 exc.printStackTrace();

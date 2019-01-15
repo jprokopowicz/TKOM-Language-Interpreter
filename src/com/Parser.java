@@ -5,7 +5,6 @@ import com.byteReader.ByteReader;
 import com.ast.expresion.*;
 import com.parseException.*;
 import com.ast.statement.*;
-import javafx.beans.binding.NumberExpression;
 import javafx.util.Pair;
 
 import java.util.Arrays;
@@ -34,7 +33,7 @@ public class Parser {
 
     Function parseFunction() throws ParseException {
         Function.Return returnType = Function.Return.getType(lexer.getToken().getValue());
-
+        lexer.readNextToken();
         acceptTokenTypeOrThrow(Token.Type.identifier_);
         String name = lexer.getToken().getValue();
 
@@ -49,9 +48,8 @@ public class Parser {
 
         lexer.readNextToken();
         parseArguments(function);
-        lexer.readNextToken();
         acceptTokenTypeOrThrow(Arrays.asList(Token.Type.open_scope_, Token.Type.semicolon_));
-        if(lexer.readNextToken().getType() == Token.Type.open_scope_) {
+        if(lexer.getToken().getType() == Token.Type.open_scope_) {
             parseScope(function);
             function.setDefined(true);
         } else //semicolon
@@ -63,6 +61,10 @@ public class Parser {
         acceptTokenTypeOrThrow(Token.Type.open_bracket_);
         if (lexer.readNextToken().getType() == Token.Type.close_bracket_)
             return;
+        if(!function.isDefined() && function.argumentsNames.size() == 0)
+            throw new WrongArgumentException(0, lexer.getToken());
+
+        Token argumentStartToken = lexer.getToken();
         parseAndAddArgument(function, 0);
         int argNumber;
         for (argNumber = 1 ; lexer.readNextToken().getType() == Token.Type.comma_ ; ++argNumber) {
@@ -70,14 +72,15 @@ public class Parser {
             parseAndAddArgument(function, argNumber);
         }
         if (argNumber != function.argumentsNames.size())
-            throw new WrongArgumentException(argNumber, lexer.getToken());
+            throw new WrongArgumentException(argNumber, argumentStartToken);
         acceptTokenTypeOrThrow(Token.Type.close_bracket_);
+        lexer.readNextToken();
     }
 
     void parseAndAddArgument(Function function, int argNumber) throws ParseException {
-        Pair<Token, Variable> newVariable = parseVariableDeclaration();
+        Pair<Token, Variable> newVariable = parseVariable();
         if (!function.isDefined()) {
-            if (function.argumentsNames.get(argNumber).equals(newVariable.getKey().getValue()) ||
+            if (!function.argumentsNames.get(argNumber).equals(newVariable.getKey().getValue()) ||
                     function.getVariable(function.argumentsNames.get(argNumber)) == null)
                 throw new WrongArgumentException(newVariable.getKey());
             Variable.Type variableType = function.getVariable(function.argumentsNames.get(argNumber)).getType();
@@ -111,43 +114,42 @@ public class Parser {
         acceptTokenTypeOrThrow(Token.Type.open_scope_);
         lexer.readNextToken();
         while (lexer.getToken().getType() != Token.Type.close_scope_) {
-            boolean stayOnToken = false;
             switch (lexer.getToken().getType()) {
                 case number_: //variable declaration
                 case bool_://fallthrough
                 case string_://fallthrough
-                    Pair<Token, Variable> newVariable = parseVariableDeclaration();
+                    Pair<Token, Variable> newVariable = parseVariable();
                     addVariable(newVariable, statement);
                     lexer.readNextToken();
                     acceptTokenTypeOrThrow(Token.Type.semicolon_);
+                    lexer.readNextToken();
                     break;
                 case identifier_:
                     parseVariableAssignOrFunctionCall(statement);
-                    acceptTokenTypeOrThrow(Token.Type.semicolon_);
+                    lexer.readNextToken();
                     break;
                 case if_:
                     parseIfExpression(statement);
-                    stayOnToken = true;
                     break;
                 case loop_:
                     parseLoopExpression(statement);
+                    lexer.readNextToken();
                     break;
                 case read_:
                     parseReadExpression(statement);
+                    lexer.readNextToken();
                     break;
                 case write_:
                     parseWriteExpression(statement);
+                    lexer.readNextToken();
                     break;
                 case return_:
                     parseReturnExpression(statement);
+                    lexer.readNextToken();
                     break;
                 default:
                     throw new UnexpectedToken(lexer.getToken());
             }
-            if (stayOnToken)
-                stayOnToken = false;
-            else
-                lexer.readNextToken();
         }
     }
 
@@ -157,9 +159,10 @@ public class Parser {
         statement.addVariable(newVariable.getKey().getValue(),newVariable.getValue());
     }
 
-    Pair<Token, Variable> parseVariableDeclaration() throws ParseException {
+    Pair<Token, Variable> parseVariable() throws ParseException {
         acceptTokenTypeOrThrow(Arrays.asList(Token.Type.number_, Token.Type.bool_, Token.Type.string_));
         Variable.Type variableType = Variable.getType(lexer.getToken().getValue());
+        lexer.readNextToken();
         acceptTokenTypeOrThrow(Token.Type.identifier_);
 
         Variable newVariable = null;
@@ -183,7 +186,7 @@ public class Parser {
 
         newMultiplicationExpression = parseMultiplicationExpression(statement);
         mathExpression.addMultiplicationExpression(newMultiplicationExpression);
-        while (lexer.readNextToken().getType() == Token.Type.plus_ || lexer.getToken().getType() == Token.Type.minus_) {
+        while (lexer.getToken().getType() == Token.Type.plus_ || lexer.getToken().getType() == Token.Type.minus_) {
             if(lexer.getToken().getType() == Token.Type.plus_)
                 mathExpression.addAdditionOperator(MathExpression.AdditionOperator.add);
             else //minus
@@ -226,9 +229,8 @@ public class Parser {
         Expression content;
         Token currentToken = lexer.getToken();
         switch (lexer.getToken().getType()) {
-            case number_:
+            case number_expression_:
                 content = parseNumber();
-                lexer.readNextToken();
                 break;
             case identifier_:
                 content = parseVariableOrFunctionCall(statement, "number");//reade next token inside
@@ -240,7 +242,7 @@ public class Parser {
             default:
                 throw new UnexpectedToken(lexer.getToken());
         }
-        if(!(content instanceof NumberExpression) && !(content instanceof FunctionCallExpression) && !(content instanceof VariableCall) && !(content instanceof BracketExpression))
+        if(!(content instanceof NumberVariable) && !(content instanceof FunctionCallExpression) && !(content instanceof VariableCall) && !(content instanceof BracketExpression))
             throw new TypeException("Expected math expression",currentToken);
         return new BasicMathExpression(content,negate);
     }
@@ -248,9 +250,10 @@ public class Parser {
     Expression parseVariableOrFunctionCall(Statement statement, String type) throws ParseException {
         Token nameToken = lexer.getToken();
         Expression variableOrFunctionCall;
-        if(lexer.readNextToken().getType() == Token.Type.open_bracket_)
-            variableOrFunctionCall = parseFunctionCall(nameToken,statement,type);
-        else
+        if(lexer.readNextToken().getType() == Token.Type.open_bracket_) {
+            variableOrFunctionCall = parseFunctionCall(nameToken, statement, type);
+            lexer.readNextToken();
+        } else
             variableOrFunctionCall = parseVariableCall(nameToken,statement,type);
         return variableOrFunctionCall;
     }
@@ -260,7 +263,7 @@ public class Parser {
         if(statement.getVariable(name) == null)
             throw new UnknownNameException(nameToken);
         if(Variable.getType(type) != statement.getVariable(name).getType())
-            throw new TypeException(type,lexer.getToken());
+            throw new TypeException(type,nameToken);
         return new VariableCall(name,statement);
     }
 
@@ -286,12 +289,14 @@ public class Parser {
                 lexer.readNextToken();
                 acceptTokenTypeOrThrow(Token.Type.number_expression_);
                 denominator = Integer.parseInt(lexer.getToken().getValue());
+                lexer.readNextToken();
             } else if (lexer.getToken().getType() == Token.Type.colon_) {
                 nominator = integer;
                 integer = 0;
                 lexer.readNextToken();
                 acceptTokenTypeOrThrow(Token.Type.number_expression_);
                 denominator = Integer.parseInt(lexer.getToken().getValue());
+                lexer.readNextToken();
             }
         } catch (NumberFormatException exc) {
             throw new ParseException("Unexpected parse exception. Msg: " + exc.getMessage() + " ", lexer.getToken());
@@ -305,7 +310,7 @@ public class Parser {
 
         conjunctionExpression = parseConjunctionExpression(statement);
         booleanExpression.addConjunctionExpression(conjunctionExpression);
-        while (lexer.readNextToken().getType() == Token.Type.or_) {
+        while (lexer.getToken().getType() == Token.Type.or_) {
             lexer.readNextToken();
             conjunctionExpression = parseConjunctionExpression(statement);
             booleanExpression.addConjunctionExpression(conjunctionExpression);
@@ -319,7 +324,7 @@ public class Parser {
 
         basicBoolExpression = parseBasicBoolExpression(statement);
         conjunctionExpression.addBasicBoolExpression(basicBoolExpression);
-        while (lexer.readNextToken().getType() == Token.Type.and_) {
+        while (lexer.getToken().getType() == Token.Type.and_) {
             lexer.readNextToken();
             basicBoolExpression = parseBasicBoolExpression(statement);
             conjunctionExpression.addBasicBoolExpression(basicBoolExpression);
@@ -339,9 +344,11 @@ public class Parser {
         switch (lexer.getToken().getType()) {
             case true_:
                 content = new BoolVariable(true);
+                lexer.readNextToken();
                 break;
             case false_:
                 content = new BoolVariable(false);
+                lexer.readNextToken();
                 break;
             case identifier_:
                 content = parseVariableOrFunctionCall(statement,"bool");
@@ -362,7 +369,7 @@ public class Parser {
                 !(content instanceof ComparisonExpression) &&
                 !(content instanceof BooleanBracketExpression))
             throw new TypeException("Expected boolean expression",currentToken);
-         return new BasicBoolExpression(content, negate);
+        return new BasicBoolExpression(content, negate);
     }
 
     BooleanBracketExpression parseBooleanBracketExpression(Statement statement) throws ParseException {
@@ -403,7 +410,8 @@ public class Parser {
 
         lexer.readNextToken();
         MathExpression second = parseMathExpression(statement);
-
+        acceptTokenTypeOrThrow(Token.Type.close_comparison_);
+        lexer.readNextToken();
         return new ComparisonExpression(first,second,operator);
     }
 
@@ -415,18 +423,20 @@ public class Parser {
             Variable variable = statement.getVariable(lexer.getToken().getValue());
             if(!(variable instanceof StringVariable))
                 throw new TypeException("string", lexer.getToken());
+            lexer.readNextToken();
             return (StringVariable)variable;
         } else if (lexer.getToken().getType() == Token.Type.string_expression_) {
             String string = lexer.getToken().getValue();
             string = string.substring(1,string.length()-1);
             StringVariable stringVariable = new StringVariable();
             stringVariable.setMessage(string);
+            lexer.readNextToken();
             return stringVariable;
         } else
             throw new UnexpectedToken(lexer.getToken());
     }
 
-    Statement parseVariableAssignOrFunctionCall(Statement statement) throws ParseException {
+    void parseVariableAssignOrFunctionCall(Statement statement) throws ParseException {
         Token nameToken = lexer.getToken();
         Statement variableOrFunctionCall;
         if(lexer.readNextToken().getType() == Token.Type.open_bracket_) {
@@ -436,7 +446,8 @@ public class Parser {
         } else
             throw new UnexpectedToken(lexer.getToken());
         variableOrFunctionCall.setParent(statement);
-        return variableOrFunctionCall;
+        acceptTokenTypeOrThrow(Token.Type.semicolon_);
+        statement.addStatement(variableOrFunctionCall);
     }
 
     FunctionCallExpression parseFunctionCall(Token nameToken, Statement statement, String type) throws ParseException {
@@ -450,6 +461,7 @@ public class Parser {
             Variable variable = function.getVariable(name);
             if(variable == null)
                 throw new UnknownNameException(nameToken);
+            lexer.readNextToken();
             switch (variable.getType()) {
                 case number_:
                     functionCallExpression.addArgument(parseMathExpression(statement));
@@ -464,7 +476,6 @@ public class Parser {
                 default:
                     throw new ParseException("Unexpected parser error.",lexer.getToken());
             }
-            lexer.readNextToken();
             if(function.argumentsNames.size() > 1 && !name.equals(function.argumentsNames.get(function.argumentsNames.size()-1))){
                 acceptTokenTypeOrThrow(Token.Type.comma_);
             }
@@ -510,6 +521,7 @@ public class Parser {
             IfStatement elseStatement = new IfStatement(program,statement);
             elseStatement.setParent(statement);
             elseStatement.setCondition(null);
+            lexer.readNextToken();
             parseScope(elseStatement);
             ifStatement.setElseStatement(elseStatement);
             lexer.readNextToken();
@@ -525,12 +537,13 @@ public class Parser {
         parseConditionAndAdd(statement,loopStatement);
         lexer.readNextToken();
         parseScope(loopStatement);
+        statement.addStatement(loopStatement);
     }
 
     void parseConditionAndAdd(Statement statement, Statement conditionStatement) throws ParseException{
         acceptTokenTypeOrThrow(Token.Type.open_bracket_);
-        BooleanExpression condition = parseBooleanExpression(statement);
         lexer.readNextToken();
+        BooleanExpression condition = parseBooleanExpression(statement);
         acceptTokenTypeOrThrow(Token.Type.close_bracket_);
         if(conditionStatement instanceof IfStatement) {
             ((IfStatement) conditionStatement).setCondition(condition);
@@ -608,7 +621,6 @@ public class Parser {
         ReturnStatement returnStatement = new ReturnStatement(program, statement, value);
         returnStatement.setParent(statement);
         statement.addStatement(returnStatement);
-        lexer.readNextToken();
         acceptTokenTypeOrThrow(Token.Type.semicolon_);
     }
 

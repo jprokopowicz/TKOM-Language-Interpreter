@@ -1,10 +1,39 @@
-void main(string pass, string fail) {
-    bool ok;
-    read ok;
-    if (ok) {
-        write string pass;
+number recursiveSum(number sumTo);
+
+number recursiveSum(number sumTo) {
+    if([sumTo == 0]) {
+        return 0;
+    } else {
+        return sumTo + recursiveSum(sumTo - 1);
     }
-    else {
+}
+
+number recursivePower(number base, number power);
+
+number recursivePower(number base, number power) {
+    if([power <= 1]){
+        return base;
+    }
+    return recursivePower(base, power - 1) * base;
+}
+
+void main(string pass, string fail) {
+
+    number sum1;
+    number base1;
+    number power1;
+    read sum1;
+    read base1;
+    read power1;
+    if ([recursiveSum(sum1) >= 0] & [recursivePower(base1, power1) > 1]) {
+        write string pass;
+    } else {
         write string fail;
+    }
+    number loopCondition;
+    loopCondition = 1:2;
+    loop ([loopCondition > 0]) {
+        write string "costam";
+        loopCondition = loopCondition - 1;
     }
 }

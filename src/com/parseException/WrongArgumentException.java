@@ -12,6 +12,6 @@ public class WrongArgumentException extends ParseException {
     }
 
     public WrongArgumentException (int argNumber, Token token) {
-        super("Expected " + argNumber + " line: " + token.getPosition().line + " sign: " + token.getPosition().sign);
+        super("Wrong number of arguments. Expected number: " + argNumber + " line: " + token.getPosition().line + " sign: " + token.getPosition().sign);
     }
 }
