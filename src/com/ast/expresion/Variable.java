@@ -36,4 +36,6 @@ abstract public class Variable extends Expression {
     public Variable evaluate(Statement context, Program program) {
         return this;
     }
+
+    public abstract void print();
 }

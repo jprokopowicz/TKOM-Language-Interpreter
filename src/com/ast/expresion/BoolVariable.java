@@ -1,5 +1,7 @@
 package com.ast.expresion;
 
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
+
 public class BoolVariable extends Variable {
     private boolean value = false;
 
@@ -23,5 +25,10 @@ public class BoolVariable extends Variable {
 
     public void setValue(boolean value) {
         this.value = value;
+    }
+
+    @Override
+    public void print() {
+        System.out.print(value);
     }
 }

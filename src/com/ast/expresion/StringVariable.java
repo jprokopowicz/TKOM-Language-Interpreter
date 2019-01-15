@@ -19,4 +19,9 @@ public class StringVariable extends Variable {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    @Override
+    public void print() {
+        System.out.print(message);
+    }
 }

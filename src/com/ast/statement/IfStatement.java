@@ -10,7 +10,7 @@ public class IfStatement extends Statement {
 
     public IfStatement(Statement parent){
         super(true);
-        setParent(parent);
+        this.parent = parent;
     }
 
     public void setCondition(BooleanExpression condition) {
@@ -19,6 +19,7 @@ public class IfStatement extends Statement {
 
     public void setElseStatement(IfStatement elseStatement) {
         this.elseStatement = elseStatement;
+        elseStatement.parent = this.parent;
     }
 
     @Override

@@ -24,15 +24,15 @@ void main(string pass, string fail) {
     number sum1;
     number base1;
     number power1;
-    read sum1;
+    /*read sum1;
     read base1;
-    read power1;
+    read power1;*/
     if ([recursiveSum(sum1) >= 0] & ![recursivePower(base1, power1) > 1]) {
         write string pass;
     } else {
         write string fail;
     }
-    number loopCondition;
+    /*number loopCondition;
     main(pass,fail);
     loopCondition = 1:2;
     loop (false) {
@@ -40,5 +40,5 @@ void main(string pass, string fail) {
         base1 =  (((base1 | false) & [loopCondition > 3]) | true) & false;
         write string pass;
         loopCondition = loopCondition - 1;
-    }
+    }*/
 }

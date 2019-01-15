@@ -21,6 +21,6 @@ public class OutputStatement extends Statement {
     public Statement copy() throws ExecutionException {
         OutputStatement copy = new OutputStatement(null,this.outputValue);
         copy.copyInternals(this);
-        return this;
+        return copy;
     }
 }

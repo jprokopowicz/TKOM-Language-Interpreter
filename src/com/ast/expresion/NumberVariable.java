@@ -69,4 +69,9 @@ public class NumberVariable extends Variable {
         }
         return a;
     }
+
+    @Override
+    public void print() {
+        System.out.print(nominator + ":" + denominator);
+    }
 }
