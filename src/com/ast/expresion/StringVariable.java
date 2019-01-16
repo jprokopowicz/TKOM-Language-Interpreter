@@ -1,5 +1,8 @@
 package com.ast.expresion;
 
+import com.executionExceptions.ConflictException;
+import com.executionExceptions.ExecutionException;
+
 public class StringVariable extends Variable {
     private String message = "";
 
@@ -23,5 +26,13 @@ public class StringVariable extends Variable {
     @Override
     public void print() {
         System.out.print(message);
+    }
+
+    @Override
+    public void setValue(Variable value) throws ExecutionException {
+        if(!(value instanceof StringVariable))
+            throw new ConflictException("StringVariable.setValue()", "variable", "assigned value");
+        StringVariable stringVariable = (StringVariable)value;
+        this.message = stringVariable.message;
     }
 }

@@ -2,6 +2,7 @@ package com.ast.expresion;
 
 import com.ast.Program;
 import com.ast.statement.Statement;
+import com.executionExceptions.ExecutionException;
 
 public class BasicMathExpression extends Expression {
     private boolean negate;
@@ -13,8 +14,12 @@ public class BasicMathExpression extends Expression {
     }
 
     @Override
-    public Variable evaluate(Statement context, Program program) {
-        //todo
-        return null;
+    public Variable evaluate(Statement context, Program program) throws ExecutionException {
+        NumberVariable result = (NumberVariable)content.evaluate(context,program);
+        if(negate)
+            return result.negate();
+        else
+            return result;
+
     }
 }

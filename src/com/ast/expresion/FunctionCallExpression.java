@@ -1,7 +1,11 @@
 package com.ast.expresion;
 
 import com.ast.Program;
+import com.ast.statement.Function;
 import com.ast.statement.Statement;
+import com.executionExceptions.ConflictException;
+import com.executionExceptions.ExecutionException;
+import com.executionExceptions.IncompleteException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +14,7 @@ public class FunctionCallExpression extends Expression {
     private String functionName;
     private List<Expression> arguments;
 
-    public FunctionCallExpression(String functionName){
+    public FunctionCallExpression(String functionName) {
         this.functionName = functionName;
         this.arguments = new ArrayList<>();
     }
@@ -20,8 +24,22 @@ public class FunctionCallExpression extends Expression {
     }
 
     @Override
-    public Variable evaluate(Statement context, Program program){
-        //todo
-        return null;
+    public Variable evaluate(Statement context, Program program) throws ExecutionException {
+        Function function = program.getFunction(functionName);
+        if (function == null)
+            throw new IncompleteException("FunctionCallExpression", functionName);
+        function = (Function)function.copy();
+        try {
+            for (int i = 0; i < arguments.size(); ++i) {
+                Variable argument = context.getVariable(function.argumentsNames.get(i));
+                if (argument == null)
+                    throw new IncompleteException("FunctionCallExpression", function.argumentsNames.get(i));
+                argument.setValue(arguments.get(i).evaluate(context, program));
+            }
+        } catch (IndexOutOfBoundsException exc) {
+            throw new ConflictException("FunctionCallExpression", "number of function arguments", "number of function call arguments");
+        }
+        function.execute(program);
+        return function.getReturnValue();
     }
 }

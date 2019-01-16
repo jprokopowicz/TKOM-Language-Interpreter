@@ -29,6 +29,7 @@ public class Program {
         if(main == null || !main.isDefined())
             throw new NoDeclarationException(mainName);
         main = (Function)main.copy();
+        //todo:inputValues
         main.execute(this);
         return main.getReturnValue();
     }

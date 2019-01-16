@@ -2,6 +2,7 @@ package com.ast.expresion;
 
 import com.ast.Program;
 import com.ast.statement.Statement;
+import com.executionExceptions.ExecutionException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +14,11 @@ public class MathExpression extends Expression {
     }
 
     private List<MultiplicationExpression> multiplicationExpressions;
-    private List<AdditionOperator> additionOparators;
+    private List<AdditionOperator> additionOperators;
 
     public MathExpression() {
         multiplicationExpressions = new ArrayList<>();
-        additionOparators = new ArrayList<>();
+        additionOperators = new ArrayList<>();
     }
 
     public void addMultiplicationExpression(MultiplicationExpression multiplicationExpression) {
@@ -25,12 +26,18 @@ public class MathExpression extends Expression {
     }
 
     public void addAdditionOperator(AdditionOperator operator) {
-        additionOparators.add(operator);
+        additionOperators.add(operator);
     }
 
     @Override
-    public Variable evaluate(Statement context, Program program) {
-        //todo
-        return null;
+    public Variable evaluate(Statement context, Program program) throws ExecutionException {
+        NumberVariable result = (NumberVariable)multiplicationExpressions.get(0).evaluate(context,program);
+        for(int i = 1 ; i < multiplicationExpressions.size() ; ++i) {
+            if(additionOperators.get(i-1) == AdditionOperator.add)
+                result = result.plus((NumberVariable)multiplicationExpressions.get(i).evaluate(context,program));
+            else // subtract
+                result = result.minus((NumberVariable)multiplicationExpressions.get(i).evaluate(context,program));
+        }
+        return result;
     }
 }

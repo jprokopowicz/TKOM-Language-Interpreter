@@ -1,6 +1,7 @@
 package com.ast.expresion;
 
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
+import com.executionExceptions.ConflictException;
+import com.executionExceptions.ExecutionException;
 
 public class BoolVariable extends Variable {
     private boolean value = false;
@@ -27,28 +28,28 @@ public class BoolVariable extends Variable {
         this.value = value;
     }
     //Operators
-    public BoolVariable not() {
+    BoolVariable not() {
         return new BoolVariable(!this.value);
     }
 
-    public BoolVariable or(BoolVariable component) {
+    BoolVariable or(BoolVariable component) {
         return new BoolVariable(this.value || component.value);
     }
 
-    public BoolVariable and(BoolVariable component) {
+    BoolVariable and(BoolVariable component) {
         return new BoolVariable(this.value && component.value);
-    }
-
-    public boolean equal(BoolVariable boolVariable) {
-        return this.value == boolVariable.value;
-    }
-
-    public boolean notEqual(BoolVariable boolVariable) {
-        return !equal(boolVariable);
     }
 
     @Override
     public void print() {
         System.out.print(value);
+    }
+
+    @Override
+    public void setValue(Variable value) throws ExecutionException {
+        if(!(value instanceof BoolVariable))
+            throw new ConflictException("BoolVariable.setValue()", "number variable", "assigned value");
+        BoolVariable boolVariable = (BoolVariable)value;
+        this.value = boolVariable.value;
     }
 }

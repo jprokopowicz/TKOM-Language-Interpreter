@@ -1,6 +1,7 @@
 package com.ast.expresion;
 
 import com.executionExceptions.ArithmeticException;
+import com.executionExceptions.ConflictException;
 import com.executionExceptions.ExecutionException;
 
 public class NumberVariable extends Variable {
@@ -56,7 +57,7 @@ public class NumberVariable extends Variable {
         shortenFraction();
     }
 
-    public void setValue(int integer, int nominator, int denominator) {
+    private void setValue(int integer, int nominator, int denominator) {
         setValue(nominator + integer * denominator,denominator);
     }
 
@@ -94,12 +95,12 @@ public class NumberVariable extends Variable {
             throw new ArithmeticException("Negative denominator");
     }
     //Operators
-    public NumberVariable negate() throws ExecutionException {
+    NumberVariable negate() throws ExecutionException {
         this.DenominatorCheck();
         return new NumberVariable(-this.nominator,this.denominator);
     }
 
-    public NumberVariable plus(NumberVariable component) throws ExecutionException {
+    NumberVariable plus(NumberVariable component) throws ExecutionException {
         this.DenominatorCheck();
         component.DenominatorCheck();
         int commonDenominator = leastCommonMultiple(this.denominator,component.denominator);
@@ -107,17 +108,17 @@ public class NumberVariable extends Variable {
         return new NumberVariable(newNominator, commonDenominator);
     }
 
-    public NumberVariable minus(NumberVariable subtrahend) throws ExecutionException{
+    NumberVariable minus(NumberVariable subtrahend) throws ExecutionException{
         return this.plus(subtrahend.negate());
     }
 
-    public NumberVariable multiply(NumberVariable factor) throws ExecutionException {
+    NumberVariable multiply(NumberVariable factor) throws ExecutionException {
         this.DenominatorCheck();
         factor.DenominatorCheck();
         return new NumberVariable(this.nominator * factor.nominator, this.denominator * factor.denominator);
     }
 
-    public NumberVariable dev(NumberVariable divider) throws ExecutionException {
+    NumberVariable dev(NumberVariable divider) throws ExecutionException {
         this.DenominatorCheck();
         divider.DenominatorCheck();
         if (divider.nominator == 0)
@@ -125,7 +126,7 @@ public class NumberVariable extends Variable {
         return new NumberVariable(this.nominator * divider.denominator, this.denominator * divider.nominator);
     }
 
-    public NumberVariable mod(NumberVariable divider) throws ExecutionException {
+    NumberVariable mod(NumberVariable divider) throws ExecutionException {
         this.DenominatorCheck();
         divider.DenominatorCheck();
         if(this.denominator == 1 && divider.denominator == 1)
@@ -134,37 +135,45 @@ public class NumberVariable extends Variable {
             return new NumberVariable(divider);
     }
 
-    public boolean equal(NumberVariable numberVariable) throws ExecutionException {
+    boolean equal(NumberVariable numberVariable) throws ExecutionException {
         this.DenominatorCheck();
         numberVariable.DenominatorCheck();
         return this.nominator == numberVariable.nominator && this.denominator == numberVariable.denominator;
     }
 
-    public boolean notEqual(NumberVariable numberVariable) throws ExecutionException {
+    boolean notEqual(NumberVariable numberVariable) throws ExecutionException {
         return !this.equal(numberVariable);
     }
 
-    public boolean greater(NumberVariable numberVariable) throws ExecutionException {
+    boolean greater(NumberVariable numberVariable) throws ExecutionException {
         this.DenominatorCheck();
         numberVariable.DenominatorCheck();
         int commonDenominator = leastCommonMultiple(this.denominator, numberVariable.denominator);
         return this.nominator * (commonDenominator / denominator) > numberVariable.nominator * (commonDenominator / numberVariable.denominator);
     }
 
-    public boolean greaterOrEqual(NumberVariable numberVariable) throws ExecutionException {
+    boolean greaterOrEqual(NumberVariable numberVariable) throws ExecutionException {
         return  equal(numberVariable) || greater(numberVariable);
     }
 
-    public boolean lesser(NumberVariable numberVariable) throws ExecutionException {
+    boolean lesser(NumberVariable numberVariable) throws ExecutionException {
         return !greaterOrEqual(numberVariable);
     }
 
-    public boolean lesserOrEqual(NumberVariable numberVariable) throws  ExecutionException {
+    boolean lesserOrEqual(NumberVariable numberVariable) throws  ExecutionException {
         return !greater(numberVariable);
     }
 
     @Override
     public void print() {
         System.out.print(nominator + ":" + denominator);
+    }
+
+    @Override
+    public void setValue(Variable value) throws ExecutionException {
+        if(!(value instanceof NumberVariable))
+            throw new ConflictException("NumberVariable.setValue()", "variable", "assigned value");
+        NumberVariable numberVariable = (NumberVariable)value;
+        this.setValue(numberVariable.nominator,numberVariable.denominator);
     }
 }

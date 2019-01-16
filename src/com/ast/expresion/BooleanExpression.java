@@ -2,6 +2,7 @@ package com.ast.expresion;
 
 import com.ast.Program;
 import com.ast.statement.Statement;
+import com.executionExceptions.ExecutionException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +19,10 @@ public class BooleanExpression extends Expression {
     }
 
     @Override
-    public Variable evaluate(Statement context, Program program) {
-        //todo
-        return null;
+    public Variable evaluate(Statement context, Program program) throws ExecutionException {
+        BoolVariable result = (BoolVariable)conjunctionExpressions.get(0).evaluate(context,program);
+        for(int i = 1 ; i < conjunctionExpressions.size() ; ++i)
+            result = result.or((BoolVariable)conjunctionExpressions.get(i).evaluate(context,program));
+        return result;
     }
 }
