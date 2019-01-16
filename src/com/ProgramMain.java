@@ -16,21 +16,21 @@ public class ProgramMain {
                 FileInputStream inputStream = new FileInputStream(args[0]);
                 Parser parser = new Parser(new StreamReader(inputStream));
                 Program program = parser.parse();
-                System.out.println("Program parsed successfully. Press any key to execute");
+                System.out.println("Program parsed successfully. Press enter to execute.");
                 System.in.read();
                 Variable result = program.execute();
-                System.out.println("Program executed");
                 if (result != null) {
-                    System.out.print("message: ");
+                    System.out.print("\n\nProgram message: ");
                     result.print();
-                    System.out.print("\n");
                 }
             } catch (FileNotFoundException exc){
                 System.out.println("No such file or invalid argument: " + exc.getMessage());
             } catch (ParseException exc) {
-                System.out.println("Paser exception: " + exc.getMessage());
+                System.out.println("Parser exception: " + exc.getMessage());
+                exc.printStackTrace();
             }  catch (ExecutionException exc) {
                 System.out.println("Execution exception: " + exc.getMessage());
+                exc.printStackTrace();
             } catch (Exception exc){
                 System.out.println("Other exception: "+ exc.getMessage());
                 exc.printStackTrace();

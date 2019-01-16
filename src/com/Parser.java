@@ -60,8 +60,10 @@ public class Parser {
 
     void parseArguments(Function function) throws ParseException {
         acceptTokenTypeOrThrowAndReadToken(Token.Type.open_bracket_);
-        if (lexer.getToken().getType() == Token.Type.close_bracket_) // 0 arguments
+        if (lexer.getToken().getType() == Token.Type.close_bracket_) { // 0 arguments
+            lexer.readNextToken();
             return;
+        }
         if (!function.isDefined() && function.argumentsNames.size() == 0)
             throw new WrongArgumentException(0, lexer.getToken());
 

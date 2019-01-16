@@ -168,7 +168,10 @@ public class NumberVariable extends Variable {
 
     @Override
     public void print() {
-        System.out.print(nominator + ":" + denominator);
+        if(denominator == 1)
+            System.out.print(nominator);
+        else
+            System.out.print(nominator + ":" + denominator);
     }
 
     @Override

@@ -6,6 +6,6 @@ public class CopyException extends ExecutionException{
     }
 
     public CopyException(String msg) {
-        super("Exceprion during copping statements or expressions: " + msg);
+        super("Exception during copping statements or expressions: " + msg);
     }
 }

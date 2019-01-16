@@ -3,6 +3,7 @@ package com.ast.statement;
 import com.ast.Program;
 import com.ast.expresion.Expression;
 import com.ast.expresion.Variable;
+import com.executionExceptions.ConflictException;
 import com.executionExceptions.ExecutionException;
 import com.executionExceptions.ReturnException;
 
@@ -17,6 +18,15 @@ public class ReturnStatement extends Statement {
 
     @Override
     public void execute(Program program) throws ExecutionException {
+        Statement currentStatement = parent;
+        while(currentStatement != null) {
+            if (currentStatement instanceof Function && ((Function)currentStatement).getReturnType() == Function.Return.void_)
+                throw new ReturnException(null);
+            else
+                currentStatement = currentStatement.parent;
+        }
+        if(value == null)
+            throw new ConflictException("Return", "return type", "no return");
         Variable returnValue = value.evaluate(this,program);
         throw new ReturnException(returnValue);
     }

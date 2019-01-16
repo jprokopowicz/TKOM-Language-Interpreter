@@ -31,7 +31,7 @@ public class FunctionCallExpression extends Expression {
         function = (Function)function.copy();
         try {
             for (int i = 0; i < arguments.size(); ++i) {
-                Variable argument = context.getVariable(function.argumentsNames.get(i));
+                Variable argument = function.getVariable(function.argumentsNames.get(i));
                 if (argument == null)
                     throw new IncompleteException("FunctionCallExpression", function.argumentsNames.get(i));
                 argument.setValue(arguments.get(i).evaluate(context, program));
