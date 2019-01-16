@@ -1,8 +1,11 @@
 package com.ast.statement;
 
 import com.ast.Program;
+import com.ast.expresion.BoolVariable;
 import com.ast.expresion.BooleanExpression;
+import com.ast.expresion.Variable;
 import com.executionExceptions.ExecutionException;
+import com.executionExceptions.IncompleteException;
 
 public class IfStatement extends Statement {
     private BooleanExpression condition = null;
@@ -30,8 +33,14 @@ public class IfStatement extends Statement {
     }
 
     @Override
-    public void execute(Program program){
-        //todo
+    public void execute(Program program) throws ExecutionException {
+        if (condition != null && ((BoolVariable)condition.evaluate(parent, program)).getValue()) {
+            for (Statement instruction : innerStatements)
+                instruction.execute(program);
+        } else if (elseStatement != null) {
+            elseStatement.execute(program);
+        } else
+            throw new IncompleteException("IfStatement", "condition");
     }
 
     @Override

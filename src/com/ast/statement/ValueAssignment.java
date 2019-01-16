@@ -1,8 +1,10 @@
 package com.ast.statement;
 
 import com.ast.Program;
-import com.ast.expresion.Expression;
+import com.ast.expresion.*;
+import com.executionExceptions.ConflictException;
 import com.executionExceptions.ExecutionException;
+import com.executionExceptions.IncompleteException;
 
 public class ValueAssignment extends Statement {
     private String targetName;
@@ -16,8 +18,28 @@ public class ValueAssignment extends Statement {
     }
 
     @Override
-    public void execute(Program program){
-        //todo
+    public void execute(Program program) throws ExecutionException{
+        Variable target = getVariable(targetName);
+        if(target == null)
+            throw new IncompleteException("ValueAssignment","target");
+        Variable assignedValue = value.evaluate(this,program);
+        if(target.getType() != assignedValue.getType())
+            throw new ConflictException("ValueAssignment", "target", "assigned value");
+        switch (target.getType()) {
+            case number_:
+                NumberVariable number = (NumberVariable)target, numValue = (NumberVariable)assignedValue;
+                number.setValue(numValue.getNominator(),numValue.getDenominator());
+                break;
+            case bool_:
+                BoolVariable bool = (BoolVariable)target, boolValue = (BoolVariable) assignedValue;
+                bool.setValue(boolValue.getValue());
+                break;
+            case string_:
+                StringVariable string = (StringVariable)target, stringValue = (StringVariable)assignedValue;
+                string.setMessage(stringValue.getMessage());
+            default:
+                throw new IncompleteException("ValueAssignment", "target type");
+        }
     }
 
     @Override

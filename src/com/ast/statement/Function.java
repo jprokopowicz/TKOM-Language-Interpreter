@@ -3,6 +3,7 @@ package com.ast.statement;
 import com.ast.Program;
 import com.ast.expresion.Variable;
 import com.executionExceptions.ExecutionException;
+import com.executionExceptions.ReturnException;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -64,12 +65,17 @@ public class Function extends Statement {
     }
 
     @Override
-    public void execute(Program program) {
-        //todo
+    public void execute(Program program) throws ExecutionException {
+        try {
+            for(Statement instruction: innerStatements)
+                instruction.execute(program);
+        } catch (ReturnException exc) {
+            returnValue = exc.getReturnValue();
+        }
     }
 
     @Override
-    public Statement copy()  throws ExecutionException {
+    public Statement copy() throws ExecutionException {
         Function copy = new Function(this.returnType, this.name);
         copy.copyInternals(this);
         copy.setParent(null);

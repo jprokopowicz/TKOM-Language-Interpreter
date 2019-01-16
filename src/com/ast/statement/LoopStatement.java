@@ -1,8 +1,10 @@
 package com.ast.statement;
 
 import com.ast.Program;
+import com.ast.expresion.BoolVariable;
 import com.ast.expresion.BooleanExpression;
 import com.executionExceptions.ExecutionException;
+import com.executionExceptions.IncompleteException;
 
 public class LoopStatement extends Statement {
     private BooleanExpression condition;
@@ -17,8 +19,13 @@ public class LoopStatement extends Statement {
     }
 
     @Override
-    public void execute(Program program) {
-        //todo
+    public void execute(Program program) throws ExecutionException {
+        if (condition == null)
+            throw new IncompleteException("LoopStatement", "condition");
+        while (((BoolVariable)condition.evaluate(parent,program)).getValue()) {
+            for (Statement instruction : innerStatements)
+                instruction.execute(program);
+        }
     }
 
     @Override

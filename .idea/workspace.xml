@@ -2,17 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb3b9810-4773-45b1-b8ad-4983e651c44e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/ProgramMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/executionExceptions/NoDeclarationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/executionExceptions/ConflictException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/executionExceptions/IncompleteException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/executionExceptions/ReturnException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/expresion/BoolVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expresion/BoolVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/expresion/NumberVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expresion/NumberVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/expresion/StringVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expresion/StringVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/expresion/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expresion/Variable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ast/statement/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/statement/Function.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ast/statement/FunctionCallStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/statement/FunctionCallStatement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ast/statement/IfStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/statement/IfStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ast/statement/InputStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/statement/InputStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ast/statement/LoopStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/statement/LoopStatement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ast/statement/OutputStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/statement/OutputStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_code.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_code.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ast/statement/ReturnStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/statement/ReturnStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ast/statement/ValueAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/statement/ValueAssignment.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,285 +44,124 @@
     <favorites_list name="TKOM Language Interpreter" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/Parser.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
-                  <caret line="30" selection-start-line="30" selection-end-line="30" />
-                  <folding>
-                    <element signature="e#358#359#0" expanded="true" />
-                    <element signature="e#403#404#0" expanded="true" />
-                    <element signature="method#parseArguments#0;class#Parser#0" />
-                    <element signature="method#compareOrAddArgument#0;class#Parser#0" />
-                    <element signature="method#compareArgument#0;class#Parser#0" />
-                    <element signature="method#parseScope#0;class#Parser#0" />
-                    <element signature="method#parseVariableDeclaration#0;class#Parser#0" />
-                    <element signature="method#parseVariable#0;class#Parser#0" />
-                    <element signature="method#addVariable#0;class#Parser#0" />
-                    <element signature="method#parseVariableOrFunctionCall#0;class#Parser#0" />
-                    <element signature="method#parseCondition#0;class#Parser#0" />
-                    <element signature="method#parseMathExpression#0;class#Parser#0" />
-                    <element signature="method#parseMultiplicationExpression#0;class#Parser#0" />
-                    <element signature="method#parseBasicMathExpression#0;class#Parser#0" />
-                    <element signature="method#parseBracketExpression#0;class#Parser#0" />
-                    <element signature="method#parseNumber#0;class#Parser#0" />
-                    <element signature="method#parseBooleanExpression#0;class#Parser#0" />
-                    <element signature="method#parseConjunctionExpression#0;class#Parser#0" />
-                    <element signature="method#parseBasicBoolExpression#0;class#Parser#0" />
-                    <element signature="method#parseComparisonExpression#0;class#Parser#0" />
-                    <element signature="method#parseBooleanBracketExpression#0;class#Parser#0" />
-                    <element signature="method#parseBool#0;class#Parser#0" />
-                    <element signature="method#parseStringExpression#0;class#Parser#0" />
-                    <element signature="method#parseString#0;class#Parser#0" />
-                    <element signature="method#acceptTokenTypeOrThrow#0;class#Parser#0" />
-                    <element signature="method#acceptTokenTypeOrThrow#1;class#Parser#0" />
-                    <element signature="method#acceptTokenTypeOrThrowAndReadToken#0;class#Parser#0" />
-                    <element signature="method#testReadNextToken#0;class#Parser#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Expression.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/ast/expresion/Expression.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="90">
-                  <caret line="6" column="72" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="72" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Variable.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/com/ast/expresion/Variable.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="465">
-                  <caret line="31" selection-start-line="31" selection-end-line="31" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#625#626#0" expanded="true" />
-                    <element signature="e#702#703#0" expanded="true" />
-                    <element signature="e#790#791#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Program.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/ast/Program.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="465">
-                  <caret line="31" selection-start-line="31" selection-end-line="31" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#221#222#0" expanded="true" />
-                    <element signature="e#264#265#0" expanded="true" />
-                    <element signature="e#317#318#0" expanded="true" />
-                    <element signature="e#382#383#0" expanded="true" />
-                    <element signature="e#430#431#0" expanded="true" />
-                    <element signature="e#472#473#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="NumberVariable.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/ast/expresion/NumberVariable.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="519">
-                  <caret line="74" column="54" selection-start-line="74" selection-start-column="54" selection-end-line="74" selection-end-column="54" />
-                  <folding>
-                    <element signature="e#1844#1845#0" expanded="true" />
-                    <element signature="e#1878#1879#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="BoolVariable.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/ast/expresion/BoolVariable.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-                  <folding>
-                    <element signature="e#629#630#0" expanded="true" />
-                    <element signature="e#650#651#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="StringVariable.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/ast/expresion/StringVariable.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
-                  <folding>
-                    <element signature="e#507#508#0" expanded="true" />
-                    <element signature="e#541#542#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ProgramMain.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/ProgramMain.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" selection-start-line="21" selection-end-line="21" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LexerMain.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/LexerMain.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="495">
-                  <caret line="33" column="5" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="33" selection-end-column="5" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="IfStatement.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/com/ast/statement/IfStatement.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="25" column="45" lean-forward="true" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#443#444#0" expanded="true" />
-                    <element signature="e#485#486#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="InputStatement.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/ast/statement/InputStatement.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LoopStatement.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/ast/statement/LoopStatement.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="90">
-                  <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Function.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/ast/statement/Function.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="752">
-                  <caret line="77" selection-start-line="77" selection-end-line="77" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="FunctionCallStatement.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/ast/statement/FunctionCallStatement.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
-                  <caret line="22" column="69" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Statement.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/ast/statement/Statement.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="536">
-                  <caret line="95" selection-start-line="95" selection-end-line="95" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="method#getVariable#0;class#Statement#0" />
-                    <element signature="e#1716#1717#0" expanded="true" />
-                    <element signature="e#1752#1753#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ValueAssignment.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/ast/statement/ValueAssignment.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="24" column="51" lean-forward="true" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="OutputStatement.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/ast/statement/OutputStatement.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ReturnStatement.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/ast/statement/ReturnStatement.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="test_code.txt" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/tests/test_code.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="441">
-                  <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="FunctionCallStatement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ast/statement/FunctionCallStatement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="44" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IfStatement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ast/statement/IfStatement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="36" column="73" selection-start-line="36" selection-start-column="73" selection-end-line="36" selection-end-column="73" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InputStatement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ast/statement/InputStatement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoopStatement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ast/statement/LoopStatement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OutputStatement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ast/statement/OutputStatement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="39" column="77" selection-start-line="39" selection-start-column="77" selection-end-line="39" selection-end-column="77" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReturnStatement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ast/statement/ReturnStatement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="59" lean-forward="true" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BoolVariable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ast/expresion/BoolVariable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Statement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ast/statement/Statement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="95" selection-start-line="95" selection-end-line="95" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1716#1717#0" expanded="true" />
+                <element signature="e#1752#1753#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ValueAssignment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/ast/statement/ValueAssignment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="38" column="60" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConflictException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/executionExceptions/ConflictException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="80" selection-start-line="4" selection-start-column="80" selection-end-line="4" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -366,9 +206,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/lexer/Lexer.java" />
-        <option value="$PROJECT_DIR$/src/com/parser/expresion/CompersonExpression.java" />
-        <option value="$PROJECT_DIR$/src/com/parser/expresion/ComparisonExpression.java" />
         <option value="$PROJECT_DIR$/src/com/parser/expresion/BasicBoolExpression.java" />
         <option value="$PROJECT_DIR$/src/com/ast/expresion/statement/Statement.java" />
         <option value="$PROJECT_DIR$/src/com/parser/statement/Statement.java" />
@@ -400,12 +237,6 @@
         <option value="$PROJECT_DIR$/src/com/ast/expresion/MultiplicationExpression.java" />
         <option value="$PROJECT_DIR$/src/com/ast/expresion/VariableCall.java" />
         <option value="$PROJECT_DIR$/src/com/ast/statement/Statement.java" />
-        <option value="$PROJECT_DIR$/src/com/ast/statement/Function.java" />
-        <option value="$PROJECT_DIR$/src/com/ast/statement/InputStatement.java" />
-        <option value="$PROJECT_DIR$/src/com/ast/statement/ReturnStatement.java" />
-        <option value="$PROJECT_DIR$/src/com/ast/statement/ValueAssignment.java" />
-        <option value="$PROJECT_DIR$/src/com/ast/statement/FunctionCallStatement.java" />
-        <option value="$PROJECT_DIR$/src/com/ast/statement/LoopStatement.java" />
         <option value="$PROJECT_DIR$/src/com/executionExceptions/NoDeclarationException.java" />
         <option value="$PROJECT_DIR$/src/com/ast/Program.java" />
         <option value="$PROJECT_DIR$/src/com/ast/expresion/Variable.java" />
@@ -415,8 +246,17 @@
         <option value="$PROJECT_DIR$/src/com/Parser.java" />
         <option value="$PROJECT_DIR$/src/com/ProgramMain.java" />
         <option value="$PROJECT_DIR$/tests/test_code.txt" />
+        <option value="$PROJECT_DIR$/src/com/executionExceptions/ReturnException.java" />
+        <option value="$PROJECT_DIR$/src/com/ast/statement/FunctionCallStatement.java" />
+        <option value="$PROJECT_DIR$/src/com/ast/statement/Function.java" />
+        <option value="$PROJECT_DIR$/src/com/executionExceptions/IncompleteException.java" />
+        <option value="$PROJECT_DIR$/src/com/ast/statement/InputStatement.java" />
         <option value="$PROJECT_DIR$/src/com/ast/statement/IfStatement.java" />
+        <option value="$PROJECT_DIR$/src/com/ast/statement/LoopStatement.java" />
+        <option value="$PROJECT_DIR$/src/com/ast/statement/ReturnStatement.java" />
         <option value="$PROJECT_DIR$/src/com/ast/statement/OutputStatement.java" />
+        <option value="$PROJECT_DIR$/src/com/executionExceptions/ConflictException.java" />
+        <option value="$PROJECT_DIR$/src/com/ast/statement/ValueAssignment.java" />
       </list>
     </option>
   </component>
@@ -489,6 +329,20 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="ast" type="462c0819:PsiDirectoryNode" />
               <item name="statement" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="byteReader" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="executionExceptions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
@@ -630,14 +484,7 @@
       <workItem from="1546602014470" duration="29115000" />
       <workItem from="1546650540226" duration="31598000" />
       <workItem from="1547391964455" duration="27930000" />
-      <workItem from="1547518224528" duration="36571000" />
-    </task>
-    <task id="LOCAL-00030" summary="Methods comments and change token end_of_file_ to end_of_bytes_">
-      <created>1543768306689</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1543768306689</updated>
+      <workItem from="1547518224528" duration="42100000" />
     </task>
     <task id="LOCAL-00031" summary="Tests for Lexer">
       <created>1543768451234</created>
@@ -975,7 +822,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547582719023</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Program execution main. Added execution exceptions. Print function for variable classes. &#10;Fix bug with coping OutputStatement class. Copy method return a new created copy as it should.">
+      <created>1547595867294</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1547595867295</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1011,7 +865,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280136000" />
+    <option name="totallyTimeSpent" value="285665000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1036,19 +890,19 @@
       <window_info anchor="right" id="Maven Projects" order="9" weight="0.32946378" />
       <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.32948583" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.31164742" />
+      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.31164742" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32946378" />
       <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.4997236" weight="0.32948583" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="0" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.49842602" visible="true" weight="0.20950802" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.49762282" visible="true" weight="0.20950802" />
       <window_info anchor="right" id="Database" order="7" weight="0.32946378" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32948583" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="8" weight="0.2498618" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="4" sideWeight="0.501574" side_tool="true" visible="true" weight="0.20950802" />
+      <window_info id="Favorites" order="4" sideWeight="0.50237715" side_tool="true" weight="0.20950802" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.39874083" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
@@ -1056,6 +910,37 @@
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="5" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" id="Palette" order="1" />
+      <window_info id="Designer" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="2" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.31164742" />
+      <window_info anchor="right" id="Ant Build" order="8" weight="0.2498618" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.49762282" visible="true" weight="0.20950802" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="bottom" id="TODO" order="11" weight="0.32948583" />
+      <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="5" />
+      <window_info id="Image Layers" order="1" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info anchor="bottom" id="Find" order="6" visible="true" weight="0.32948583" />
+      <window_info anchor="right" id="Maven Projects" order="9" weight="0.32946378" />
+      <window_info anchor="right" id="Database" order="7" weight="0.32946378" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.4997236" weight="0.32948583" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5002764" side_tool="true" weight="0.32948583" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.32948583" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.39874083" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="4" weight="0.33788037" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32946378" />
+      <window_info id="Favorites" order="4" sideWeight="0.50237715" side_tool="true" weight="0.20950802" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1064,7 +949,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Small fix for exceptions and filling the parseFunction function." />
     <MESSAGE value="Input statement implementation" />
     <MESSAGE value="Output statement implementation" />
     <MESSAGE value="Return statement implementation." />
@@ -1089,7 +973,8 @@
     <MESSAGE value="Debugging results changes, part 4. Refactor and minor read token bugs. Remove arithmetic exception during number variable creation." />
     <MESSAGE value="Start of execution implementation. Execution exceptions. Coping Statements." />
     <MESSAGE value="Remove redundant parameters from classes:&#10;Remove parent and program context from expressions. Context is given in the evaluate function arguments instead.&#10;Remove program context from statements. Program is given in execute function instead." />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove redundant parameters from classes:&#10;Remove parent and program context from expressions. Context is given in the evaluate function arguments instead.&#10;Remove program context from statements. Program is given in execute function instead." />
+    <MESSAGE value="Program execution main. Added execution exceptions. Print function for variable classes. &#10;Fix bug with coping OutputStatement class. Copy method return a new created copy as it should." />
+    <option name="LAST_COMMIT_MESSAGE" value="Program execution main. Added execution exceptions. Print function for variable classes. &#10;Fix bug with coping OutputStatement class. Copy method return a new created copy as it should." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1102,7 +987,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/com/ast/statement/Function.java</url>
-          <line>71</line>
+          <line>77</line>
           <properties class="com.ast.statement.Function" method="copy">
             <option name="EMULATED" value="true" />
           </properties>
@@ -1117,33 +1002,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/com/byteReader/StreamReaderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3045">
-          <caret line="216" column="35" selection-start-line="216" selection-start-column="35" selection-end-line="216" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/com/PositionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/com/LexerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/com/ParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1140">
@@ -1429,49 +1287,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/LexerMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="5" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="33" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/expresion/NumberVariable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="74" column="54" selection-start-line="74" selection-start-column="54" selection-end-line="74" selection-end-column="54" />
-          <folding>
-            <element signature="e#1844#1845#0" expanded="true" />
-            <element signature="e#1878#1879#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/expresion/BoolVariable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-          <folding>
-            <element signature="e#629#630#0" expanded="true" />
-            <element signature="e#650#651#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/expresion/StringVariable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
-          <folding>
-            <element signature="e#507#508#0" expanded="true" />
-            <element signature="e#541#542#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1516,105 +1331,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/FunctionCallStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="69" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/InputStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/ValueAssignment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="51" lean-forward="true" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/Statement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="95" selection-start-line="95" selection-end-line="95" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getVariable#0;class#Statement#0" />
-            <element signature="e#1716#1717#0" expanded="true" />
-            <element signature="e#1752#1753#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/ReturnStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/OutputStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/LoopStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#221#222#0" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-            <element signature="e#317#318#0" expanded="true" />
-            <element signature="e#382#383#0" expanded="true" />
-            <element signature="e#430#431#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ProgramMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ast/expresion/Variable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -1628,10 +1344,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/expresion/NumberVariable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="50" column="4" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
+          <folding>
+            <element signature="e#1844#1845#0" expanded="true" />
+            <element signature="e#1878#1879#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/expresion/StringVariable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+          <folding>
+            <element signature="e#507#508#0" expanded="true" />
+            <element signature="e#541#542#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ProgramMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/LexerMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="5" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="33" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/executionExceptions/ReturnException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="55" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
+          <folding>
+            <element signature="e#201#202#0" expanded="true" />
+            <element signature="e#234#235#0" expanded="true" />
+            <element signature="e#295#296#0" expanded="true" />
+            <element signature="e#329#330#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#495#496#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/executionExceptions/IncompleteException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="60" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ast/statement/Function.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        <state relative-caret-position="346">
+          <caret line="67" column="67" selection-start-line="67" selection-start-column="67" selection-end-line="67" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1641,11 +1431,95 @@
     <entry file="file://$PROJECT_DIR$/src/com/ast/statement/IfStatement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="25" column="45" lean-forward="true" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+          <caret line="36" column="73" selection-start-line="36" selection-start-column="73" selection-end-line="36" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#443#444#0" expanded="true" />
-            <element signature="e#485#486#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/FunctionCallStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="44" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/expresion/BoolVariable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/Statement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1716#1717#0" expanded="true" />
+            <element signature="e#1752#1753#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/InputStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/executionExceptions/ConflictException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="80" selection-start-line="4" selection-start-column="80" selection-end-line="4" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/LoopStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/ReturnStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="59" lean-forward="true" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/OutputStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="39" column="77" selection-start-line="39" selection-start-column="77" selection-end-line="39" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/ValueAssignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="38" column="60" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,7 +1,9 @@
 package com.ast.statement;
 
 import com.ast.Program;
+import com.ast.expresion.Variable;
 import com.executionExceptions.ExecutionException;
+import com.executionExceptions.IncompleteException;
 
 public class InputStatement extends Statement {
     private String targetName;
@@ -12,8 +14,11 @@ public class InputStatement extends Statement {
     }
 
     @Override
-    public void execute(Program program){
-        //todo
+    public void execute(Program program) throws ExecutionException{
+        Variable target = getVariable(targetName);
+        if (target == null)
+            throw new IncompleteException("InputStatement", "targetVariable");
+        //todo: reading input
     }
 
     @Override

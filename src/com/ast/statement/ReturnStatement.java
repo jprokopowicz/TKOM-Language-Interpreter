@@ -2,7 +2,9 @@ package com.ast.statement;
 
 import com.ast.Program;
 import com.ast.expresion.Expression;
+import com.ast.expresion.Variable;
 import com.executionExceptions.ExecutionException;
+import com.executionExceptions.ReturnException;
 
 public class ReturnStatement extends Statement {
     private Expression value;
@@ -14,8 +16,9 @@ public class ReturnStatement extends Statement {
     }
 
     @Override
-    public void execute(Program program){
-        //todo
+    public void execute(Program program) throws ExecutionException {
+        Variable returnValue = value.evaluate(this,program);
+        throw new ReturnException(returnValue);
     }
 
     @Override

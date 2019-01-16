@@ -14,8 +14,8 @@ public class FunctionCallStatement extends Statement {
     }
 
     @Override
-    public void execute(Program program){
-        //todo
+    public void execute(Program program) throws ExecutionException {
+        functionCallExpression.evaluate(this,program);
     }
 
     @Override
