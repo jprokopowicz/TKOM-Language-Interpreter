@@ -10,13 +10,13 @@ public class BoolVariable extends Variable {
     }
 
     public BoolVariable(boolean value) {
-        this.value = value;
         type = Type.bool_;
+        this.value = value;
     }
 
     public BoolVariable(BoolVariable boolVariable) {
-        this.value = boolVariable.value;
         type = Type.bool_;
+        this.value = boolVariable.value;
     }
 
     public boolean getValue() {
@@ -25,6 +25,26 @@ public class BoolVariable extends Variable {
 
     public void setValue(boolean value) {
         this.value = value;
+    }
+    //Operators
+    public BoolVariable not() {
+        return new BoolVariable(!this.value);
+    }
+
+    public BoolVariable or(BoolVariable component) {
+        return new BoolVariable(this.value || component.value);
+    }
+
+    public BoolVariable and(BoolVariable component) {
+        return new BoolVariable(this.value && component.value);
+    }
+
+    public boolean equal(BoolVariable boolVariable) {
+        return this.value == boolVariable.value;
+    }
+
+    public boolean notEqual(BoolVariable boolVariable) {
+        return !equal(boolVariable);
     }
 
     @Override

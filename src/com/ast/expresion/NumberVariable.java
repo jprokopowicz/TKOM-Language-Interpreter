@@ -93,11 +93,6 @@ public class NumberVariable extends Variable {
         if (denominator < 0)
             throw new ArithmeticException("Negative denominator");
     }
-
-    @Override
-    public void print() {
-        System.out.print(nominator + ":" + denominator);
-    }
     //Operators
     public NumberVariable negate() throws ExecutionException {
         this.DenominatorCheck();
@@ -145,7 +140,7 @@ public class NumberVariable extends Variable {
         return this.nominator == numberVariable.nominator && this.denominator == numberVariable.denominator;
     }
 
-    public boolean notEquals(NumberVariable numberVariable) throws ExecutionException {
+    public boolean notEqual(NumberVariable numberVariable) throws ExecutionException {
         return !this.equal(numberVariable);
     }
 
@@ -156,15 +151,20 @@ public class NumberVariable extends Variable {
         return this.nominator * (commonDenominator / denominator) > numberVariable.nominator * (commonDenominator / numberVariable.denominator);
     }
 
-    public boolean greaterOrEquel(NumberVariable numberVariable) throws ExecutionException {
+    public boolean greaterOrEqual(NumberVariable numberVariable) throws ExecutionException {
         return  equal(numberVariable) || greater(numberVariable);
     }
 
     public boolean lesser(NumberVariable numberVariable) throws ExecutionException {
-        return !greaterOrEquel(numberVariable);
+        return !greaterOrEqual(numberVariable);
     }
 
-    public boolean lesserOrEquel(NumberVariable numberVariable) throws  ExecutionException {
+    public boolean lesserOrEqual(NumberVariable numberVariable) throws  ExecutionException {
         return !greater(numberVariable);
+    }
+
+    @Override
+    public void print() {
+        System.out.print(nominator + ":" + denominator);
     }
 }
