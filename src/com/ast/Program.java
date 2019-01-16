@@ -3,7 +3,7 @@ package com.ast;
 import com.ast.expresion.Variable;
 import com.ast.statement.Function;
 import com.executionExceptions.ExecutionException;
-import com.executionExceptions.NoDeclarationException;
+import com.executionExceptions.IncompleteException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +27,7 @@ public class Program {
         String mainName = "main";
         Function main = getFunction(mainName);
         if(main == null || !main.isDefined())
-            throw new NoDeclarationException(mainName);
+            throw new IncompleteException("Main program",mainName);
         main = (Function)main.copy();
         //todo:inputValues
         main.execute(this);

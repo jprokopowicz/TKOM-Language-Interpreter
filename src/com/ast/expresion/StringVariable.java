@@ -10,6 +10,11 @@ public class StringVariable extends Variable {
         type = Type.string_;
     }
 
+    public StringVariable(String message) {
+        type = Type.string_;
+        this.message = message;
+    }
+
     public StringVariable(StringVariable stringVariable) {
         this.message = stringVariable.message;
         type = Type.string_;

@@ -4,6 +4,7 @@ import com.ast.Program;
 import com.ast.statement.Statement;
 import com.executionExceptions.ExecutionException;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,5 +41,5 @@ abstract public class Variable extends Expression {
 
     public abstract void setValue(Variable value) throws ExecutionException;
 
-    public abstract void print();
+    public abstract void print() throws IOException;
 }

@@ -1,9 +1,16 @@
 package com.ast.statement;
 
 import com.ast.Program;
+import com.ast.expresion.BoolVariable;
+import com.ast.expresion.NumberVariable;
+import com.ast.expresion.StringVariable;
 import com.ast.expresion.Variable;
 import com.executionExceptions.ExecutionException;
 import com.executionExceptions.IncompleteException;
+import com.executionExceptions.InputOutputException;
+import com.sun.xml.internal.ws.commons.xmlutil.Converter;
+
+import java.util.Scanner;
 
 public class InputStatement extends Statement {
     private String targetName;
@@ -18,7 +25,29 @@ public class InputStatement extends Statement {
         Variable target = getVariable(targetName);
         if (target == null)
             throw new IncompleteException("InputStatement", "targetVariable");
-        //todo: reading input
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.next();
+        switch (target.getType()) {
+            case number_:
+                target.setValue(new NumberVariable(NumberVariable.parseNumber(input)));
+                break;
+            case bool_:
+                switch (input) {
+                    case "true":
+                        target.setValue(new BoolVariable(true));
+                        break;
+                    case "false":
+                        target.setValue(new BoolVariable((false)));
+                        break;
+                    default:
+                        throw new InputOutputException("Input is not a boolean value");
+                }
+                break;
+            case string_:
+                target.setValue( new StringVariable(input));
+                break;
+            default:
+        }
     }
 
     @Override

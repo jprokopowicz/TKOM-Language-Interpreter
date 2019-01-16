@@ -610,8 +610,7 @@ public class Parser {
     StringVariable parseString() {
         String string = lexer.getToken().getValue();
         string = string.substring(1,string.length()-1);
-        StringVariable stringVariable = new StringVariable();
-        stringVariable.setMessage(string);
+        StringVariable stringVariable = new StringVariable(string);
         lexer.readNextToken();
         return stringVariable;
     }

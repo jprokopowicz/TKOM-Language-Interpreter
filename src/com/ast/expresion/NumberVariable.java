@@ -3,8 +3,10 @@ package com.ast.expresion;
 import com.executionExceptions.ArithmeticException;
 import com.executionExceptions.ConflictException;
 import com.executionExceptions.ExecutionException;
+import com.executionExceptions.InputOutputException;
 
 public class NumberVariable extends Variable {
+
     private int nominator = 0;
     private int denominator = 1;
 
@@ -175,5 +177,66 @@ public class NumberVariable extends Variable {
             throw new ConflictException("NumberVariable.setValue()", "variable", "assigned value");
         NumberVariable numberVariable = (NumberVariable)value;
         this.setValue(numberVariable.nominator,numberVariable.denominator);
+    }
+
+    public static NumberVariable parseNumber(String string) throws ExecutionException {
+        String [] parts = new String[3];
+        int numberOfParts = 1;
+        byte [] stringInBytes = string.getBytes();
+        int separator = 0;
+
+        if(string.length() == 0)
+            throw new InputOutputException("Not correct number format: empty string");
+        int start = stringInBytes[0] == '-' ? 1 : 0; //negative value
+        try {
+            for(int i = start ; i < string.length() ; ++i) {
+                switch (numberOfParts) {
+                    case 1:// int
+                        if(!Character.isDigit(stringInBytes[i])) {
+                            parts[0] = string.substring(start,i);
+                            separator = i;
+                            if(stringInBytes[i] == '#')
+                                numberOfParts = 3;
+                            else if (stringInBytes[i] == ':')
+                                numberOfParts = 2;
+                            else
+                                throw new InputOutputException("Not correct number format: " + string);
+                        } else if (i == string.length() - 1) {
+                            parts[0] = string.substring(start);
+                            return start == 0 ? new NumberVariable(Integer.parseInt(parts[0])) : (new NumberVariable(Integer.parseInt(parts[0]))).negate();
+                        }
+                        break;
+                    case 2:// int ':' int
+                        if(!Character.isDigit(stringInBytes[i]))
+                            throw new InputOutputException("Not correct number format: " + string);
+                        else if (i == string.length() - 1) {
+                            parts[1] = string.substring(separator + 1);
+                            return new NumberVariable(Integer.parseInt(parts[0]),Integer.parseInt(parts[1]));
+                        }
+                        break;
+                    case 3:// int '#' int ':' int
+                        if (!Character.isDigit(stringInBytes[i])) {
+                            if (stringInBytes[separator] == '#' && stringInBytes[i]==':') {
+                                parts[1] = string.substring(separator+1, i);
+                                separator = i;
+                            } else
+                                throw new InputOutputException("Not correct number format: " + string);
+                        } else if (i == string.length() - 1) {
+                            if (stringInBytes[separator] == ':') {
+                                parts[2] = string.substring(separator + 1);
+                                return start == 0 ? new NumberVariable(Integer.parseInt(parts[0]),Integer.parseInt(parts[1]),Integer.parseInt(parts[2])) :
+                                        (new NumberVariable(Integer.parseInt(parts[0]),Integer.parseInt(parts[1]),Integer.parseInt(parts[2]))).negate();
+                            } else
+                                throw new InputOutputException("Not correct number format: " + string);
+                        }
+                        break;
+                    default:
+                        throw new InputOutputException("Not correct number format: " + string);
+                }
+            }
+        } catch (NumberFormatException exc) {
+            throw new InputOutputException("Not correct number format: " + string);
+        }
+        throw new InputOutputException("Not correct number format: " + string);
     }
 }
