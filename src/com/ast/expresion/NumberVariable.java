@@ -1,9 +1,9 @@
 package com.ast.expresion;
 
-import com.executionExceptions.ArithmeticException;
-import com.executionExceptions.ConflictException;
-import com.executionExceptions.ExecutionException;
-import com.executionExceptions.InputOutputException;
+import com.exceptions.executionExceptions.ArithmeticException;
+import com.exceptions.executionExceptions.ConflictException;
+import com.exceptions.executionExceptions.ExecutionException;
+import com.exceptions.executionExceptions.InputOutputException;
 
 public class NumberVariable extends Variable {
 

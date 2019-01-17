@@ -2,7 +2,7 @@ package com.ast.expresion;
 
 import com.ast.Program;
 import com.ast.statement.Statement;
-import com.executionExceptions.ExecutionException;
+import com.exceptions.executionExceptions.ExecutionException;
 
 public class BasicMathExpression extends Expression {
     private boolean negate;

@@ -1,7 +1,7 @@
 package com;
 
-import com.Position;
-import com.Token;
+import com.interpreterParts.Position;
+import com.interpreterParts.Token;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

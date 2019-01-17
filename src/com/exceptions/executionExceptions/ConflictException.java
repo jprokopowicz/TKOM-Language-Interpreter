@@ -1,4 +1,4 @@
-package com.executionExceptions;
+package com.exceptions.executionExceptions;
 
 public class ConflictException extends ExecutionException {
     public ConflictException (String where, String what, String withWhat) {

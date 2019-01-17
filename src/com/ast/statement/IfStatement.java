@@ -3,9 +3,8 @@ package com.ast.statement;
 import com.ast.Program;
 import com.ast.expresion.BoolVariable;
 import com.ast.expresion.BooleanExpression;
-import com.ast.expresion.Variable;
-import com.executionExceptions.ExecutionException;
-import com.executionExceptions.IncompleteException;
+import com.exceptions.executionExceptions.ExecutionException;
+import com.exceptions.executionExceptions.IncompleteException;
 
 public class IfStatement extends Statement {
     private BooleanExpression condition = null;

@@ -1,4 +1,4 @@
-package com.executionExceptions;
+package com.exceptions.executionExceptions;
 
 import com.ast.expresion.Variable;
 

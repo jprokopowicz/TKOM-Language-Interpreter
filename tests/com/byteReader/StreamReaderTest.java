@@ -1,8 +1,6 @@
 package com.byteReader;
 
-import com.byteReader.EndOfBytesException;
-import com.Position;
-import com.byteReader.StreamReader;
+import com.interpreterParts.Position;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

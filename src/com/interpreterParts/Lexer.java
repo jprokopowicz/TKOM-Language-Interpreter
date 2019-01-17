@@ -1,4 +1,4 @@
-package com;
+package com.interpreterParts;
 
 import com.byteReader.ByteReader;
 import com.byteReader.EndOfBytesException;
@@ -17,8 +17,10 @@ public class Lexer {
 
     public static final int maxTokens = 2048;
     private int tokenCounter = 0;
-    public static final int maxBytesPerToken = 64;
+    public static final int maxBytesPerToken = 32;
     private int byteCounter = 0;
+    public static final int maxBytesPerComment = 512;
+    private int commentByteCounter = 0;
     /**
      * Constructor need source of bytes.
      * @param reader reads from the source.
@@ -97,6 +99,16 @@ public class Lexer {
         ++byteCounter;
         if(byteCounter > maxBytesPerToken)
             throw new IOException("Too many bytes");
+    }
+
+    /**
+     * Increments commentByteCounter and check if it reached maxBytesPerComment.
+     * @throws IOException commentByteCounter reached the limit.
+     */
+    private void commentByteCheck() throws IOException {
+        ++commentByteCounter;
+        if(commentByteCounter > maxBytesPerComment)
+            throw new IOException("Too many bytes in comment");
     }
 
     /**
@@ -299,8 +311,9 @@ public class Lexer {
      */
     private boolean defineCommentExpression() throws IOException, EndOfBytesException {
         char sign;
+        commentByteCounter = 0;
         while(!reader.endOfBytes()) {
-            byteCheck();
+            commentByteCheck();
             sign = reader.readByte();
             buffer.append(sign);
             if(sign == '*' && reader.lookUpByte() == '/'){

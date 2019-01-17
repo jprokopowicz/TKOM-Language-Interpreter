@@ -2,10 +2,8 @@ package com.ast.statement;
 
 import com.ast.Program;
 import com.ast.expresion.*;
-import com.executionExceptions.ExecutionException;
-import com.executionExceptions.IncompleteException;
-import com.executionExceptions.InputOutputException;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+import com.exceptions.executionExceptions.ExecutionException;
+import com.exceptions.executionExceptions.InputOutputException;
 
 import java.io.IOException;
 

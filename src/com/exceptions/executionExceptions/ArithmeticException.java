@@ -1,4 +1,4 @@
-package com.executionExceptions;
+package com.exceptions.executionExceptions;
 
 public class ArithmeticException extends ExecutionException {
     public ArithmeticException(String msg) {

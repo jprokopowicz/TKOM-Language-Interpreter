@@ -3,8 +3,8 @@ package com.ast.statement;
 import com.ast.Program;
 import com.ast.expresion.BoolVariable;
 import com.ast.expresion.BooleanExpression;
-import com.executionExceptions.ExecutionException;
-import com.executionExceptions.IncompleteException;
+import com.exceptions.executionExceptions.ExecutionException;
+import com.exceptions.executionExceptions.IncompleteException;
 
 public class LoopStatement extends Statement {
     private BooleanExpression condition;

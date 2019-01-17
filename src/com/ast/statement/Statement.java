@@ -1,6 +1,6 @@
 package com.ast.statement;
-import com.executionExceptions.CopyException;
-import com.executionExceptions.ExecutionException;
+import com.exceptions.executionExceptions.CopyException;
+import com.exceptions.executionExceptions.ExecutionException;
 import com.ast.Program;
 import com.ast.expresion.BoolVariable;
 import com.ast.expresion.NumberVariable;
@@ -10,9 +10,9 @@ import com.ast.expresion.Variable;
 import java.util.*;
 
 abstract public class Statement {
-    protected Map <String,Variable> localVariables = null;
-    protected List <Statement> innerStatements = null;
-    protected Statement parent = null;
+    public Map <String,Variable> localVariables = null;
+    public List <Statement> innerStatements = null;
+    Statement parent = null;
 
     public Statement(boolean isScope){
         if(isScope) {
@@ -65,7 +65,7 @@ abstract public class Statement {
 
     public abstract Statement copy() throws ExecutionException;
 
-    protected void copyInternals(Statement statement) throws ExecutionException {
+    void copyInternals(Statement statement) throws ExecutionException {
         if (this.localVariables != null && statement.localVariables != null) {
             for(Map.Entry<String,Variable> entry : statement.localVariables.entrySet()) {
                 String key = entry.getKey();

@@ -1,6 +1,4 @@
-package com.executionExceptions;
-
-import java.io.InputStream;
+package com.exceptions.executionExceptions;
 
 public class InputOutputException extends ExecutionException {
     public InputOutputException(String msg) {

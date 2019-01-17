@@ -1,6 +1,6 @@
-package com.parseException;
+package com.exceptions.parseException;
 
-import com.Token;
+import com.interpreterParts.Token;
 
 public class UnexpectedToken extends ParseException {
     public UnexpectedToken(Token token) {

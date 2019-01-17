@@ -1,4 +1,4 @@
-package com.executionExceptions;
+package com.exceptions.executionExceptions;
 
 public class ExecutionException extends Exception {
     public ExecutionException() {

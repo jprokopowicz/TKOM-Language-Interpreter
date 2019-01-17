@@ -1,4 +1,4 @@
-package com.executionExceptions;
+package com.exceptions.executionExceptions;
 
 public class IncompleteException extends ExecutionException {
     public IncompleteException(String name, String field) {

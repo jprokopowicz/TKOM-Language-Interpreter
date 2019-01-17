@@ -1,4 +1,4 @@
-package com.executionExceptions;
+package com.exceptions.executionExceptions;
 
 public class CopyException extends ExecutionException{
     public CopyException(String msg) {

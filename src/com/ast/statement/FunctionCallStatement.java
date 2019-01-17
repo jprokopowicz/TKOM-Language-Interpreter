@@ -2,7 +2,7 @@ package com.ast.statement;
 
 import com.ast.Program;
 import com.ast.expresion.FunctionCallExpression;
-import com.executionExceptions.ExecutionException;
+import com.exceptions.executionExceptions.ExecutionException;
 
 public class FunctionCallStatement extends Statement {
     private FunctionCallExpression functionCallExpression;

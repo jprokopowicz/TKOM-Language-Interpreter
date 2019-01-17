@@ -1,6 +1,6 @@
-package com.parseException;
+package com.exceptions.parseException;
 
-import com.Token;
+import com.interpreterParts.Token;
 
 public class ParseException extends Exception {
     public ParseException() {
@@ -12,6 +12,6 @@ public class ParseException extends Exception {
     }
 
     public ParseException(String msg, Token currentToken) {
-        super(msg + " Current token: " + currentToken.getValue()+ " line: " + currentToken.getPosition().line + " sign: " + currentToken.getPosition().sign);
+        super(msg + " Current token: \"" + currentToken.getValue()+ "\" line: " + currentToken.getPosition().line + " sign: " + currentToken.getPosition().sign);
     }
 }

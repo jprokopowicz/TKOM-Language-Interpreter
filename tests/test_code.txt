@@ -43,6 +43,7 @@ string main() {
     number resRec;
     resRec = recursivePower(a, b);
     write number resRec;
+    write string "\n";
     if([resIter == resRec]) {
         return "success";
     } else {

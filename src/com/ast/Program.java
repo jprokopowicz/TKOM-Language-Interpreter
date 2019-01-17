@@ -2,8 +2,8 @@ package com.ast;
 
 import com.ast.expresion.Variable;
 import com.ast.statement.Function;
-import com.executionExceptions.ExecutionException;
-import com.executionExceptions.IncompleteException;
+import com.exceptions.executionExceptions.ExecutionException;
+import com.exceptions.executionExceptions.IncompleteException;
 
 import java.util.HashMap;
 import java.util.Map;

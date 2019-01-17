@@ -2,9 +2,9 @@ package com.ast.statement;
 
 import com.ast.Program;
 import com.ast.expresion.*;
-import com.executionExceptions.ConflictException;
-import com.executionExceptions.ExecutionException;
-import com.executionExceptions.IncompleteException;
+import com.exceptions.executionExceptions.ConflictException;
+import com.exceptions.executionExceptions.ExecutionException;
+import com.exceptions.executionExceptions.IncompleteException;
 
 public class ValueAssignment extends Statement {
     private String targetName;

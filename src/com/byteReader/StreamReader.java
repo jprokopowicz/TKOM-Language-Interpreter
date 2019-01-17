@@ -1,6 +1,6 @@
 package com.byteReader;
 
-import com.Position;
+import com.interpreterParts.Position;
 
 import java.io.IOException;
 import java.io.InputStream;

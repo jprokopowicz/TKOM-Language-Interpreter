@@ -3,9 +3,9 @@ package com.ast.statement;
 import com.ast.Program;
 import com.ast.expresion.Expression;
 import com.ast.expresion.Variable;
-import com.executionExceptions.ConflictException;
-import com.executionExceptions.ExecutionException;
-import com.executionExceptions.ReturnException;
+import com.exceptions.executionExceptions.ConflictException;
+import com.exceptions.executionExceptions.ExecutionException;
+import com.exceptions.executionExceptions.ReturnException;
 
 public class ReturnStatement extends Statement {
     private Expression value;

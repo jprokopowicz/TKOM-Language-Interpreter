@@ -3,8 +3,9 @@ package com;
 import com.ast.Program;
 import com.ast.expresion.Variable;
 import com.byteReader.StreamReader;
-import com.executionExceptions.ExecutionException;
-import com.parseException.ParseException;
+import com.exceptions.executionExceptions.ExecutionException;
+import com.interpreterParts.Parser;
+import com.exceptions.parseException.ParseException;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -18,7 +19,7 @@ public class Interpreter {
                 Program program = parser.parse();
                 Variable result = program.execute();
                 if (result != null) {
-                    System.out.print("\nProgram message: ");
+                    System.out.print("Program message: ");
                     result.print();
                 }
             } catch (FileNotFoundException exc){

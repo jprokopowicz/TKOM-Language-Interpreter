@@ -1,6 +1,9 @@
 package com;
 
 import com.byteReader.StreamReader;
+import com.interpreterParts.Lexer;
+import com.interpreterParts.Position;
+import com.interpreterParts.Token;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -648,6 +651,22 @@ class LexerTest {
         token = lexer.getToken();
         assertEquals(Token.Type.invalid_,token.getType());
         assertEquals("/*comment*",token.getValue());
+    }
+
+    @Test
+    void readNextTokenLimitComment() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("/*");
+        for(int i = 0 ; i < Lexer.maxBytesPerComment +1;++i)
+            stringBuilder.append("-");
+        stringBuilder.append("*/");
+        inputCode = stringBuilder.toString();
+        Lexer lexer = prepareLexer(inputCode);
+        lexer.setIgnoreComment(false);
+        Token token = lexer.readNextToken();
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals("Too many bytes in comment", token.getValue());
+        assertFalse(lexer.isIgnoreComment());
     }
 
     @Test

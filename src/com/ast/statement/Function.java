@@ -2,8 +2,8 @@ package com.ast.statement;
 
 import com.ast.Program;
 import com.ast.expresion.Variable;
-import com.executionExceptions.ExecutionException;
-import com.executionExceptions.ReturnException;
+import com.exceptions.executionExceptions.ExecutionException;
+import com.exceptions.executionExceptions.ReturnException;
 
 import java.util.HashMap;
 import java.util.LinkedList;

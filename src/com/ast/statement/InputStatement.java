@@ -5,10 +5,9 @@ import com.ast.expresion.BoolVariable;
 import com.ast.expresion.NumberVariable;
 import com.ast.expresion.StringVariable;
 import com.ast.expresion.Variable;
-import com.executionExceptions.ExecutionException;
-import com.executionExceptions.IncompleteException;
-import com.executionExceptions.InputOutputException;
-import com.sun.xml.internal.ws.commons.xmlutil.Converter;
+import com.exceptions.executionExceptions.ExecutionException;
+import com.exceptions.executionExceptions.IncompleteException;
+import com.exceptions.executionExceptions.InputOutputException;
 
 import java.util.Scanner;
 

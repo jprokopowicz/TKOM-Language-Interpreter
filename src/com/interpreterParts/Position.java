@@ -1,4 +1,4 @@
-package com;
+package com.interpreterParts;
 
 public class Position {
     public int line;

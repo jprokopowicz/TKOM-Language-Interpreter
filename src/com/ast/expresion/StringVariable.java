@@ -1,7 +1,7 @@
 package com.ast.expresion;
 
-import com.executionExceptions.ConflictException;
-import com.executionExceptions.ExecutionException;
+import com.exceptions.executionExceptions.ConflictException;
+import com.exceptions.executionExceptions.ExecutionException;
 
 public class StringVariable extends Variable {
     private String message = "";

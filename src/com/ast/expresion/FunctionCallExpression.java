@@ -3,9 +3,9 @@ package com.ast.expresion;
 import com.ast.Program;
 import com.ast.statement.Function;
 import com.ast.statement.Statement;
-import com.executionExceptions.ConflictException;
-import com.executionExceptions.ExecutionException;
-import com.executionExceptions.IncompleteException;
+import com.exceptions.executionExceptions.ConflictException;
+import com.exceptions.executionExceptions.ExecutionException;
+import com.exceptions.executionExceptions.IncompleteException;
 
 import java.util.ArrayList;
 import java.util.List;
