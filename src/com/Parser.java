@@ -440,7 +440,7 @@ public class Parser {
                 content = parseBracketExpression(statement);
                 break;
             default:
-                throw new UnexpectedToken(lexer.getToken());
+                throw new UnexpectedToken(lexer.getToken(), Token.Type.number_expression_);
         }
         if (!(content instanceof NumberVariable) &&
                 !(content instanceof FunctionCallExpression) &&
@@ -606,7 +606,7 @@ public class Parser {
         } else if (lexer.getToken().getType() == Token.Type.string_expression_) {
             return parseString();
         } else
-            throw new UnexpectedToken(lexer.getToken());
+            throw new UnexpectedToken(lexer.getToken(), Token.Type.string_);
     }
 
     StringVariable parseString() {
@@ -619,7 +619,7 @@ public class Parser {
 
     void acceptTokenTypeOrThrow(Token.Type type) throws ParseException{
         if(lexer.getToken().getType() != type)
-            throw new UnexpectedToken(lexer.getToken());
+            throw new UnexpectedToken(lexer.getToken(), type);
     }
 
     void acceptTokenTypeOrThrow(List<Token.Type> types) throws ParseException{

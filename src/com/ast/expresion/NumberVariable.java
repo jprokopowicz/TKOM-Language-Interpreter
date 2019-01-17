@@ -10,9 +10,11 @@ public class NumberVariable extends Variable {
     private int nominator = 0;
     private int denominator = 1;
 
+    private boolean printInteger = true;
+
     public NumberVariable() {
         this.type = Type.number_;
-        setValue(0,1);
+        setValue(0, 1);
     }
 
     public NumberVariable(int nominator) {
@@ -22,16 +24,17 @@ public class NumberVariable extends Variable {
 
     public NumberVariable(int nominator, int denominator) {
         this.type = Type.number_;
-        setValue(nominator,denominator);
+        setValue(nominator, denominator);
     }
 
     public NumberVariable(int integer, int nominator, int denominator) {
         this.type = Type.number_;
-        setValue(integer,nominator,denominator);
+        setValue(integer, nominator, denominator);
     }
 
     public NumberVariable(NumberVariable numberVariable) {
         this.type = Type.number_;
+        printInteger = numberVariable.printInteger;
         setValue(numberVariable.nominator, numberVariable.denominator);
     }
 
@@ -43,39 +46,51 @@ public class NumberVariable extends Variable {
         return denominator;
     }
 
-    public void setValue(int integer){
-        setValue(integer,1);
+    public void setValue(int integer) {
+        setValue(integer, 1);
     }
 
     public void setValue(int nominator, int denominator) {
         this.nominator = nominator;
-        if(nominator == 0)
+        if (nominator == 0)
             this.denominator = 1;
         this.denominator = denominator;
-        if(this.denominator < 0) {
-            this.nominator *=-1;
-            this.denominator*=-1;
+        if (this.denominator < 0) {
+            this.nominator *= -1;
+            this.denominator *= -1;
         }
         shortenFraction();
     }
 
     private void setValue(int integer, int nominator, int denominator) {
-        setValue(nominator + integer * denominator,denominator);
+        setValue(nominator + integer * denominator, denominator);
+    }
+
+    public boolean isPrintInteger() {
+        return printInteger;
+    }
+
+    public void setPrintInteger(boolean printInteger) {
+        this.printInteger = printInteger;
     }
 
     private void shortenFraction() {
-        if(nominator == 1 || denominator ==1)
+        if (nominator == 1 || denominator == 1)
             return;
-        int divisor = greatestCommonDivisor(nominator,denominator);
+        int divisor = greatestCommonDivisor(nominator, denominator);
         nominator /= divisor;
         denominator /= divisor;
     }
 
     private int greatestCommonDivisor(int a, int b) {
-        if(a == 0 || b == 0)
+        if(a < 0)
+            a *=-1;
+        if(b < 0)
+            b *=-1;
+        if (a == 0 || b == 0)
             return 0;
         while (a != b) {
-            if(a < b)
+            if (a < b)
                 b -= a;
             else
                 a -= b;
@@ -84,7 +99,7 @@ public class NumberVariable extends Variable {
     }
 
     private int leastCommonMultiple(int a, int b) {
-        if(a == 0 || b == 0)
+        if (a == 0 || b == 0)
             return 0;
         int greatestCommonDivider = greatestCommonDivisor(a, b);
         return a * (b / greatestCommonDivider);
@@ -92,25 +107,26 @@ public class NumberVariable extends Variable {
 
     private void DenominatorCheck() throws ExecutionException {
         if (denominator == 0)
-            throw new ArithmeticException("Devision by 0");
+            throw new ArithmeticException("Denominator equals 0");
         if (denominator < 0)
             throw new ArithmeticException("Negative denominator");
     }
+
     //Operators
     NumberVariable negate() throws ExecutionException {
         this.DenominatorCheck();
-        return new NumberVariable(-this.nominator,this.denominator);
+        return new NumberVariable(-this.nominator, this.denominator);
     }
 
     NumberVariable plus(NumberVariable component) throws ExecutionException {
         this.DenominatorCheck();
         component.DenominatorCheck();
-        int commonDenominator = leastCommonMultiple(this.denominator,component.denominator);
+        int commonDenominator = leastCommonMultiple(this.denominator, component.denominator);
         int newNominator = this.nominator * (commonDenominator / this.denominator) + component.nominator * (commonDenominator / component.denominator);
         return new NumberVariable(newNominator, commonDenominator);
     }
 
-    NumberVariable minus(NumberVariable subtrahend) throws ExecutionException{
+    NumberVariable minus(NumberVariable subtrahend) throws ExecutionException {
         return this.plus(subtrahend.negate());
     }
 
@@ -131,9 +147,13 @@ public class NumberVariable extends Variable {
     NumberVariable mod(NumberVariable divider) throws ExecutionException {
         this.DenominatorCheck();
         divider.DenominatorCheck();
-        if(this.denominator == 1 && divider.denominator == 1)
-            return new NumberVariable(this.nominator % divider.nominator);
-        else
+        if (this.denominator == 1 && divider.denominator == 1) {
+            try {
+                return new NumberVariable(this.nominator % divider.nominator);
+            } catch (java.lang.ArithmeticException exc) {
+                throw new ArithmeticException("Division by 0");
+            }
+        } else
             return new NumberVariable(divider);
     }
 
@@ -155,14 +175,14 @@ public class NumberVariable extends Variable {
     }
 
     boolean greaterOrEqual(NumberVariable numberVariable) throws ExecutionException {
-        return  equal(numberVariable) || greater(numberVariable);
+        return equal(numberVariable) || greater(numberVariable);
     }
 
     boolean lesser(NumberVariable numberVariable) throws ExecutionException {
         return !greaterOrEqual(numberVariable);
     }
 
-    boolean lesserOrEqual(NumberVariable numberVariable) throws  ExecutionException {
+    boolean lesserOrEqual(NumberVariable numberVariable) throws ExecutionException {
         return !greater(numberVariable);
     }
 
@@ -170,35 +190,37 @@ public class NumberVariable extends Variable {
     public void print() {
         if(denominator == 1)
             System.out.print(nominator);
+        else if (printInteger && (denominator <  nominator || (nominator < 0 && denominator <  -nominator) ) && denominator != 0)
+            System.out.print(nominator / denominator + "#" + (nominator >= 0 ? nominator % denominator  : -nominator % denominator) + ":" + denominator);
         else
             System.out.print(nominator + ":" + denominator);
     }
 
     @Override
     public void setValue(Variable value) throws ExecutionException {
-        if(!(value instanceof NumberVariable))
+        if (!(value instanceof NumberVariable))
             throw new ConflictException("NumberVariable.setValue()", "variable", "assigned value");
-        NumberVariable numberVariable = (NumberVariable)value;
-        this.setValue(numberVariable.nominator,numberVariable.denominator);
+        NumberVariable numberVariable = (NumberVariable) value;
+        this.setValue(numberVariable.nominator, numberVariable.denominator);
     }
 
     public static NumberVariable parseNumber(String string) throws ExecutionException {
-        String [] parts = new String[3];
+        String[] parts = new String[3];
         int numberOfParts = 1;
-        byte [] stringInBytes = string.getBytes();
+        byte[] stringInBytes = string.getBytes();
         int separator = 0;
 
-        if(string.length() == 0)
+        if (string.length() == 0)
             throw new InputOutputException("Not correct number format: empty string");
         int start = stringInBytes[0] == '-' ? 1 : 0; //negative value
         try {
-            for(int i = start ; i < string.length() ; ++i) {
+            for (int i = start; i < string.length(); ++i) {
                 switch (numberOfParts) {
                     case 1:// int
-                        if(!Character.isDigit(stringInBytes[i])) {
-                            parts[0] = string.substring(start,i);
+                        if (!Character.isDigit(stringInBytes[i])) {
+                            parts[0] = string.substring(start, i);
                             separator = i;
-                            if(stringInBytes[i] == '#')
+                            if (stringInBytes[i] == '#')
                                 numberOfParts = 3;
                             else if (stringInBytes[i] == ':')
                                 numberOfParts = 2;
@@ -206,29 +228,37 @@ public class NumberVariable extends Variable {
                                 throw new InputOutputException("Not correct number format: " + string);
                         } else if (i == string.length() - 1) {
                             parts[0] = string.substring(start);
-                            return start == 0 ? new NumberVariable(Integer.parseInt(parts[0])) : (new NumberVariable(Integer.parseInt(parts[0]))).negate();
+                            NumberVariable result = new NumberVariable(Integer.parseInt(parts[0]));
+                            if(start == 1)
+                                result = result.negate();
+                            return result;
                         }
                         break;
                     case 2:// int ':' int
-                        if(!Character.isDigit(stringInBytes[i]))
+                        if (!Character.isDigit(stringInBytes[i]))
                             throw new InputOutputException("Not correct number format: " + string);
                         else if (i == string.length() - 1) {
                             parts[1] = string.substring(separator + 1);
-                            return new NumberVariable(Integer.parseInt(parts[0]),Integer.parseInt(parts[1]));
+                            NumberVariable result = new NumberVariable(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
+                            if(start == 1)
+                                result = result.negate();
+                            return result;
                         }
                         break;
                     case 3:// int '#' int ':' int
                         if (!Character.isDigit(stringInBytes[i])) {
-                            if (stringInBytes[separator] == '#' && stringInBytes[i]==':') {
-                                parts[1] = string.substring(separator+1, i);
+                            if (stringInBytes[separator] == '#' && stringInBytes[i] == ':') {
+                                parts[1] = string.substring(separator + 1, i);
                                 separator = i;
                             } else
                                 throw new InputOutputException("Not correct number format: " + string);
                         } else if (i == string.length() - 1) {
                             if (stringInBytes[separator] == ':') {
                                 parts[2] = string.substring(separator + 1);
-                                return start == 0 ? new NumberVariable(Integer.parseInt(parts[0]),Integer.parseInt(parts[1]),Integer.parseInt(parts[2])) :
-                                        (new NumberVariable(Integer.parseInt(parts[0]),Integer.parseInt(parts[1]),Integer.parseInt(parts[2]))).negate();
+                                NumberVariable result = new NumberVariable(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
+                                if(start == 1)
+                                    result = result.negate();
+                                return result;
                             } else
                                 throw new InputOutputException("Not correct number format: " + string);
                         }

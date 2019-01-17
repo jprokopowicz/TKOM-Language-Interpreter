@@ -29,7 +29,6 @@ public class Program {
         if(main == null || !main.isDefined())
             throw new IncompleteException("Main program", mainName + "function");
         main = (Function)main.copy();
-        //todo:inputValues
         main.execute(this);
         return main.getReturnValue();
     }

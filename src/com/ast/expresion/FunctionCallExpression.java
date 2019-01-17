@@ -26,7 +26,7 @@ public class FunctionCallExpression extends Expression {
     @Override
     public Variable evaluate(Statement context, Program program) throws ExecutionException {
         Function function = program.getFunction(functionName);
-        if (function == null)
+        if (function == null || !function.isDefined())
             throw new IncompleteException("FunctionCallExpression", functionName);
         function = (Function)function.copy();
         try {

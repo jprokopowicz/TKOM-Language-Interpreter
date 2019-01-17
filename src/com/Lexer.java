@@ -13,9 +13,16 @@ public class Lexer {
     private Token token;
     private Position tokenPosition;
     private StringBuilder buffer;
-
     private boolean ignoreComment;
 
+    public static final int maxTokens = 2048;
+    private int tokenCounter = 0;
+    public static final int maxBytesPerToken = 64;
+    private int byteCounter = 0;
+    /**
+     * Constructor need source of bytes.
+     * @param reader reads from the source.
+     */
     public Lexer(ByteReader reader) {
         this.reader = reader;
         token = new Token(Token.Type.invalid_, "",  new Position());
@@ -37,14 +44,17 @@ public class Lexer {
      * @return Read token.
      */
     public Token readNextToken() {
-
         do {
+            ++tokenCounter;
+            if (tokenCounter >= maxTokens) {
+                token = new Token(Token.Type.invalid_, "Too many tokens", tokenPosition);
+                break;
+            }
             try {
                 skipWhiteSigns();
-
                 tokenPosition = new Position(reader.getPosition());
                 buffer = new StringBuilder();
-
+                byteCounter = 0;
                 char sign = reader.lookUpByte();
                 if (Character.isAlphabetic(sign) || sign == '_') {
                     defineKeywordOrIdentifier();
@@ -57,7 +67,7 @@ public class Lexer {
             } catch (EndOfBytesException exc) {
                 token = new Token(Token.Type.end_of_bytes_, "", reader.getPosition());
             } catch (IOException exc) {
-                token = new Token(Token.Type.invalid_, "", tokenPosition);
+                token = new Token(Token.Type.invalid_, exc.getMessage(), tokenPosition);
             }
         } while (ignoreComment && token.getType() == Token.Type.comment_);
         return token;
@@ -80,13 +90,26 @@ public class Lexer {
     }
 
     /**
-     * Skips white signs to the next non-white sign.
+     * Increments byteCounter and check if it reached maxBytesPerToken.
+     * @throws IOException byteCounter reached the limit.
+     */
+    private void byteCheck() throws IOException {
+        ++byteCounter;
+        if(byteCounter > maxBytesPerToken)
+            throw new IOException("Too many bytes");
+    }
+
+    /**
+     * Skips white signs to the next non-white sign. Max skipped signs is maxBytesPerToken.
      * @throws IOException ByteReader exception
      * @throws EndOfBytesException ByteReader goes to the end of Bytes
      */
     private void skipWhiteSigns() throws IOException, EndOfBytesException{
-            while(Character.isWhitespace(reader.lookUpByte()))
-                reader.readByte();
+        byteCounter = 0;
+        while(Character.isWhitespace(reader.lookUpByte())) {
+            byteCheck();
+            reader.readByte();
+        }
     }
 
     /**
@@ -113,8 +136,10 @@ public class Lexer {
                     tokenType = Token.Type.invalid_;
                 }
             } else {
-                while (Character.isDigit(reader.lookUpByte()))
+                while (Character.isDigit(reader.lookUpByte())) {
+                    byteCheck();
                     buffer.append(reader.readByte());
+                }
                 if (Character.isAlphabetic(reader.lookUpByte()) || reader.lookUpByte() == '_') {
                     continueToTokenEnd();
                     tokenType = Token.Type.invalid_;
@@ -249,11 +274,17 @@ public class Lexer {
     private boolean defineStringExpression() throws IOException, EndOfBytesException {
         char sign;
         while(!reader.endOfBytes()) {
+            byteCheck();
             sign = reader.readByte();
             buffer.append(sign);
             if (sign == '\\' && reader.lookUpByte() == '"') {
                 buffer.replace(buffer.length() - 1, buffer.length(), "" + reader.readByte());
-            } else if (sign == '"') {
+            } else if (sign == '\\' && reader.lookUpByte() == 'n') {
+                buffer.replace(buffer.length() - 1, buffer.length(), "\n");
+                reader.readByte();
+            } else if(sign == '\\'  && reader.lookUpByte() == '\\'){
+                reader.readByte();
+            }else if (sign == '"') {
                 return true;
             }
         }
@@ -269,6 +300,7 @@ public class Lexer {
     private boolean defineCommentExpression() throws IOException, EndOfBytesException {
         char sign;
         while(!reader.endOfBytes()) {
+            byteCheck();
             sign = reader.readByte();
             buffer.append(sign);
             if(sign == '*' && reader.lookUpByte() == '/'){
@@ -285,8 +317,10 @@ public class Lexer {
      */
     private void continueToTokenEnd() throws IOException {
         try {
-            while (Character.isAlphabetic(reader.lookUpByte()) || Character.isDigit(reader.lookUpByte()) || reader.lookUpByte() == '_')
+            while (Character.isAlphabetic(reader.lookUpByte()) || Character.isDigit(reader.lookUpByte()) || reader.lookUpByte() == '_') {
+                byteCheck();
                 buffer.append(reader.readByte());
+            }
         } catch (EndOfBytesException exc) {
             //token ended, next token is end of bytes
         }

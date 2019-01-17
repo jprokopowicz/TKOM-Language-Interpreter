@@ -9,18 +9,16 @@ import com.parseException.ParseException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-public class ProgramMain {
+public class Interpreter {
     public static void main(String[] args) {
         if(args.length == 1){
             try {
                 FileInputStream inputStream = new FileInputStream(args[0]);
                 Parser parser = new Parser(new StreamReader(inputStream));
                 Program program = parser.parse();
-                System.out.println("Program parsed successfully. Press enter to execute.");
-                System.in.read();
                 Variable result = program.execute();
                 if (result != null) {
-                    System.out.print("\n\nProgram message: ");
+                    System.out.print("\nProgram message: ");
                     result.print();
                 }
             } catch (FileNotFoundException exc){

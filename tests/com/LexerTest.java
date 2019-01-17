@@ -804,6 +804,80 @@ class LexerTest {
     }
 
     @Test
+    void readNextTokenStringWithNewLineEscapeN(){
+        inputCode = "\"Example \\n string\"";
+        Lexer lexer = prepareLexer(inputCode);
+
+        Token token = lexer.readNextToken();
+        assertEquals(Token.Type.string_expression_,token.getType());
+        assertEquals("\"Example \n string\"",token.getValue());
+
+        token = lexer.getToken();
+        assertEquals(Token.Type.string_expression_,token.getType());
+        assertEquals("\"Example \n string\"",token.getValue());
+    }
+
+    @Test
+    void readNextTokenStringWithNewLineEscapeSlashN(){
+        inputCode = "\"Example \\\\n string\"";
+        Lexer lexer = prepareLexer(inputCode);
+
+        Token token = lexer.readNextToken();
+        assertEquals(Token.Type.string_expression_,token.getType());
+        assertEquals("\"Example \\n string\"",token.getValue());
+
+        token = lexer.getToken();
+        assertEquals(Token.Type.string_expression_,token.getType());
+        assertEquals("\"Example \\n string\"",token.getValue());
+    }
+
+    @Test
+    void readNextTokenStringWithNewLineEscapeSlash(){
+        inputCode = "\"Example \\\\\" string\"";
+        Lexer lexer = prepareLexer(inputCode);
+
+        Token token = lexer.readNextToken();
+        assertEquals(Token.Type.string_expression_,token.getType());
+        assertEquals("\"Example \\\"",token.getValue());
+
+        token = lexer.getToken();
+        assertEquals(Token.Type.string_expression_,token.getType());
+        assertEquals("\"Example \\\"",token.getValue());
+    }
+
+    @Test
+    void readNextTokenMaxSignsLimit(){
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i = 0 ; i < Lexer.maxBytesPerToken +1; ++i)
+            stringBuilder.append(" ");
+        inputCode = stringBuilder.toString();
+        Lexer lexer = prepareLexer(inputCode);
+
+        Token token = lexer.readNextToken();
+        assertEquals(Token.Type.invalid_,token.getType());
+        assertEquals("Too many bytes",token.getValue());
+
+        token = lexer.getToken();
+        assertEquals(Token.Type.invalid_,token.getType());
+        assertEquals("Too many bytes",token.getValue());
+    }
+
+    @Test
+    void readNextTokenMaxTokenLimit(){
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i = 0 ; i < Lexer.maxTokens + 2; ++i)
+            stringBuilder.append("+");
+        inputCode = stringBuilder.toString();
+        Lexer lexer = prepareLexer(inputCode);
+        Token token;
+        for(int i = 0 ; i < Lexer.maxTokens + 2; ++i)
+            lexer.readNextToken();
+        token = lexer.getToken();
+        assertEquals(Token.Type.invalid_,token.getType());
+        assertEquals("Too many tokens",token.getValue());
+    }
+
+    @Test
     void readNextTokenUnknownSign(){
         inputCode = "~";
         Lexer lexer = prepareLexer(inputCode);
@@ -825,6 +899,8 @@ class LexerTest {
         List<Token> returnedTokens = new ArrayList<>();
         while (lexer.getToken().getType()!=Token.Type.end_of_bytes_){
             returnedTokens.add(lexer.readNextToken());
+            if(lexer.getToken().getType() == Token.Type.invalid_)
+                break;
         }
 
         Token token;

@@ -1,4 +1,7 @@
-number integerPower(number base, number power) {
+number iterativePower(number base, number power) {
+    if([power == 0]) {
+        return 1;
+    }
     if([1 % power == power]) {
         return 0;
     }
@@ -6,12 +9,43 @@ number integerPower(number base, number power) {
     counter = 0;
     number result;
     result = 1;
-    loop ([counter >= power]) {
+    loop ([counter < power]) {
         result = result * base;
+        counter = counter + 1;
     }
     return result;
 }
+number recursivePower(number base, number power);
+number recursivePower(number base, number power) {
+    if([power == 0]) {
+        return 1;
+    }
+    if([1 % power == power] | [power < 0]) {
+        return 0;
+    }
+    if([power == 1]) {
+        return base;
+    }
+    return base * recursivePower(base, power - 1);
+}
 
-number main() {
-    return integerPower(2,3);
+string main() {
+    number a;
+    write string "enter base:";
+    read a;
+    number b;
+    write string "enter power:"
+    ;read  b;
+    number resIter;
+    resIter = iterativePower(a, b);
+    write number resIter;
+    write string " ";
+    number resRec;
+    resRec = recursivePower(a, b);
+    write number resRec;
+    if([resIter == resRec]) {
+        return "success";
+    } else {
+        return "fail";
+    }
 }
