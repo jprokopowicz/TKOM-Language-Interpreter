@@ -7,6 +7,7 @@ import com.exceptions.executionExceptions.ExecutionException;
 import com.exceptions.executionExceptions.InputOutputException;
 import com.exceptions.parseException.ParseException;
 import com.interpreterParts.Parser;
+import com.interpreterParts.Token;
 
 import java.io.ByteArrayInputStream;
 
@@ -67,7 +68,7 @@ public class NumberVariable extends Variable {
         shortenFraction();
     }
 
-    private void setValue(int integer, int nominator, int denominator) {
+    public void setValue(int integer, int nominator, int denominator) {
         setValue(nominator + integer * denominator, denominator);
     }
 
@@ -82,7 +83,11 @@ public class NumberVariable extends Variable {
     private void shortenFraction() {
         if (nominator == 1 || denominator == 1)
             return;
+        if (nominator == 0 && denominator != 0)
+            denominator = 1;
         int divisor = greatestCommonDivisor(nominator, denominator);
+        if(divisor == 0)
+            return;
         nominator /= divisor;
         denominator /= divisor;
     }
@@ -220,6 +225,8 @@ public class NumberVariable extends Variable {
             Parser parser = new Parser(new StreamReader(new ByteArrayInputStream(stringCopy.getBytes())));
             parser.readNextToken();
             NumberVariable result = parser.parseNumber();
+            if(parser.readNextToken().getType() != Token.Type.end_of_bytes_)
+                throw new ParseException("Not correct number format: " + string);
             if(negate)
                 return result.negate();
             else

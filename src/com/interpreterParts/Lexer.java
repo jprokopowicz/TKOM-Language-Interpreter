@@ -18,7 +18,7 @@ public class Lexer {
 
     public static final int maxTokens = 2048;
     private int tokenCounter = 0;
-    public static final int maxBytesPerToken = 16;
+    public static final int maxBytesPerToken = 32;
     private int byteCounter = 0;
     public static final int maxBytesPerString = 64;
     private int stringByteCounter = 0;

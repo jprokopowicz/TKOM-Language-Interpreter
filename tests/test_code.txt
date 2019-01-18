@@ -30,7 +30,7 @@ number recursivePower(number base, number power) {
 }
 
 bool someBooleanFunction(bool a, bool b, bool c, number d, number e){
-    return  a & (b | [d <= e] ) & c;
+    return  !(a & (b | ![d <= e] ) & c);
 }
 
 string main() {

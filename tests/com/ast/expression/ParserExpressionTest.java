@@ -41,6 +41,7 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof UnknownNameException))
                 fail(exc.getMessage());
@@ -294,46 +295,51 @@ class ParserExpressionTest {
 
     @Test
     void parseNumberValueExpressionError() {
-        inputCode = "void main() {number a; a = 1:;}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() {number a; a = 1:a;}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
-        inputCode = "void main() {number a; a = 1#;}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() {number a; a = 1#;}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
-        inputCode = "void main() {number a; a = 1.2:;}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() {number a; a = 1.2:;}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
-        inputCode = "void main() {number a; a = 1:;}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() {number a; a = 1:;}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
-        inputCode = "void main() {number a; a = 1:-2;}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() {number a; a = 1:-2;}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
@@ -383,10 +389,11 @@ class ParserExpressionTest {
 
     @Test
     void parseBracketExpressionError() {
-        inputCode = "void main() {number a; a = a * (1:2 + 4:5 * 3;}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() {number a; a = a * (1:2 + 4:5 * 3;}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
@@ -408,10 +415,11 @@ class ParserExpressionTest {
 
     @Test
     void parseBoolVariableExpressionError() {
-        inputCode = "void main() {bool a; a = b;}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() {bool a; a = b;}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof UnknownNameException))
                 fail(exc.getMessage());
@@ -421,6 +429,7 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof TypeException))
                 fail(exc.getMessage());
@@ -527,28 +536,31 @@ class ParserExpressionTest {
 
     @Test
     void parseBoolValueExpressionError() {
-        inputCode = "void main() { bool a = false }";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() { bool a = false }";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
-        inputCode = "void main() { bool a = 1 }";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() { bool a = 1 }";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
-        inputCode = "void main() { bool a = \"test\" }";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() { bool a = \"test\" }";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
@@ -644,28 +656,31 @@ class ParserExpressionTest {
 
     @Test
     void parseComparisonExpressionError() {
-        inputCode = "void main() { bool a = 1 < 2 }";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() { bool a = 1 < 2 }";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
-        inputCode = "void main() { bool a = [ 1 <=> 2 ] }";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() { bool a = [ 1 <=> 2 ] }";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
-        inputCode = "void main() { number a = [ 1 <= 2 ] }";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() { number a = [ 1 <= 2 ] }";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
@@ -696,46 +711,51 @@ class ParserExpressionTest {
 
     @Test
     void parseBoolBracketExpressionError() {
-        inputCode = "void main() { bool a; a = a & ( a | true ;}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() { bool a; a = a & ( a | true ;}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
-        inputCode = "void main() { bool a; a = a & ( a | true ));}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() { bool a; a = a & ( a | true ));}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
-        inputCode = "void main() { bool a; number c; a = a & ( a | c ));}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() { bool a; number c; a = a & ( a | c ));}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof TypeException))
                 fail(exc.getMessage());
         }
 
-        inputCode = "void main() { bool a; number c; a = a & ( 1:2 + c ));}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() { bool a; number c; a = a & ( 1:2 + c ));}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
-        inputCode = "void main() { bool a; number c; a = a & ( c + 1 ));}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() { bool a; number c; a = a & ( c + 1 ));}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof TypeException))
                 fail(exc.getMessage());
@@ -766,37 +786,41 @@ class ParserExpressionTest {
 
     @Test
     void parseStringExpressionError() {
-        inputCode = "void main() {string c; c = 1;}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() {string c; c = 1;}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
-        inputCode = "void main() {string c; c = d;}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() {string c; c = d;}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof UnknownNameException))
                 fail(exc.getMessage());
         }
 
-        inputCode = "void main() {string c; c = \"abc\" + \"d\";}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() {string c; c = \"abc\" + \"d\";}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
-        inputCode = "void main() {string c; c = 1 + \"a\";}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "void main() {string c; c = 1 + \"a\";}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
@@ -870,19 +894,21 @@ class ParserExpressionTest {
 
     @Test
     void parseFunctionCallExpressionError() {
-        inputCode = "bool one(){return true;} void main() {number a; a = one();}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "bool one(){return true;} void main() {number a; a = one();}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof TypeException))
                 fail(exc.getMessage());
         }
 
-        inputCode = "number one(){return 1;} void main() {number a; a = one(a);}";
-        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
+            inputCode = "number one(){return 1;} void main() {number a; a = one(a);}";
+            parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
             parser.parse();
+            fail("Exception expected");
         } catch (Exception exc) {
             if(!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
