@@ -16,18 +16,19 @@ abstract public class Variable extends Expression {
         invalid_,
     }
 
-    private static Map<String,Type> tokenToReturnTypeMap;
+    private static Map<String, Type> tokenToReturnTypeMap;
+
     static {
         tokenToReturnTypeMap = new HashMap<>();
-        tokenToReturnTypeMap.put("number",Type.number_);
-        tokenToReturnTypeMap.put("bool",Type.bool_);
-        tokenToReturnTypeMap.put("string",Type.string_);
+        tokenToReturnTypeMap.put("number", Type.number_);
+        tokenToReturnTypeMap.put("bool", Type.bool_);
+        tokenToReturnTypeMap.put("string", Type.string_);
     }
 
     Type type = Type.invalid_;
 
     public static Type getType(String value) {
-        return tokenToReturnTypeMap.getOrDefault(value,Type.invalid_);
+        return tokenToReturnTypeMap.getOrDefault(value, Type.invalid_);
     }
 
     public Type getType() {

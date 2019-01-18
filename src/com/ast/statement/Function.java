@@ -19,17 +19,20 @@ public class Function extends Statement {
         invalid_;
 
         private static Map<String, Return> tokenToReturnTypeMap;
+
         static {
             tokenToReturnTypeMap = new HashMap<>();
-            tokenToReturnTypeMap.put("number",number_);
-            tokenToReturnTypeMap.put("bool",bool_);
-            tokenToReturnTypeMap.put("string",string_);
-            tokenToReturnTypeMap.put("void",void_);
+            tokenToReturnTypeMap.put("number", number_);
+            tokenToReturnTypeMap.put("bool", bool_);
+            tokenToReturnTypeMap.put("string", string_);
+            tokenToReturnTypeMap.put("void", void_);
         }
+
         public static Return getType(String value) {
-            return tokenToReturnTypeMap.getOrDefault(value,invalid_);
+            return tokenToReturnTypeMap.getOrDefault(value, invalid_);
         }
     }
+
     private Return returnType;
     private String name;
     private Variable returnValue = null;
@@ -67,7 +70,7 @@ public class Function extends Statement {
     @Override
     public void execute(Program program) throws ExecutionException {
         try {
-            for(Statement instruction: innerStatements)
+            for (Statement instruction : innerStatements)
                 instruction.execute(program);
         } catch (ReturnException exc) {
             returnValue = exc.getReturnValue();

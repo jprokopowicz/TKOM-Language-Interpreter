@@ -22,7 +22,7 @@ public class LoopStatement extends Statement {
     public void execute(Program program) throws ExecutionException {
         if (condition == null)
             throw new IncompleteException("LoopStatement", "condition");
-        while (((BoolVariable)condition.evaluate(parent,program)).getValue()) {
+        while (((BoolVariable) condition.evaluate(parent, program)).getValue()) {
             for (Statement instruction : innerStatements)
                 instruction.execute(program);
         }

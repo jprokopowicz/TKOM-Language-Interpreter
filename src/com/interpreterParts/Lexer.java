@@ -27,11 +27,12 @@ public class Lexer {
 
     /**
      * Constructor need source of bytes.
+     *
      * @param reader reads from the source.
      */
     public Lexer(ByteReader reader) {
         this.reader = reader;
-        token = new Token(Token.Type.invalid_, "",  new Position());
+        token = new Token(Token.Type.invalid_, "", new Position());
         tokenPosition = new Position();
         buffer = new StringBuilder();
         ignoreComment = true;
@@ -39,20 +40,22 @@ public class Lexer {
 
     /**
      * Token getter
+     *
      * @return last detected token.
      */
-    public Token getToken(){
+    public Token getToken() {
         return token;
     }
 
     /**
      * Reads next token from the bytes.
+     *
      * @return Read token.
      */
     public Token readNextToken() {
         do {
             ++tokenCounter;
-            if (tokenCounter >= maxTokens){
+            if (tokenCounter >= maxTokens) {
                 token = new Token(Token.Type.invalid_, "Too many tokens", tokenPosition);
                 break;
             }
@@ -81,6 +84,7 @@ public class Lexer {
 
     /**
      * Check if the lexer ignores all the comment tokens
+     *
      * @return current ignoring state
      */
     public boolean isIgnoreComment() {
@@ -89,6 +93,7 @@ public class Lexer {
 
     /**
      * Sets ignoring token
+     *
      * @param ignoreComment new value
      */
     public void setIgnoreComment(boolean ignoreComment) {
@@ -97,42 +102,46 @@ public class Lexer {
 
     /**
      * Increments byteCounter and check if it reached maxBytesPerToken.
+     *
      * @throws IOException byteCounter reached the limit.
      */
     private void byteCheck() throws IOException {
         ++byteCounter;
-        if(byteCounter > maxBytesPerToken)
+        if (byteCounter > maxBytesPerToken)
             throw new IOException("Too many bytes");
     }
 
     /**
      * Increments stringByteCounter and check if it reached maxBytesPerComment.
+     *
      * @throws IOException stringByteCounter reached the limit.
      */
     private void stringByteCheck() throws IOException {
         ++stringByteCounter;
-        if(stringByteCounter > maxBytesPerString)
+        if (stringByteCounter > maxBytesPerString)
             throw new IOException("Too many bytes in string");
     }
 
     /**
      * Increments commentByteCounter and check if it reached maxBytesPerComment.
+     *
      * @throws IOException commentByteCounter reached the limit.
      */
     private void commentByteCheck() throws IOException {
         ++commentByteCounter;
-        if(commentByteCounter > maxBytesPerComment)
+        if (commentByteCounter > maxBytesPerComment)
             throw new IOException("Too many bytes in comment");
     }
 
     /**
      * Skips white signs to the next non-white sign. Max skipped signs is maxBytesPerToken.
-     * @throws IOException ByteReader exception
+     *
+     * @throws IOException         ByteReader exception
      * @throws EndOfBytesException ByteReader goes to the end of Bytes
      */
-    private void skipWhiteSigns() throws IOException, EndOfBytesException{
+    private void skipWhiteSigns() throws IOException, EndOfBytesException {
         byteCounter = 0;
-        while(Character.isWhitespace(reader.lookUpByte())) {
+        while (Character.isWhitespace(reader.lookUpByte())) {
             byteCheck();
             reader.readByte();
         }
@@ -140,15 +149,17 @@ public class Lexer {
 
     /**
      * After detecting a letter the method creates identifier or keyword token
+     *
      * @throws IOException ByteReader exception
      */
     private void defineKeywordOrIdentifier() throws IOException {
         continueToTokenEnd();
-        token = new Token(Token.findKeyword(buffer.toString()),buffer.toString(),tokenPosition);
+        token = new Token(Token.findKeyword(buffer.toString()), buffer.toString(), tokenPosition);
     }
 
     /**
      * After detecting a digit the method check if the numeric token is valid and creates its object.
+     *
      * @throws IOException ByteReader exception
      */
     private void defineNumericLiteral() throws IOException {
@@ -156,7 +167,7 @@ public class Lexer {
         try {
             char sign = reader.readByte();
             buffer.append(sign);
-            if(sign == '0') {
+            if (sign == '0') {
                 if (Character.isDigit(reader.lookUpByte()) || Character.isAlphabetic(reader.lookUpByte()) || reader.lookUpByte() == '_') {
                     continueToTokenEnd();
                     tokenType = Token.Type.invalid_;
@@ -171,15 +182,16 @@ public class Lexer {
                     tokenType = Token.Type.invalid_;
                 }
             }
-        } catch (EndOfBytesException exc){
+        } catch (EndOfBytesException exc) {
             //token ended, next token is end of bytes
         }
-        token = new Token(tokenType,buffer.toString(),tokenPosition);
+        token = new Token(tokenType, buffer.toString(), tokenPosition);
     }
 
     /**
      * After detecting other sign then letter of digit the method tries to detect special sign, operator, string or comment
      * If it fails it crates invalid token
+     *
      * @throws IOException ByteReader Exception
      */
     private void defineSpecialSignOrString() throws IOException {
@@ -188,7 +200,7 @@ public class Lexer {
             char sign = reader.readByte();
             buffer.append(sign);
 
-            switch(sign){
+            switch (sign) {
                 case ',':
                     tokenType = Token.Type.comma_;
                     break;
@@ -224,10 +236,10 @@ public class Lexer {
                     break;
                 case '/':
                     tokenType = Token.Type.slash_;
-                    if(reader.lookUpByte() == '*') {
+                    if (reader.lookUpByte() == '*') {
                         buffer.append(reader.readByte());
                         tokenType = Token.Type.comment_;
-                        if(!defineCommentExpression())
+                        if (!defineCommentExpression())
                             tokenType = Token.Type.invalid_;
                     }
                     break;
@@ -242,7 +254,7 @@ public class Lexer {
                     break;
                 case '!':
                     tokenType = Token.Type.not_;
-                    if(reader.lookUpByte() == '='){
+                    if (reader.lookUpByte() == '=') {
                         buffer.append(reader.readByte());
                         tokenType = Token.Type.not_equal_;
                     }
@@ -267,14 +279,14 @@ public class Lexer {
                     break;
                 case '<':
                     tokenType = Token.Type.lesser_;
-                    if(reader.lookUpByte() == '='){
+                    if (reader.lookUpByte() == '=') {
                         buffer.append(reader.readByte());
                         tokenType = Token.Type.lesser_equal_;
                     }
                     break;
                 case '>':
                     tokenType = Token.Type.greater_;
-                    if(reader.lookUpByte() == '='){
+                    if (reader.lookUpByte() == '=') {
                         buffer.append(reader.readByte());
                         tokenType = Token.Type.greater_equal_;
                     }
@@ -293,13 +305,15 @@ public class Lexer {
 
     /**
      * After detecting '"' the method tries to complete the string expression
+     *
      * @return If the expression was completed successfully
-     * @throws IOException ByteReader exception
+     * @throws IOException         ByteReader exception
      * @throws EndOfBytesException Only in case when after '\' sing there is end of bytes
      */
     private boolean defineStringExpression() throws IOException, EndOfBytesException {
         char sign;
-        while(!reader.endOfBytes()) {
+        stringByteCounter = 0;
+        while (!reader.endOfBytes()) {
             stringByteCheck();
             sign = reader.readByte();
             buffer.append(sign);
@@ -308,9 +322,9 @@ public class Lexer {
             } else if (sign == '\\' && reader.lookUpByte() == 'n') {
                 buffer.replace(buffer.length() - 1, buffer.length(), "\n");
                 reader.readByte();
-            } else if(sign == '\\'  && reader.lookUpByte() == '\\'){
+            } else if (sign == '\\' && reader.lookUpByte() == '\\') {
                 reader.readByte();
-            }else if (sign == '"') {
+            } else if (sign == '"') {
                 return true;
             }
         }
@@ -319,18 +333,19 @@ public class Lexer {
 
     /**
      * After detecting "\*" the method tries to complete the comment expression.
+     *
      * @return If the expression was completed successfully
-     * @throws IOException ByteReader exception
+     * @throws IOException         ByteReader exception
      * @throws EndOfBytesException Only in case when after '*' there is end of file
      */
     private boolean defineCommentExpression() throws IOException, EndOfBytesException {
         char sign;
         commentByteCounter = 0;
-        while(!reader.endOfBytes()) {
+        while (!reader.endOfBytes()) {
             commentByteCheck();
             sign = reader.readByte();
             buffer.append(sign);
-            if(sign == '*' && reader.lookUpByte() == '/'){
+            if (sign == '*' && reader.lookUpByte() == '/') {
                 buffer.append(reader.readByte());
                 return true;
             }
@@ -340,6 +355,7 @@ public class Lexer {
 
     /**
      * Reads the token to the buffer as long as next sign is a digit, a letter or '_'
+     *
      * @throws IOException ByteReader exception
      */
     private void continueToTokenEnd() throws IOException {

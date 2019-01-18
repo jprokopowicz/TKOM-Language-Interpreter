@@ -20,9 +20,9 @@ public class ConjunctionExpression extends Expression {
 
     @Override
     public Variable evaluate(Statement context, Program program) throws ExecutionException {
-        BoolVariable result = (BoolVariable)basicBoolExpressions.get(0).evaluate(context,program);
-        for(int i = 1 ; i < basicBoolExpressions.size() ; ++i)
-            result = result.and((BoolVariable)basicBoolExpressions.get(i).evaluate(context,program));
+        BoolVariable result = (BoolVariable) basicBoolExpressions.get(0).evaluate(context, program);
+        for (int i = 1; i < basicBoolExpressions.size(); ++i)
+            result = result.and((BoolVariable) basicBoolExpressions.get(i).evaluate(context, program));
         return result;
     }
 }

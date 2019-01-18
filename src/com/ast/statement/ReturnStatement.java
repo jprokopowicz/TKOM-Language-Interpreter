@@ -10,7 +10,7 @@ import com.exceptions.executionExceptions.ReturnException;
 public class ReturnStatement extends Statement {
     private Expression value;
 
-    public ReturnStatement(Statement parent, Expression value){
+    public ReturnStatement(Statement parent, Expression value) {
         super(false);
         setParent(parent);
         this.value = value;
@@ -19,21 +19,21 @@ public class ReturnStatement extends Statement {
     @Override
     public void execute(Program program) throws ExecutionException {
         Statement currentStatement = parent;
-        while(currentStatement != null) {
-            if (currentStatement instanceof Function && ((Function)currentStatement).getReturnType() == Function.Return.void_)
+        while (currentStatement != null) {
+            if (currentStatement instanceof Function && ((Function) currentStatement).getReturnType() == Function.Return.void_)
                 throw new ReturnException(null);
             else
                 currentStatement = currentStatement.parent;
         }
-        if(value == null)
+        if (value == null)
             throw new ConflictException("Return", "return type", "no return");
-        Variable returnValue = value.evaluate(this,program);
+        Variable returnValue = value.evaluate(this, program);
         throw new ReturnException(returnValue);
     }
 
     @Override
     public Statement copy() throws ExecutionException {
-        ReturnStatement copy = new ReturnStatement(null,this.value);
+        ReturnStatement copy = new ReturnStatement(null, this.value);
         copy.copyInternals(this);
         return copy;
     }

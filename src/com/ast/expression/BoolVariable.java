@@ -47,9 +47,9 @@ public class BoolVariable extends Variable {
 
     @Override
     public void setValue(Variable value) throws ExecutionException {
-        if(!(value instanceof BoolVariable))
+        if (!(value instanceof BoolVariable))
             throw new ConflictException("BoolVariable.setValue()", "number variable", "assigned value");
-        BoolVariable boolVariable = (BoolVariable)value;
+        BoolVariable boolVariable = (BoolVariable) value;
         this.value = boolVariable.value;
     }
 }

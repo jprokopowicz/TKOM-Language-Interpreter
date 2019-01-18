@@ -15,8 +15,8 @@ public class BasicBoolExpression extends Expression {
 
     @Override
     public Variable evaluate(Statement context, Program program) throws ExecutionException {
-        BoolVariable result = (BoolVariable)content.evaluate(context,program);
-        if(not)
+        BoolVariable result = (BoolVariable) content.evaluate(context, program);
+        if (not)
             return result.not();
         else
             return result;

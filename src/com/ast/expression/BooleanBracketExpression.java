@@ -13,6 +13,6 @@ public class BooleanBracketExpression extends Expression {
 
     @Override
     public Variable evaluate(Statement context, Program program) throws ExecutionException {
-        return content.evaluate(context,program);
+        return content.evaluate(context, program);
     }
 }

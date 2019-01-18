@@ -9,7 +9,8 @@ import java.io.IOException;
 
 public class OutputStatement extends Statement {
     private Expression outputValue;
-    public OutputStatement(Statement parent, Expression outputValue){
+
+    public OutputStatement(Statement parent, Expression outputValue) {
         super(false);
         setParent(parent);
         this.outputValue = outputValue;
@@ -17,7 +18,7 @@ public class OutputStatement extends Statement {
 
     @Override
     public void execute(Program program) throws ExecutionException {
-        Variable output = outputValue.evaluate(this,program);
+        Variable output = outputValue.evaluate(this, program);
         try {
             output.print();
         } catch (IOException exc) {
@@ -28,7 +29,7 @@ public class OutputStatement extends Statement {
 
     @Override
     public Statement copy() throws ExecutionException {
-        OutputStatement copy = new OutputStatement(null,this.outputValue);
+        OutputStatement copy = new OutputStatement(null, this.outputValue);
         copy.copyInternals(this);
         return copy;
     }

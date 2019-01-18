@@ -13,14 +13,15 @@ import java.util.Scanner;
 
 public class InputStatement extends Statement {
     private String targetName;
-    public InputStatement(Statement parent, String targetName){
+
+    public InputStatement(Statement parent, String targetName) {
         super(false);
         setParent(parent);
         this.targetName = targetName;
     }
 
     @Override
-    public void execute(Program program) throws ExecutionException{
+    public void execute(Program program) throws ExecutionException {
         Variable target = getVariable(targetName);
         if (target == null)
             throw new IncompleteException("InputStatement", "targetVariable");
@@ -43,7 +44,7 @@ public class InputStatement extends Statement {
                 }
                 break;
             case string_:
-                target.setValue( new StringVariable(input));
+                target.setValue(new StringVariable(input));
                 break;
             default:
         }
@@ -51,7 +52,7 @@ public class InputStatement extends Statement {
 
     @Override
     public Statement copy() throws ExecutionException {
-        InputStatement copy = new InputStatement(null,this.targetName);
+        InputStatement copy = new InputStatement(null, this.targetName);
         copy.copyInternals(this);
         return copy;
     }

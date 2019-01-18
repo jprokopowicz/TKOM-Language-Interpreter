@@ -26,9 +26,9 @@ public class Program {
     public Variable execute() throws ExecutionException {
         String mainName = "main";
         Function main = getFunction(mainName);
-        if(main == null || !main.isDefined())
+        if (main == null || !main.isDefined())
             throw new IncompleteException("Main program", mainName + "function");
-        main = (Function)main.copy();
+        main = (Function) main.copy();
         main.execute(this);
         return main.getReturnValue();
     }

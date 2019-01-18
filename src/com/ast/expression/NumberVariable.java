@@ -86,17 +86,17 @@ public class NumberVariable extends Variable {
         if (nominator == 0 && denominator != 0)
             denominator = 1;
         int divisor = greatestCommonDivisor(nominator, denominator);
-        if(divisor == 0)
+        if (divisor == 0)
             return;
         nominator /= divisor;
         denominator /= divisor;
     }
 
     private int greatestCommonDivisor(int a, int b) {
-        if(a < 0)
-            a *=-1;
-        if(b < 0)
-            b *=-1;
+        if (a < 0)
+            a *= -1;
+        if (b < 0)
+            b *= -1;
         if (a == 0 || b == 0)
             return 0;
         while (a != b) {
@@ -197,10 +197,10 @@ public class NumberVariable extends Variable {
 
     @Override
     public void print() {
-        if(denominator == 1)
+        if (denominator == 1)
             System.out.print(nominator);
-        else if (printInteger && (denominator <  nominator || (nominator < 0 && denominator <  -nominator) ) && denominator != 0)
-            System.out.print(nominator / denominator + "#" + (nominator >= 0 ? nominator % denominator  : -nominator % denominator) + ":" + denominator);
+        else if (printInteger && (denominator < nominator || (nominator < 0 && denominator < -nominator)) && denominator != 0)
+            System.out.print(nominator / denominator + "#" + (nominator >= 0 ? nominator % denominator : -nominator % denominator) + ":" + denominator);
         else
             System.out.print(nominator + ":" + denominator);
     }
@@ -216,7 +216,7 @@ public class NumberVariable extends Variable {
     public static NumberVariable parseNumber(String string) throws ExecutionException {
         String stringCopy;
         boolean negate = false;
-        if(string.getBytes()[0] == '-') {
+        if (string.getBytes()[0] == '-') {
             negate = true;
             stringCopy = string.substring(1);
         } else
@@ -225,9 +225,9 @@ public class NumberVariable extends Variable {
             Parser parser = new Parser(new StreamReader(new ByteArrayInputStream(stringCopy.getBytes())));
             parser.readNextToken();
             NumberVariable result = parser.parseNumber();
-            if(parser.readNextToken().getType() != Token.Type.end_of_bytes_)
+            if (parser.readNextToken().getType() != Token.Type.end_of_bytes_)
                 throw new ParseException("Not correct number format: " + string);
-            if(negate)
+            if (negate)
                 return result.negate();
             else
                 return result;

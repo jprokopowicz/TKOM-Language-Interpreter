@@ -27,8 +27,8 @@ public class ComparisonExpression extends Expression {
 
     @Override
     public Variable evaluate(Statement context, Program program) throws ExecutionException {
-        NumberVariable leftNumber = (NumberVariable)left.evaluate(context,program);
-        NumberVariable rightNumber = (NumberVariable)right.evaluate(context,program);
+        NumberVariable leftNumber = (NumberVariable) left.evaluate(context, program);
+        NumberVariable rightNumber = (NumberVariable) right.evaluate(context, program);
         switch (operator) {
             case equal:
                 return new BoolVariable(leftNumber.equal(rightNumber));

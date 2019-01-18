@@ -35,9 +35,9 @@ public class StringVariable extends Variable {
 
     @Override
     public void setValue(Variable value) throws ExecutionException {
-        if(!(value instanceof StringVariable))
+        if (!(value instanceof StringVariable))
             throw new ConflictException("StringVariable.setValue()", "variable", "assigned value");
-        StringVariable stringVariable = (StringVariable)value;
+        StringVariable stringVariable = (StringVariable) value;
         this.message = stringVariable.message;
     }
 }

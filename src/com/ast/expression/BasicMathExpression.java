@@ -15,8 +15,8 @@ public class BasicMathExpression extends Expression {
 
     @Override
     public Variable evaluate(Statement context, Program program) throws ExecutionException {
-        NumberVariable result = (NumberVariable)content.evaluate(context,program);
-        if(negate)
+        NumberVariable result = (NumberVariable) content.evaluate(context, program);
+        if (negate)
             return result.negate();
         else
             return result;

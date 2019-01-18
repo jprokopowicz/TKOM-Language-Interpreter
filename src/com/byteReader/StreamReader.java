@@ -5,7 +5,7 @@ import com.interpreterParts.Position;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class StreamReader implements ByteReader{
+public class StreamReader implements ByteReader {
     private InputStream inputStream;
     private char storedByte;
     private boolean isByteStored;
@@ -24,18 +24,18 @@ public class StreamReader implements ByteReader{
     }
 
     @Override
-    public char readByte() throws IOException,EndOfBytesException {
+    public char readByte() throws IOException, EndOfBytesException {
         if (endOfBytes())
             throw new EndOfBytesException();
         char sign;
-        if(isByteStored){
-            sign =  storedByte;
+        if (isByteStored) {
+            sign = storedByte;
             isByteStored = false;
         } else {
             sign = (char) inputStream.read();
         }
 
-        if(sign=='\n'){
+        if (sign == '\n') {
             position.sign = 1;
             position.line++;
         } else {
@@ -46,7 +46,7 @@ public class StreamReader implements ByteReader{
     }
 
     @Override
-    public char lookUpByte() throws IOException,EndOfBytesException {
+    public char lookUpByte() throws IOException, EndOfBytesException {
         if (endOfBytes())
             throw new EndOfBytesException();
         if (!isByteStored) {
@@ -57,7 +57,7 @@ public class StreamReader implements ByteReader{
     }
 
     @Override
-    public boolean endOfBytes() throws IOException{
+    public boolean endOfBytes() throws IOException {
         return 0 == inputStream.available() + (isByteStored ? 1 : 0);
     }
 }

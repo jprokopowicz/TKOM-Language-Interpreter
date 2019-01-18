@@ -28,7 +28,7 @@ public class FunctionCallExpression extends Expression {
         Function function = program.getFunction(functionName);
         if (function == null || !function.isDefined())
             throw new IncompleteException("FunctionCallExpression", functionName);
-        function = (Function)function.copy();
+        function = (Function) function.copy();
         try {
             for (int i = 0; i < arguments.size(); ++i) {
                 Variable argument = function.getVariable(function.argumentsNames.get(i));

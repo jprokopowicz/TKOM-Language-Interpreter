@@ -18,7 +18,7 @@ public class ValueAssignment extends Statement {
         return value;
     }
 
-    public ValueAssignment(Statement parent, String targetName, Expression value){
+    public ValueAssignment(Statement parent, String targetName, Expression value) {
         super(false);
         setParent(parent);
         this.targetName = targetName;
@@ -26,24 +26,24 @@ public class ValueAssignment extends Statement {
     }
 
     @Override
-    public void execute(Program program) throws ExecutionException{
+    public void execute(Program program) throws ExecutionException {
         Variable target = getVariable(targetName);
-        if(target == null)
-            throw new IncompleteException("ValueAssignment","target");
-        Variable assignedValue = value.evaluate(this,program);
-        if(target.getType() != assignedValue.getType())
+        if (target == null)
+            throw new IncompleteException("ValueAssignment", "target");
+        Variable assignedValue = value.evaluate(this, program);
+        if (target.getType() != assignedValue.getType())
             throw new ConflictException("ValueAssignment", "target", "assigned value");
         switch (target.getType()) {
             case number_:
-                NumberVariable number = (NumberVariable)target, numValue = (NumberVariable)assignedValue;
-                number.setValue(numValue.getNominator(),numValue.getDenominator());
+                NumberVariable number = (NumberVariable) target, numValue = (NumberVariable) assignedValue;
+                number.setValue(numValue.getNominator(), numValue.getDenominator());
                 break;
             case bool_:
-                BoolVariable bool = (BoolVariable)target, boolValue = (BoolVariable) assignedValue;
+                BoolVariable bool = (BoolVariable) target, boolValue = (BoolVariable) assignedValue;
                 bool.setValue(boolValue.getValue());
                 break;
             case string_:
-                StringVariable string = (StringVariable)target, stringValue = (StringVariable)assignedValue;
+                StringVariable string = (StringVariable) target, stringValue = (StringVariable) assignedValue;
                 string.setMessage(stringValue.getMessage());
             default:
                 throw new IncompleteException("ValueAssignment", "target type");
@@ -52,7 +52,7 @@ public class ValueAssignment extends Statement {
 
     @Override
     public Statement copy() throws ExecutionException {
-        ValueAssignment copy = new ValueAssignment(null,this.targetName,this.value);
+        ValueAssignment copy = new ValueAssignment(null, this.targetName, this.value);
         copy.copyInternals(this);
         return copy;
     }

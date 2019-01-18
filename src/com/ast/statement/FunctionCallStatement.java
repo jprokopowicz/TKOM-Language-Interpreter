@@ -7,7 +7,7 @@ import com.exceptions.executionExceptions.ExecutionException;
 public class FunctionCallStatement extends Statement {
     private FunctionCallExpression functionCallExpression;
 
-    public FunctionCallStatement(Statement parent,FunctionCallExpression functionCallExpression) {
+    public FunctionCallStatement(Statement parent, FunctionCallExpression functionCallExpression) {
         super(false);
         setParent(parent);
         this.functionCallExpression = functionCallExpression;
@@ -15,7 +15,7 @@ public class FunctionCallStatement extends Statement {
 
     @Override
     public void execute(Program program) throws ExecutionException {
-        functionCallExpression.evaluate(this,program);
+        functionCallExpression.evaluate(this, program);
     }
 
     @Override

@@ -1,4 +1,5 @@
 package com.ast.statement;
+
 import com.exceptions.executionExceptions.CopyException;
 import com.exceptions.executionExceptions.ExecutionException;
 import com.ast.Program;
@@ -10,12 +11,12 @@ import com.ast.expression.Variable;
 import java.util.*;
 
 abstract public class Statement {
-    public Map <String,Variable> localVariables = null;
-    public List <Statement> innerStatements = null;
+    public Map<String, Variable> localVariables = null;
+    public List<Statement> innerStatements = null;
     Statement parent = null;
 
-    public Statement(boolean isScope){
-        if(isScope) {
+    public Statement(boolean isScope) {
+        if (isScope) {
             localVariables = new HashMap<>();
             innerStatements = new LinkedList<>();
         }
@@ -23,7 +24,7 @@ abstract public class Statement {
 
     public void addVariable(String name, Variable variable) {
         if (localVariables != null)
-            localVariables.put(name,variable);
+            localVariables.put(name, variable);
     }
 
     public Variable getLocalVariable(String name) {
@@ -58,7 +59,7 @@ abstract public class Statement {
     }
 
     public Statement getParent() {
-        return  parent;
+        return parent;
     }
 
     public abstract void execute(Program program) throws ExecutionException;
@@ -67,7 +68,7 @@ abstract public class Statement {
 
     void copyInternals(Statement statement) throws ExecutionException {
         if (this.localVariables != null && statement.localVariables != null) {
-            for(Map.Entry<String,Variable> entry : statement.localVariables.entrySet()) {
+            for (Map.Entry<String, Variable> entry : statement.localVariables.entrySet()) {
                 String key = entry.getKey();
                 Variable value;
                 switch (entry.getValue().getType()) {
@@ -83,11 +84,11 @@ abstract public class Statement {
                     default:
                         throw new CopyException("Variable type undefined");
                 }
-                this.localVariables.put(key,value);
+                this.localVariables.put(key, value);
             }
         }
-        if(this.innerStatements != null && statement.innerStatements != null) {
-            for (int i = 0 ; i < statement.innerStatements.size() ; ++i){
+        if (this.innerStatements != null && statement.innerStatements != null) {
+            for (int i = 0; i < statement.innerStatements.size(); ++i) {
                 Statement statementCopy = statement.innerStatements.get(i).copy();
                 statementCopy.setParent(this);
                 this.innerStatements.add(statementCopy);
