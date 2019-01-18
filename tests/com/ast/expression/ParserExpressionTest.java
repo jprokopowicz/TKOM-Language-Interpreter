@@ -24,11 +24,11 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertTrue(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content instanceof VariableCall);
-            assertEquals("b",((VariableCall)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals("b", ((VariableCall) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).variableName);
-            assertEquals("a",(((ValueAssignment)program.getFunction("main")
+            assertEquals("a", (((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getTargetName()));
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -43,7 +43,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof UnknownNameException))
+            if (!(exc instanceof UnknownNameException))
                 fail(exc.getMessage());
         }
     }
@@ -54,11 +54,11 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertFalse(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertFalse(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).negate);
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getDenominator());
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -68,11 +68,11 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertTrue(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).negate);
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getDenominator());
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -82,11 +82,11 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertFalse(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertFalse(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).negate);
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(2,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(2, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getDenominator());
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -96,11 +96,11 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertTrue(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).negate);
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(2,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(2, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getDenominator());
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -110,11 +110,11 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertFalse(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertFalse(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).negate);
-            assertEquals(5,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(5, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(3,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(3, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getDenominator());
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -124,11 +124,11 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertTrue(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).negate);
-            assertEquals(5,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(5, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(3,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(3, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getDenominator());
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -138,11 +138,11 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertEquals(4,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(4, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getNominator());
-            assertTrue(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertTrue(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).negate);
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getDenominator());
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -152,21 +152,21 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertTrue(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).negate);
-            assertEquals(4,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(4, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getDenominator());
 
-            assertFalse(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertFalse(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(1).basicMathExpressions.get(0).negate);
-            assertEquals(2,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(2, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(1).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(1).basicMathExpressions.get(0).content).getDenominator());
 
-            assertEquals(MathExpression.AdditionOperator.add,((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(MathExpression.AdditionOperator.add, ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).additionOperators.get(0));
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -176,21 +176,21 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertTrue(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).negate);
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(3,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(3, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getDenominator());
 
-            assertFalse(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertFalse(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(1).basicMathExpressions.get(0).negate);
-            assertEquals(2,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(2, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(1).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(1).basicMathExpressions.get(0).content).getDenominator());
 
-            assertEquals(MathExpression.AdditionOperator.subtract,((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(MathExpression.AdditionOperator.subtract, ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).additionOperators.get(0));
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -200,21 +200,21 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertTrue(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).negate);
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(3,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(3, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getDenominator());
 
-            assertTrue(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertTrue(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(1).basicMathExpressions.get(0).negate);
-            assertEquals(2,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(2, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(1).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(1).basicMathExpressions.get(0).content).getDenominator());
 
-            assertEquals(MathExpression.AdditionOperator.subtract,((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(MathExpression.AdditionOperator.subtract, ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).additionOperators.get(0));
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -224,21 +224,21 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertTrue(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).negate);
-            assertEquals(4,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(4, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getDenominator());
 
-            assertFalse(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertFalse(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).negate);
-            assertEquals(5,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(5, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).content).getNominator());
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).content).getDenominator());
 
-            assertEquals(MultiplicationExpression.MultiplicationOperator.multiply,((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(MultiplicationExpression.MultiplicationOperator.multiply, ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).multiplicationOperators.get(0));
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -248,21 +248,21 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertTrue(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).negate);
-            assertEquals(4,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(4, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getDenominator());
 
-            assertFalse(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertFalse(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).negate);
-            assertEquals(3,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(3, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).content).getNominator());
-            assertEquals(2,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(2, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).content).getDenominator());
 
-            assertEquals(MultiplicationExpression.MultiplicationOperator.divide,((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(MultiplicationExpression.MultiplicationOperator.divide, ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).multiplicationOperators.get(0));
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -272,21 +272,21 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertFalse(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertFalse(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).negate);
-            assertEquals(5,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(5, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getDenominator());
 
-            assertFalse(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertFalse(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).negate);
-            assertEquals(3,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(3, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).content).getNominator());
-            assertEquals(1,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).content).getDenominator());
 
-            assertEquals(MultiplicationExpression.MultiplicationOperator.modulo,((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(MultiplicationExpression.MultiplicationOperator.modulo, ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).multiplicationOperators.get(0));
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -301,7 +301,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
@@ -311,7 +311,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
@@ -321,7 +321,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
@@ -331,7 +331,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
@@ -341,7 +341,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
     }
@@ -352,34 +352,34 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertTrue(((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).content instanceof BracketExpression);
 
-            assertEquals(1,((NumberVariable)((BracketExpression)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((BracketExpression) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).content)
                     .content.multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(2,((NumberVariable)((BracketExpression)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(2, ((NumberVariable) ((BracketExpression) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).content)
                     .content.multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getDenominator());
-            assertEquals(MathExpression.AdditionOperator.add,((BracketExpression)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(MathExpression.AdditionOperator.add, ((BracketExpression) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).content)
                     .content.additionOperators.get(0));
 
-            assertEquals(4,((NumberVariable)((BracketExpression)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(4, ((NumberVariable) ((BracketExpression) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).content)
                     .content.multiplicationExpressions.get(1).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(5,((NumberVariable)((BracketExpression)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(5, ((NumberVariable) ((BracketExpression) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).content)
                     .content.multiplicationExpressions.get(1).basicMathExpressions.get(0).content).getDenominator());
 
-            assertEquals(3,((NumberVariable)((BracketExpression)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(3, ((NumberVariable) ((BracketExpression) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).content)
                     .content.multiplicationExpressions.get(1).basicMathExpressions.get(1).content).getNominator());
-            assertEquals(1,((NumberVariable)((BracketExpression)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(1, ((NumberVariable) ((BracketExpression) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).content)
                     .content.multiplicationExpressions.get(1).basicMathExpressions.get(1).content).getDenominator());
 
-            assertEquals(MultiplicationExpression.MultiplicationOperator.multiply,((BracketExpression)((MathExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(MultiplicationExpression.MultiplicationOperator.multiply, ((BracketExpression) ((MathExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).multiplicationExpressions.get(0).basicMathExpressions.get(1).content)
                     .content.multiplicationExpressions.get(1).multiplicationOperators.get(0));
         } catch (Exception exc) {
@@ -395,7 +395,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
     }
@@ -406,7 +406,7 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertEquals("b", ((VariableCall)((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0))
+            assertEquals("b", ((VariableCall) ((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0))
                     .getValue()).conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).variableName);
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -421,7 +421,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof UnknownNameException))
+            if (!(exc instanceof UnknownNameException))
                 fail(exc.getMessage());
         }
 
@@ -431,7 +431,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof TypeException))
+            if (!(exc instanceof TypeException))
                 fail(exc.getMessage());
         }
     }
@@ -442,10 +442,10 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content instanceof BoolVariable);
-            assertTrue(((BoolVariable)((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((BoolVariable) ((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).getValue());
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -455,10 +455,10 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content instanceof BoolVariable);
-            assertFalse(((BoolVariable)((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertFalse(((BoolVariable) ((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).getValue());
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -468,14 +468,14 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content instanceof BoolVariable);
-            assertTrue(((BoolVariable)((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((BoolVariable) ((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).getValue());
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(1).basicBoolExpressions.get(0).content instanceof BoolVariable);
-            assertFalse(((BoolVariable)((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertFalse(((BoolVariable) ((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(1).basicBoolExpressions.get(0).content).getValue());
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -485,16 +485,16 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content instanceof BoolVariable);
-            assertTrue(((BoolVariable)((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((BoolVariable) ((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).getValue());
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(1).content instanceof BoolVariable);
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(1).not);
-            assertFalse(((BoolVariable)((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertFalse(((BoolVariable) ((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(1).content).getValue());
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -504,14 +504,14 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content instanceof BoolVariable);
-            assertTrue(((BoolVariable)((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((BoolVariable) ((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).getValue());
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(1).basicBoolExpressions.get(0).content instanceof VariableCall);
-            assertEquals("a",((VariableCall)((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertEquals("a", ((VariableCall) ((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(1).basicBoolExpressions.get(0).content).variableName);
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -521,12 +521,12 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content instanceof BoolVariable);
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(1).content instanceof VariableCall);
-            assertEquals("a",((VariableCall)((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertEquals("a", ((VariableCall) ((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(1).content).variableName);
 
         } catch (Exception exc) {
@@ -573,15 +573,15 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content instanceof ComparisonExpression);
-            assertEquals(ComparisonExpression.ComparisonOperator.equal,((ComparisonExpression)((BooleanExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(ComparisonExpression.ComparisonOperator.equal, ((ComparisonExpression) ((BooleanExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).operator);
-            assertTrue(((ComparisonExpression)((BooleanExpression)((ValueAssignment)program.getFunction("main")
+            assertTrue(((ComparisonExpression) ((BooleanExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).left.multiplicationExpressions.get(0)
                     .basicMathExpressions.get(0).content instanceof NumberVariable);
-            assertTrue(((ComparisonExpression)((BooleanExpression)((ValueAssignment)program.getFunction("main")
+            assertTrue(((ComparisonExpression) ((BooleanExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).right.multiplicationExpressions.get(0)
                     .basicMathExpressions.get(0).content instanceof NumberVariable);
         } catch (Exception exc) {
@@ -592,10 +592,10 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content instanceof ComparisonExpression);
-            assertEquals(ComparisonExpression.ComparisonOperator.notEqual,((ComparisonExpression)((BooleanExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(ComparisonExpression.ComparisonOperator.notEqual, ((ComparisonExpression) ((BooleanExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).operator);
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -605,10 +605,10 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content instanceof ComparisonExpression);
-            assertEquals(ComparisonExpression.ComparisonOperator.lesser,((ComparisonExpression)((BooleanExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(ComparisonExpression.ComparisonOperator.lesser, ((ComparisonExpression) ((BooleanExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).operator);
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -618,10 +618,10 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content instanceof ComparisonExpression);
-            assertEquals(ComparisonExpression.ComparisonOperator.lesserOrEqual,((ComparisonExpression)((BooleanExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(ComparisonExpression.ComparisonOperator.lesserOrEqual, ((ComparisonExpression) ((BooleanExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).operator);
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -631,10 +631,10 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content instanceof ComparisonExpression);
-            assertEquals(ComparisonExpression.ComparisonOperator.greater,((ComparisonExpression)((BooleanExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(ComparisonExpression.ComparisonOperator.greater, ((ComparisonExpression) ((BooleanExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).operator);
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -644,10 +644,10 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content instanceof ComparisonExpression);
-            assertEquals(ComparisonExpression.ComparisonOperator.greaterOrEqual,((ComparisonExpression)((BooleanExpression)((ValueAssignment)program.getFunction("main")
+            assertEquals(ComparisonExpression.ComparisonOperator.greaterOrEqual, ((ComparisonExpression) ((BooleanExpression) ((ValueAssignment) program.getFunction("main")
                     .innerStatements.get(0)).getValue()).conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).operator);
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -693,15 +693,15 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(1).content instanceof BooleanBracketExpression);
-            assertTrue(((BooleanBracketExpression)((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((BooleanBracketExpression) ((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(1).content).content.conjunctionExpressions.get(0).basicBoolExpressions.get(0).content instanceof VariableCall);
-            assertEquals("a",((VariableCall)((BooleanBracketExpression)((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertEquals("a", ((VariableCall) ((BooleanBracketExpression) ((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(1).content).content.conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).variableName);
-            assertTrue(((BooleanBracketExpression)((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((BooleanBracketExpression) ((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(1).content).content.conjunctionExpressions.get(1).basicBoolExpressions.get(0).content instanceof BoolVariable);
-            assertTrue(((BoolVariable)((BooleanBracketExpression)((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((BoolVariable) ((BooleanBracketExpression) ((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(1).content).content.conjunctionExpressions.get(1).basicBoolExpressions.get(0).content).getValue());
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -717,7 +717,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
@@ -727,7 +727,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
@@ -737,7 +737,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof TypeException))
+            if (!(exc instanceof TypeException))
                 fail(exc.getMessage());
         }
 
@@ -747,7 +747,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
@@ -757,7 +757,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof TypeException))
+            if (!(exc instanceof TypeException))
                 fail(exc.getMessage());
         }
     }
@@ -768,7 +768,7 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertEquals("test", ((StringVariable)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue()).getMessage());
+            assertEquals("test", ((StringVariable) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue()).getMessage());
         } catch (Exception exc) {
             fail(exc.getMessage());
         }
@@ -777,8 +777,8 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertEquals("a", ((VariableCall)((ValueAssignment)program.getFunction("main").innerStatements.get(1)).getValue()).variableName);
-            assertEquals("b", (((ValueAssignment)program.getFunction("main").innerStatements.get(1)).getTargetName()));
+            assertEquals("a", ((VariableCall) ((ValueAssignment) program.getFunction("main").innerStatements.get(1)).getValue()).variableName);
+            assertEquals("b", (((ValueAssignment) program.getFunction("main").innerStatements.get(1)).getTargetName()));
         } catch (Exception exc) {
             fail(exc.getMessage());
         }
@@ -792,7 +792,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
@@ -802,7 +802,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof UnknownNameException))
+            if (!(exc instanceof UnknownNameException))
                 fail(exc.getMessage());
         }
 
@@ -812,7 +812,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
@@ -822,7 +822,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
     }
@@ -833,11 +833,11 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((MathExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
-            .multiplicationExpressions.get(0).basicMathExpressions.get(0).content instanceof FunctionCallExpression);
-            assertEquals("one",((FunctionCallExpression)((MathExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((MathExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
+                    .multiplicationExpressions.get(0).basicMathExpressions.get(0).content instanceof FunctionCallExpression);
+            assertEquals("one", ((FunctionCallExpression) ((MathExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .multiplicationExpressions.get(0).basicMathExpressions.get(0).content).functionName);
-            assertEquals(0,((FunctionCallExpression)((MathExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertEquals(0, ((FunctionCallExpression) ((MathExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .multiplicationExpressions.get(0).basicMathExpressions.get(0).content).arguments.size());
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -847,15 +847,15 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((MathExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((MathExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .multiplicationExpressions.get(0).basicMathExpressions.get(0).content instanceof FunctionCallExpression);
-            assertEquals("this",((FunctionCallExpression)((MathExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertEquals("this", ((FunctionCallExpression) ((MathExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .multiplicationExpressions.get(0).basicMathExpressions.get(0).content).functionName);
-            assertEquals(1,((FunctionCallExpression)((MathExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertEquals(1, ((FunctionCallExpression) ((MathExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .multiplicationExpressions.get(0).basicMathExpressions.get(0).content).arguments.size());
-            assertEquals(1,((NumberVariable)((MathExpression)((FunctionCallExpression)((MathExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((FunctionCallExpression) ((MathExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .multiplicationExpressions.get(0).basicMathExpressions.get(0).content).arguments.get(0)).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(1,((NumberVariable)((MathExpression)((FunctionCallExpression)((MathExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertEquals(1, ((NumberVariable) ((MathExpression) ((FunctionCallExpression) ((MathExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .multiplicationExpressions.get(0).basicMathExpressions.get(0).content).arguments.get(0)).multiplicationExpressions.get(0).basicMathExpressions.get(0).content).getDenominator());
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -865,15 +865,15 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((MathExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((MathExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .multiplicationExpressions.get(0).basicMathExpressions.get(0).content instanceof FunctionCallExpression);
-            assertEquals("this",((FunctionCallExpression)((MathExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertEquals("this", ((FunctionCallExpression) ((MathExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .multiplicationExpressions.get(0).basicMathExpressions.get(0).content).functionName);
-            assertEquals(2,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertEquals(2, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .multiplicationExpressions.get(1).basicMathExpressions.get(0).content).getNominator());
-            assertEquals(3,((NumberVariable)((MathExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertEquals(3, ((NumberVariable) ((MathExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .multiplicationExpressions.get(1).basicMathExpressions.get(0).content).getDenominator());
-} catch (Exception exc) {
+        } catch (Exception exc) {
             fail(exc.getMessage());
         }
 
@@ -881,11 +881,11 @@ class ParserExpressionTest {
         parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
         try {
             Program program = parser.parse();
-            assertTrue(((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertTrue(((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content instanceof FunctionCallExpression);
-            assertEquals("one",((FunctionCallExpression)((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertEquals("one", ((FunctionCallExpression) ((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).functionName);
-            assertEquals(0,((FunctionCallExpression)((BooleanExpression)((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue())
+            assertEquals(0, ((FunctionCallExpression) ((BooleanExpression) ((ValueAssignment) program.getFunction("main").innerStatements.get(0)).getValue())
                     .conjunctionExpressions.get(0).basicBoolExpressions.get(0).content).arguments.size());
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -900,7 +900,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof TypeException))
+            if (!(exc instanceof TypeException))
                 fail(exc.getMessage());
         }
 
@@ -910,7 +910,7 @@ class ParserExpressionTest {
             parser.parse();
             fail("Exception expected");
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
     }

@@ -39,10 +39,10 @@ class LexerTest {
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.getToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals("",token.getValue());
-        Assertions.assertEquals(new Position(1,1).sign,token.getPosition().sign);
-        assertEquals(new Position(1,1).line,token.getPosition().line);
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals("", token.getValue());
+        Assertions.assertEquals(new Position(1, 1).sign, token.getPosition().sign);
+        assertEquals(new Position(1, 1).line, token.getPosition().line);
     }
 
     @Test
@@ -51,613 +51,613 @@ class LexerTest {
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.end_of_bytes_,token.getType());
-        assertEquals("",token.getValue());
-        assertEquals(new Position(1,1).sign,token.getPosition().sign);
-        assertEquals(new Position(1,1).line,token.getPosition().line);
+        assertEquals(Token.Type.end_of_bytes_, token.getType());
+        assertEquals("", token.getValue());
+        assertEquals(new Position(1, 1).sign, token.getPosition().sign);
+        assertEquals(new Position(1, 1).line, token.getPosition().line);
 
         token = lexer.getToken();
-        assertEquals(Token.Type.end_of_bytes_,token.getType());
-        assertEquals("",token.getValue());
-        assertEquals(new Position(1,1).sign,token.getPosition().sign);
-        assertEquals(new Position(1,1).line,token.getPosition().line);
+        assertEquals(Token.Type.end_of_bytes_, token.getType());
+        assertEquals("", token.getValue());
+        assertEquals(new Position(1, 1).sign, token.getPosition().sign);
+        assertEquals(new Position(1, 1).line, token.getPosition().line);
     }
 
     @Test
-    void readNextTokenNumber_(){
+    void readNextTokenNumber_() {
         inputCode = "number";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.number_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.number_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.number_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.number_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenString_(){
+    void readNextTokenString_() {
         inputCode = "string";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.string_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.string_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.string_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.string_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenBool_(){
+    void readNextTokenBool_() {
         inputCode = "bool";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.bool_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.bool_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.bool_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.bool_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenTrue_(){
+    void readNextTokenTrue_() {
         inputCode = "true";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.true_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.true_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.true_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.true_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenFalse_(){
+    void readNextTokenFalse_() {
         inputCode = "false";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.false_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.false_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.false_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.false_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenVoid_(){
+    void readNextTokenVoid_() {
         inputCode = "void";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.void_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.void_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.void_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.void_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenReturn_(){
+    void readNextTokenReturn_() {
         inputCode = "return";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.return_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.return_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.return_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.return_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenLoop_(){
+    void readNextTokenLoop_() {
         inputCode = "loop";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.loop_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.loop_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.loop_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.loop_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenIf_(){
+    void readNextTokenIf_() {
         inputCode = "if";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.if_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.if_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.if_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.if_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenElse_(){
+    void readNextTokenElse_() {
         inputCode = "else";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.else_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.else_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.else_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.else_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenWrite_(){
+    void readNextTokenWrite_() {
         inputCode = "write";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.write_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.write_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.write_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.write_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenRead_(){
+    void readNextTokenRead_() {
         inputCode = "read";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.read_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.read_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.read_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.read_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenSemicolon(){
+    void readNextTokenSemicolon() {
         inputCode = ";";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.semicolon_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.semicolon_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.semicolon_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.semicolon_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenAssign_(){
+    void readNextTokenAssign_() {
         inputCode = "=";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.assign_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.assign_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.assign_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.assign_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenComma_(){
+    void readNextTokenComma_() {
         inputCode = ",";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.comma_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.comma_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.comma_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.comma_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenHash_(){
+    void readNextTokenHash_() {
         inputCode = "#";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.hash_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.hash_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.hash_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.hash_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenColon_(){
+    void readNextTokenColon_() {
         inputCode = ":";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.colon_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.colon_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.colon_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.colon_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenOpen_bracket_(){
+    void readNextTokenOpen_bracket_() {
         inputCode = "(";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.open_bracket_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.open_bracket_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.open_bracket_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.open_bracket_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenClose_bracket_(){
+    void readNextTokenClose_bracket_() {
         inputCode = ")";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.close_bracket_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.close_bracket_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.close_bracket_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.close_bracket_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenOpen_comparison_(){
+    void readNextTokenOpen_comparison_() {
         inputCode = "[";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.open_comparison_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.open_comparison_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.open_comparison_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.open_comparison_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenClose_comparison_(){
+    void readNextTokenClose_comparison_() {
         inputCode = "]";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.close_comparison_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.close_comparison_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.close_comparison_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.close_comparison_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenOpen_scope_(){
+    void readNextTokenOpen_scope_() {
         inputCode = "{";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.open_scope_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.open_scope_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.open_scope_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.open_scope_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenClose_scope_(){
+    void readNextTokenClose_scope_() {
         inputCode = "}";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.close_scope_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.close_scope_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.close_scope_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.close_scope_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenPlus_(){
+    void readNextTokenPlus_() {
         inputCode = "+";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.plus_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.plus_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.plus_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.plus_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenMinus_(){
+    void readNextTokenMinus_() {
         inputCode = "-";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.minus_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.minus_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.minus_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.minus_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenStar_(){
+    void readNextTokenStar_() {
         inputCode = "*";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.star_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.star_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.star_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.star_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenSlash_(){
+    void readNextTokenSlash_() {
         inputCode = "/";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.slash_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.slash_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.slash_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.slash_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenModulo_(){
+    void readNextTokenModulo_() {
         inputCode = "%";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.modulo_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.modulo_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.modulo_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.modulo_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenOr_(){
+    void readNextTokenOr_() {
         inputCode = "|";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.or_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.or_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.or_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.or_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenAnd_(){
+    void readNextTokenAnd_() {
         inputCode = "&";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.and_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.and_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.and_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.and_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenNot_(){
+    void readNextTokenNot_() {
         inputCode = "!";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.not_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.not_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.not_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.not_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenGreater_(){
+    void readNextTokenGreater_() {
         inputCode = ">";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.greater_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.greater_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.greater_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.greater_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenGreater_equal_(){
+    void readNextTokenGreater_equal_() {
         inputCode = ">=";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.greater_equal_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.greater_equal_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.greater_equal_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.greater_equal_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenLesser_(){
+    void readNextTokenLesser_() {
         inputCode = "<";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.lesser_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.lesser_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.lesser_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.lesser_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenLesser_equal_(){
+    void readNextTokenLesser_equal_() {
         inputCode = "<=";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.lesser_equal_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.lesser_equal_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.lesser_equal_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.lesser_equal_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenEqual_(){
+    void readNextTokenEqual_() {
         inputCode = "==";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.equal_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.equal_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.equal_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.equal_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenNot_equal_(){
+    void readNextTokenNot_equal_() {
         inputCode = "!=";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.not_equal_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.not_equal_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.not_equal_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.not_equal_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenComment_(){
+    void readNextTokenComment_() {
         inputCode = "/*comment*/ more code";
         Lexer lexer = prepareLexer(inputCode);
         lexer.setIgnoreComment(false);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.comment_,token.getType());
-        assertEquals("/*comment*/",token.getValue());
+        assertEquals(Token.Type.comment_, token.getType());
+        assertEquals("/*comment*/", token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.comment_,token.getType());
-        assertEquals("/*comment*/",token.getValue());
+        assertEquals(Token.Type.comment_, token.getType());
+        assertEquals("/*comment*/", token.getValue());
     }
 
     @Test
-    void readNextTokenNotEndedComment_(){
+    void readNextTokenNotEndedComment_() {
         inputCode = "/*comment more code";
         Lexer lexer = prepareLexer(inputCode);
         lexer.setIgnoreComment(false);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals("/*comment more code",token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals("/*comment more code", token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals("/*comment more code",token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals("/*comment more code", token.getValue());
     }
 
     @Test
-    void readNextTokenIgnoreComment_(){
+    void readNextTokenIgnoreComment_() {
         inputCode = "/*comment*/ identifier";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.identifier_,token.getType());
-        assertEquals("identifier",token.getValue());
+        assertEquals(Token.Type.identifier_, token.getType());
+        assertEquals("identifier", token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.identifier_,token.getType());
-        assertEquals("identifier",token.getValue());
+        assertEquals(Token.Type.identifier_, token.getType());
+        assertEquals("identifier", token.getValue());
     }
 
     @Test
-    void readNextTokenIgnoreCommentAtEnd_(){
+    void readNextTokenIgnoreCommentAtEnd_() {
         inputCode = "/*comment*/";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.end_of_bytes_,token.getType());
-        assertEquals("",token.getValue());
+        assertEquals(Token.Type.end_of_bytes_, token.getType());
+        assertEquals("", token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.end_of_bytes_,token.getType());
-        assertEquals("",token.getValue());
+        assertEquals(Token.Type.end_of_bytes_, token.getType());
+        assertEquals("", token.getValue());
     }
 
     @Test
-    void readNextTokenSpecialCaseComment_(){
+    void readNextTokenSpecialCaseComment_() {
         inputCode = "/*comment*";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals("/*comment*",token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals("/*comment*", token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals("/*comment*",token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals("/*comment*", token.getValue());
     }
 
     @Test
     void readNextTokenLimitComment() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("/*");
-        for(int i = 0 ; i < Lexer.maxBytesPerComment +1;++i)
+        for (int i = 0; i < Lexer.maxBytesPerComment + 1; ++i)
             stringBuilder.append("-");
         stringBuilder.append("*/");
         inputCode = stringBuilder.toString();
@@ -670,342 +670,342 @@ class LexerTest {
     }
 
     @Test
-    void readNextTokenIdentifier_(){
+    void readNextTokenIdentifier_() {
         inputCode = "someName";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.identifier_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.identifier_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.identifier_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.identifier_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenIdentifier_WithDigits(){
+    void readNextTokenIdentifier_WithDigits() {
         inputCode = "someName123";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.identifier_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.identifier_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.identifier_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.identifier_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenIdentifier_TooLong(){
+    void readNextTokenIdentifier_TooLong() {
         StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0 ; i < Lexer.maxBytesPerToken + 1; ++i)
+        for (int i = 0; i < Lexer.maxBytesPerToken + 1; ++i)
             stringBuilder.append("a");
         inputCode = stringBuilder.toString();
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals("Too many bytes",token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals("Too many bytes", token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals("Too many bytes",token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals("Too many bytes", token.getValue());
     }
 
     @Test
-    void readNextTokenNumberZero(){
+    void readNextTokenNumberZero() {
         inputCode = "0";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.number_expression_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.number_expression_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.number_expression_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.number_expression_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenNumberWrongZero(){
+    void readNextTokenNumberWrongZero() {
         inputCode = "0123";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenCorrectNumber(){
+    void readNextTokenCorrectNumber() {
         inputCode = "123";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.number_expression_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.number_expression_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.number_expression_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.number_expression_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenNumberLastLetter(){
+    void readNextTokenNumberLastLetter() {
         inputCode = "123a";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenNumberSomeLetters(){
+    void readNextTokenNumberSomeLetters() {
         inputCode = "123abc";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenStringCorrect(){
+    void readNextTokenStringCorrect() {
         inputCode = "\"Example string\" more code ";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.string_expression_,token.getType());
-        assertEquals("\"Example string\"",token.getValue());
+        assertEquals(Token.Type.string_expression_, token.getType());
+        assertEquals("\"Example string\"", token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.string_expression_,token.getType());
-        assertEquals("\"Example string\"",token.getValue());
+        assertEquals(Token.Type.string_expression_, token.getType());
+        assertEquals("\"Example string\"", token.getValue());
     }
 
     @Test
-    void readNextTokenStringUnfinished(){
+    void readNextTokenStringUnfinished() {
         inputCode = "\"Example string more code";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals("\"Example string more code",token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals("\"Example string more code", token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals("\"Example string more code",token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals("\"Example string more code", token.getValue());
     }
 
     @Test
-    void readNextTokenStringWithEscape(){
+    void readNextTokenStringWithEscape() {
         inputCode = "\"Example \\\"string\"";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.string_expression_,token.getType());
-        assertEquals("\"Example \"string\"",token.getValue());
+        assertEquals(Token.Type.string_expression_, token.getType());
+        assertEquals("\"Example \"string\"", token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.string_expression_,token.getType());
-        assertEquals("\"Example \"string\"",token.getValue());
+        assertEquals(Token.Type.string_expression_, token.getType());
+        assertEquals("\"Example \"string\"", token.getValue());
     }
 
     @Test
-    void readNextTokenStringUnfinishedSpecialCase(){
+    void readNextTokenStringUnfinishedSpecialCase() {
         inputCode = "\"Example string\\";
         Lexer lexer = prepareLexer(inputCode);
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void readNextTokenStringWithNewLineEscapeN(){
+    void readNextTokenStringWithNewLineEscapeN() {
         inputCode = "\"Example \\n string\"";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.string_expression_,token.getType());
-        assertEquals("\"Example \n string\"",token.getValue());
+        assertEquals(Token.Type.string_expression_, token.getType());
+        assertEquals("\"Example \n string\"", token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.string_expression_,token.getType());
-        assertEquals("\"Example \n string\"",token.getValue());
+        assertEquals(Token.Type.string_expression_, token.getType());
+        assertEquals("\"Example \n string\"", token.getValue());
     }
 
     @Test
-    void readNextTokenStringWithNewLineEscapeSlashN(){
+    void readNextTokenStringWithNewLineEscapeSlashN() {
         inputCode = "\"Example \\\\n string\"";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.string_expression_,token.getType());
-        assertEquals("\"Example \\n string\"",token.getValue());
+        assertEquals(Token.Type.string_expression_, token.getType());
+        assertEquals("\"Example \\n string\"", token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.string_expression_,token.getType());
-        assertEquals("\"Example \\n string\"",token.getValue());
+        assertEquals(Token.Type.string_expression_, token.getType());
+        assertEquals("\"Example \\n string\"", token.getValue());
     }
 
     @Test
-    void readNextTokenStringWithNewLineEscapeSlash(){
+    void readNextTokenStringWithNewLineEscapeSlash() {
         inputCode = "\"Example \\\\\" string\"";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.string_expression_,token.getType());
-        assertEquals("\"Example \\\"",token.getValue());
+        assertEquals(Token.Type.string_expression_, token.getType());
+        assertEquals("\"Example \\\"", token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.string_expression_,token.getType());
-        assertEquals("\"Example \\\"",token.getValue());
+        assertEquals(Token.Type.string_expression_, token.getType());
+        assertEquals("\"Example \\\"", token.getValue());
     }
 
     @Test
-    void readNextTokenMaxSignsLimit(){
+    void readNextTokenMaxSignsLimit() {
         StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0 ; i < Lexer.maxBytesPerString +1; ++i)
+        for (int i = 0; i < Lexer.maxBytesPerString + 1; ++i)
             stringBuilder.append(" ");
         inputCode = stringBuilder.toString();
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals("Too many bytes",token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals("Too many bytes", token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals("Too many bytes",token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals("Too many bytes", token.getValue());
     }
 
     @Test
-    void readNextTokenMaxTokenLimit(){
+    void readNextTokenMaxTokenLimit() {
         StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0 ; i < Lexer.maxTokens + 1; ++i)
+        for (int i = 0; i < Lexer.maxTokens + 1; ++i)
             stringBuilder.append("+");
         inputCode = stringBuilder.toString();
         Lexer lexer = prepareLexer(inputCode);
         Token token;
-        for(int i = 0 ; i < Lexer.maxTokens + 1; ++i)
+        for (int i = 0; i < Lexer.maxTokens + 1; ++i)
             lexer.readNextToken();
         token = lexer.getToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals("Too many tokens",token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals("Too many tokens", token.getValue());
     }
 
     @Test
-    void readNextTokenUnknownSign(){
+    void readNextTokenUnknownSign() {
         inputCode = "~";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals(inputCode, token.getValue());
 
         token = lexer.getToken();
-        assertEquals(Token.Type.invalid_,token.getType());
-        assertEquals(inputCode,token.getValue());
+        assertEquals(Token.Type.invalid_, token.getType());
+        assertEquals(inputCode, token.getValue());
     }
 
     @Test
-    void manyTokens(){
+    void manyTokens() {
         inputCode = "number fun(bool a,number b){\n}";
         Lexer lexer = prepareLexer(inputCode);
 
         List<Token> returnedTokens = new ArrayList<>();
-        while (lexer.getToken().getType()!=Token.Type.end_of_bytes_){
+        while (lexer.getToken().getType() != Token.Type.end_of_bytes_) {
             returnedTokens.add(lexer.readNextToken());
-            if(lexer.getToken().getType() == Token.Type.invalid_)
+            if (lexer.getToken().getType() == Token.Type.invalid_)
                 break;
         }
 
         Token token;
 
         token = returnedTokens.get(0);
-        assertEquals(Token.Type.number_,token.getType());
-        assertEquals("number",token.getValue());
-        assertEquals(1,token.getPosition().sign);
-        assertEquals(1,token.getPosition().line);
+        assertEquals(Token.Type.number_, token.getType());
+        assertEquals("number", token.getValue());
+        assertEquals(1, token.getPosition().sign);
+        assertEquals(1, token.getPosition().line);
 
         token = returnedTokens.get(1);
-        assertEquals(Token.Type.identifier_,token.getType());
-        assertEquals("fun",token.getValue());
-        assertEquals(8,token.getPosition().sign);
-        assertEquals(1,token.getPosition().line);
+        assertEquals(Token.Type.identifier_, token.getType());
+        assertEquals("fun", token.getValue());
+        assertEquals(8, token.getPosition().sign);
+        assertEquals(1, token.getPosition().line);
 
         token = returnedTokens.get(2);
-        assertEquals(Token.Type.open_bracket_,token.getType());
-        assertEquals("(",token.getValue());
-        assertEquals(11,token.getPosition().sign);
-        assertEquals(1,token.getPosition().line);
+        assertEquals(Token.Type.open_bracket_, token.getType());
+        assertEquals("(", token.getValue());
+        assertEquals(11, token.getPosition().sign);
+        assertEquals(1, token.getPosition().line);
 
         token = returnedTokens.get(3);
-        assertEquals(Token.Type.bool_,token.getType());
-        assertEquals("bool",token.getValue());
-        assertEquals(12,token.getPosition().sign);
-        assertEquals(1,token.getPosition().line);
+        assertEquals(Token.Type.bool_, token.getType());
+        assertEquals("bool", token.getValue());
+        assertEquals(12, token.getPosition().sign);
+        assertEquals(1, token.getPosition().line);
 
         token = returnedTokens.get(4);
-        assertEquals(Token.Type.identifier_,token.getType());
-        assertEquals("a",token.getValue());
-        assertEquals(17,token.getPosition().sign);
-        assertEquals(1,token.getPosition().line);
+        assertEquals(Token.Type.identifier_, token.getType());
+        assertEquals("a", token.getValue());
+        assertEquals(17, token.getPosition().sign);
+        assertEquals(1, token.getPosition().line);
 
         token = returnedTokens.get(5);
-        assertEquals(Token.Type.comma_,token.getType());
-        assertEquals(",",token.getValue());
-        assertEquals(18,token.getPosition().sign);
-        assertEquals(1,token.getPosition().line);
+        assertEquals(Token.Type.comma_, token.getType());
+        assertEquals(",", token.getValue());
+        assertEquals(18, token.getPosition().sign);
+        assertEquals(1, token.getPosition().line);
 
         token = returnedTokens.get(6);
-        assertEquals(Token.Type.number_,token.getType());
-        assertEquals("number",token.getValue());
-        assertEquals(19,token.getPosition().sign);
-        assertEquals(1,token.getPosition().line);
+        assertEquals(Token.Type.number_, token.getType());
+        assertEquals("number", token.getValue());
+        assertEquals(19, token.getPosition().sign);
+        assertEquals(1, token.getPosition().line);
 
         token = returnedTokens.get(7);
-        assertEquals(Token.Type.identifier_,token.getType());
-        assertEquals("b",token.getValue());
-        assertEquals(26,token.getPosition().sign);
-        assertEquals(1,token.getPosition().line);
+        assertEquals(Token.Type.identifier_, token.getType());
+        assertEquals("b", token.getValue());
+        assertEquals(26, token.getPosition().sign);
+        assertEquals(1, token.getPosition().line);
 
         token = returnedTokens.get(8);
-        assertEquals(Token.Type.close_bracket_,token.getType());
-        assertEquals(")",token.getValue());
-        assertEquals(27,token.getPosition().sign);
-        assertEquals(1,token.getPosition().line);
+        assertEquals(Token.Type.close_bracket_, token.getType());
+        assertEquals(")", token.getValue());
+        assertEquals(27, token.getPosition().sign);
+        assertEquals(1, token.getPosition().line);
 
         token = returnedTokens.get(9);
-        assertEquals(Token.Type.open_scope_,token.getType());
-        assertEquals("{",token.getValue());
-        assertEquals(28,token.getPosition().sign);
-        assertEquals(1,token.getPosition().line);
+        assertEquals(Token.Type.open_scope_, token.getType());
+        assertEquals("{", token.getValue());
+        assertEquals(28, token.getPosition().sign);
+        assertEquals(1, token.getPosition().line);
 
         token = returnedTokens.get(10);
-        assertEquals(Token.Type.close_scope_,token.getType());
-        assertEquals("}",token.getValue());
-        assertEquals(1,token.getPosition().sign);
-        assertEquals(2,token.getPosition().line);
+        assertEquals(Token.Type.close_scope_, token.getType());
+        assertEquals("}", token.getValue());
+        assertEquals(1, token.getPosition().sign);
+        assertEquals(2, token.getPosition().line);
     }
 
 }

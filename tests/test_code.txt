@@ -30,27 +30,46 @@ number recursivePower(number base, number power) {
 }
 
 bool someBooleanFunction(bool a, bool b, bool c, number d, number e){
-    return  !(a & (b | ![d <= e] ) & c);
+    return  (a & (b | ![d <= e] ) & c);
+}
+
+number someNumericFunction(bool ok) {
+    if(ok) {
+        return 1:3 + (2 * 1 + 2) * (1 + 2);
+    } else {
+        return 0;
+    }
 }
 
 string main() {
-    write bool someBooleanFunction(true, [1:2 > 2:3], [1 > 3:5], 1#2:5, 1:10);
-    write string "\n";
+    bool sayHello;
+    sayHello = someBooleanFunction(true, [1:2 > 2:3], [1 > 3:5], 1#2:5, 1:10);
+    if(sayHello) {
+        bool ok;
+        ok = true;
+        loop([12#1:3 == someNumericFunction(ok)]){
+            write string "Hello, calculating power by iteration and recursion\n";
+            ok = false;
+        }
+    }
+
     number a;
     write string "enter base:";
     read a;
     number b;
     write string "enter power:"
     ;read  b;
-    number resIter;
-    resIter = iterativePower(a, b);
-    write number resIter;
-    write string " ";
+    number resIterative;
+    resIterative = iterativePower(a, b);
+    write string "Iterative result: ";
+    write number resIterative;
+    write string "\n";
     number resRec;
     resRec = recursivePower(a, b);
+    write string "Recursive result: ";
     write number resRec;
     write string "\n";
-    if([resIter == resRec]) {
+    if([resIterative == resRec]) {
         return "success";
     } else {
         return "fail";

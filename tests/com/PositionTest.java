@@ -14,15 +14,15 @@ class PositionTest {
 
     private final ByteArrayOutputStream testOutput = new ByteArrayOutputStream();
     private final PrintStream standardOutput = System.out;
-    private final Position position = new Position(3,4);
+    private final Position position = new Position(3, 4);
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         System.setOut(new PrintStream(testOutput));
     }
 
     @AfterEach
-    void tearDown(){
+    void tearDown() {
         System.setOut(standardOutput);
         testOutput.reset();
     }
@@ -30,12 +30,12 @@ class PositionTest {
     @Test
     void print() {
         position.print();
-        assertEquals("line: 3 sing: 4",testOutput.toString());
+        assertEquals("line: 3 sing: 4", testOutput.toString());
     }
 
     @Test
     void printFail() {
         position.print();
-        assertNotEquals("not correct autput",testOutput.toString());
+        assertNotEquals("not correct autput", testOutput.toString());
     }
 }

@@ -80,7 +80,7 @@ class StreamReaderTest {
         char sign = '\0';
         try {
             sign = streamReader.readByte();
-        } catch (IOException | EndOfBytesException exc){
+        } catch (IOException | EndOfBytesException exc) {
             fail("IO/endOfFile exception");
         }
         assertEquals('1', sign);
@@ -204,7 +204,7 @@ class StreamReaderTest {
     @Test
     void readByteEndOfStream() {
         try {
-            for (int i = 0; i < 19; ++i){
+            for (int i = 0; i < 19; ++i) {
                 streamReader.readByte();
             }
         } catch (IOException | EndOfBytesException exc) {
@@ -222,9 +222,9 @@ class StreamReaderTest {
     }
 
     @Test
-    void lookUpEndOfFile(){
+    void lookUpEndOfFile() {
         try {
-            for (int i = 0; i < 19; ++i){
+            for (int i = 0; i < 19; ++i) {
                 streamReader.readByte();
             }
         } catch (IOException | EndOfBytesException exc) {
