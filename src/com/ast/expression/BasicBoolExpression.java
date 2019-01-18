@@ -5,8 +5,8 @@ import com.ast.statement.Statement;
 import com.exceptions.executionExceptions.ExecutionException;
 
 public class BasicBoolExpression extends Expression {
-    private boolean not;
-    private Expression content;
+    boolean not;
+    Expression content;
 
     public BasicBoolExpression(Expression content, boolean not) {
         this.not = not;

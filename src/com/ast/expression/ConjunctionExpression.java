@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConjunctionExpression extends Expression {
-    private List<BasicBoolExpression> basicBoolExpressions;
+    List<BasicBoolExpression> basicBoolExpressions;
 
     public ConjunctionExpression() {
         basicBoolExpressions = new ArrayList<>();

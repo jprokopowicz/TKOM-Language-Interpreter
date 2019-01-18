@@ -1,9 +1,14 @@
 package com.ast.expression;
 
+import com.byteReader.StreamReader;
 import com.exceptions.executionExceptions.ArithmeticException;
 import com.exceptions.executionExceptions.ConflictException;
 import com.exceptions.executionExceptions.ExecutionException;
 import com.exceptions.executionExceptions.InputOutputException;
+import com.exceptions.parseException.ParseException;
+import com.interpreterParts.Parser;
+
+import java.io.ByteArrayInputStream;
 
 public class NumberVariable extends Variable {
 
@@ -205,71 +210,23 @@ public class NumberVariable extends Variable {
     }
 
     public static NumberVariable parseNumber(String string) throws ExecutionException {
-        String[] parts = new String[3];
-        int numberOfParts = 1;
-        byte[] stringInBytes = string.getBytes();
-        int separator = 0;
-
-        if (string.length() == 0)
-            throw new InputOutputException("Not correct number format: empty string");
-        int start = stringInBytes[0] == '-' ? 1 : 0; //negative value
+        String stringCopy;
+        boolean negate = false;
+        if(string.getBytes()[0] == '-') {
+            negate = true;
+            stringCopy = string.substring(1);
+        } else
+            stringCopy = string;
         try {
-            for (int i = start; i < string.length(); ++i) {
-                switch (numberOfParts) {
-                    case 1:// int
-                        if (!Character.isDigit(stringInBytes[i])) {
-                            parts[0] = string.substring(start, i);
-                            separator = i;
-                            if (stringInBytes[i] == '#')
-                                numberOfParts = 3;
-                            else if (stringInBytes[i] == ':')
-                                numberOfParts = 2;
-                            else
-                                throw new InputOutputException("Not correct number format: " + string);
-                        } else if (i == string.length() - 1) {
-                            parts[0] = string.substring(start);
-                            NumberVariable result = new NumberVariable(Integer.parseInt(parts[0]));
-                            if(start == 1)
-                                result = result.negate();
-                            return result;
-                        }
-                        break;
-                    case 2:// int ':' int
-                        if (!Character.isDigit(stringInBytes[i]))
-                            throw new InputOutputException("Not correct number format: " + string);
-                        else if (i == string.length() - 1) {
-                            parts[1] = string.substring(separator + 1);
-                            NumberVariable result = new NumberVariable(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
-                            if(start == 1)
-                                result = result.negate();
-                            return result;
-                        }
-                        break;
-                    case 3:// int '#' int ':' int
-                        if (!Character.isDigit(stringInBytes[i])) {
-                            if (stringInBytes[separator] == '#' && stringInBytes[i] == ':') {
-                                parts[1] = string.substring(separator + 1, i);
-                                separator = i;
-                            } else
-                                throw new InputOutputException("Not correct number format: " + string);
-                        } else if (i == string.length() - 1) {
-                            if (stringInBytes[separator] == ':') {
-                                parts[2] = string.substring(separator + 1);
-                                NumberVariable result = new NumberVariable(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
-                                if(start == 1)
-                                    result = result.negate();
-                                return result;
-                            } else
-                                throw new InputOutputException("Not correct number format: " + string);
-                        }
-                        break;
-                    default:
-                        throw new InputOutputException("Not correct number format: " + string);
-                }
-            }
-        } catch (NumberFormatException exc) {
+            Parser parser = new Parser(new StreamReader(new ByteArrayInputStream(stringCopy.getBytes())));
+            parser.readNextToken();
+            NumberVariable result = parser.parseNumber();
+            if(negate)
+                return result.negate();
+            else
+                return result;
+        } catch (ParseException exc) {
             throw new InputOutputException("Not correct number format: " + string);
         }
-        throw new InputOutputException("Not correct number format: " + string);
     }
 }

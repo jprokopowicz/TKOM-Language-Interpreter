@@ -6,7 +6,7 @@ import com.exceptions.executionExceptions.ExecutionException;
 import com.exceptions.executionExceptions.IncompleteException;
 
 public class VariableCall extends Expression {
-    private String variableName;
+    String variableName;
 
     public VariableCall(String variableName) {
         this.variableName = variableName;

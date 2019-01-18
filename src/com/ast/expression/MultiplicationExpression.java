@@ -14,8 +14,8 @@ public class MultiplicationExpression extends Expression {
         modulo,
     }
 
-    private List<BasicMathExpression> basicMathExpressions;
-    private List<MultiplicationOperator> multiplicationOperators;
+    List<BasicMathExpression> basicMathExpressions;
+    List<MultiplicationOperator> multiplicationOperators;
 
     public MultiplicationExpression() {
         basicMathExpressions = new ArrayList<>();

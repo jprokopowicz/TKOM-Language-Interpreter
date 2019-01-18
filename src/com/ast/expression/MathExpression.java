@@ -13,8 +13,8 @@ public class MathExpression extends Expression {
         subtract,
     }
 
-    private List<MultiplicationExpression> multiplicationExpressions;
-    private List<AdditionOperator> additionOperators;
+    List<MultiplicationExpression> multiplicationExpressions;
+    List<AdditionOperator> additionOperators;
 
     public MathExpression() {
         multiplicationExpressions = new ArrayList<>();

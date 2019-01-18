@@ -5,7 +5,7 @@ import com.ast.statement.Statement;
 import com.exceptions.executionExceptions.ExecutionException;
 
 public class BracketExpression extends Expression {
-    private MathExpression content;
+    MathExpression content;
 
     public BracketExpression(MathExpression content) {
         this.content = content;

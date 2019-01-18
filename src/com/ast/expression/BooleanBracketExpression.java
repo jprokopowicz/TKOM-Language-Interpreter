@@ -5,7 +5,7 @@ import com.ast.statement.Statement;
 import com.exceptions.executionExceptions.ExecutionException;
 
 public class BooleanBracketExpression extends Expression {
-    private BooleanExpression content;
+    BooleanExpression content;
 
     public BooleanBracketExpression(BooleanExpression content) {
         this.content = content;

@@ -1,8 +1,7 @@
 package com.interpreterParts;
 
 import com.ast.Program;
-import com.ast.expression.NumberVariable;
-import com.ast.expression.Variable;
+import com.ast.expression.*;
 import com.ast.statement.*;
 import com.byteReader.StreamReader;
 import com.exceptions.parseException.*;
@@ -22,7 +21,7 @@ class ParserTest {
     private Parser prepareParser(String testCode) {
         InputStream inputStream = new ByteArrayInputStream(testCode.getBytes());
         Parser parser = new Parser(new StreamReader(inputStream));
-        parser.testReadNextToken();
+        parser.readNextToken();
         return parser;
     }
 
@@ -182,7 +181,7 @@ class ParserTest {
     void testReadNextToken() {
         inputCode = "aaaaa";
         parser = prepareParser(inputCode);
-        assertEquals(Token.Type.identifier_, parser.testReadNextToken().getType());
+        assertEquals(Token.Type.identifier_, parser.readNextToken().getType());
     }
 
     @Test
@@ -434,6 +433,30 @@ class ParserTest {
         try {
             Program program = parser.parse();
             assertTrue(program.getFunction("main").innerStatements.get(0) instanceof ValueAssignment);
+            assertEquals("a",((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getTargetName());
+            assertTrue(((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue() instanceof MathExpression);
+        } catch (Exception exc) {
+            fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {bool a; bool b; a = b;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof ValueAssignment);
+            assertEquals("a",((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getTargetName());
+            assertTrue(((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue() instanceof BooleanExpression);
+        } catch (Exception exc) {
+            fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {string a; string b; a = b;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof ValueAssignment);
+            assertEquals("a",((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getTargetName());
+            assertTrue(((ValueAssignment)program.getFunction("main").innerStatements.get(0)).getValue() instanceof VariableCall);
         } catch (Exception exc) {
             fail(exc.getMessage());
         }

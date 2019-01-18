@@ -5,8 +5,8 @@ import com.ast.statement.Statement;
 import com.exceptions.executionExceptions.ExecutionException;
 
 public class BasicMathExpression extends Expression {
-    private boolean negate;
-    private Expression content;
+    boolean negate;
+    Expression content;
 
     public BasicMathExpression(Expression content, boolean negate) {
         this.negate = negate;

@@ -15,9 +15,9 @@ public class ComparisonExpression extends Expression {
         lesserOrEqual,
     }
 
-    private MathExpression left;
-    private MathExpression right;
-    private ComparisonOperator operator;
+    MathExpression left;
+    MathExpression right;
+    ComparisonOperator operator;
 
     public ComparisonExpression(MathExpression left, MathExpression right, ComparisonOperator operator) {
         this.left = left;

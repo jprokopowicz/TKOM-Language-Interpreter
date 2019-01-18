@@ -10,6 +10,14 @@ public class ValueAssignment extends Statement {
     private String targetName;
     private Expression value;
 
+    public String getTargetName() {
+        return targetName;
+    }
+
+    public Expression getValue() {
+        return value;
+    }
+
     public ValueAssignment(Statement parent, String targetName, Expression value){
         super(false);
         setParent(parent);

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BooleanExpression extends Expression {
-    private List<ConjunctionExpression> conjunctionExpressions;
+    List<ConjunctionExpression> conjunctionExpressions;
 
     public BooleanExpression() {
         conjunctionExpressions = new ArrayList<>();

@@ -26,10 +26,8 @@ public class Interpreter {
                 System.out.println("No such file or invalid argument: " + exc.getMessage());
             } catch (ParseException exc) {
                 System.out.println("Parser exception: " + exc.getMessage());
-                exc.printStackTrace();
             }  catch (ExecutionException exc) {
                 System.out.println("Execution exception: " + exc.getMessage());
-                exc.printStackTrace();
             } catch (Exception exc){
                 System.out.println("Other exception: "+ exc.getMessage());
                 exc.printStackTrace();

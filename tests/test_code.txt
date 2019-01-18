@@ -28,7 +28,7 @@ number recursivePower(number base, number power) {
     }
     return base * recursivePower(base, power - 1);
 }
-/*
+
 string main() {
     number a;
     write string "enter base:";
@@ -49,8 +49,8 @@ string main() {
     } else {
         return "fail";
     }
-}*/
-
+}
+/*
 void main() {
     bool a;
     a = true;
@@ -61,4 +61,4 @@ void main() {
         write string "\n";
     }
     write bool a;
-}
+}*/

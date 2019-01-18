@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FunctionCallExpression extends Expression {
-    private String functionName;
-    private List<Expression> arguments;
+    String functionName;
+    List<Expression> arguments;
 
     public FunctionCallExpression(String functionName) {
         this.functionName = functionName;

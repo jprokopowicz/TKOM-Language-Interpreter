@@ -464,11 +464,11 @@ public class Parser {
     }
 
     /**
-     * Parse tokens into NumberVariable
+     * Parse tokens into NumberVariable. Work only on I#N:D format and on positive integers.
      * @return parsed variable
-     * @throws ParseException any gramatic error in number construction
+     * @throws ParseException any grammar error in number construction
      */
-    NumberVariable parseNumber() throws ParseException {
+    public NumberVariable parseNumber() throws ParseException {
         int integer, nominator = 0, denominator = 1;
         acceptTokenTypeOrThrow(Token.Type.number_expression_);
         try {
@@ -650,7 +650,7 @@ public class Parser {
         lexer.readNextToken();
     }
 
-    Token testReadNextToken(){
+    public Token readNextToken(){
         Token token = lexer.getToken();
         lexer.readNextToken();
         return token;
