@@ -27,7 +27,7 @@ public class BoolVariable extends Variable {
     public void setValue(boolean value) {
         this.value = value;
     }
-    //Operators
+
     BoolVariable not() {
         return new BoolVariable(!this.value);
     }

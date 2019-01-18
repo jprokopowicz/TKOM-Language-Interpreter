@@ -671,7 +671,7 @@ class LexerTest {
 
     @Test
     void readNextTokenIdentifier_(){
-        inputCode = "someFunctionOrVariableName";
+        inputCode = "someName";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
@@ -685,7 +685,7 @@ class LexerTest {
 
     @Test
     void readNextTokenIdentifier_WithDigits(){
-        inputCode = "someFunctionOrVariableName123";
+        inputCode = "someName123";
         Lexer lexer = prepareLexer(inputCode);
 
         Token token = lexer.readNextToken();
@@ -695,6 +695,23 @@ class LexerTest {
         token = lexer.getToken();
         assertEquals(Token.Type.identifier_,token.getType());
         assertEquals(inputCode,token.getValue());
+    }
+
+    @Test
+    void readNextTokenIdentifier_TooLong(){
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i = 0 ; i < Lexer.maxBytesPerToken + 1; ++i)
+            stringBuilder.append("a");
+        inputCode = stringBuilder.toString();
+        Lexer lexer = prepareLexer(inputCode);
+
+        Token token = lexer.readNextToken();
+        assertEquals(Token.Type.invalid_,token.getType());
+        assertEquals("Too many bytes",token.getValue());
+
+        token = lexer.getToken();
+        assertEquals(Token.Type.invalid_,token.getType());
+        assertEquals("Too many bytes",token.getValue());
     }
 
     @Test
@@ -740,7 +757,7 @@ class LexerTest {
     }
 
     @Test
-    void readNextTokenNumberLastletter(){
+    void readNextTokenNumberLastLetter(){
         inputCode = "123a";
         Lexer lexer = prepareLexer(inputCode);
 
@@ -867,7 +884,7 @@ class LexerTest {
     @Test
     void readNextTokenMaxSignsLimit(){
         StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0 ; i < Lexer.maxBytesPerToken +1; ++i)
+        for(int i = 0 ; i < Lexer.maxBytesPerString +1; ++i)
             stringBuilder.append(" ");
         inputCode = stringBuilder.toString();
         Lexer lexer = prepareLexer(inputCode);
@@ -884,12 +901,12 @@ class LexerTest {
     @Test
     void readNextTokenMaxTokenLimit(){
         StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0 ; i < Lexer.maxTokens + 2; ++i)
+        for(int i = 0 ; i < Lexer.maxTokens + 1; ++i)
             stringBuilder.append("+");
         inputCode = stringBuilder.toString();
         Lexer lexer = prepareLexer(inputCode);
         Token token;
-        for(int i = 0 ; i < Lexer.maxTokens + 2; ++i)
+        for(int i = 0 ; i < Lexer.maxTokens + 1; ++i)
             lexer.readNextToken();
         token = lexer.getToken();
         assertEquals(Token.Type.invalid_,token.getType());

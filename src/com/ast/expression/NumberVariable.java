@@ -117,7 +117,6 @@ public class NumberVariable extends Variable {
             throw new ArithmeticException("Negative denominator");
     }
 
-    //Operators
     NumberVariable negate() throws ExecutionException {
         this.DenominatorCheck();
         return new NumberVariable(-this.nominator, this.denominator);

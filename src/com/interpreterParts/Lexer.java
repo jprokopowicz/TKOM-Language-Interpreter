@@ -2,6 +2,7 @@ package com.interpreterParts;
 
 import com.byteReader.ByteReader;
 import com.byteReader.EndOfBytesException;
+import sun.management.counter.ByteArrayCounter;
 
 import java.io.IOException;
 
@@ -17,10 +18,13 @@ public class Lexer {
 
     public static final int maxTokens = 2048;
     private int tokenCounter = 0;
-    public static final int maxBytesPerToken = 32;
+    public static final int maxBytesPerToken = 16;
     private int byteCounter = 0;
+    public static final int maxBytesPerString = 64;
+    private int stringByteCounter = 0;
     public static final int maxBytesPerComment = 512;
     private int commentByteCounter = 0;
+
     /**
      * Constructor need source of bytes.
      * @param reader reads from the source.
@@ -48,7 +52,7 @@ public class Lexer {
     public Token readNextToken() {
         do {
             ++tokenCounter;
-            if (tokenCounter >= maxTokens) {
+            if (tokenCounter >= maxTokens){
                 token = new Token(Token.Type.invalid_, "Too many tokens", tokenPosition);
                 break;
             }
@@ -99,6 +103,16 @@ public class Lexer {
         ++byteCounter;
         if(byteCounter > maxBytesPerToken)
             throw new IOException("Too many bytes");
+    }
+
+    /**
+     * Increments stringByteCounter and check if it reached maxBytesPerComment.
+     * @throws IOException stringByteCounter reached the limit.
+     */
+    private void stringByteCheck() throws IOException {
+        ++stringByteCounter;
+        if(stringByteCounter > maxBytesPerString)
+            throw new IOException("Too many bytes in string");
     }
 
     /**
@@ -286,7 +300,7 @@ public class Lexer {
     private boolean defineStringExpression() throws IOException, EndOfBytesException {
         char sign;
         while(!reader.endOfBytes()) {
-            byteCheck();
+            stringByteCheck();
             sign = reader.readByte();
             buffer.append(sign);
             if (sign == '\\' && reader.lookUpByte() == '"') {

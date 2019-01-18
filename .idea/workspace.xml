@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb3b9810-4773-45b1-b8ad-4983e651c44e" name="Default" comment="Tests for parsing expressions. Fixed bugs detected in tests.">
+    <list default="true" id="fb3b9810-4773-45b1-b8ad-4983e651c44e" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/tests/com/ast/expression/BoolVariableTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/com/ast/expression/BooleanExpressionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/com/ast/expression/FunctionCallExpressionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/com/ast/expression/MathExpressionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/com/ast/expression/NumberVariableTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/com/ast/expression/StringVariableTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/com/ast/expression/VariableCallTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/com/ast/expression/VariableTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/com/ast/statement/FunctionCallStatementTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/com/ast/statement/FunctionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/com/ast/statement/IfStatementTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/com/ast/statement/InputStatementTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/com/ast/statement/LoopStatementTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/com/ast/statement/OutputStatementTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/com/ast/statement/ReturnStatementTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/com/ast/statement/ValueAssignmentTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Interpreter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/expression/BasicBoolExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expression/BasicBoolExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/expression/BasicMathExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expression/BasicMathExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/expression/BooleanBracketExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expression/BooleanBracketExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/expression/BooleanExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expression/BooleanExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/expression/BracketExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expression/BracketExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/expression/ComparisonExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expression/ComparisonExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/expression/ConjunctionExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expression/ConjunctionExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/expression/FunctionCallExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expression/FunctionCallExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/expression/MathExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expression/MathExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/expression/MultiplicationExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expression/MultiplicationExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ast/expression/BoolVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expression/BoolVariable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ast/expression/NumberVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expression/NumberVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/expression/VariableCall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/expression/VariableCall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ast/statement/ValueAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ast/statement/ValueAssignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/interpreterParts/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/interpreterParts/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/com/ast/expression/ParserExpressionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/com/ast/expression/ParserExpressionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/com/interpreterParts/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/com/interpreterParts/ParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/interpreterParts/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/interpreterParts/Lexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/com/LexerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/com/LexerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_code.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_code.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -54,153 +57,7 @@
     <favorites_list name="TKOM Language Interpreter" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ReturnStatement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ast/statement/ReturnStatement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="28" column="78" selection-start-line="28" selection-start-column="78" selection-end-line="28" selection-end-column="78" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParserExpressionTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/com/ast/expression/ParserExpressionTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="486" column="82" selection-start-line="486" selection-start-column="82" selection-end-line="486" selection-end-column="82" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#parseNumberVariableExpression#0;class#ParserExpressionTest#0" />
-                <element signature="method#parseNumberVariableExpressionError#0;class#ParserExpressionTest#0" />
-                <element signature="method#parseNumberValueExpression#0;class#ParserExpressionTest#0" />
-                <element signature="method#parseNumberValueExpressionError#0;class#ParserExpressionTest#0" />
-                <element signature="method#parseBracketExpression#0;class#ParserExpressionTest#0" />
-                <element signature="method#parseBracketExpressionError#0;class#ParserExpressionTest#0" />
-                <element signature="method#parseBoolVariableExpression#0;class#ParserExpressionTest#0" />
-                <element signature="method#parseBoolVariableExpressionError#0;class#ParserExpressionTest#0" />
-                <element signature="method#parseBoolValueExpressionError#0;class#ParserExpressionTest#0" />
-                <element signature="method#parseComparisonExpression#0;class#ParserExpressionTest#0" />
-                <element signature="method#parseComparisonExpressionError#0;class#ParserExpressionTest#0" />
-                <element signature="method#parseBoolBracketExpression#0;class#ParserExpressionTest#0" />
-                <element signature="method#parseBoolBracketExpressionError#0;class#ParserExpressionTest#0" />
-                <element signature="method#parseStringVariableExpression#0;class#ParserExpressionTest#0" />
-                <element signature="method#parseStringExpressionError#0;class#ParserExpressionTest#0" />
-                <element signature="method#parseFunctionCallExpression#0;class#ParserExpressionTest#0" />
-                <element signature="method#parseFunctionCallExpressionError#0;class#ParserExpressionTest#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BasicBoolExpression.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ast/expression/BasicBoolExpression.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Statement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ast/statement/Statement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="599">
-              <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ValueAssignment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ast/statement/ValueAssignment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BooleanBracketExpression.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ast/expression/BooleanBracketExpression.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ComparisonExpression.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ast/expression/ComparisonExpression.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConjunctionExpression.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ast/expression/ConjunctionExpression.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NumberVariable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ast/expression/NumberVariable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="223" column="22" lean-forward="true" selection-start-line="223" selection-start-column="22" selection-end-line="223" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#NumberVariable#0;class#NumberVariable#0" />
-                <element signature="method#NumberVariable#1;class#NumberVariable#0" />
-                <element signature="method#NumberVariable#2;class#NumberVariable#0" />
-                <element signature="method#NumberVariable#3;class#NumberVariable#0" />
-                <element signature="method#NumberVariable#4;class#NumberVariable#0" />
-                <element signature="method#setValue#1;class#NumberVariable#0" />
-                <element signature="method#setValue#2;class#NumberVariable#0" />
-                <element signature="method#greatestCommonDivisor#0;class#NumberVariable#0" />
-                <element signature="method#leastCommonMultiple#0;class#NumberVariable#0" />
-                <element signature="method#DenominatorCheck#0;class#NumberVariable#0" />
-                <element signature="method#negate#0;class#NumberVariable#0" />
-                <element signature="method#plus#0;class#NumberVariable#0" />
-                <element signature="method#multiply#0;class#NumberVariable#0" />
-                <element signature="method#print#0;class#NumberVariable#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MultiplicationExpression.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ast/expression/MultiplicationExpression.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -213,8 +70,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>number_</find>
-      <find>buffer.setLength(0);</find>
       <find>catch</find>
       <find>Token</find>
       <find>reader.getPosition</find>
@@ -241,6 +96,10 @@
       <find>buffer</find>
       <find>Strin</find>
       <find>expression</find>
+      <find>string</find>
+      <find>String</find>
+      <find>Identifier_</find>
+      <find>Iden</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -249,30 +108,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/executionExceptions/InputOutputException.java" />
-        <option value="$PROJECT_DIR$/src/com/ast/statement/OutputStatement.java" />
-        <option value="$PROJECT_DIR$/src/com/ast/expresion/Variable.java" />
-        <option value="$PROJECT_DIR$/src/com/ast/expresion/StringVariable.java" />
-        <option value="$PROJECT_DIR$/src/com/ast/statement/InputStatement.java" />
-        <option value="$PROJECT_DIR$/src/com/executionExceptions/ConflictException.java" />
-        <option value="$PROJECT_DIR$/src/com/executionExceptions/IncompleteException.java" />
-        <option value="$PROJECT_DIR$/src/com/ProgramMain.java" />
-        <option value="$PROJECT_DIR$/src/com/ast/statement/ReturnStatement.java" />
-        <option value="$PROJECT_DIR$/src/com/ast/expresion/FunctionCallExpression.java" />
-        <option value="$PROJECT_DIR$/src/com/ast/Program.java" />
-        <option value="$PROJECT_DIR$/src/com/ast/expresion/NumberVariable.java" />
-        <option value="$PROJECT_DIR$/src/com/parseException/DuplicationException.java" />
-        <option value="$PROJECT_DIR$/src/com/parseException/TypeException.java" />
-        <option value="$PROJECT_DIR$/src/com/parseException/UnexpectedToken.java" />
-        <option value="$PROJECT_DIR$/src/com/parseException/WrongArgumentException.java" />
-        <option value="$PROJECT_DIR$/src/com/executionExceptions/CopyException.java" />
-        <option value="$PROJECT_DIR$/src/com/executionExceptions/ExecutionException.java" />
-        <option value="$PROJECT_DIR$/src/com/byteReader/EndOfBytesException.java" />
-        <option value="$PROJECT_DIR$/src/com/Lexer.java" />
-        <option value="$PROJECT_DIR$/src/com/Parser.java" />
-        <option value="$PROJECT_DIR$/tests/com/ParserTest.java" />
-        <option value="$PROJECT_DIR$/src/com/interpreterParts/Lexer.java" />
-        <option value="$PROJECT_DIR$/tests/com/LexerTest.java" />
         <option value="$PROJECT_DIR$/src/com/exceptions/executionExceptions/interpreterParts/Parser.java" />
         <option value="$PROJECT_DIR$/src/com/exceptions/parseException/DuplicationException.java" />
         <option value="$PROJECT_DIR$/src/com/exceptions/parseException/ParseException.java" />
@@ -293,13 +128,37 @@
         <option value="$PROJECT_DIR$/src/com/ast/expression/ConjunctionExpression.java" />
         <option value="$PROJECT_DIR$/src/com/ast/expression/FunctionCallExpression.java" />
         <option value="$PROJECT_DIR$/src/com/ast/expression/MultiplicationExpression.java" />
-        <option value="$PROJECT_DIR$/src/com/ast/expression/BoolVariable.java" />
         <option value="$PROJECT_DIR$/src/com/ast/expression/VariableCall.java" />
-        <option value="$PROJECT_DIR$/tests/test_code.txt" />
         <option value="$PROJECT_DIR$/src/com/Interpreter.java" />
-        <option value="$PROJECT_DIR$/src/com/ast/expression/NumberVariable.java" />
         <option value="$PROJECT_DIR$/src/com/interpreterParts/Parser.java" />
         <option value="$PROJECT_DIR$/tests/com/ast/expression/ParserExpressionTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/statement/FunctionTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/statement/FunctionCallStatementTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/statement/IfStatementTest.java" />
+        <option value="$PROJECT_DIR$/src/com/ast/statement/InputStatement.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/statement/InputStatementTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/statement/LoopStatementTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/statement/OutputStatementTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/statement/ReturnStatementTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/ProgramTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/expression/BasicBoolExpressionTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/expression/BasicMathExpressionTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/expression/BooleanBracketExpressionTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/expression/BooleanExpressionTest.java" />
+        <option value="$PROJECT_DIR$/src/com/ast/expression/BoolVariable.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/expression/BoolVariableTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/expression/ComparisonExpressionTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/expression/FunctionCallExpressionTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/expression/MathExpressionTest.java" />
+        <option value="$PROJECT_DIR$/src/com/ast/expression/NumberVariable.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/expression/NumberVariableTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/expression/StringVariableTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/expression/VariableTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/expression/VariableCallTest.java" />
+        <option value="$PROJECT_DIR$/tests/com/ast/statement/ValueAssignmentTest.java" />
+        <option value="$PROJECT_DIR$/tests/test_code.txt" />
+        <option value="$PROJECT_DIR$/src/com/interpreterParts/Lexer.java" />
+        <option value="$PROJECT_DIR$/tests/com/LexerTest.java" />
       </list>
     </option>
   </component>
@@ -355,6 +214,28 @@
             <path>
               <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
               <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ast" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ast" type="462c0819:PsiDirectoryNode" />
+              <item name="statement" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="interpreterParts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -368,7 +249,30 @@
               <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ast" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ast" type="462c0819:PsiDirectoryNode" />
               <item name="expression" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ast" type="462c0819:PsiDirectoryNode" />
+              <item name="statement" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TKOM Language Interpreter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TKOM Language Interpreter" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="interpreterParts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -396,10 +300,10 @@
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.ast.expression" />
+      <recent name="com.ast" />
+      <recent name="com.ast.statement" />
       <recent name="com.interpreterParts" />
       <recent name="com" />
-      <recent name="com.parser" />
-      <recent name="com.lexer" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.interpreterParts" />
@@ -484,14 +388,7 @@
       <workItem from="1546650540226" duration="31598000" />
       <workItem from="1547391964455" duration="27930000" />
       <workItem from="1547518224528" duration="89904000" />
-      <workItem from="1547769395417" duration="22110000" />
-    </task>
-    <task id="LOCAL-00041" summary="Exception system change, execute returns variable, return is an enum type.">
-      <created>1546109513347</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1546109513347</updated>
+      <workItem from="1547769395417" duration="25783000" />
     </task>
     <task id="LOCAL-00042" summary="Parsing variable declaration in scope">
       <created>1546114481654</created>
@@ -829,43 +726,50 @@
       <option name="project" value="LOCAL" />
       <updated>1547778531896</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="Tests for parsing expressions. Fixed bugs detected in tests.">
+      <created>1547791662290</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1547791662290</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UnitTests - 2019.01.18 at 06h 47m 48s.xml">
+    <history-entry file="UnitTests - 2019.01.18 at 17h 29m 43s.xml">
       <configuration name="UnitTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UnitTests - 2019.01.18 at 06h 48m 39s.xml">
+    <history-entry file="UnitTests - 2019.01.18 at 17h 31m 07s.xml">
       <configuration name="UnitTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UnitTests - 2019.01.18 at 06h 49m 07s.xml">
+    <history-entry file="UnitTests - 2019.01.18 at 17h 32m 59s.xml">
       <configuration name="UnitTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UnitTests - 2019.01.18 at 06h 50m 52s.xml">
+    <history-entry file="UnitTests - 2019.01.18 at 17h 33m 30s.xml">
       <configuration name="UnitTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UnitTests - 2019.01.18 at 06h 51m 59s.xml">
+    <history-entry file="UnitTests - 2019.01.18 at 17h 33m 33s.xml">
       <configuration name="UnitTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UnitTests - 2019.01.18 at 06h 52m 33s.xml">
+    <history-entry file="UnitTests - 2019.01.18 at 17h 33m 56s.xml">
       <configuration name="UnitTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UnitTests - 2019.01.18 at 06h 53m 05s.xml">
+    <history-entry file="UnitTests - 2019.01.18 at 17h 36m 24s.xml">
       <configuration name="UnitTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UnitTests - 2019.01.18 at 06h 55m 08s.xml">
+    <history-entry file="UnitTests - 2019.01.18 at 17h 40m 10s.xml">
       <configuration name="UnitTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UnitTests - 2019.01.18 at 06h 57m 25s.xml">
+    <history-entry file="UnitTests - 2019.01.18 at 17h 40m 25s.xml">
       <configuration name="UnitTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UnitTests - 2019.01.18 at 06h 57m 46s.xml">
+    <history-entry file="UnitTests - 2019.01.18 at 17h 40m 37s.xml">
       <configuration name="UnitTests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="355579000" />
+    <option name="totallyTimeSpent" value="359252000" />
   </component>
   <component name="TodoView" selected-index="5">
     <todo-panel id="selected-file">
@@ -878,11 +782,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="1" />
       <window_info anchor="bottom" id="TODO" order="11" weight="0.32948583" />
-      <window_info anchor="bottom" id="Messages" order="4" visible="true" weight="0.33788037" />
+      <window_info anchor="bottom" id="Messages" order="4" weight="0.33788037" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="1" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
@@ -890,17 +793,18 @@
       <window_info anchor="right" id="Maven Projects" order="9" weight="0.32946378" />
       <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.32948583" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.31164742" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.31164742" />
       <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.4997236" weight="0.32948583" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="0" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.49695122" visible="true" weight="0.21171919" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.4976526" visible="true" weight="0.21171919" />
       <window_info anchor="right" id="Database" order="7" weight="0.32946378" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.32948583" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="8" weight="0.2498618" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="4" sideWeight="0.5030488" side_tool="true" weight="0.21171919" />
+      <window_info id="Favorites" order="4" sideWeight="0.5023474" side_tool="true" weight="0.21171919" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.39874083" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32946378" />
@@ -908,38 +812,37 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.32948583" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="1" />
-      <window_info anchor="bottom" id="Version Control" order="0" weight="0.32948583" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32946378" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.31164742" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.4984756" visible="true" weight="0.20950802" />
-      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.31164742" />
       <window_info anchor="right" id="Ant Build" order="8" weight="0.2498618" />
-      <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.4976526" visible="true" weight="0.21171919" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="bottom" id="TODO" order="11" weight="0.32948583" />
+      <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="3" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.32948583" />
+      <window_info active="true" anchor="bottom" id="Find" order="6" visible="true" weight="0.32948583" />
       <window_info anchor="right" id="Database" order="7" weight="0.32946378" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.4997236" weight="0.32948583" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5002764" side_tool="true" weight="0.32948583" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.32948583" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.39874083" />
       <window_info id="Capture Tool" order="2" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Messages" order="4" weight="0.33788037" />
       <window_info anchor="right" id="Maven Projects" order="9" weight="0.32946378" />
-      <window_info id="Favorites" order="4" sideWeight="0.5015244" side_tool="true" visible="true" weight="0.20950802" />
+      <window_info id="Favorites" order="4" sideWeight="0.5023474" side_tool="true" visible="true" weight="0.21171919" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -978,7 +881,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="224" />
+      <option name="time" value="237" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -986,404 +889,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/exceptions/executionExceptions/ExecutionException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#118#119#0" expanded="true" />
-            <element signature="e#141#142#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/byteReader/EndOfBytesException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="52" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/exceptions/executionExceptions/IncompleteException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="83" selection-start-line="4" selection-start-column="83" selection-end-line="4" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/exceptions/executionExceptions/InputOutputException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-          <folding>
-            <element signature="e#170#171#0" expanded="true" />
-            <element signature="e#215#216#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/exceptions/executionExceptions/ReturnException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="50" lean-forward="true" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-          <folding>
-            <element signature="e#258#259#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="239" column="6" selection-start-line="239" selection-start-column="6" selection-end-line="239" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/byteReader/StreamReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#523#524#0" expanded="true" />
-            <element signature="e#554#555#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/com/LexerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2374">
-          <caret line="668" column="20" selection-start-line="668" selection-start-column="20" selection-end-line="668" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/exceptions/parseException/DuplicationException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/exceptions/parseException/ParseException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/exceptions/parseException/UnknownNameException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/exceptions/parseException/TypeException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/Variable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/Function.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="42" column="44" lean-forward="true" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/FunctionCallStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/LoopStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/OutputStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/byteReader/ByteReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/interpreterParts/Lexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#Lexer#0" />
-            <element signature="docComment;method#Lexer#0;class#Lexer#0" />
-            <element signature="method#Lexer#0;class#Lexer#0" />
-            <element signature="docComment;method#getToken#0;class#Lexer#0" />
-            <element signature="docComment;method#readNextToken#0;class#Lexer#0" />
-            <element signature="docComment;method#isIgnoreComment#0;class#Lexer#0" />
-            <element signature="docComment;method#setIgnoreComment#0;class#Lexer#0" />
-            <element signature="docComment;method#byteCheck#0;class#Lexer#0" />
-            <element signature="method#byteCheck#0;class#Lexer#0" />
-            <element signature="docComment;method#commentByteCheck#0;class#Lexer#0" />
-            <element signature="method#commentByteCheck#0;class#Lexer#0" />
-            <element signature="docComment;method#skipWhiteSigns#0;class#Lexer#0" />
-            <element signature="method#skipWhiteSigns#0;class#Lexer#0" />
-            <element signature="docComment;method#defineKeywordOrIdentifier#0;class#Lexer#0" />
-            <element signature="method#defineKeywordOrIdentifier#0;class#Lexer#0" />
-            <element signature="docComment;method#defineNumericLiteral#0;class#Lexer#0" />
-            <element signature="method#defineNumericLiteral#0;class#Lexer#0" />
-            <element signature="docComment;method#defineSpecialSignOrString#0;class#Lexer#0" />
-            <element signature="method#defineSpecialSignOrString#0;class#Lexer#0" />
-            <element signature="docComment;method#defineStringExpression#0;class#Lexer#0" />
-            <element signature="method#defineStringExpression#0;class#Lexer#0" />
-            <element signature="docComment;method#defineCommentExpression#0;class#Lexer#0" />
-            <element signature="method#defineCommentExpression#0;class#Lexer#0" />
-            <element signature="docComment;method#continueToTokenEnd#0;class#Lexer#0" />
-            <element signature="method#continueToTokenEnd#0;class#Lexer#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/interpreterParts/Position.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/exceptions/parseException/WrongArgumentException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/InputStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/IfStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#795#796#0" expanded="true" />
-            <element signature="e#839#840#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/Expression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/BoolVariable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/VariableCall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/BasicMathExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_code.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/StringVariable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Interpreter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/MathExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/exceptions/parseException/UnexpectedToken.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.0.0/junit-platform-commons-1.0.0.jar!/org/junit/platform/commons/util/ReflectionUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4547">
-          <caret line="341" column="99" selection-start-line="341" selection-start-column="99" selection-end-line="341" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/com/interpreterParts/ParserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="462" selection-start-line="462" selection-end-line="462" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#parseNumber#0;class#ParserTest#0" />
-            <element signature="method#parseBool#0;class#ParserTest#0" />
-            <element signature="method#parseString#0;class#ParserTest#0" />
-            <element signature="method#acceptTokenTypeOrThrow#0;class#ParserTest#0" />
-            <element signature="method#acceptTokenTypeOrThrowList#0;class#ParserTest#0" />
-            <element signature="method#acceptTokenTypeOrThrowListAndReadToken#0;class#ParserTest#0" />
-            <element signature="method#testReadNextToken#0;class#ParserTest#0" />
-            <element signature="method#testParseFunctionHeader#0;class#ParserTest#0" />
-            <element signature="method#testParseFunctionHeaderError#0;class#ParserTest#0" />
-            <element signature="method#testParseFunction#0;class#ParserTest#0" />
-            <element signature="method#testParseFunctionError#0;class#ParserTest#0" />
-            <element signature="method#testParseVariableDeclaration#0;class#ParserTest#0" />
-            <element signature="method#testParseVariableDeclarationError#0;class#ParserTest#0" />
-            <element signature="method#testParseVariableAssignmentError#0;class#ParserTest#0" />
-            <element signature="method#testParseIfStatement#0;class#ParserTest#0" />
-            <element signature="method#testParseReturnStatement#0;class#ParserTest#0" />
-            <element signature="method#testParseReturnStatementError#0;class#ParserTest#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/interpreterParts/Token.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="134" selection-start-line="134" selection-end-line="134" />
-          <folding>
-            <element signature="e#4043#4044#0" expanded="true" />
-            <element signature="e#4070#4071#0" expanded="true" />
-            <element signature="e#4130#4131#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/interpreterParts/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="method#parseArguments#0;class#Parser#0" />
-            <element signature="method#compareOrAddArgument#0;class#Parser#0" />
-            <element signature="method#compareArgument#0;class#Parser#0" />
-            <element signature="method#parseVariableDeclaration#0;class#Parser#0" />
-            <element signature="method#parseIfExpression#0;class#Parser#0" />
-            <element signature="method#parseLoopExpression#0;class#Parser#0" />
-            <element signature="method#parseReadExpression#0;class#Parser#0" />
-            <element signature="method#parseWriteExpression#0;class#Parser#0" />
-            <element signature="method#parseReturnExpression#0;class#Parser#0" />
-            <element signature="method#parseVariable#0;class#Parser#0" />
-            <element signature="method#addVariable#0;class#Parser#0" />
-            <element signature="method#parseFunctionCall#0;class#Parser#0" />
-            <element signature="method#parseCondition#0;class#Parser#0" />
-            <element signature="method#parseMathExpression#0;class#Parser#0" />
-            <element signature="method#parseMultiplicationExpression#0;class#Parser#0" />
-            <element signature="method#parseBasicMathExpression#0;class#Parser#0" />
-            <element signature="method#parseBracketExpression#0;class#Parser#0" />
-            <element signature="docComment;method#parseNumber#0;class#Parser#0" />
-            <element signature="method#parseNumber#0;class#Parser#0" />
-            <element signature="method#parseBooleanExpression#0;class#Parser#0" />
-            <element signature="method#parseConjunctionExpression#0;class#Parser#0" />
-            <element signature="method#parseBasicBoolExpression#0;class#Parser#0" />
-            <element signature="method#parseComparisonExpression#0;class#Parser#0" />
-            <element signature="method#parseBooleanBracketExpression#0;class#Parser#0" />
-            <element signature="docComment;method#parseBool#0;class#Parser#0" />
-            <element signature="method#parseBool#0;class#Parser#0" />
-            <element signature="method#parseString#0;class#Parser#0" />
-            <element signature="method#acceptTokenTypeOrThrow#0;class#Parser#0" />
-            <element signature="method#acceptTokenTypeOrThrow#1;class#Parser#0" />
-            <element signature="method#acceptTokenTypeOrThrowAndReadToken#0;class#Parser#0" />
-            <element signature="method#readNextToken#0;class#Parser#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
@@ -1391,68 +896,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/BracketExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/BooleanExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/BooleanBracketExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/NumberVariable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="223" column="22" lean-forward="true" selection-start-line="223" selection-start-column="22" selection-end-line="223" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#NumberVariable#0;class#NumberVariable#0" />
-            <element signature="method#NumberVariable#1;class#NumberVariable#0" />
-            <element signature="method#NumberVariable#2;class#NumberVariable#0" />
-            <element signature="method#NumberVariable#3;class#NumberVariable#0" />
-            <element signature="method#NumberVariable#4;class#NumberVariable#0" />
-            <element signature="method#setValue#1;class#NumberVariable#0" />
-            <element signature="method#setValue#2;class#NumberVariable#0" />
-            <element signature="method#greatestCommonDivisor#0;class#NumberVariable#0" />
-            <element signature="method#leastCommonMultiple#0;class#NumberVariable#0" />
-            <element signature="method#DenominatorCheck#0;class#NumberVariable#0" />
-            <element signature="method#negate#0;class#NumberVariable#0" />
-            <element signature="method#plus#0;class#NumberVariable#0" />
-            <element signature="method#multiply#0;class#NumberVariable#0" />
-            <element signature="method#print#0;class#NumberVariable#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ast/expression/MultiplicationExpression.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
           <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/FunctionCallExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1469,57 +916,404 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/ValueAssignment.java">
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/statement/FunctionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        <state relative-caret-position="180">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/Statement.java">
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/FunctionCallStatement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+        <state relative-caret-position="105">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/ReturnStatement.java">
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/statement/FunctionCallStatementTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="28" column="78" selection-start-line="28" selection-start-column="78" selection-end-line="28" selection-end-column="78" />
+        <state relative-caret-position="105">
+          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/IfStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="38" column="20" lean-forward="true" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#IfStatement#0;class#IfStatement#0" />
+            <element signature="method#setElseStatement#0;class#IfStatement#0" />
+            <element signature="method#setParent#0;class#IfStatement#0" />
+            <element signature="method#execute#0;class#IfStatement#0" />
+            <element signature="method#copy#0;class#IfStatement#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/ComparisonExpression.java">
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/statement/IfStatementTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+        <state relative-caret-position="180">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/InputStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <folding>
+            <element signature="method#InputStatement#0;class#InputStatement#0" />
+            <element signature="method#execute#0;class#InputStatement#0" />
+            <element signature="method#copy#0;class#InputStatement#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/statement/LoopStatementTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/statement/OutputStatementTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#execute#0;class#Program#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ast/expression/BasicBoolExpression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        <state relative-caret-position="195">
+          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#BasicBoolExpression#0;class#BasicBoolExpression#0" />
+            <element signature="method#evaluate#0;class#BasicBoolExpression#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/expression/BasicBoolExpressionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/BasicMathExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#BasicMathExpression#0;class#BasicMathExpression#0" />
+            <element signature="method#evaluate#0;class#BasicMathExpression#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/expression/BasicMathExpressionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/BooleanBracketExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/expression/BooleanBracketExpressionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/BooleanExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#addConjunctionExpression#0;class#BooleanExpression#0" />
+            <element signature="method#evaluate#0;class#BooleanExpression#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/BoolVariable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+          <folding>
+            <element signature="method#BoolVariable#1;class#BoolVariable#0" />
+            <element signature="method#BoolVariable#2;class#BoolVariable#0" />
+            <element signature="method#setValue#1;class#BoolVariable#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/BracketExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="method#evaluate#0;class#BracketExpression#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/ComparisonExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#ComparisonExpression#0;class#ComparisonExpression#0" />
+            <element signature="method#evaluate#0;class#ComparisonExpression#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/expression/ComparisonExpressionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/FunctionCallExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#FunctionCallExpression#0;class#FunctionCallExpression#0" />
+            <element signature="method#evaluate#0;class#FunctionCallExpression#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/expression/FunctionCallExpressionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/MathExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#AdditionOperator#0;class#MathExpression#0" />
+            <element signature="method#MathExpression#0;class#MathExpression#0" />
+            <element signature="method#addMultiplicationExpression#0;class#MathExpression#0" />
+            <element signature="method#evaluate#0;class#MathExpression#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/expression/MathExpressionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/NumberVariable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="57" column="24" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#NumberVariable#0;class#NumberVariable#0" />
+            <element signature="method#NumberVariable#1;class#NumberVariable#0" />
+            <element signature="method#NumberVariable#2;class#NumberVariable#0" />
+            <element signature="method#NumberVariable#3;class#NumberVariable#0" />
+            <element signature="method#NumberVariable#4;class#NumberVariable#0" />
+            <element signature="method#setValue#1;class#NumberVariable#0" />
+            <element signature="method#setValue#2;class#NumberVariable#0" />
+            <element signature="method#shortenFraction#0;class#NumberVariable#0" />
+            <element signature="method#greatestCommonDivisor#0;class#NumberVariable#0" />
+            <element signature="method#leastCommonMultiple#0;class#NumberVariable#0" />
+            <element signature="method#DenominatorCheck#0;class#NumberVariable#0" />
+            <element signature="method#negate#0;class#NumberVariable#0" />
+            <element signature="method#plus#0;class#NumberVariable#0" />
+            <element signature="method#minus#0;class#NumberVariable#0" />
+            <element signature="method#multiply#0;class#NumberVariable#0" />
+            <element signature="method#dev#0;class#NumberVariable#0" />
+            <element signature="method#mod#0;class#NumberVariable#0" />
+            <element signature="method#equal#0;class#NumberVariable#0" />
+            <element signature="method#notEqual#0;class#NumberVariable#0" />
+            <element signature="method#greater#0;class#NumberVariable#0" />
+            <element signature="method#greaterOrEqual#0;class#NumberVariable#0" />
+            <element signature="method#lesser#0;class#NumberVariable#0" />
+            <element signature="method#lesserOrEqual#0;class#NumberVariable#0" />
+            <element signature="method#print#0;class#NumberVariable#0" />
+            <element signature="method#setValue#3;class#NumberVariable#0" />
+            <element signature="method#parseNumber#0;class#NumberVariable#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/expression/BoolVariableTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/expression/NumberVariableTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/StringVariable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#StringVariable#1;class#StringVariable#0" />
+            <element signature="method#StringVariable#2;class#StringVariable#0" />
+            <element signature="method#setValue#0;class#StringVariable#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/expression/StringVariableTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/Variable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/expression/VariableCall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+          <folding>
+            <element signature="method#evaluate#0;class#VariableCall#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/expression/VariableCallTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/ProgramTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/statement/InputStatementTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/statement/ReturnStatementTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/ValueAssignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="method#ValueAssignment#0;class#ValueAssignment#0" />
+            <element signature="method#execute#0;class#ValueAssignment#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/ReturnStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#ReturnStatement#0;class#ReturnStatement#0" />
+            <element signature="method#execute#0;class#ReturnStatement#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/OutputStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+          <folding>
+            <element signature="method#OutputStatement#0;class#OutputStatement#0" />
+            <element signature="method#execute#0;class#OutputStatement#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/Statement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="67" column="9" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_code.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/com/ast/expression/ParserExpressionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="486" column="82" selection-start-line="486" selection-start-column="82" selection-end-line="486" selection-end-column="82" />
+        <state relative-caret-position="454">
+          <caret line="558" column="37" lean-forward="true" selection-start-line="558" selection-start-column="37" selection-end-line="558" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#parseNumberVariableExpression#0;class#ParserExpressionTest#0" />
@@ -1530,15 +1324,83 @@
             <element signature="method#parseBracketExpressionError#0;class#ParserExpressionTest#0" />
             <element signature="method#parseBoolVariableExpression#0;class#ParserExpressionTest#0" />
             <element signature="method#parseBoolVariableExpressionError#0;class#ParserExpressionTest#0" />
+            <element signature="method#parseBoolValueExpression#0;class#ParserExpressionTest#0" />
             <element signature="method#parseBoolValueExpressionError#0;class#ParserExpressionTest#0" />
             <element signature="method#parseComparisonExpression#0;class#ParserExpressionTest#0" />
             <element signature="method#parseComparisonExpressionError#0;class#ParserExpressionTest#0" />
             <element signature="method#parseBoolBracketExpression#0;class#ParserExpressionTest#0" />
             <element signature="method#parseBoolBracketExpressionError#0;class#ParserExpressionTest#0" />
-            <element signature="method#parseStringVariableExpression#0;class#ParserExpressionTest#0" />
+            <element signature="method#parseStringExpression#0;class#ParserExpressionTest#0" />
             <element signature="method#parseStringExpressionError#0;class#ParserExpressionTest#0" />
             <element signature="method#parseFunctionCallExpression#0;class#ParserExpressionTest#0" />
             <element signature="method#parseFunctionCallExpressionError#0;class#ParserExpressionTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/expression/BooleanExpressionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/expression/VariableTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/Function.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="79" column="22" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="initializer##0;class#Return#0;class#Function#0" />
+            <element signature="method#Function#0;class#Function#0" />
+            <element signature="method#execute#0;class#Function#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/interpreterParts/Lexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="101" column="48" selection-start-line="101" selection-start-column="48" selection-end-line="101" selection-end-column="48" />
+          <folding>
+            <element signature="method#Lexer#0;class#Lexer#0" />
+            <element signature="method#readNextToken#0;class#Lexer#0" />
+            <element signature="e#2617#2618#0" expanded="true" />
+            <element signature="e#2653#2654#0" expanded="true" />
+            <element signature="docComment;method#byteCheck#0;class#Lexer#0" />
+            <element signature="method#byteCheck#0;class#Lexer#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/LexerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="702" column="53" selection-start-line="702" selection-start-column="53" selection-end-line="702" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/ast/statement/ValueAssignmentTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ast/statement/LoopStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="33" column="19" lean-forward="true" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+          <folding>
+            <element signature="method#LoopStatement#0;class#LoopStatement#0" />
+            <element signature="method#execute#0;class#LoopStatement#0" />
           </folding>
         </state>
       </provider>
