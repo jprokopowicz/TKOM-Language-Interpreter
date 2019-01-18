@@ -2,10 +2,10 @@ package com.ast.statement;
 import com.exceptions.executionExceptions.CopyException;
 import com.exceptions.executionExceptions.ExecutionException;
 import com.ast.Program;
-import com.ast.expresion.BoolVariable;
-import com.ast.expresion.NumberVariable;
-import com.ast.expresion.StringVariable;
-import com.ast.expresion.Variable;
+import com.ast.expression.BoolVariable;
+import com.ast.expression.NumberVariable;
+import com.ast.expression.StringVariable;
+import com.ast.expression.Variable;
 
 import java.util.*;
 

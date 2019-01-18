@@ -1,7 +1,7 @@
 package com;
 
 import com.ast.Program;
-import com.ast.expresion.Variable;
+import com.ast.expression.Variable;
 import com.byteReader.StreamReader;
 import com.exceptions.executionExceptions.ExecutionException;
 import com.interpreterParts.Parser;

@@ -1,13 +1,11 @@
 package com.interpreterParts;
 
 import com.ast.Program;
-import com.ast.expresion.NumberVariable;
-import com.ast.expresion.Variable;
-import com.ast.statement.Function;
+import com.ast.expression.NumberVariable;
+import com.ast.expression.Variable;
+import com.ast.statement.*;
 import com.byteReader.StreamReader;
-import com.exceptions.parseException.ParseException;
-import com.exceptions.parseException.TypeException;
-import com.exceptions.parseException.UnexpectedToken;
+import com.exceptions.parseException.*;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -23,7 +21,7 @@ class ParserTest {
 
     private Parser prepareParser(String testCode) {
         InputStream inputStream = new ByteArrayInputStream(testCode.getBytes());
-        Parser parser =  new Parser(new StreamReader(inputStream));
+        Parser parser = new Parser(new StreamReader(inputStream));
         parser.testReadNextToken();
         return parser;
     }
@@ -184,7 +182,7 @@ class ParserTest {
     void testReadNextToken() {
         inputCode = "aaaaa";
         parser = prepareParser(inputCode);
-        assertEquals(Token.Type.identifier_,parser.testReadNextToken().getType());
+        assertEquals(Token.Type.identifier_, parser.testReadNextToken().getType());
     }
 
     @Test
@@ -205,7 +203,7 @@ class ParserTest {
             program = parser.parse();
             assertFalse(program.getFunction("functionName").isDefined());
             assertEquals(0, program.getFunction("functionName").argumentsNames.size());
-            assertEquals(Function.Return.void_, program.getFunction("functionName").getReturnType() );
+            assertEquals(Function.Return.void_, program.getFunction("functionName").getReturnType());
             assertEquals(0, program.getFunction("functionName").innerStatements.size());
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -218,7 +216,7 @@ class ParserTest {
             assertFalse(program.getFunction("functionName").isDefined());
             assertEquals("a", program.getFunction("functionName").argumentsNames.get(0));
             assertEquals(Variable.Type.number_, program.getFunction("functionName").getVariable(program.getFunction("functionName").argumentsNames.get(0)).getType());
-            assertEquals(Function.Return.number_, program.getFunction("functionName").getReturnType() );
+            assertEquals(Function.Return.number_, program.getFunction("functionName").getReturnType());
         } catch (Exception exc) {
             fail(exc.getMessage());
         }
@@ -230,7 +228,7 @@ class ParserTest {
             assertFalse(program.getFunction("functionName").isDefined());
             assertEquals("b", program.getFunction("functionName").argumentsNames.get(0));
             assertEquals(Variable.Type.bool_, program.getFunction("functionName").getVariable(program.getFunction("functionName").argumentsNames.get(0)).getType());
-            assertEquals(Function.Return.bool_, program.getFunction("functionName").getReturnType() );
+            assertEquals(Function.Return.bool_, program.getFunction("functionName").getReturnType());
         } catch (Exception exc) {
             fail(exc.getMessage());
         }
@@ -242,7 +240,7 @@ class ParserTest {
             assertFalse(program.getFunction("functionName").isDefined());
             assertEquals("c", program.getFunction("functionName").argumentsNames.get(0));
             assertEquals(Variable.Type.string_, program.getFunction("functionName").getVariable(program.getFunction("functionName").argumentsNames.get(0)).getType());
-            assertEquals(Function.Return.string_, program.getFunction("functionName").getReturnType() );
+            assertEquals(Function.Return.string_, program.getFunction("functionName").getReturnType());
         } catch (Exception exc) {
             fail(exc.getMessage());
         }
@@ -255,7 +253,7 @@ class ParserTest {
         try {
             parser.parse();
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
@@ -264,7 +262,7 @@ class ParserTest {
         try {
             parser.parse();
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
@@ -273,7 +271,7 @@ class ParserTest {
         try {
             parser.parse();
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
@@ -282,7 +280,7 @@ class ParserTest {
         try {
             parser.parse();
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
@@ -291,7 +289,7 @@ class ParserTest {
         try {
             parser.parse();
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
     }
@@ -304,7 +302,7 @@ class ParserTest {
         try {
             program = parser.parse();
             assertTrue(program.getFunction("main").isDefined());
-            assertEquals(Function.Return.void_, program.getFunction("main").getReturnType() );
+            assertEquals(Function.Return.void_, program.getFunction("main").getReturnType());
             assertEquals(0, program.getFunction("main").argumentsNames.size());
             assertEquals(0, program.getFunction("main").innerStatements.size());
             assertEquals(0, program.getFunction("main").localVariables.size());
@@ -317,7 +315,7 @@ class ParserTest {
         try {
             program = parser.parse();
             assertTrue(program.getFunction("main").isDefined());
-            assertEquals(Function.Return.void_, program.getFunction("main").getReturnType() );
+            assertEquals(Function.Return.void_, program.getFunction("main").getReturnType());
             assertEquals(3, program.getFunction("main").argumentsNames.size());
             assertEquals(0, program.getFunction("main").innerStatements.size());
             assertEquals(3, program.getFunction("main").localVariables.size());
@@ -333,7 +331,7 @@ class ParserTest {
         try {
             parser.parse();
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
@@ -343,7 +341,27 @@ class ParserTest {
         try {
             parser.parse();
         } catch (Exception exc) {
-            if(!(exc instanceof TypeException))
+            if (!(exc instanceof TypeException))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main(string string_, bool bool_);" +
+                "void main(string string_, bool bool_, number number_) {}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof WrongArgumentException))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main(string string_, bool bool_, number number_) {}" +
+                "void main(string string_, bool bool_, number number_) {}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof DuplicationException))
                 fail(exc.getMessage());
         }
     }
@@ -357,13 +375,13 @@ class ParserTest {
         try {
             program = parser.parse();
             assertTrue(program.getFunction("main").isDefined());
-            assertEquals(Function.Return.void_, program.getFunction("main").getReturnType() );
+            assertEquals(Function.Return.void_, program.getFunction("main").getReturnType());
             assertEquals(0, program.getFunction("main").argumentsNames.size());
             assertEquals(0, program.getFunction("main").innerStatements.size());
             assertEquals(3, program.getFunction("main").localVariables.size());
-            assertEquals(Variable.Type.string_,program.getFunction("main").localVariables.get("word").getType());
-            assertEquals(Variable.Type.number_,program.getFunction("main").localVariables.get("integer").getType());
-            assertEquals(Variable.Type.bool_,program.getFunction("main").localVariables.get("isOk").getType());
+            assertEquals(Variable.Type.string_, program.getFunction("main").localVariables.get("word").getType());
+            assertEquals(Variable.Type.number_, program.getFunction("main").localVariables.get("integer").getType());
+            assertEquals(Variable.Type.bool_, program.getFunction("main").localVariables.get("isOk").getType());
             assertNull(program.getFunction("main").localVariables.get("notVariable"));
         } catch (Exception exc) {
             fail(exc.getMessage());
@@ -377,7 +395,7 @@ class ParserTest {
         try {
             parser.parse();
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
@@ -386,7 +404,7 @@ class ParserTest {
         try {
             parser.parse();
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
 
@@ -395,7 +413,494 @@ class ParserTest {
         try {
             parser.parse();
         } catch (Exception exc) {
-            if(!(exc instanceof UnexpectedToken))
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {number a; number b; bool a;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof DuplicationException))
+                fail(exc.getMessage());
+        }
+    }
+
+    @Test
+    void testParseVariableAssignment() {
+        inputCode = "void main() {number a; number b; a = b;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof ValueAssignment);
+        } catch (Exception exc) {
+            fail(exc.getMessage());
+        }
+    }
+
+    @Test
+    void testParseVariableAssignmentError() {
+        inputCode = "void main() {number a; a = b;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnknownNameException))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {number a; a =;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {number b; a = b;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnknownNameException))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {number a; bool b; a = b;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof TypeException))
+                fail(exc.getMessage());
+        }
+    }
+
+    @Test
+    void testParseIfStatement() {
+        inputCode = "void main() {bool a; if(a) {}}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof IfStatement);
+            assertEquals(1, program.getFunction("main").innerStatements.size());
+            assertNull(((IfStatement)program.getFunction("main").innerStatements.get(0)).getElse());
+        } catch (Exception exc) {
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {bool a; if(a) {} else {}}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof IfStatement);
+            assertEquals(1, program.getFunction("main").innerStatements.size());
+            assertNotEquals(null, ((IfStatement)program.getFunction("main").innerStatements.get(0)).getElse());
+        } catch (Exception exc) {
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {bool a; if(a) {bool a;}}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof IfStatement);
+            assertEquals(1, program.getFunction("main").innerStatements.size());
+            assertNull(((IfStatement)program.getFunction("main").innerStatements.get(0)).getElse());
+            assertEquals(1, ((IfStatement)program.getFunction("main").innerStatements.get(0)).localVariables.size());
+        } catch (Exception exc) {
+            fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {bool a; if(a) {bool a;} else {bool a;}}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof IfStatement);
+            assertEquals(1, program.getFunction("main").innerStatements.size());
+            assertNotEquals(null, ((IfStatement)program.getFunction("main").innerStatements.get(0)).getElse());
+            assertEquals(1, ((IfStatement)program.getFunction("main").innerStatements.get(0)).localVariables.size());
+            assertEquals(1, ((IfStatement)program.getFunction("main").innerStatements.get(0)).getElse().localVariables.size());
+        } catch (Exception exc) {
+            fail(exc.getMessage());
+        }
+    }
+
+    @Test
+    void testParseIfStatementError() {
+        inputCode = "void main() {bool a; if(a) {} else b}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {bool a; if(a) {} else}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {bool a; if(a) {";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {bool a; if() {} else {}}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {bool a; if(a) {} else if () {} else {]}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {bool a; if(a) else {}}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {if(a) {bool a;}}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnknownNameException))
+                fail(exc.getMessage());
+        }
+    }
+
+    @Test
+    void testParseLoopStatement() {
+        inputCode = "void main() {bool a; loop(a) {}}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof LoopStatement);
+            assertEquals(1, program.getFunction("main").innerStatements.size());
+        } catch (Exception exc) {
+            fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {bool a; loop(a) {bool a;}}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof LoopStatement);
+            assertEquals(1, program.getFunction("main").innerStatements.size());
+            assertEquals(1, program.getFunction("main").innerStatements.get(0).localVariables.size());
+        } catch (Exception exc) {
+            fail(exc.getMessage());
+        }
+    }
+
+    @Test
+    void testParseLoopStatementError() {
+        inputCode = "void main() {bool a; loop (a)}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {loop(a){}}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnknownNameException))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {loop{}}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {loop}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+    }
+
+    @Test
+    void testParseReadStatement() {
+        inputCode = "void main() {number a; read a;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertEquals(1, program.getFunction("main").innerStatements.size());
+            assertEquals(Variable.Type.number_, program.getFunction("main").getVariable("a").getType());
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof InputStatement);
+        } catch (Exception exc) {
+            fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {bool b; number a; read b;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertEquals(1, program.getFunction("main").innerStatements.size());
+            assertEquals(Variable.Type.bool_, program.getFunction("main").getVariable("b").getType());
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof InputStatement);
+        } catch (Exception exc) {
+            fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {string c; read c;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertEquals(1, program.getFunction("main").innerStatements.size());
+            assertEquals(Variable.Type.string_, program.getFunction("main").getVariable("c").getType());
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof InputStatement);
+        } catch (Exception exc) {
+            fail(exc.getMessage());
+        }
+    }
+
+    @Test
+    void testParseReadStatementError() {
+        inputCode = "void main() {read a;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnknownNameException))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {number a; read a}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {number a; read}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+    }
+
+    @Test
+    void testParseWriteStatement() {
+        inputCode = "void main() {number a; write number a;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertEquals(1, program.getFunction("main").innerStatements.size());
+            assertEquals(Variable.Type.number_, program.getFunction("main").getVariable("a").getType());
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof OutputStatement);
+        } catch (Exception exc) {
+            if (!(exc instanceof UnknownNameException))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {bool b; write bool b;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertEquals(1, program.getFunction("main").innerStatements.size());
+            assertEquals(Variable.Type.bool_, program.getFunction("main").getVariable("b").getType());
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof OutputStatement);
+        } catch (Exception exc) {
+            if (!(exc instanceof UnknownNameException))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {string c; write string c;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertEquals(1, program.getFunction("main").innerStatements.size());
+            assertEquals(Variable.Type.string_, program.getFunction("main").getVariable("c").getType());
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof OutputStatement);
+        } catch (Exception exc) {
+            if (!(exc instanceof UnknownNameException))
+                fail(exc.getMessage());
+        }
+    }
+
+    @Test
+    void testParseWriteStatementError() {
+        inputCode = "void main() {write number a;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnknownNameException))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {number a; write bool a;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof TypeException))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {number a; write a;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {number a; write number a}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {number a; write number}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {number a; write}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+    }
+
+    @Test
+    void testParseReturnStatement() {
+        inputCode = "void main() {return;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertEquals(1, program.getFunction("main").innerStatements.size());
+            assertEquals(Function.Return.void_, program.getFunction("main").getReturnType());
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof ReturnStatement);
+        } catch (Exception exc) {
+            fail(exc.getMessage());
+        }
+
+        inputCode = "number main() {number a; return a;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertEquals(1, program.getFunction("main").innerStatements.size());
+            assertEquals(Function.Return.number_, program.getFunction("main").getReturnType());
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof ReturnStatement);
+        } catch (Exception exc) {
+            fail(exc.getMessage());
+        }
+
+        inputCode = "bool main() {bool a; return a;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertEquals(1, program.getFunction("main").innerStatements.size());
+            assertEquals(Function.Return.bool_, program.getFunction("main").getReturnType());
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof ReturnStatement);
+        } catch (Exception exc) {
+            fail(exc.getMessage());
+        }
+
+        inputCode = "string main() {string a; return a;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            Program program = parser.parse();
+            assertEquals(1, program.getFunction("main").innerStatements.size());
+            assertEquals(Function.Return.string_, program.getFunction("main").getReturnType());
+            assertTrue(program.getFunction("main").innerStatements.get(0) instanceof ReturnStatement);
+        } catch (Exception exc) {
+            fail(exc.getMessage());
+        }
+    }
+
+    @Test
+    void testParseReturnStatementError() {
+        inputCode = "void main() {number a; return a;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "number main() {bool b; return b;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof TypeException))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "number main() {return a;}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnknownNameException))
+                fail(exc.getMessage());
+        }
+
+        inputCode = "void main() {return}";
+        parser = new Parser(new StreamReader(new ByteArrayInputStream(inputCode.getBytes())));
+        try {
+            parser.parse();
+        } catch (Exception exc) {
+            if (!(exc instanceof UnexpectedToken))
                 fail(exc.getMessage());
         }
     }

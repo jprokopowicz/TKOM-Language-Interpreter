@@ -2,10 +2,9 @@ package com.interpreterParts;
 
 import com.ast.Program;
 import com.byteReader.ByteReader;
-import com.ast.expresion.*;
+import com.ast.expression.*;
 import com.exceptions.parseException.*;
 import com.ast.statement.*;
-import com.sun.istack.internal.NotNull;
 import javafx.util.Pair;
 
 import java.util.Arrays;
@@ -72,8 +71,6 @@ public class Parser {
             lexer.readNextToken();
             return;
         }
-        if (!function.isDefined() && function.argumentsNames.size() == 0)
-            throw new WrongArgumentException(0, lexer.getToken());
 
         Token argumentStartToken = lexer.getToken();
         compareOrAddArgument(function, 0);
@@ -99,7 +96,8 @@ public class Parser {
     }
 
     private void compareArgument(Function function, int argNumber, Pair<Token, Variable> newVariable) throws ParseException {
-        if (!function.argumentsNames.get(argNumber).equals(newVariable.getKey().getValue()) ||
+        if (function.argumentsNames.size() <= argNumber ||
+                !function.argumentsNames.get(argNumber).equals(newVariable.getKey().getValue()) ||
                 function.getVariable(function.argumentsNames.get(argNumber)) == null)
             throw new WrongArgumentException(newVariable.getKey());
         Variable.Type variableType = function.getVariable(function.argumentsNames.get(argNumber)).getType();
@@ -128,8 +126,8 @@ public class Parser {
             Statement newStatement;
             switch (lexer.getToken().getType()) {
                 case number_: //variable declaration
-                case bool_://fallthrough
-                case string_://fallthrough
+                case bool_: //fallthrough
+                case string_: //fallthrough
                     parseVariableDeclaration(statement);
                     continue; //this is not a statement
                 case identifier_:

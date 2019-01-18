@@ -1,4 +1,4 @@
-package com.ast.expresion;
+package com.ast.expression;
 
 import com.exceptions.executionExceptions.ConflictException;
 import com.exceptions.executionExceptions.ExecutionException;

@@ -1,8 +1,8 @@
 package com.ast.statement;
 
 import com.ast.Program;
-import com.ast.expresion.BoolVariable;
-import com.ast.expresion.BooleanExpression;
+import com.ast.expression.BoolVariable;
+import com.ast.expression.BooleanExpression;
 import com.exceptions.executionExceptions.ExecutionException;
 import com.exceptions.executionExceptions.IncompleteException;
 

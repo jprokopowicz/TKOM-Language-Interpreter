@@ -1,10 +1,10 @@
 package com.ast.statement;
 
 import com.ast.Program;
-import com.ast.expresion.BoolVariable;
-import com.ast.expresion.NumberVariable;
-import com.ast.expresion.StringVariable;
-import com.ast.expresion.Variable;
+import com.ast.expression.BoolVariable;
+import com.ast.expression.NumberVariable;
+import com.ast.expression.StringVariable;
+import com.ast.expression.Variable;
 import com.exceptions.executionExceptions.ExecutionException;
 import com.exceptions.executionExceptions.IncompleteException;
 import com.exceptions.executionExceptions.InputOutputException;

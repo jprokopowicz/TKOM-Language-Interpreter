@@ -1,7 +1,7 @@
 package com.ast.statement;
 
 import com.ast.Program;
-import com.ast.expresion.Variable;
+import com.ast.expression.Variable;
 import com.exceptions.executionExceptions.ExecutionException;
 import com.exceptions.executionExceptions.ReturnException;
 

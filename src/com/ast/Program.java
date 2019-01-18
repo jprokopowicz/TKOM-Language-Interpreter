@@ -1,6 +1,6 @@
 package com.ast;
 
-import com.ast.expresion.Variable;
+import com.ast.expression.Variable;
 import com.ast.statement.Function;
 import com.exceptions.executionExceptions.ExecutionException;
 import com.exceptions.executionExceptions.IncompleteException;

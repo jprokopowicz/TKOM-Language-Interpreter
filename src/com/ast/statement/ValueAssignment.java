@@ -1,7 +1,7 @@
 package com.ast.statement;
 
 import com.ast.Program;
-import com.ast.expresion.*;
+import com.ast.expression.*;
 import com.exceptions.executionExceptions.ConflictException;
 import com.exceptions.executionExceptions.ExecutionException;
 import com.exceptions.executionExceptions.IncompleteException;

@@ -1,6 +1,6 @@
 package com.exceptions.executionExceptions;
 
-import com.ast.expresion.Variable;
+import com.ast.expression.Variable;
 
 public class ReturnException extends ExecutionException {
     private Variable returnValue;
