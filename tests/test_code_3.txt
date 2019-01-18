@@ -1,0 +1,13 @@
+number someNumericFunction(number parameter) {
+        return 1:3 / (2 * (parameter + 1) + 2) * (1 + 2);
+}
+
+void main() {
+    write string "Numerical expression test";
+    write string "write parameter fo expression: 1:3 / (2 * (parameter + 1) + 2) * (1 + 2)\n";
+    write string "parameter: ";
+    number parameter;
+    read parameter;
+    write string "result:";
+    write number someNumericFunction(parameter);
+}

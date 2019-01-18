@@ -1,0 +1,30 @@
+bool someBooleanFunction(bool a, bool b, bool c, number d, number e){
+    return  a & (b | ![d <= e] ) & c;
+}
+
+void main() {
+    bool a;
+    bool b;
+    bool c;
+    number d;
+    number e;
+    write string "Boolean expressions test\n";
+    write string "write arguments fo expression: a & (b | ![d <= e] ) & c";
+    write string "\n";
+    write string "a(true/false):";
+    read  a;
+    write string "b(true/false):";
+    read  b;
+    write string "c(true/false):";
+    read  c;
+    write string "d(number):";
+    read  d;
+    write string "e(number):";
+    read  e;
+    write string "result:";
+    write bool someBooleanFunction(a,b,c,d,e);
+
+}
+
+
+

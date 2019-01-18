@@ -1,3 +1,4 @@
+/*Counting power in loop*/
 number iterativePower(number base, number power) {
     if([power == 0]) {
         return 1;
@@ -15,7 +16,9 @@ number iterativePower(number base, number power) {
     }
     return result;
 }
+/*header for recursive function to see itself*/
 number recursivePower(number base, number power);
+/*counting power with recursion*/
 number recursivePower(number base, number power) {
     if([power == 0]) {
         return 1;
@@ -29,43 +32,22 @@ number recursivePower(number base, number power) {
     return base * recursivePower(base, power - 1);
 }
 
-bool someBooleanFunction(bool a, bool b, bool c, number d, number e){
-    return  (a & (b | ![d <= e] ) & c);
-}
-
-number someNumericFunction(bool ok) {
-    if(ok) {
-        return 1:3 + (2 * 1 + 2) * (1 + 2);
-    } else {
-        return 0;
-    }
-}
-
+/*returned value (string) will be displayed at the end of the program*/
 string main() {
-    bool sayHello;
-    sayHello = someBooleanFunction(true, [1:2 > 2:3], [1 > 3:5], 1#2:5, 1:10);
-    if(sayHello) {
-        bool ok;
-        ok = true;
-        loop([12#1:3 == someNumericFunction(ok)]){
-            write string "Hello, calculating power by iteration and recursion\n";
-            ok = false;
-        }
-    }
-
+    number b;
     number a;
+    write string "Hello, calculating power by iteration and recursion\n";
     write string "enter base:";
     read a;
-    number b;
-    write string "enter power:"
-    ;read  b;
+    write string "enter power:";
+    read  b;
     number resIterative;
+    number resRec;
     resIterative = iterativePower(a, b);
+    resRec = recursivePower(a, b);
     write string "Iterative result: ";
     write number resIterative;
     write string "\n";
-    number resRec;
-    resRec = recursivePower(a, b);
     write string "Recursive result: ";
     write number resRec;
     write string "\n";
